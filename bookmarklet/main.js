@@ -1,17 +1,26 @@
 export function main(){
+    // index
+    const FOUND = 0;
+    const NOTFOUND = -1;
+
+    // length
+    const UNSET = 0;
+
     try {
+        const difficulties = ['NORMAL', 'HARD', 'EXPERT', 'INFERNO'];
+
         const hostname = 'wacca.marv-games.jp';
-        if (location.hostname != hostname){
+        if (location.hostname !== hostname){
             throw new Error('invalid-hostname');
         }
 
         const loginPagePath = '/web/login';
-        if (location.pathname.indexOf(loginPagePath) == 0) {
+        if (location.pathname.indexOf(loginPagePath) === FOUND) {
             throw new Error('not-logged-in');
         }
         
         const playResultsPath = '/web/music';
-        if (location.pathname.indexOf(playResultsPath) != 0) {
+        if (location.pathname.indexOf(playResultsPath) === NOTFOUND) {
             throw new Error('invalid-directory');
         }
 
@@ -24,43 +33,27 @@ export function main(){
             const levels = e.querySelectorAll('.playdata__score-list__song-info__lv');
             const scores = e.querySelectorAll('.playdata__score-list__song-info__score');
             const pattern = /(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+*/;
+            
+            if (levels.length !== difficulties.length) {
+                throw new Error('update-required');
+            }
 
-            // NORMAL
-            scoresList.push(
-                [
+            if (scores.length !== difficulties.length) {
+                throw new Error('update-required');
+            }
+
+            difficulties.forEach((difficulty, index) => {
+                if (levels[index].innerText.indexOf(difficulty) === NOTFOUND) {
+                    throw new Error('update-required');
+                }
+
+                const newItem = [
                     escapedTitle,
-                    levels[0].innerText.match(pattern)[0],
-                    parseInt(scores[0].innerText.match(/[0-9]+/))
-                ]
-            );
-
-            // HARD
-            scoresList.push(
-                [
-                    escapedTitle,
-                    levels[1].innerText.match(pattern)[0],
-                    parseInt(scores[1].innerText.match(/[0-9]+/))
-                ]
-            );
-
-            // EXPERT
-            scoresList.push(
-                [
-                    escapedTitle,
-                    levels[2].innerText.match(pattern)[0],
-                    parseInt(scores[2].innerText.match(/[0-9]+/))
-                ]
-            );
-
-            // INFERNO
-            scoresList.push(
-                [
-                    escapedTitle,
-                    levels[3].innerText.match(pattern)[0],
-                    parseInt(scores[3].innerText.match(/[0-9]+/))
-                ]
-            );
-
+                    levels[index].innerText.match(pattern)[0],
+                    parseInt(scores[index].innerText.match(/[0-9]+/))
+                ];
+                scoresList.push(newItem);
+            });
         });
 
         scoresList.forEach((e, i) => {
@@ -88,25 +81,42 @@ export function main(){
         location.href = '#isNormal';
         
     } catch (error) {
+        let alertMessage = '';
+        let newLocation = '';
+
         switch (error.message) {
             case 'invalid-hostname':
-                const invHostnameMsg = 'ここはWACCAのマイページではありません。\nWACCAのマイページへログインし、「プレイデータ」タブの中にある「楽曲スコア」ページで、改めて実行してください。\nThis is not WACCA\'s My Page.\nPlease log in to WACCA\'s My Page and run it again on the "Song Scores(楽曲スコア)" page in the "Play Data(プレイデータ)" tab.';
-                const loginPageAddr = 'https://wacca.marv-games.jp/web/login';
-                window.alert(invHostnameMsg);
-                location.href = loginPageAddr;
+                alertMessage = 'ここはWACCAのマイページではありません。\nWACCAのマイページへログインし、「プレイデータ」タブの中にある「楽曲スコア」ページで、改めて実行してください。\nThis is not WACCA\'s My Page.\nPlease log in to WACCA\'s My Page and run it again on the "Song Scores(楽曲スコア)" page in the "Play Data(プレイデータ)" tab.';
+                newLocation = 'https://wacca.marv-games.jp/web/login';
                 break;
 
             case 'not-logged-in':
-                const loggedOutMsg = 'WACCAのマイページへログインしていないようです。\nWACCAのマイページへログインし、「プレイデータ」タブの中にある「楽曲スコア」ページで、改めて実行してください。\nIt seems that you have not logged in to WACCA\'s My Page.\nPlease log in to WACCA\'s My Page and run it again on the "Song Scores(楽曲スコア)" page in the "Play Data(プレイデータ)" tab.';
-                window.alert(loggedOutMsg);
+                alertMessage = 'WACCAのマイページへログインしていないようです。\nWACCAのマイページへログインし、「プレイデータ」タブの中にある「楽曲スコア」ページで、改めて実行してください。\nIt seems that you have not logged in to WACCA\'s My Page.\nPlease log in to WACCA\'s My Page and run it again on the "Song Scores(楽曲スコア)" page in the "Play Data(プレイデータ)" tab.';
                 break;
         
             case 'invalid-directory':
-                const invDirectoryMsg = 'このページではブックマークレットを実行できません。このダイアログを閉じると「楽曲スコア」ページへ移動しますので、そこで改めて実行してください。\nThe bookmarklet cannot be run on this page. When you close this dialog, you will be redirected to the "Music Scores(楽曲スコア)" page, so please run it again there.';
-                const playResultsAddr = 'https://wacca.marv-games.jp/web/music';
-                window.alert(invDirectoryMsg);
-                location.href = playResultsAddr;
+                alertMessage = 'このページではブックマークレットを実行できません。このダイアログを閉じると「楽曲スコア」ページへ移動しますので、そこで改めて実行してください。\nThe bookmarklet cannot be run on this page. When you close this dialog, you will be redirected to the "Music Scores(楽曲スコア)" page, so please run it again there.';
+                newLocation = 'https://wacca.marv-games.jp/web/music';
+                break;
+
+            case 'invalid-directory':
+                alertMessage = 'このページではブックマークレットを実行できません。このダイアログを閉じると「楽曲スコア」ページへ移動しますので、そこで改めて実行してください。\nThe bookmarklet cannot be run on this page. When you close this dialog, you will be redirected to the "Music Scores(楽曲スコア)" page, so please run it again there.';
+                newLocation = 'https://wacca.marv-games.jp/web/music';
+                break;
+            
+            case 'update-required':
+                alertMessage = 'ページの構造が変更されたため、スコアを取得できませんでした。開発者へお問合せください。\nFailed to retrieve your score because the structure of the page has changed. Please contact developer.';
                 break;
         }
+
+        if (alertMessage.length !== UNSET) {
+            window.alert(alertMessage);
+        }
+        
+        if (newLocation.length !== UNSET) {
+            location.href = newLocation;
+        }
     }
+
+    return;
 };

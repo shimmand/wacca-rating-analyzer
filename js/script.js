@@ -13,7 +13,7 @@ function initialize() {
             const scriptCode = `
                 function getChartTable() {
                     return [
-                        ${String(datasetArr).replaceAll('],[', '],\n[')}
+                        ${datasetArr.join(',\n')}
                     ];
                 }`.replaceAll(/(^ {16}|^\n)/gm, '');
             const scriptElm = document.createElement('script');

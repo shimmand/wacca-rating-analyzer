@@ -820,11 +820,6 @@ function toggleDisplayState(className, checked) {
     });
 }
 
-// Open the developer's Twitter account.
-function openDevsTwitter() {
-    window.open('https://twitter.com/shimmand');
-}
-
 // Clear the text area.
 function clearPlaydata() {
     document.querySelectorAll('#playdata')[0].value = '';
@@ -913,11 +908,6 @@ function copyBookmarklet() {
 
     alert("コピーしました！\nCopied!");
 };
-
-// Show dataset table.
-function openChartsData(){
-    window.open('https://shimmand.github.io/wacca-rating-analyzer/assets/dataset.csv');
-}
 
 // Get score and modifier mapping table.
 function getMultiplierTable() {
@@ -1369,11 +1359,6 @@ function switchToEnglish() {
     });
 
     localStorage.setItem('rating-analyzer-lang', 'english');
-}
-
-// Open My Page.
-function openMyPage() {
-    window.open('https://wacca.marv-games.jp/web/top');
 }
 
 // Export the contents of LocalStorage.

@@ -8,7 +8,11 @@ function initialize() {
         xhr.onload = () => {
             const response = xhr.responseText;
             const datasetArr = response.split('\n').map(line => {
-                return `[${line}]`;
+                if (line.length === 0) {
+                    return;
+                } else {
+                    return `[${line}]`;
+                }
             });
             const scriptCode = `
                 function getChartTable() {

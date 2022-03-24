@@ -7,13 +7,10 @@ function initialize() {
         xhr.send(null);
         xhr.onload = () => {
             const response = xhr.responseText;
-            const datasetArr = response.split('\n').map(line => {
-                if (line.length === 0) {
-                    return;
-                } else {
-                    return `[${line}]`;
-                }
-            });
+            const datasetArr = response
+                .split('\n')
+                .filter(line => line.length > 0)
+                .map(line => `[${line}]`);
             const scriptCode = `
                 function getChartTable() {
                     return [

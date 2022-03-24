@@ -757,80 +757,86 @@
                             </div>
                         </div>
                         <div class="mx-2 p-2">
-                            <div class="h6 small text-white m-0">
+                            <div class="h6 small text-white">
                                 <span class="lang-jpn">種類フィルター</span>
                                 <span class="lang-eng d-none">Type Filter</span>
                             </div>
-                            <span class="badge border filter-targets text-shadow-black">
-                                <input class="form-check-input m-0 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-newer" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
-                                <label class="form-check-label" for="rating-targets-toggle-newer">
-                                    <span class="lang-jpn">レーティング対象</span>
-                                    <span class="lang-eng d-none">Rating Targets</span>
-                                </label>
-                            </span>
-                            <span class="badge border filter-candidates text-shadow-black">
-                                <input class="form-check-input m-0 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-newer" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
-                                <label class="form-check-label" for="rating-candidates-toggle-newer">
-                                    <span class="lang-jpn">レーティング候補</span>
-                                    <span class="lang-eng d-none">Rating Candidates</span>
-                                </label>
-                            </span>
-                            <span class="badge border filter-others text-shadow-black">
-                                <input class="form-check-input m-0 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-newer" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
-                                <label class="form-check-label" for="rating-others-toggle-newer">
-                                    <span class="lang-jpn">その他</span>
-                                    <span class="lang-eng d-none">Others</span>
-                                </label>
-                            </span>
+                            <div class="d-flex justify-content-start mt-1">
+                                <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
+                                    <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-newer" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
+                                    <label class="form-check-label" for="rating-targets-toggle-newer">
+                                        <span class="lang-jpn">レーティング対象</span>
+                                        <span class="lang-eng d-none">Rating Targets</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black ms-1">
+                                    <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-newer" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
+                                    <label class="form-check-label" for="rating-candidates-toggle-newer">
+                                        <span class="lang-jpn">レーティング候補</span>
+                                        <span class="lang-eng d-none">Rating Candidates</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black ms-1">
+                                    <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-newer" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
+                                    <label class="form-check-label" for="rating-others-toggle-newer">
+                                        <span class="lang-jpn">その他</span>
+                                        <span class="lang-eng d-none">Others</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white m-0">
+                            <div class="h6 small text-white">
                                 <span class="lang-jpn">難易度フィルター</span>
                                 <span class="lang-eng d-none">Difficulty Filter</span>
                             </div>
-                            <span class="badge border normal">
-                                <input class="form-check-input m-0 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-newer" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-normal-toggle-newer">NORMAL</label>
-                            </span>
-                            <span class="badge border hard">
-                                <input class="form-check-input m-0 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-newer" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-hard-toggle-newer">HARD</label>
-                            </span>
-                            <span class="badge border expert">
-                                <input class="form-check-input m-0 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-newer" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-expert-toggle-newer">EXPERT</label>
-                            </span>
-                            <span class="badge border inferno">
-                                <input class="form-check-input m-0 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-newer" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-inferno-toggle-newer">INFERNO</label>
-                            </span>
+                            <div class="d-flex justify-content-start mt-1">
+                                <div class="form-check d-flex align-items-center badge border normal">
+                                    <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-newer" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-normal-toggle-newer">NORMAL</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border hard ms-1">
+                                    <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-newer" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-hard-toggle-newer">HARD</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border expert ms-1">
+                                    <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-newer" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-expert-toggle-newer">EXPERT</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border inferno ms-1">
+                                    <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-newer" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-inferno-toggle-newer">INFERNO</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white m-0">
+                            <div class="h6 small text-white">
                                 <span class="lang-jpn">表示オプション</span>
                                 <span class="lang-eng d-none">Display Options</span>
                             </div>
-                            <span class="badge border">
-                                <input class="form-check-input m-0" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
-                                <label class="form-check-label" for="column-genre-toggle">
-                                    <span class="lang-jpn">ジャンルを表示する</span>
-                                    <span class="lang-eng d-none">Show "Genre" column</span>
-                                </label>
-                            </span>
-                            <span class="badge border">
-                                <input class="form-check-input m-0" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
-                                <label class="form-check-label" for="column-sticky-toggle">
-                                    <span class="lang-jpn">曲名を左に固定する</span>
-                                    <span class="lang-eng d-none">Fix "Song Title" column left</span>
-                                </label>
-                            </span>
-                            <span class="badge border">
-                                <input class="form-check-input m-0" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
-                                <label class="form-check-label" for="alt-title-toggle">
-                                    <span class="lang-jpn">英語の曲名も表示する</span>
-                                    <span class="lang-eng d-none">Show English song title</span>
-                                </label>
-                            </span>
+                            <div class="d-flex justify-content-start mt-1">
+                                <div class="form-check d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
+                                    <label class="form-check-label" for="column-genre-toggle">
+                                        <span class="lang-jpn">ジャンルを表示する</span>
+                                        <span class="lang-eng d-none">Show "Genre" column</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border ms-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
+                                    <label class="form-check-label" for="column-sticky-toggle">
+                                        <span class="lang-jpn">曲名を左に固定する</span>
+                                        <span class="lang-eng d-none">Fix "Song Title" column left</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border ms-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle">
+                                        <span class="lang-jpn">英語の曲名も表示する</span>
+                                        <span class="lang-eng d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="border my-3 mx-2 p-2">
                             <div class="table-responsive" style="max-height: 85vh;">
@@ -1043,80 +1049,86 @@
                             </div>
                         </div>
                         <div class="mx-2 p-2">
-                            <div class="h6 small text-white m-0">
+                            <div class="h6 small text-white">
                                 <span class="lang-jpn">種類フィルター</span>
                                 <span class="lang-eng d-none">Type Filter</span>
                             </div>
-                            <span class="badge border filter-targets text-shadow-black">
-                                <input class="form-check-input m-0 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-older" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
-                                <label class="form-check-label" for="rating-targets-toggle-older">
-                                    <span class="lang-jpn">レーティング対象</span>
-                                    <span class="lang-eng d-none">Rating Targets</span>
-                                </label>
-                            </span>
-                            <span class="badge border filter-candidates text-shadow-black">
-                                <input class="form-check-input m-0 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-older" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
-                                <label class="form-check-label" for="rating-candidates-toggle-older">
-                                    <span class="lang-jpn">レーティング候補</span>
-                                    <span class="lang-eng d-none">Rating Candidates</span>
-                                </label>
-                            </span>
-                            <span class="badge border filter-others text-shadow-black">
-                                <input class="form-check-input m-0 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-older" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
-                                <label class="form-check-label" for="rating-others-toggle-older">
-                                    <span class="lang-jpn">その他</span>
-                                    <span class="lang-eng d-none">Others</span>
-                                </label>
-                            </span>
+                            <div class="d-flex justify-content-start mt-1">
+                                <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
+                                    <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-older" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
+                                    <label class="form-check-label" for="rating-targets-toggle-older">
+                                        <span class="lang-jpn">レーティング対象</span>
+                                        <span class="lang-eng d-none">Rating Targets</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black ms-1">
+                                    <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-older" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
+                                    <label class="form-check-label" for="rating-candidates-toggle-older">
+                                        <span class="lang-jpn">レーティング候補</span>
+                                        <span class="lang-eng d-none">Rating Candidates</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black ms-1">
+                                    <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-older" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
+                                    <label class="form-check-label" for="rating-others-toggle-older">
+                                        <span class="lang-jpn">その他</span>
+                                        <span class="lang-eng d-none">Others</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white m-0">
+                            <div class="h6 small text-white">
                                 <span class="lang-jpn">難易度フィルター</span>
                                 <span class="lang-eng d-none">Difficulty Filter</span>
                             </div>
-                            <span class="badge border normal">
-                                <input class="form-check-input m-0 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-older" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-normal-toggle-older">NORMAL</label>
-                            </span>
-                            <span class="badge border hard">
-                                <input class="form-check-input m-0 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-older" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-hard-toggle-older">HARD</label>
-                            </span>
-                            <span class="badge border expert">
-                                <input class="form-check-input m-0 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-older" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-expert-toggle-older">EXPERT</label>
-                            </span>
-                            <span class="badge border inferno">
-                                <input class="form-check-input m-0 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-older" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
-                                <label class="form-check-label" for="difficulty-inferno-toggle-older">INFERNO</label>
-                            </span>
+                            <div class="d-flex justify-content-start mt-1">
+                                <div class="form-check d-flex align-items-center badge border normal">
+                                    <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-older" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-normal-toggle-older">NORMAL</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border hard ms-1">
+                                    <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-older" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-hard-toggle-older">HARD</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border expert ms-1">
+                                    <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-older" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-expert-toggle-older">EXPERT</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border inferno ms-1">
+                                    <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-older" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
+                                    <label class="form-check-label" for="difficulty-inferno-toggle-older">INFERNO</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white m-0">
+                            <div class="h6 small text-white">
                                 <span class="lang-jpn">表示オプション</span>
                                 <span class="lang-eng d-none">Display Options</span>
                             </div>
-                            <span class="badge border">
-                                <input class="form-check-input m-0" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
-                                <label class="form-check-label" for="column-genre-toggle">
-                                    <span class="lang-jpn">ジャンルを表示する</span>
-                                    <span class="lang-eng d-none">Show "Genre" column</span>
-                                </label>
-                            </span>
-                            <span class="badge border">
-                                <input class="form-check-input m-0" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
-                                <label class="form-check-label" for="column-sticky-toggle">
-                                    <span class="lang-jpn">曲名を左に固定する</span>
-                                    <span class="lang-eng d-none">Fix "Song Title" column left</span>
-                                </label>
-                            </span>
-                            <span class="badge border">
-                                <input class="form-check-input m-0" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
-                                <label class="form-check-label" for="alt-title-toggle">
-                                    <span class="lang-jpn">英語の曲名も表示する</span>
-                                    <span class="lang-eng d-none">Show English song title</span>
-                                </label>
-                            </span>
+                            <div class="d-flex justify-content-start mt-1">
+                                <div class="form-check d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
+                                    <label class="form-check-label" for="column-genre-toggle">
+                                        <span class="lang-jpn">ジャンルを表示する</span>
+                                        <span class="lang-eng d-none">Show "Genre" column</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border ms-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
+                                    <label class="form-check-label" for="column-sticky-toggle">
+                                        <span class="lang-jpn">曲名を左に固定する</span>
+                                        <span class="lang-eng d-none">Fix "Song Title" column left</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border ms-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle">
+                                        <span class="lang-jpn">英語の曲名も表示する</span>
+                                        <span class="lang-eng d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="border my-3 mx-2 p-2">
                             <div class="table-responsive" style="max-height: 85vh;">

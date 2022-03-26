@@ -237,6 +237,10 @@ html.fs-50 {
     box-shadow: 0 0 1rem #ffffff7f;
 }
 
+.form-select {
+    background-size: 1rem 0.75rem;
+}
+
 
 /* Rate class */
 

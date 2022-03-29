@@ -1,9 +1,10 @@
 // Initialize with user settings.
 function initialize() {
     try {
+        const datasetParam = document.querySelector('html').dataset.dataset;
         const xhr = new XMLHttpRequest();
 
-        xhr.open('get', `https://shimmand.github.io/wacca-rating-analyzer/assets/dataset.csv?date=${getLastUpdate()}`, true);
+        xhr.open('get', `https://shimmand.github.io/wacca-rating-analyzer/assets/dataset.csv?date=${datasetParam}`, true);
         xhr.send(null);
         xhr.onload = () => {
             const response = xhr.responseText;
@@ -180,7 +181,7 @@ function initialize() {
 
 
 function getLastUpdate() {
-    return document.querySelector('html').dataset.version;
+    return document.querySelector('html').dataset.update;
 }
 
 
@@ -1081,14 +1082,14 @@ function getEnglishTitle(songTitle) {
     const songs = getChartTable();
     const indexes = {
         'title' : songs[0].indexOf('@song-title'),
-        'title-eng' : songs[0].indexOf('@song-title-english')
+        'title-english' : songs[0].indexOf('@song-title-english')
     };
     
     for (let i = 0; i < songs.length; i++) {
         const song = songs[i];
 
         if (song[indexes['title']] == songTitle) {
-            return song[indexes['title-eng']];
+            return song[indexes['title-english']];
         }
     }
 }
@@ -1195,13 +1196,22 @@ function startMultiSelectMode(element, listtype) {
 
 // Generate a dataset table.
 function generateDatasetTable() {
+    const trueIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </svg>`.replaceAll(/(^ {8}|^\n)/gm, '');
+    const falseIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+        </svg>`.replaceAll(/(^ {8}|^\n)/gm, '');
+
     const tbody = document.querySelector('#chart-dataset');
     tbody.innerHTML = '';
 
     const songs = getChartTable();
     const indexes = {
         'title'             : songs[0].indexOf('@song-title'),
-        'title-eng'         : songs[0].indexOf('@song-title-english'),
+        'title-english'     : songs[0].indexOf('@song-title-english'),
         'genre'             : songs[0].indexOf('@genre-name'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
@@ -1216,39 +1226,52 @@ function generateDatasetTable() {
         'inferno-constant'  : songs[0].indexOf('@inferno-constant'),
         'inferno-newer'     : songs[0].indexOf('@inferno-newer')
     };
+    const difficulties = ['normal', 'hard', 'expert', 'inferno'];
+
+    let rowIndex = 0;
     const tableContent = songs.map((song, index) => {
         if (index === 0) {
             return '';
         }
 
-        return `
-            <tr 
-                class="text-nowrap" 
-                data-fulltext="${song[indexes['title']].toLowerCase()} ${song[indexes['title-eng']].toLowerCase()}
-                level:${song[indexes['normal-level']].match(/[0-9+]+/g)} level:${song[indexes['hard-level']].match(/[0-9+]+/g)} level:${song[indexes['expert-level']].match(/[0-9+]+/g)} level:${song[indexes['inferno-level']].match(/[0-9+]+/g)} 
-                const:${Number(song[indexes['normal-constant']]).toFixed(1)} const:${Number(song[indexes['hard-constant']]).toFixed(1)} const:${Number(song[indexes['expert-constant']]).toFixed(1)} const:${Number(song[indexes['inferno-constant']]).toFixed(1)} 
-                newer:${song[indexes['normal-newer']]} newer:${song[indexes['hard-newer']]} newer:${song[indexes['expert-newer']]} newer:${song[indexes['inferno-newer']]} "
-            >
-                <td>${index}</td>
-                <td class="text-wrap">${song[indexes['title']]}</td>
-                <td>${song[indexes['normal-level']]}</td>
-                <td>${Number(song[indexes['normal-constant']]).toFixed(1)}</td>
-                <td>${song[indexes['normal-newer']]}</td>
-                <td>${song[indexes['hard-level']]}</td>
-                <td>${Number(song[indexes['hard-constant']]).toFixed(1)}</td>
-                <td>${song[indexes['hard-newer']]}</td>
-                <td>${song[indexes['expert-level']]}</td>
-                <td>${Number(song[indexes['expert-constant']]).toFixed(1)}</td>
-                <td>${song[indexes['expert-newer']]}</td>
-                <td>${song[indexes['inferno-level']]}</td>
-                <td>${Number(song[indexes['inferno-constant']]).toFixed(1)}</td>
-                <td>${song[indexes['inferno-newer']]}</td>
-            </tr>`
-        .replaceAll('const:undefined ', '')
-        .replaceAll('<td>INFERNO 0</td>', '<td></td>')
-        .replaceAll('<td>0.0</td>', '<td></td>')
-        .replaceAll('<td>undefined</td>', '<td></td>')
-        .replaceAll(/(^ {12}|^\n)/gm, '');
+        return difficulties.filter(difficulty => {
+            if (song[indexes[`${difficulty}-level`]].match(/[0-9+]+/g) === '0') {
+                return false
+            }
+
+            if (Number(song[indexes[`${difficulty}-constant`]]).toFixed(1) === 0.0) {
+                return false
+            }
+
+            if (song[indexes[`${difficulty}-newer`]] === undefined) {
+                return false
+            }
+
+            return true;
+        })
+        .map(difficulty => {
+            rowIndex++;
+
+            return `
+                <tr 
+                    class="text-nowrap" 
+                    data-fulltext="${song[indexes['title']].toLowerCase()} ${song[indexes['title-english']].toLowerCase()} 
+                    difficulty:${difficulty} 
+                    difficulty:${difficulty[0]} 
+                    level:${song[indexes[`${difficulty}-level`]].match(/[0-9+]+/g)} 
+                    constant:${Number(song[indexes[`${difficulty}-constant`]]).toFixed(1)} 
+                    newer:${song[indexes[`${difficulty}-newer`]]} 
+                    newer:${String(song[indexes[`${difficulty}-newer`]])[0]} "
+                >
+                    <td>${rowIndex}</td>
+                    <td class="text-wrap">${song[indexes['title']]}</td>
+                    <td><div class="badge border ${difficulty} w-100">${song[indexes[`${difficulty}-level`]]}</div></td>
+                    <td>${Number(song[indexes[`${difficulty}-constant`]]).toFixed(1)}</td>
+                    <td>${song[indexes[`${difficulty}-newer`]] ? trueIcon : falseIcon}</td>
+                </tr>`
+        })
+        .join('\n')
+        .replaceAll(/(^ {16}|^\n)/gm, '');
     }).join('\n');
 
     tbody.innerHTML = tableContent;
@@ -1256,7 +1279,9 @@ function generateDatasetTable() {
 
 // Apply a filter to the dataset table.
 function filterDatasetTable(value) {
-    const searchValue = String(value).toLowerCase();
+    document.querySelectorAll('.filter-option-tooltip').forEach(e => e.classList.add('d-none'));
+
+    const searchValue = String(value).replaceAll('　',' ').toLowerCase();
     const trows = document.querySelectorAll('#chart-dataset > tr');
     trows.forEach(row => {
         if (row.classList.contains('d-none')) {
@@ -1281,6 +1306,21 @@ function filterDatasetTable(value) {
             }
         })
     });
+}
+
+function addFilterOption(option) {
+    const input = document.querySelector('#dataset-filter-input');
+    input.value = `${input.value} ${option}`;
+    document.querySelectorAll('.filter-option-tooltip').forEach(e => e.classList.add('d-none'));
+    document.querySelector(`#filter-option-tooltip-${option.match(/[a-z]+/g)[0]}`).classList.remove('d-none');
+    input.focus();
+}
+
+function clearFilterInput() {
+    const input = document.querySelector('#dataset-filter-input');
+    input.value = '';
+    input.focus();
+    filterDatasetTable(input.value);
 }
 
 // Save analysis results as CSV.

@@ -1,4 +1,4 @@
-"@song-title","@song-title-eng","@genre-name","@available-in-japanese","@available-in-global","@available-in-chinese","@normal-level","@normal-constant","@normal-included-newer","@hard-level","@hard-constant","@hard-included-newer","@expert-level","@expert-constant","@expert-included-newer","@inferno-level","@inferno-constant","@inferno-included-newer"
+"@song-title","@song-title-english","@genre","@available-in-japanese","@available-in-global","@available-in-chinese","@normal-level","@normal-constant","@normal-newer","@hard-level","@hard-constant","@hard-newer","@expert-level","@expert-constant","@expert-newer","@inferno-level","@inferno-constant","@inferno-newer"
 "ヒトガタ","Hitogata","ANIME/POP",true,,,"NORMAL 3",3.0,true,"HARD 9+",9.7,true,"EXPERT 12",12.6,true,"INFERNO 0",0.0,
 "メニメニマニマニ","Many Many Money Money","ANIME/POP",true,,,"NORMAL 3",3.0,true,"HARD 7+",7.8,true,"EXPERT 12",12.3,true,"INFERNO 0",0.0,
 "叩ケ 叩ケ 手ェ叩ケ","Tatake Tatake Te-tatake","ANIME/POP",true,,,"NORMAL 2",2.0,true,"HARD 7",7.3,true,"EXPERT 12",12.3,true,"INFERNO 13+",13.8,true

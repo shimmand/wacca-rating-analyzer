@@ -938,16 +938,16 @@ function getChartConstants(songTitle, diffValue) {
         'genre'             : songs[0].indexOf('@genre-name'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
-        'normal-newer'      : songs[0].indexOf('@normal-included-newer'),
+        'normal-newer'      : songs[0].indexOf('@normal-newer'),
         'hard-level'        : songs[0].indexOf('@hard-level'),
         'hard-constant'     : songs[0].indexOf('@hard-constant'),
-        'hard-newer'        : songs[0].indexOf('@hard-included-newer'),
+        'hard-newer'        : songs[0].indexOf('@hard-newer'),
         'expert-level'      : songs[0].indexOf('@expert-level'),
         'expert-constant'   : songs[0].indexOf('@expert-constant'),
-        'expert-newer'      : songs[0].indexOf('@expert-included-newer'),
+        'expert-newer'      : songs[0].indexOf('@expert-newer'),
         'inferno-level'     : songs[0].indexOf('@inferno-level'),
         'inferno-constant'  : songs[0].indexOf('@inferno-constant'),
-        'inferno-newer'     : songs[0].indexOf('@inferno-included-newer')
+        'inferno-newer'     : songs[0].indexOf('@inferno-newer')
     };
     
     for (let i = 0; i < songs.length; i++) {
@@ -981,16 +981,16 @@ function isThisChartNewer(songTitle, diffValue) {
         'genre'             : songs[0].indexOf('@genre-name'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
-        'normal-newer'      : songs[0].indexOf('@normal-included-newer'),
+        'normal-newer'      : songs[0].indexOf('@normal-newer'),
         'hard-level'        : songs[0].indexOf('@hard-level'),
         'hard-constant'     : songs[0].indexOf('@hard-constant'),
-        'hard-newer'        : songs[0].indexOf('@hard-included-newer'),
+        'hard-newer'        : songs[0].indexOf('@hard-newer'),
         'expert-level'      : songs[0].indexOf('@expert-level'),
         'expert-constant'   : songs[0].indexOf('@expert-constant'),
-        'expert-newer'      : songs[0].indexOf('@expert-included-newer'),
+        'expert-newer'      : songs[0].indexOf('@expert-newer'),
         'inferno-level'     : songs[0].indexOf('@inferno-level'),
         'inferno-constant'  : songs[0].indexOf('@inferno-constant'),
-        'inferno-newer'     : songs[0].indexOf('@inferno-included-newer')
+        'inferno-newer'     : songs[0].indexOf('@inferno-newer')
     };
     
     for (let i = 0; i < songs.length; i++) {
@@ -1024,16 +1024,16 @@ function getChartConstants(songTitle, diffValue) {
         'genre'             : songs[0].indexOf('@genre-name'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
-        'normal-newer'      : songs[0].indexOf('@normal-included-newer'),
+        'normal-newer'      : songs[0].indexOf('@normal-newer'),
         'hard-level'        : songs[0].indexOf('@hard-level'),
         'hard-constant'     : songs[0].indexOf('@hard-constant'),
-        'hard-newer'        : songs[0].indexOf('@hard-included-newer'),
+        'hard-newer'        : songs[0].indexOf('@hard-newer'),
         'expert-level'      : songs[0].indexOf('@expert-level'),
         'expert-constant'   : songs[0].indexOf('@expert-constant'),
-        'expert-newer'      : songs[0].indexOf('@expert-included-newer'),
+        'expert-newer'      : songs[0].indexOf('@expert-newer'),
         'inferno-level'     : songs[0].indexOf('@inferno-level'),
         'inferno-constant'  : songs[0].indexOf('@inferno-constant'),
-        'inferno-newer'     : songs[0].indexOf('@inferno-included-newer')
+        'inferno-newer'     : songs[0].indexOf('@inferno-newer')
     };
     
     for (let i = 0; i < songs.length; i++) {
@@ -1081,7 +1081,7 @@ function getEnglishTitle(songTitle) {
     const songs = getChartTable();
     const indexes = {
         'title' : songs[0].indexOf('@song-title'),
-        'title-eng' : songs[0].indexOf('@song-title-eng')
+        'title-eng' : songs[0].indexOf('@song-title-english')
     };
     
     for (let i = 0; i < songs.length; i++) {
@@ -1201,20 +1201,20 @@ function generateDatasetTable() {
     const songs = getChartTable();
     const indexes = {
         'title'             : songs[0].indexOf('@song-title'),
-        'title-eng'         : songs[0].indexOf('@song-title-eng'),
+        'title-eng'         : songs[0].indexOf('@song-title-english'),
         'genre'             : songs[0].indexOf('@genre-name'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
-        'normal-newer'      : songs[0].indexOf('@normal-included-newer'),
+        'normal-newer'      : songs[0].indexOf('@normal-newer'),
         'hard-level'        : songs[0].indexOf('@hard-level'),
         'hard-constant'     : songs[0].indexOf('@hard-constant'),
-        'hard-newer'        : songs[0].indexOf('@hard-included-newer'),
+        'hard-newer'        : songs[0].indexOf('@hard-newer'),
         'expert-level'      : songs[0].indexOf('@expert-level'),
         'expert-constant'   : songs[0].indexOf('@expert-constant'),
-        'expert-newer'      : songs[0].indexOf('@expert-included-newer'),
+        'expert-newer'      : songs[0].indexOf('@expert-newer'),
         'inferno-level'     : songs[0].indexOf('@inferno-level'),
         'inferno-constant'  : songs[0].indexOf('@inferno-constant'),
-        'inferno-newer'     : songs[0].indexOf('@inferno-included-newer')
+        'inferno-newer'     : songs[0].indexOf('@inferno-newer')
     };
     const tableContent = songs.map((song, index) => {
         if (index === 0) {

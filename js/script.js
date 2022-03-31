@@ -936,7 +936,7 @@ function getChartConstants(songTitle, diffValue) {
     const songs = getChartTable();
     const indexes = {
         'title'             : songs[0].indexOf('@song-title'),
-        'genre'             : songs[0].indexOf('@genre-name'),
+        'genre'             : songs[0].indexOf('@genre'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
         'normal-newer'      : songs[0].indexOf('@normal-newer'),
@@ -979,7 +979,7 @@ function isThisChartNewer(songTitle, diffValue) {
     const songs = getChartTable();
     const indexes = {
         'title'             : songs[0].indexOf('@song-title'),
-        'genre'             : songs[0].indexOf('@genre-name'),
+        'genre'             : songs[0].indexOf('@genre'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
         'normal-newer'      : songs[0].indexOf('@normal-newer'),
@@ -1022,7 +1022,7 @@ function getChartConstants(songTitle, diffValue) {
     const songs = getChartTable();
     const indexes = {
         'title'             : songs[0].indexOf('@song-title'),
-        'genre'             : songs[0].indexOf('@genre-name'),
+        'genre'             : songs[0].indexOf('@genre'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
         'normal-newer'      : songs[0].indexOf('@normal-newer'),
@@ -1065,7 +1065,7 @@ function getGenre(songTitle) {
     const songs = getChartTable();
     const indexes = {
         'title' : songs[0].indexOf('@song-title'),
-        'genre' : songs[0].indexOf('@genre-name')
+        'genre' : songs[0].indexOf('@genre')
     };
     
     for (let i = 0; i < songs.length; i++) {
@@ -1212,7 +1212,7 @@ function generateDatasetTable() {
     const indexes = {
         'title'             : songs[0].indexOf('@song-title'),
         'title-english'     : songs[0].indexOf('@song-title-english'),
-        'genre'             : songs[0].indexOf('@genre-name'),
+        'genre'             : songs[0].indexOf('@genre'),
         'normal-level'      : songs[0].indexOf('@normal-level'),
         'normal-constant'   : songs[0].indexOf('@normal-constant'),
         'normal-newer'      : songs[0].indexOf('@normal-newer'),

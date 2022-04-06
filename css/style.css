@@ -406,6 +406,8 @@ tr.table-custom-dethrone {
     position: sticky;
     left: 0rem;
     z-index: 2;
+    word-wrap: break-word;
+    max-width: 40vw;
 }
 
 .sticky-row:not(.sticky-disabled) {

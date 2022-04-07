@@ -1,6 +1,4 @@
 <!doctype html>
-<!-- data-update: Provide the version number of the program. Change this value to notify users when you add a new item to "News". -->
-<!-- data-dataset: Provide the version number of the dataset. Change this value if the dataset is updated. -->
 <html lang="ja" class="fs-100" data-update="2022-03-30" data-dataset="2022-03-30">
     <head>
         <title>WACCA RATING ANALYZER</title>
@@ -13,11 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <!-- href: Change the parameter part(string after ?date=) of the URI if "style.css" is updated. -->
-        <link href="css/style.css?date=2022-04-07" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-08" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <!-- src: Change the parameter part(string after ?date=) of the URI if "script.js" is updated. -->
-        <script defer src="js/script.js?date=2022-03-31"></script>
+        <script defer src="js/script.js?date=2022-04-08"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -677,7 +673,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="multi-rate-alert-new" class="border border-white mt-2 p-2 d-none">
+                    <div id="multi-rate-alert-new" class="multi-rate-alert border border-white mt-2 p-2 d-none">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <div class="alert-heading text-white h6 m-0">
@@ -884,8 +880,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border my-3 mx-2 p-2">
-                            <div class="table-responsive" style="max-height: 85vh;">
+                        <div class="chart-list-outer border my-3 mx-2 p-2">
+                            <div id="chart-list-new" class="chart-list table-responsive">
                                 <table class="table table-dark table-sm">
                                     <thead>
                                         <tr>
@@ -898,7 +894,7 @@
                                                 <span class="lang-eng d-none">Rating by Chart</span>
                                             </th>
                                             <th class="small" scope="col" colspan="5">
-                                                <span class="lang-jpn">スコア別上昇量</span>
+                                                <span class="lang-jpn">目標スコア別上昇量</span>
                                                 <span class="lang-eng d-none">Rating Increase by Score</span>
                                             </th>
                                         </tr>
@@ -969,7 +965,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="multi-rate-alert-old" class="border border-white mt-2 p-2 d-none">
+                    <div id="multi-rate-alert-old" class="multi-rate-alert border border-white mt-2 p-2 d-none">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <div class="alert-heading text-white h6 m-0">
@@ -1176,8 +1172,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border my-3 mx-2 p-2">
-                            <div class="table-responsive" style="max-height: 85vh;">
+                        <div class="chart-list-outer border my-3 mx-2 p-2">
+                            <div id="chart-list-old" class="chart-list table-responsive">
                                 <table class="table table-dark table-sm">
                                     <thead>
                                         <tr>

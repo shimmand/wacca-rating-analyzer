@@ -1133,7 +1133,12 @@ function quitMultiSelectMode(listtype) {
     const tables = document.querySelectorAll('.scoresTable');
     const tableIndex = listtype == 'new' ? 0 : 1;
 
-    document.querySelector(`#multi-rate-alert-${listtype}`).classList.add('d-none');
+    const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`);
+    rateAlert.classList.add('d-none');
+
+    const chartList = document.querySelector(`#chart-list-${listtype}`);
+    chartList.classList.remove('chart-list-shrink');
+
     tables[tableIndex].querySelectorAll('.multi-rate-selected').forEach(td => td.classList.remove('multi-rate-selected'));
     tables[tableIndex].querySelectorAll('.table-custom-dethrone').forEach(td => td.classList.remove('table-custom-dethrone'));
 }
@@ -1150,6 +1155,10 @@ function startMultiSelectMode(element, listtype) {
 
     const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`);
     rateAlert.classList.remove('d-none');
+
+    const chartList = document.querySelector(`#chart-list-${listtype}`);
+    chartList.classList.add('chart-list-shrink');
+    chartList.parentElement.scrollIntoView(false);
 
     element.classList.toggle('multi-rate-selected');
 

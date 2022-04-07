@@ -517,6 +517,22 @@ a.multi-rate-selected::before {
     height: .5rem;
 }
 
+.multi-rate-alert {
+    height: 4rem;
+}
+
+.chart-list {
+    max-height: 85vh;
+}
+
+.chart-list-shrink {
+    max-height: calc(85vh - 4.5rem);
+}
+
+.chart-list-outer {
+    scroll-margin-bottom: 1rem;
+}
+
 
 /* Bootstrap utils */
 

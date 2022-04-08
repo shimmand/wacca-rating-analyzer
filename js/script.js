@@ -90,6 +90,23 @@ function initialize() {
                     break;
             }
 
+            // Restore the display state of score left to border.
+            const scoreLeftCheckboxes = document.querySelectorAll('#remaining-score-toggle');
+            switch (localStorage.getItem('rating-analyzer-remaining-score')) {
+                case 'true':
+                    scoreLeftCheckboxes.forEach(input => input.checked = true);
+                    toggleDisplayState('remaining-score', true);
+                    break;
+
+                case 'false':
+                    scoreLeftCheckboxes.forEach(input => input.checked = false);
+                    toggleDisplayState('remaining-score', false);
+                    break;
+            
+                default:
+                    break;
+            }
+
             // Restore the selected state of the type filter.
             const types = ['targets', 'candidates', 'others'];
             types.forEach(type => {
@@ -461,6 +478,7 @@ function analyze(){
 
                 const genreColClass = document.querySelector('#column-genre-toggle').checked ? 'genre-column' : 'genre-column d-none';
                 const altTitleClass = document.querySelector('#alt-title-toggle').checked ? 'd-flex alt-title' : 'd-flex alt-title d-none';
+                const remainingScoreClass = document.querySelector('#remaining-score-toggle').checked ? 'remaining-score' : 'remaining-score d-none';
 
                 const code = `
                     <${headerElm}>${index + 1}</td>
@@ -497,11 +515,56 @@ function analyze(){
                     </td>
                     <${rateDataElm}>${chart[6]}</td>
                     <td>${chart[7]}</td>
-                    <td>${increases[0]}</td>
-                    <td>${increases[1]}</td>
-                    <td>${increases[2]}</td>
-                    <td>${increases[3]}</td>
-                    <td>${increases[4]}</td>`
+                    <td>
+                        <div>
+                            <div>${increases[0]}</div>
+                        </div>
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                            <div class="mx-1 lang-jpn">${(increases[0] !== '-') ? 'あと' : ''}</div>
+                            <div>${(increases[0] !== '-') ? 950000 - chart[3] : ''}</div>
+                            <div class="mx-1 lang-eng d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div>${increases[1]}</div>
+                        </div>
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                            <div class="mx-1 lang-jpn">${(increases[1] !== '-') ? 'あと' : ''}</div>
+                            <div>${(increases[1] !== '-') ? 960000 - chart[3] : ''}</div>
+                            <div class="mx-1 lang-eng d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div>${increases[2]}</div>
+                        </div>
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                            <div class="mx-1 lang-jpn">${(increases[2] !== '-') ? 'あと' : ''}</div>
+                            <div>${(increases[2] !== '-') ? 970000 - chart[3] : ''}</div>
+                            <div class="mx-1 lang-eng d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div>${increases[3]}</div>
+                        </div>
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-en text-nowrap">
+                            <div class="mx-1 lang-jpn">${(increases[3] !== '-') ? 'あと' : ''}</div>
+                            <div>${(increases[3] !== '-') ? 980000 - chart[3] : ''}</div>
+                            <div class="mx-1 lang-eng d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div>${increases[4]}</div>
+                        </div>
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                            <div class="mx-1 lang-jpn">${(increases[4] !== '-') ? 'あと' : ''}</div>
+                            <div>${(increases[4] !== '-') ? 990000 - chart[3] : ''}</div>
+                            <div class="mx-1 lang-eng d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
+                        </div>
+                    </td>`
                 .replaceAll(/(^ {20}|^\n)/gm, '');
 
                 tableRow.innerHTML = code;
@@ -514,6 +577,12 @@ function analyze(){
                 const fileRow = `"${chartType}","${index + 1}","${chart[0]}","${chart[2]}","${chart[3]}","${chart[4]}","${chart[5].toFixed(2)}","${chart[6]}","${maxRate}","${increasesForFileRow[0]}","${increasesForFileRow[1]}","${increasesForFileRow[2]}","${increasesForFileRow[3]}","${increasesForFileRow[4]}"`;
 
                 tableRow.setAttribute('data-file-row', fileRow);
+            });
+
+            document.querySelectorAll('.remaining-score').forEach(div => {
+                if (div.innerText.trim() === '') {
+                    div.remove();
+                }
             });
 
             summedRateCurrents[listIndex].innerHTML = varSummedRateCurrents[listIndex].toFixed(3);

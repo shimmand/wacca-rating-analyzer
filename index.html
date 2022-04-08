@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-03-30" data-dataset="2022-03-30">
+<html lang="ja" class="fs-100" data-update="2022-04-09" data-dataset="2022-03-30">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-08" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-09" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-08"></script>
+        <script defer src="js/script.js?date=2022-04-09"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -39,6 +39,88 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-white">
+                            <div class="mt-2 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#36</div>
+                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-09</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang-jpn">
+                                            譜面一覧に新しい機能を追加
+                                        </span>
+                                        <span class="lang-eng d-none">
+                                            New features added to Chart List
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-0">
+                                    <div class="mt-2">
+                                        <span class="lang-jpn">
+                                            譜面一覧において、スコアボーダーとハイスコアの差を表示できるようになりました。
+                                        </span>
+                                        <span class="lang-eng d-none">
+                                            In the Chart List, the difference between the score border and the high score can now be shown.
+                                        </span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="lang-jpn">
+                                            この機能は、「レーティング候補」の譜面が対象です。
+                                        </span>
+                                        <span class="lang-eng d-none">
+                                            This feature only applies to "Rating Candidate" charts.
+                                        </span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="lang-jpn">
+                                            有効にするには、表示オプションの「ボーダーまでの残りスコアを表示」にチェックを付けてください。
+                                        </span>
+                                        <span class="lang-eng d-none">
+                                            To enable, please check "Show remaining score to border" in the Display Options.
+                                        </span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="border bg-black bg-opacity-50 mt-0 p-2">
+                                            <div class="d-flex border-bottom px-1 mt-0">
+                                                <div class="lang-jpn">表示例</div>
+                                                <div class="lang-eng d-none">Example</div>
+                                            </div>
+                                            <div class="mt-2 d-flex justify-content-center">
+                                                <div class="pe-1" style="background-color: #561435;">
+                                                    <div>
+                                                        <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+1.200</p></div>
+                                                    </div>
+                                                    <div class="remaining-score d-flex justify-content-between text-gray-500 small px-1 text-end">
+                                                        <div class="me-1 lang-jpn">あと</div>
+                                                        <div>550</div>
+                                                        <div class="ms-1 lang-eng d-none">left</div>
+                                                    </div>
+                                                </div>
+                                                <div class="pe-1" style="background-color: #561435;">
+                                                    <div>
+                                                        <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+2.400</p></div>
+                                                    </div>
+                                                    <div class="remaining-score d-flex justify-content-between text-gray-500 small px-1 text-end">
+                                                        <div class="me-1 lang-jpn">あと</div>
+                                                        <div>10550</div>
+                                                        <div class="ms-1 lang-eng d-none">left</div>
+                                                    </div>
+                                                </div>
+                                                <div class="pe-1" style="background-color: #561435;">
+                                                    <div>
+                                                        <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+3.600</p></div>
+                                                    </div>
+                                                    <div class="remaining-score d-flex justify-content-between text-gray-500 small px-1 text-end">
+                                                        <div class="me-1 lang-jpn">あと</div>
+                                                        <div>20550</div>
+                                                        <div class="ms-1 lang-eng d-none">left</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="mt-2 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -860,22 +942,29 @@
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
                                     <label class="form-check-label" for="column-genre-toggle">
-                                        <span class="lang-jpn">ジャンルを表示する</span>
+                                        <span class="lang-jpn">ジャンル列を表示</span>
                                         <span class="lang-eng d-none">Show "Genre" column</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
                                     <label class="form-check-label" for="column-sticky-toggle">
-                                        <span class="lang-jpn">曲名を左に固定する</span>
+                                        <span class="lang-jpn">曲名を左に固定</span>
                                         <span class="lang-eng d-none">Fix "Song Title" column left</span>
                                     </label>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border me-0">
+                                <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
                                     <label class="form-check-label" for="alt-title-toggle">
-                                        <span class="lang-jpn">英語の曲名も表示する</span>
+                                        <span class="lang-jpn">英語の曲名も表示</span>
                                         <span class="lang-eng d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border me-0">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-toggle" onchange="toggleDisplayState('remaining-score', this.checked)">
+                                    <label class="form-check-label" for="remaining-score-toggle">
+                                        <span class="lang-jpn">ボーダーまでの残りスコアを表示</span>
+                                        <span class="lang-eng d-none">Show remaining score to border</span>
                                     </label>
                                 </div>
                             </div>
@@ -894,8 +983,8 @@
                                                 <span class="lang-eng d-none">Rating by Chart</span>
                                             </th>
                                             <th class="small" scope="col" colspan="5">
-                                                <span class="lang-jpn">目標スコア別上昇量</span>
-                                                <span class="lang-eng d-none">Rating Increase by Score</span>
+                                                <span class="lang-jpn">スコアボーダー別上昇量</span>
+                                                <span class="lang-eng d-none">Rating Increase by Score Border</span>
                                             </th>
                                         </tr>
                                         <tr class="sticky-row">
@@ -1152,22 +1241,29 @@
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
                                     <label class="form-check-label" for="column-genre-toggle">
-                                        <span class="lang-jpn">ジャンルを表示する</span>
+                                        <span class="lang-jpn">ジャンル列を表示</span>
                                         <span class="lang-eng d-none">Show "Genre" column</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
                                     <label class="form-check-label" for="column-sticky-toggle">
-                                        <span class="lang-jpn">曲名を左に固定する</span>
+                                        <span class="lang-jpn">曲名を左に固定</span>
                                         <span class="lang-eng d-none">Fix "Song Title" column left</span>
                                     </label>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border me-0">
+                                <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
                                     <label class="form-check-label" for="alt-title-toggle">
-                                        <span class="lang-jpn">英語の曲名も表示する</span>
+                                        <span class="lang-jpn">英語の曲名も表示</span>
                                         <span class="lang-eng d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border me-0">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-toggle" onchange="toggleDisplayState('remaining-score', this.checked)">
+                                    <label class="form-check-label" for="remaining-score-toggle">
+                                        <span class="lang-jpn">ボーダーまでの残りスコアを表示</span>
+                                        <span class="lang-eng d-none">Show score left to border</span>
                                     </label>
                                 </div>
                             </div>
@@ -1186,8 +1282,8 @@
                                                 <span class="lang-eng d-none">Rating by Chart</span>
                                             </th>
                                             <th class="small" scope="col" colspan="5">
-                                                <span class="lang-jpn">目標スコア別上昇量</span>
-                                                <span class="lang-eng d-none">Rating Increase by Score</span>
+                                                <span class="lang-jpn">スコアボーダー別上昇量</span>
+                                                <span class="lang-eng d-none">Rating Increase by Score Border</span>
                                             </th>
                                         </tr>
                                         <tr class="sticky-row">

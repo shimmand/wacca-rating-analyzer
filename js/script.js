@@ -559,7 +559,7 @@ function analyze(){
                         <div>
                             <div>${increases[4]}</div>
                         </div>
-                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2">
                             <div class="mx-1 lang-jpn">${(increases[4] !== '-') ? 'あと' : ''}</div>
                             <div>${(increases[4] !== '-') ? 990000 - chart[3] : ''}</div>
                             <div class="mx-1 lang-eng d-none">${(increases[4] !== '-') ? 'left' : ''}</div>

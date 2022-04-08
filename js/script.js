@@ -95,6 +95,7 @@ function initialize() {
             switch (localStorage.getItem('rating-analyzer-remaining-score')) {
                 case 'true':
                     scoreLeftCheckboxes.forEach(input => input.checked = true);
+                    document.querySelectorAll('.remaining-score-filter-options').forEach(div => div.classList.add('show'));
                     toggleDisplayState('remaining-score', true);
                     break;
 
@@ -519,7 +520,7 @@ function analyze(){
                         <div>
                             <div>${increases[0]}</div>
                         </div>
-                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${950000 - chart[3]}">
                             <div class="mx-1 lang-jpn">${(increases[0] !== '-') ? 'あと' : ''}</div>
                             <div>${(increases[0] !== '-') ? 950000 - chart[3] : ''}</div>
                             <div class="mx-1 lang-eng d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
@@ -529,7 +530,7 @@ function analyze(){
                         <div>
                             <div>${increases[1]}</div>
                         </div>
-                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${960000 - chart[3]}">
                             <div class="mx-1 lang-jpn">${(increases[1] !== '-') ? 'あと' : ''}</div>
                             <div>${(increases[1] !== '-') ? 960000 - chart[3] : ''}</div>
                             <div class="mx-1 lang-eng d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
@@ -539,7 +540,7 @@ function analyze(){
                         <div>
                             <div>${increases[2]}</div>
                         </div>
-                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap">
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${970000 - chart[3]}">
                             <div class="mx-1 lang-jpn">${(increases[2] !== '-') ? 'あと' : ''}</div>
                             <div>${(increases[2] !== '-') ? 970000 - chart[3] : ''}</div>
                             <div class="mx-1 lang-eng d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
@@ -549,7 +550,7 @@ function analyze(){
                         <div>
                             <div>${increases[3]}</div>
                         </div>
-                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-en text-nowrap">
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-en text-nowrap" data-remaining="${980000 - chart[3]}">
                             <div class="mx-1 lang-jpn">${(increases[3] !== '-') ? 'あと' : ''}</div>
                             <div>${(increases[3] !== '-') ? 980000 - chart[3] : ''}</div>
                             <div class="mx-1 lang-eng d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
@@ -559,7 +560,7 @@ function analyze(){
                         <div>
                             <div>${increases[4]}</div>
                         </div>
-                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2">
+                        <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2" data-remaining="${990000 - chart[3]}">
                             <div class="mx-1 lang-jpn">${(increases[4] !== '-') ? 'あと' : ''}</div>
                             <div>${(increases[4] !== '-') ? 990000 - chart[3] : ''}</div>
                             <div class="mx-1 lang-eng d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
@@ -571,6 +572,7 @@ function analyze(){
                 tableRow.setAttribute('data-index', index + 1);
                 tableRow.setAttribute('data-const', chart[4]);
                 tableRow.setAttribute('data-rate', chart[6]);
+                tableRow.setAttribute('data-remaining-min', '');
 
                 const chartType = (listIndex == 0) ? 'New' : 'Old';
                 const maxRate = Number(4 * chart[4]).toFixed(3);
@@ -582,6 +584,18 @@ function analyze(){
             document.querySelectorAll('.remaining-score').forEach(div => {
                 if (div.innerText.trim() === '') {
                     div.remove();
+                }
+            });
+
+            document.querySelectorAll('.remaining-score').forEach(div => {
+                const tr = div.parentElement.parentElement;
+        
+                if (tr.dataset.remainingMin === '') {
+                    tr.dataset.remainingMin = div.dataset.remaining;
+                } else {
+                    if (Number(div.dataset.remaining) < Number(tr.dataset.remainingMin)) {
+                        tr.dataset.remainingMin = div.dataset.remaining;
+                    }
                 }
             });
 
@@ -808,6 +822,38 @@ function toggleChartVisibilityByDifficulty(difficulty, checked) {
     refreshChartVisibility();
 }
 
+function filterByRemainingScore(difference, checked) {
+    if (String(difference).match(/[0-9]+/g)[0] !== String(difference)) {
+        return false;
+    }
+
+    document.querySelectorAll('.remaining-score-filter-select').forEach(div => div.value = difference);
+
+    const targetRows = document.querySelectorAll('.scoresTable > tr');
+    targetRows.forEach(row => {
+        if (checked) {
+            if (row.dataset.remainingMin !== '' && Number(row.dataset.remainingMin) <= Number(difference)) {
+                row.classList.remove('remaining-hidden');
+            } else {
+                row.classList.add('remaining-hidden');
+            }
+        } else {
+            row.classList.remove('remaining-hidden');
+        }
+    });
+
+    refreshChartVisibility();
+}
+
+function toggleRemainingScoreFilter(checked) {
+    document.querySelector('#btn-remaining-score-filter').click();
+
+    if (checked === false) {
+        toggleDisplayState('remaining-score-filter', false);
+        filterByRemainingScore(document.querySelector('#remaining-score-filter-select-1').value, false);
+    }
+}
+
 // Set filters based on the current difficulty options.
 function updateChartVisibilityByDifficulty() {
     const difficulties = ['normal', 'hard', 'expert', 'inferno'];
@@ -831,7 +877,7 @@ function updateChartVisibilityByDifficulty() {
 function refreshChartVisibility() {
     const rows = document.querySelectorAll('tr[data-index]');
     rows.forEach(row => {
-        if (row.classList.contains('type-hidden') || row.classList.contains('difficulty-hidden')) {
+        if (row.classList.contains('type-hidden') || row.classList.contains('difficulty-hidden') || row.classList.contains('remaining-hidden')) {
             row.classList.add('d-none');
         } else {
             row.classList.remove('d-none');

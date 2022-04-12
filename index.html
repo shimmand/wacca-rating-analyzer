@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-12" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-12-1900" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-12"></script>
+        <script defer src="js/script.js?date=2022-04-12-1900"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -39,6 +39,37 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-white">
+                            <div class="mt-2 p-2 d-none">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#37</div>
+                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-13</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            新しい譜面へ対応
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            New charts are supported
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-0">
+                                    <div class="mt-2">
+                                        <div>Invisible Frenzy (Camellia's "593: Insanely Fluctuated" Remix)</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 0</span>
+                                            <span class="badge border hard">HARD 0</span>
+                                            <span class="badge border expert">EXPERT 0</span>
+                                            <span class="badge border inferno">INFERNO 0</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">新曲枠</span>
+                                                <span class="lang lang-english d-none">NEWER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="mt-2 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -971,17 +1002,24 @@
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
-                                    <label class="form-check-label" for="toggle-column-genre">
-                                        <span class="lang lang-japanese">ジャンル列を表示</span>
-                                        <span class="lang lang-english d-none">Show "Genre" column</span>
-                                    </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-sticky" onchange="toggleColumnFixed(this.checked)">
                                     <label class="form-check-label" for="toggle-column-sticky">
                                         <span class="lang lang-japanese">曲名を左に固定</span>
                                         <span class="lang lang-english d-none">Fix "Song Title" column left</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border me-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-auto-height" onchange="toggleAutoHeight(this.checked)" checked>
+                                    <label class="form-check-label" for="toggle-auto-height">
+                                        <span class="lang lang-japanese">高さを画面に合わせる</span>
+                                        <span class="lang lang-english d-none">Fit height to screen</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border me-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
+                                    <label class="form-check-label" for="toggle-column-genre">
+                                        <span class="lang lang-japanese">ジャンル列を表示</span>
+                                        <span class="lang lang-english d-none">Show "Genre" column</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
@@ -1044,8 +1082,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="chart-list-outer border my-3 mx-2 p-2">
-                            <div id="chart-list-new" class="chart-list table-responsive">
+                        <div class="border my-3 mx-2 p-2">
+                            <div id="chart-list-new"  class="chart-list table-responsive" onscroll="snapChartListView(this)">
                                 <table class="table table-dark table-sm">
                                     <thead>
                                         <tr>
@@ -1321,17 +1359,24 @@
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
-                                    <label class="form-check-label" for="toggle-column-genre">
-                                        <span class="lang lang-japanese">ジャンル列を表示</span>
-                                        <span class="lang lang-english d-none">Show "Genre" column</span>
-                                    </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-sticky" onchange="toggleColumnFixed(this.checked)">
                                     <label class="form-check-label" for="toggle-column-sticky">
                                         <span class="lang lang-japanese">曲名を左に固定</span>
                                         <span class="lang lang-english d-none">Fix "Song Title" column left</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border me-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-auto-height" onchange="toggleAutoHeight(this.checked)" checked>
+                                    <label class="form-check-label" for="toggle-auto-height">
+                                        <span class="lang lang-japanese">高さを画面に合わせる</span>
+                                        <span class="lang lang-english d-none">Fit height to screen</span>
+                                    </label>
+                                </div>
+                                <div class="form-check d-flex align-items-center badge border me-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
+                                    <label class="form-check-label" for="toggle-column-genre">
+                                        <span class="lang lang-japanese">ジャンル列を表示</span>
+                                        <span class="lang lang-english d-none">Show "Genre" column</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
@@ -1393,8 +1438,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="chart-list-outer border my-3 mx-2 p-2">
-                            <div id="chart-list-old" class="chart-list table-responsive">
+                        <div class="border my-3 mx-2 p-2">
+                            <div id="chart-list-old" class="chart-list table-responsive" onscroll="snapChartListView(this)">
                                 <table class="table table-dark table-sm">
                                     <thead>
                                         <tr>
@@ -2438,74 +2483,6 @@
                                 </div>
                                 <div class="mt-2 p-2">
                                     <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                        <span class="lang lang-japanese">表示オプション</span>
-                                        <span class="lang lang-english d-none">Display Options</span>
-                                    </div>
-                                    <div class="mx-2 my-0">
-                                        <div class="mt-2">
-                                            <div class="badge border">
-                                                <span class="lang lang-japanese">ジャンルを表示する</span>
-                                                <span class="lang lang-english d-none">Show "Genre" column</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">
-                                            <span class="lang lang-japanese">オンにすると、「ジャンル」列を表示します。</span>
-                                            <span class="lang lang-english d-none">When checked, the "Genre" column will be displayed.</span>
-                                        </div>
-                                        <div class="mt-2">
-                                            <div class="badge border">
-                                                <span class="lang lang-japanese">曲名を左に固定する</span>
-                                                <span class="lang lang-english d-none">Fix "Song Title" column left</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">
-                                            <span class="lang lang-japanese">
-                                                オンにすると、譜面一覧を横にスクロールする際に「曲名」列が左側に固定表示されます。
-                                                このオプションは、スマートフォンのような画面の小さな端末でのみ機能します。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                When checked, the "Song Title" column will be fixed to the left of the list when you scroll the Chart List horizontally.
-                                                This option only works on devices with small screens, such as smartphones.
-                                            </span>
-                                        </div>
-                                        <div class="mt-2">
-                                            <div class="badge border">
-                                                <span class="lang lang-japanese">英語の曲名も表示する</span>
-                                                <span class="lang lang-english d-none">Show English song title</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">
-                                            <span class="lang lang-japanese">オンにすると、曲名の下に英語表記の曲名が表示されます。</span>
-                                            <span class="lang lang-english d-none">When checked, the English song title will be displayed below the original song title.</span>
-                                        </div>
-                                        <div class="mt-2">
-                                            <div class="d-flex bg-gray-800 p-2">
-                                                <div class="me-2">
-                                                    <span class="lang lang-japanese">例:</span>
-                                                    <span class="lang lang-english d-none">ex:</span>
-                                                </div>
-                                                <div class="m-0">
-                                                    <div class="d-flex">
-                                                        <div class="vstack my-1 me-1">
-                                                            <div class="badge border bg-anime m-0 p-0 w-hrem h-hrem"><span></span></div>
-                                                            <div class="badge border inferno m-0 p-0 w-hrem h-hrem"><span></span></div>
-                                                        </div>
-                                                        <div class="w-100">回レ！雪月花</div>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <div class="vstack my-1 me-1">
-                                                            <div class="m-0 p-0 w-hrem h-hrem"><span></span></div>
-                                                            <div class="m-0 p-0 w-hrem h-hrem"><span></span></div>
-                                                        </div>
-                                                        <div class="text-gray-500 small w-100">Maware! Setsugetsuka</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-2 p-2">
-                                    <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                         <span class="lang lang-japanese">譜面の種類</span>
                                         <span class="lang lang-english d-none">Chart Type</span>
                                     </div>
@@ -2608,6 +2585,146 @@
                                                         <span class="lang lang-english d-none">
                                                             This indicates that the chart is <span class="badge border bg-anime text-shadow-black">ANIME/POP</span> <span class="badge border inferno">INFERNO</span> .
                                                         </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2 p-2">
+                                    <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                        <span class="lang lang-japanese">表示オプション</span>
+                                        <span class="lang lang-english d-none">Display Options</span>
+                                    </div>
+                                    <div class="mx-2 my-0">
+                                        <div class="mt-2">
+                                            <div class="badge border">
+                                                <span class="lang lang-japanese">文字列を折り返す</span>
+                                                <span class="lang lang-english d-none">Wrap text</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="lang lang-japanese">オンにすると、譜面一覧で列の幅を自動で調節し、長い文字列は折り返して表示します。</span>
+                                            <span class="lang lang-english d-none">When checked, the column width is automatically adjusted and long text will be wrapped.</span>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="badge border">
+                                                <span class="lang lang-japanese">曲名を左に固定</span>
+                                                <span class="lang lang-english d-none">Fix "Song Title" column left</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="lang lang-japanese">
+                                                オンにすると、譜面一覧を横にスクロールする際に「曲名」列が左側に固定表示されます。
+                                                このオプションは、スマートフォンのような画面の小さな端末でのみ機能します。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                When checked, the "Song Title" column will be fixed to the left of the list when you scroll the Chart List horizontally.
+                                                This option only works on devices with small screens, such as smartphones.
+                                            </span>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="badge border">
+                                                <span class="lang lang-japanese">高さを画面に合わせる</span>
+                                                <span class="lang lang-english d-none">Fit height to screen</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="lang lang-japanese">オンにすると、譜面一覧の高さを画面のサイズに合わせます。</span>
+                                            <span class="lang lang-english d-none">When checked, the height of the table is adjusted to the size of the screen.</span>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="badge border">
+                                                <span class="lang lang-japanese">ジャンルを表示</span>
+                                                <span class="lang lang-english d-none">Show "Genre" column</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="lang lang-japanese">オンにすると、「ジャンル」列を表示します。</span>
+                                            <span class="lang lang-english d-none">When checked, the "Genre" column will be displayed.</span>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="badge border">
+                                                <span class="lang lang-japanese">英語の曲名も表示</span>
+                                                <span class="lang lang-english d-none">Show English song title</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="lang lang-japanese">オンにすると、曲名の下に英語表記の曲名が表示されます。</span>
+                                            <span class="lang lang-english d-none">When checked, the English song title will be displayed below the original song title.</span>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="d-flex bg-gray-800 p-2">
+                                                <div class="me-2">
+                                                    <span class="lang lang-japanese">例:</span>
+                                                    <span class="lang lang-english d-none">ex:</span>
+                                                </div>
+                                                <div class="m-0">
+                                                    <div class="d-flex">
+                                                        <div class="vstack my-1 me-1">
+                                                            <div class="badge border bg-anime m-0 p-0 w-hrem h-hrem"><span></span></div>
+                                                            <div class="badge border inferno m-0 p-0 w-hrem h-hrem"><span></span></div>
+                                                        </div>
+                                                        <div class="w-100">回レ！雪月花</div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div class="vstack my-1 me-1">
+                                                            <div class="m-0 p-0 w-hrem h-hrem"><span></span></div>
+                                                            <div class="m-0 p-0 w-hrem h-hrem"><span></span></div>
+                                                        </div>
+                                                        <div class="text-gray-500 small w-100">Maware! Setsugetsuka</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="badge border">
+                                                <span class="lang lang-japanese">ボーダーまでの残りスコアを表示</span>
+                                                <span class="lang lang-english d-none">Show remaining score to border</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="lang lang-japanese">オンにすると、スコアボーダー別上昇量においてまだ到達していないボーダーとハイスコアの差が表示されます。</span>
+                                            <span class="lang lang-english d-none">When checked, the difference between the high score and the score border that has not been reached yet is displayed on "Rating Increase by Score Border".</span>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="d-flex bg-gray-800 p-2">
+                                                <div class="me-2">
+                                                    <span class="lang lang-japanese">例:</span>
+                                                    <span class="lang lang-english d-none">ex:</span>
+                                                </div>
+                                                <div class="m-0">
+                                                    <div class="mt-2 d-flex justify-content-center">
+                                                        <div class="pe-1" style="background-color: #561435;">
+                                                            <div>
+                                                                <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+1.200</p></div>
+                                                            </div>
+                                                            <div class="d-flex justify-content-between text-gray-500 small px-1 text-end">
+                                                                <div class="me-1 lang lang-japanese">あと</div>
+                                                                <div>550</div>
+                                                                <div class="ms-1 lang lang-english d-none">left</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pe-1" style="background-color: #561435;">
+                                                            <div>
+                                                                <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+2.400</p></div>
+                                                            </div>
+                                                            <div class="d-flex justify-content-between text-gray-500 small px-1 text-end">
+                                                                <div class="me-1 lang lang-japanese">あと</div>
+                                                                <div>10550</div>
+                                                                <div class="ms-1 lang lang-english d-none">left</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pe-1" style="background-color: #561435;">
+                                                            <div>
+                                                                <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+3.600</p></div>
+                                                            </div>
+                                                            <div class="d-flex justify-content-between text-gray-500 small px-1 text-end">
+                                                                <div class="me-1 lang lang-japanese">あと</div>
+                                                                <div>20550</div>
+                                                                <div class="ms-1 lang lang-english d-none">left</div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

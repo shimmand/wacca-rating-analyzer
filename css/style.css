@@ -411,7 +411,8 @@ tr.table-custom-dethrone {
     left: 0rem;
     z-index: 2;
     word-wrap: break-word;
-    max-width: 40vw;
+    max-width: calc((100vw - 3rem - 2px) / 2);
+    overflow-x: hidden;
 }
 
 .sticky-row:not(.sticky-disabled) {
@@ -526,15 +527,16 @@ a.multi-rate-selected::before {
 }
 
 .chart-list {
-    height: 85vh;
+    height: calc(100vh - 4.5rem - 2px);
 }
 
 .chart-list-shrink {
-    height: calc(85vh - 4.5rem);
+    height: calc(100vh - 9rem - 2px);
 }
 
-.chart-list-outer {
-    scroll-margin-bottom: 1rem;
+.chart-list-grow {
+    min-height: calc(100vh - 4.5rem - 2px);
+    height: 100%;
 }
 
 

@@ -39,24 +39,6 @@ function initialize() {
                     break
             }
 
-            // Restore the fixed display state of columns
-            {
-                const toggles = document.querySelectorAll('#toggle-column-sticky')
-
-                switch (localStorage.getItem('rating-analyzer-table-fixed')) {
-                    case 'true':
-                        toggles.forEach(input => input.checked = true)
-                        break
-
-                    case 'false':
-                        toggles.forEach(input => input.checked = false)
-                        break
-
-                    default:
-                        break
-                }
-            }
-
             // Restore the state of wrapping text
             {
                 const toggles = document.querySelectorAll('#toggle-wrap-text')
@@ -70,6 +52,26 @@ function initialize() {
                     case 'false':
                         toggles.forEach(input => input.checked = false)
                         toggleWrapText(false)
+                        break
+
+                    default:
+                        break
+                }
+            }
+
+            // Restore the fixed display state of columns
+            {
+                const toggles = document.querySelectorAll('#toggle-column-sticky')
+
+                switch (localStorage.getItem('rating-analyzer-table-fixed')) {
+                    case 'true':
+                        toggles.forEach(input => input.checked = true)
+                        toggleColumnFixed(true)
+                        break
+
+                    case 'false':
+                        toggles.forEach(input => input.checked = false)
+                        toggleColumnFixed(false)
                         break
 
                     default:
@@ -1374,12 +1376,6 @@ function startMultiSelectMode(element, listtype) {
         return false
     }
 
-    {
-        const chartList = document.querySelector(`#chart-list-${listtype}`)
-        chartList.classList.add('chart-list-shrink')
-        chartList.parentElement.scrollIntoView(false)
-    }
-
     element.classList.toggle('multi-rate-selected')
 
     const tables = document.querySelectorAll('.scoresTable')
@@ -1445,6 +1441,41 @@ function startMultiSelectMode(element, listtype) {
             checkRow.classList.add('table-custom-dethrone')
         }
     })
+
+    {
+        const chartList = document.querySelector(`#chart-list-${listtype}`)
+        chartList.classList.add('chart-list-shrink')
+        chartList.parentElement.scrollIntoView(false)
+    }
+}
+
+function snapChartListView(element) {
+    if (element.classList.contains('chart-list-grow')) {
+        return false
+    }
+
+    element.parentElement.scrollIntoView(false)
+}
+
+function toggleAutoHeight(checked) {
+    {
+        const toggles = document.querySelectorAll('#toggle-auto-height')
+        toggles.forEach(input => input.checked = checked)
+    }
+
+    localStorage.setItem('rating-analyzer-auto-height', checked)
+
+    {
+        const chartlists = document.querySelectorAll('.chart-list')
+
+        chartlists.forEach(list => {
+            if (checked) {
+                list.classList.remove('chart-list-grow')
+            } else {
+                list.classList.add('chart-list-grow')
+            }
+        })
+    }
 }
 
 // Generate a dataset table

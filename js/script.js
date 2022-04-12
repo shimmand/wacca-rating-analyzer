@@ -1461,7 +1461,7 @@ function startMultiSelectMode(element, listtype) {
         }
     })
 
-    {
+    if (localStorage.getItem('rating-analyzer-auto-height') === 'true') {
         const chartList = document.querySelector(`#chart-list-${listtype}`)
         chartList.classList.add('chart-list-shrink')
         chartList.parentElement.scrollIntoView(false)

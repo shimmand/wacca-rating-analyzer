@@ -99,6 +99,25 @@ function initialize() {
                 }
             }
 
+            {
+                const toggles = document.querySelectorAll('#toggle-auto-height')
+
+                switch (localStorage.getItem('rating-analyzer-auto-height')) {
+                    case 'true':
+                        toggles.forEach(input => input.checked = true)
+                        toggleAutoHeight(true)
+                        break
+
+                    case 'false':
+                        toggles.forEach(input => input.checked = false)
+                        toggleAutoHeight(false)
+                        break
+
+                    default:
+                        break
+                }
+            }
+
             // Restore the display state of English song titles
             {
                 const toggles = document.querySelectorAll('#toggle-alt-title')

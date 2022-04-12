@@ -422,21 +422,15 @@ tr.table-custom-dethrone {
 }
 
 a.rate-increase {
-    background-color: #ffffff;
     color: #000000;
+    background-color: #ffffff;
     text-decoration-line: none;
 }
 
 a.multi-rate-selected {
-    font-size: 0;
-    color: #000000;
+    color: #ffffff;
     background-color: #d63384;
     text-decoration-line: none;
-}
-
-a.multi-rate-selected::before {
-    content: 'REMOVE';
-    font-size: 0.75rem;
 }
 
 .increase::before {

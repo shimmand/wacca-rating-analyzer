@@ -431,7 +431,8 @@ function analyze(){
                         <a class="badge rate-increase rounded-0 box-shadow-black m-1" 
                         href="#" onclick="startMultiSelectMode(this, '${targetsName[listIndex]}'); return false;" 
                         data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}">
-                        +${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}
+                        <span class="rate-counter rate-counter-exclude">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
+                        <span class="rate-counter rate-counter-include d-none">REMOVE</span>
                         </a>
                         `.replaceAll(/(^ {24}|^\n)/gm, '').replaceAll('\n', '')
                 } else {

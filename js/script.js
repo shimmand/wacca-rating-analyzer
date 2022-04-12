@@ -1385,7 +1385,6 @@ function quitMultiSelectMode(listtype) {
     }
 }
 
-// RESTORED: ddf6fcbf063a5e54e828413f7ae51982993cc7c1 <- 0cae5f6e4f6277d6e57998f0f574708cf227ac03
 // Start the Multi Select Mode
 function startMultiSelectMode(element, listtype) {
     if (element.tagName != 'A') {
@@ -1394,12 +1393,6 @@ function startMultiSelectMode(element, listtype) {
 
     if (listtype.match(/new|old/) == null) {
         return false
-    }
-
-    {
-        const chartList = document.querySelector(`#chart-list-${listtype}`)
-        chartList.classList.add('chart-list-shrink')
-        chartList.parentElement.scrollIntoView(false)
     }
 
     element.classList.toggle('multi-rate-selected')

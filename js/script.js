@@ -1385,6 +1385,7 @@ function quitMultiSelectMode(listtype) {
     }
 }
 
+// RESTORED: ddf6fcbf063a5e54e828413f7ae51982993cc7c1 <- 0cae5f6e4f6277d6e57998f0f574708cf227ac03
 // Start the Multi Select Mode
 function startMultiSelectMode(element, listtype) {
     if (element.tagName != 'A') {
@@ -1394,6 +1395,14 @@ function startMultiSelectMode(element, listtype) {
     if (listtype.match(/new|old/) == null) {
         return false
     }
+
+    {
+        const chartList = document.querySelector(`#chart-list-${listtype}`)
+        chartList.classList.add('chart-list-shrink')
+        chartList.parentElement.scrollIntoView(false)
+    }
+
+    element.classList.toggle('multi-rate-selected')
 
     const tables = document.querySelectorAll('.scoresTable')
     const tableIndex = listtype == 'new' ? 0 : 1
@@ -1434,17 +1443,10 @@ function startMultiSelectMode(element, listtype) {
     const newListTotal = newList.reduce((a, b) => a + b, 0)
     const rateIncsease = newListTotal - oldListTotal
     const alreadyListed = tables[tableIndex].querySelectorAll('.table-primary .multi-rate-selected')
-
+    
     {
         const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`)
-        
-        if (rateAlert.classList.contains('d-none')) {
-            rateAlert.classList.remove('d-none')
-            element.classList.add('multi-rate-selected')
-        } else {
-            element.classList.toggle('multi-rate-selected')
-        }
-
+        rateAlert.classList.remove('d-none')
         rateAlert.querySelector('.before').innerHTML = oldListTotal.toFixed(3)
         rateAlert.querySelector('.after').innerHTML = newListTotal.toFixed(3)
         rateAlert.querySelector('.increase').innerHTML = rateIncsease.toFixed(3)
@@ -1465,12 +1467,6 @@ function startMultiSelectMode(element, listtype) {
             checkRow.classList.add('table-custom-dethrone')
         }
     })
-
-    if (localStorage.getItem('rating-analyzer-auto-height') === 'true') {
-        const chartList = document.querySelector(`#chart-list-${listtype}`)
-        chartList.classList.add('chart-list-shrink')
-        chartList.parentElement.scrollIntoView(false)
-    }
 }
 
 function snapChartListView(element) {

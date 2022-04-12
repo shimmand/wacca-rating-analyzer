@@ -1341,13 +1341,13 @@ function getGenreClass(genre) {
 // Get the element based on the genre
 function getGenreElement(genre) {
     const classes = {
-        'ANIME/POP'         : '<span class="lang-jpn">アニメ/POP</span><span class="lang-eng d-none">ANIME/POP</span>',
-        'VOCALOID'          : '<span class="lang-jpn">ボーカロイド</span><span class="lang-eng d-none">VOCALOID</span>',
-        'TOUHOU ARRANGE'    : '<span class="lang-jpn">東方アレンジ</span><span class="lang-eng d-none">TOUHOU ARRANGE</span>',
-        'ANIME MUSICAL'     : '<span class="lang-jpn">2.5次元</span><span class="lang-eng d-none">ANIME MUSICAL</span>',
-        'VARIETY'           : '<span class="lang-jpn">バラエティ</span><span class="lang-eng d-none">VARIETY</span>',
-        'ORIGINAL'          : '<span class="lang-jpn">オリジナル</span><span class="lang-eng d-none">ORIGINAL</span>',
-        'HARDCORE TANO*C'   : '<span class="lang-jpn">HARDCORE TANO*C</span><span class="lang-eng d-none">HARDCORE TANO*C</span>'
+        'ANIME/POP'         : '<span class="lang lang-japanese">アニメ/POP</span><span class="lang lang-english d-none">ANIME/POP</span>',
+        'VOCALOID'          : '<span class="lang lang-japanese">ボーカロイド</span><span class="lang lang-english d-none">VOCALOID</span>',
+        'TOUHOU ARRANGE'    : '<span class="lang lang-japanese">東方アレンジ</span><span class="lang lang-english d-none">TOUHOU ARRANGE</span>',
+        'ANIME MUSICAL'     : '<span class="lang lang-japanese">2.5次元</span><span class="lang lang-english d-none">ANIME MUSICAL</span>',
+        'VARIETY'           : '<span class="lang lang-japanese">バラエティ</span><span class="lang lang-english d-none">VARIETY</span>',
+        'ORIGINAL'          : '<span class="lang lang-japanese">オリジナル</span><span class="lang lang-english d-none">ORIGINAL</span>',
+        'HARDCORE TANO*C'   : '<span class="lang lang-japanese">HARDCORE TANO*C</span><span class="lang lang-english d-none">HARDCORE TANO*C</span>'
     }
 
     return classes[genre]

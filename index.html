@@ -962,7 +962,14 @@
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
+                            <div class="d-flex flex-wrap justify-content-start mt-1 mb-3">
+                                <div class="form-check d-flex align-items-center badge border me-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-wrap-text" onchange="toggleWrapText(this.checked)">
+                                    <label class="form-check-label" for="toggle-wrap-text">
+                                        <span class="lang lang-japanese">文字列を折り返す</span>
+                                        <span class="lang lang-english d-none">Wrap text</span>
+                                    </label>
+                                </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
                                     <label class="form-check-label" for="toggle-column-genre">
@@ -998,7 +1005,7 @@
                                 </div>
                             </div>
                             <button type="button" class="btn btn-white d-none" id="btn-remaining-score-filter" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="remaining-score-filter-1 remaining-score-filter-2"></button>
-                            <div class="collapse multi-collapse remaining-score-filter-options pt-3" id="remaining-score-filter-1">
+                            <div class="collapse multi-collapse remaining-score-filter-options" id="remaining-score-filter-1">
                                 <div class="bg-black bg-opacity-50 p-2">
                                     <div class="d-flex flex-wrap justify-content-start mt-1">
                                         <div class="form-check d-flex align-items-center badge me-1">
@@ -1305,7 +1312,14 @@
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
+                            <div class="d-flex flex-wrap justify-content-start mt-1 mb-3">
+                                <div class="form-check d-flex align-items-center badge border me-1">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-wrap-text" onchange="toggleWrapText(this.checked)">
+                                    <label class="form-check-label" for="toggle-wrap-text">
+                                        <span class="lang lang-japanese">文字列を折り返す</span>
+                                        <span class="lang lang-english d-none">Wrap text</span>
+                                    </label>
+                                </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
                                     <label class="form-check-label" for="toggle-column-genre">
@@ -1340,7 +1354,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="collapse multi-collapse remaining-score-filter-options pt-3" id="remaining-score-filter-1">
+                            <div class="collapse multi-collapse remaining-score-filter-options" id="remaining-score-filter-1">
                                 <div class="bg-black bg-opacity-50 p-2">
                                     <div class="d-flex flex-wrap justify-content-start mt-1">
                                         <div class="form-check d-flex align-items-center badge me-1">

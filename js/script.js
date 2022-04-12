@@ -57,6 +57,26 @@ function initialize() {
                 }
             }
 
+            // Restore the state of wrapping text
+            {
+                const toggles = document.querySelectorAll('#toggle-wrap-text')
+
+                switch (localStorage.getItem('rating-analyzer-wrap-text')) {
+                    case 'true':
+                        toggles.forEach(input => input.checked = true)
+                        toggleWrapText(true)
+                        break
+
+                    case 'false':
+                        toggles.forEach(input => input.checked = false)
+                        toggleWrapText(false)
+                        break
+
+                    default:
+                        break
+                }
+            }
+
             // Restore the display state of "genre" columns
             {
                 const toggles = document.querySelectorAll('#toggle-column-genre')
@@ -944,6 +964,27 @@ function toggleColumnVisibility(columnName, checked) {
                 data.classList.remove('d-none')
             } else {
                 data.classList.add('d-none')
+            }
+        })
+    }
+}
+
+function toggleWrapText(checked) {
+    {
+        const toggles = document.querySelectorAll('#toggle-wrap-text')
+        toggles.forEach(input => input.checked = checked)
+    }
+
+    localStorage.setItem('rating-analyzer-wrap-text', checked)
+
+    {
+        const chartlists = document.querySelectorAll('.chart-list')
+
+        chartlists.forEach(list => {
+            if (checked) {
+                list.classList.remove('text-nowrap')
+            } else {
+                list.classList.add('text-nowrap')
             }
         })
     }

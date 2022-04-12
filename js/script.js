@@ -1395,8 +1395,6 @@ function startMultiSelectMode(element, listtype) {
         return false
     }
 
-    element.classList.toggle('multi-rate-selected')
-
     const tables = document.querySelectorAll('.scoresTable')
     const tableIndex = listtype == 'new' ? 0 : 1
 
@@ -1436,7 +1434,7 @@ function startMultiSelectMode(element, listtype) {
     const newListTotal = newList.reduce((a, b) => a + b, 0)
     const rateIncsease = newListTotal - oldListTotal
     const alreadyListed = tables[tableIndex].querySelectorAll('.table-primary .multi-rate-selected')
-    
+
     {
         const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`)
         rateAlert.classList.remove('d-none')
@@ -1466,6 +1464,8 @@ function startMultiSelectMode(element, listtype) {
         chartList.classList.add('chart-list-shrink')
         chartList.parentElement.scrollIntoView(false)
     }
+
+    element.classList.toggle('multi-rate-selected')
 }
 
 function snapChartListView(element) {

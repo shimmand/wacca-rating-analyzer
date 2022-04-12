@@ -503,9 +503,9 @@ function analyze(){
                         <div>${increases[0]}</div>
                     </div>
                     <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[0] - chart[3]}">
-                        <div class="mx-1 lang-jpn">${(increases[0] !== '-') ? 'あと' : ''}</div>
+                        <div class="mx-1 lang lang-japanese">${(increases[0] !== '-') ? 'あと' : ''}</div>
                         <div>${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
-                        <div class="mx-1 lang-eng d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
+                        <div class="mx-1 lang lang-english d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
                     </div>
                 </td>
                 <td>
@@ -513,9 +513,9 @@ function analyze(){
                         <div>${increases[1]}</div>
                     </div>
                     <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[1] - chart[3]}">
-                        <div class="mx-1 lang-jpn">${(increases[1] !== '-') ? 'あと' : ''}</div>
+                        <div class="mx-1 lang lang-japanese">${(increases[1] !== '-') ? 'あと' : ''}</div>
                         <div>${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
-                        <div class="mx-1 lang-eng d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
+                        <div class="mx-1 lang lang-english d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
                     </div>
                 </td>
                 <td>
@@ -523,9 +523,9 @@ function analyze(){
                         <div>${increases[2]}</div>
                     </div>
                     <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[2] - chart[3]}">
-                        <div class="mx-1 lang-jpn">${(increases[2] !== '-') ? 'あと' : ''}</div>
+                        <div class="mx-1 lang lang-japanese">${(increases[2] !== '-') ? 'あと' : ''}</div>
                         <div>${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
-                        <div class="mx-1 lang-eng d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
+                        <div class="mx-1 lang lang-english d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
                     </div>
                 </td>
                 <td>
@@ -533,9 +533,9 @@ function analyze(){
                         <div>${increases[3]}</div>
                     </div>
                     <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[3] - chart[3]}">
-                        <div class="mx-1 lang-jpn">${(increases[3] !== '-') ? 'あと' : ''}</div>
+                        <div class="mx-1 lang lang-japanese">${(increases[3] !== '-') ? 'あと' : ''}</div>
                         <div>${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
-                        <div class="mx-1 lang-eng d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
+                        <div class="mx-1 lang lang-english d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
                     </div>
                 </td>
                 <td>
@@ -543,9 +543,9 @@ function analyze(){
                         <div>${increases[4]}</div>
                     </div>
                     <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2" data-remaining="${scoreBorders[4] - chart[3]}">
-                        <div class="mx-1 lang-jpn">${(increases[4] !== '-') ? 'あと' : ''}</div>
+                        <div class="mx-1 lang lang-japanese">${(increases[4] !== '-') ? 'あと' : ''}</div>
                         <div>${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
-                        <div class="mx-1 lang-eng d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
+                        <div class="mx-1 lang lang-english d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
                     </div>
                 </td>`
             .replaceAll(/(^ {20}|^\n)/gm, '')

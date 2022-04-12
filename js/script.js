@@ -1437,7 +1437,14 @@ function startMultiSelectMode(element, listtype) {
 
     {
         const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`)
-        rateAlert.classList.remove('d-none')
+        
+        if (rateAlert.classList.contains('d-none')) {
+            rateAlert.classList.remove('d-none')
+            element.classList.add('multi-rate-selected')
+        } else {
+            element.classList.toggle('multi-rate-selected')
+        }
+
         rateAlert.querySelector('.before').innerHTML = oldListTotal.toFixed(3)
         rateAlert.querySelector('.after').innerHTML = newListTotal.toFixed(3)
         rateAlert.querySelector('.increase').innerHTML = rateIncsease.toFixed(3)
@@ -1464,8 +1471,6 @@ function startMultiSelectMode(element, listtype) {
         chartList.classList.add('chart-list-shrink')
         chartList.parentElement.scrollIntoView(false)
     }
-
-    element.classList.toggle('multi-rate-selected')
 }
 
 function snapChartListView(element) {

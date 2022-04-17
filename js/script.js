@@ -214,6 +214,22 @@ function initialize() {
                 changeDisplayScale()
             }
 
+            // Restore the selected state of charts entry
+            {
+                switch (localStorage.getItem('rating-analyzer-charts-entry')) {
+                    case 'newer':
+                        switchChartsEntry('newer')
+                        break
+
+                    case 'older':
+                        switchChartsEntry('older')
+                        break
+
+                    default:
+                        break
+                }
+            }
+
             // Remove the badge if the latest news has been read
             switch (localStorage.getItem('rating-analyzer-last-visited')) {
                 case getLastUpdate():
@@ -1082,6 +1098,16 @@ function startAnalyze() {
     localStorage.removeItem('rating-analyzer-temp')
 
     analyze()
+
+    {
+        const visibleFeedbacks = document.querySelectorAll('.invalid-feedback:not(.d-none)')
+
+        if (visibleFeedbacks.length !== 0) {
+            return
+        }
+
+        document.querySelector('#btn-analyzed-modal').click()
+    }
 }
 
 // Enable data restore mode
@@ -1736,8 +1762,8 @@ function markAsRead() {
 }
 
 /**
- * @param {string | string[]} selector 
- * @param {boolean} isEnabled 
+ * @param {String | String[]} selector 
+ * @param {Boolean} isEnabled 
  */
 function setDisplayNone(selector, isEnabled = true) {
     const elements = document.querySelectorAll(selector)
@@ -1749,4 +1775,47 @@ function setDisplayNone(selector, isEnabled = true) {
             element.classList.remove('d-none')
         }
     })
+}
+
+/**
+ * @param {String} entryName 
+ * @returns {Boolean}
+ */
+function switchChartsEntry(entryName) {
+    const entries = ['newer', 'older']
+    if (entries.indexOf(entryName) === -1) {
+        return false
+    }
+
+    const scrollY = window.scrollY
+
+    setDisplayNone('.box-entry', true)
+    setDisplayNone(`#box-${entryName}`, false)
+    window.scroll(0, scrollY)
+    localStorage.setItem('rating-analyzer-charts-entry', entryName)
+}
+
+function scrollToActiveChartList() {
+    switch (localStorage.getItem('rating-analyzer-charts-entry')) {
+        case 'newer':
+            {
+                const scrollTarget = document.querySelector('#list-newer')
+                scrollTarget.scrollIntoView()
+            }
+            break
+
+        case 'older':
+            {
+                const scrollTarget = document.querySelector('#list-older')
+                scrollTarget.scrollIntoView()
+            }
+            break
+
+        default:
+            {
+                const scrollTarget = document.querySelector('#list-newer')
+                scrollTarget.scrollIntoView()
+            }
+            break
+    }
 }

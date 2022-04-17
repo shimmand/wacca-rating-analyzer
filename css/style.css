@@ -533,6 +533,10 @@ a.multi-rate-selected {
     height: 100%;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 
 /* Bootstrap utils */
 

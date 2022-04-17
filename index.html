@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-04-17" data-dataset="2022-04-17">
+<html lang="ja" class="fs-100" data-update="2022-04-17-01" data-dataset="2022-04-17">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-14" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-17" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-14"></script>
+        <script defer src="js/script.js?date=2022-04-17"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -39,6 +39,48 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-white">
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#38</div>
+                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-17</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            レイアウトを変更
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Change layout
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            いつも旧曲枠を見るためにページの下までスクロールするのが面倒に感じていたので、新曲枠と旧曲枠を切り替えて表示できる機能を付けました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            I always tired of scrolling to the bottom of the page to see the Older Charts, so I added a feature to switch between the Newer Charts and Older Charts entries.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            ヘッダーのタイトルを押すだけで切り替えられます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Simply press the title in the header to switch.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            また、分析または復元が完了した際に表示されるダイアログに「譜面一覧へ移動」ボタンを追加しました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            In addition, I added a "Go to Chart List" button to the dialog that displays when an analysis or restoration is completed.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -785,13 +827,25 @@
                     </div>
                 </div>
             </div>
-            <div id="box-newer" class="bg-gray-800 my-2">
+            <div id="box-newer" class="box-entry bg-gray-800 my-2">
                 <div class="justify-content-between bg-gray-700 sticky-top p-2 shadow">
                     <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <div class="h3 text-heading text-white">
+                        <div class="d-flex flex-wrap align-items-end text-white cursor-pointer" onclick="switchChartsEntry('older')">
+                            <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">新曲枠</span>
                                 <span class="lang lang-english d-none">Newer Charts</span>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="me-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16" style="rotate: 45deg;">
+                                        <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                                        <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                                    </svg>
+                                </div>
+                                <div class="small me-2">
+                                    <span class="lang lang-japanese">旧曲枠</span>
+                                    <span class="lang lang-english d-none">Older</span>
+                                </div>
                             </div>
                         </div>
                         <div class="d-flex bg-white border border-white">
@@ -1144,12 +1198,26 @@
                     </div>
                 </div>
             </div>
-            <div id="box-older" class="bg-gray-800 my-2">
+            <div id="box-older" class="box-entry bg-gray-800 my-2 d-none">
                 <div class="justify-content-between bg-gray-700 sticky-top p-2 shadow">
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="h3 text-heading text-white">
-                            <span class="lang lang-japanese">旧曲枠</span>
-                            <span class="lang lang-english d-none">Older Charts</span>
+                        <div class="d-flex flex-wrap align-items-end text-white cursor-pointer" onclick="switchChartsEntry('newer')">
+                            <div class="h3 text-heading text-nowrap me-1">
+                                <span class="lang lang-japanese">旧曲枠</span>
+                                <span class="lang lang-english d-none">Older Charts</span>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="me-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16" style="rotate: 45deg;">
+                                        <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                                        <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                                    </svg>
+                                </div>
+                                <div class="small me-2">
+                                    <span class="lang lang-japanese">新曲枠</span>
+                                    <span class="lang lang-english d-none">Newer</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="d-flex bg-white border border-white">
                             <div class="d-flex align-items-center badge">
@@ -1212,7 +1280,7 @@
                             <span class="lang lang-english d-none">Statistics</span>
                         </div>
                         <div class="mx-2 p-2">
-                            <div class="small text-white m-0 py-1">
+                            <div class="small text-white">
                                 <span class="lang lang-japanese">
                                     旧曲枠におけるレーティング対象とレーティング候補の内訳です。
                                     レーティングが高くなるほど、上位のスコア帯の占める割合が高くなります。
@@ -1982,6 +2050,46 @@
                     </div>
                 </div>
             </div>
+            <button id="btn-analyzed-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#analyzed-modal"></button>
+            <div class="modal fade" id="analyzed-modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
+                        <div class="modal-header">
+                            <div class="modal-title h3 text-heading text-white">
+                                <span class="lang lang-japanese">分析完了</span>
+                                <span class="lang lang-english d-none">Analysis Complete</span>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            <div class="d-flex align-items-center mt-0">
+                                <div class="mt-0 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-lg bi-check-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                    </svg>
+                                </div>
+                                <div class="mt-0">
+                                    <div class="m-2 px-1">
+                                        <span class="lang lang-japanese">プレイデータの分析が正常に完了しました。</span>
+                                        <span class="lang lang-english d-none">Your play data has been successfully analyzed.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal" onclick="scrollToActiveChartList()">
+                                <span class="lang lang-japanese">譜面一覧へ移動</span>
+                                <span class="lang lang-english d-none">Go to Chart List</span>
+                            </button>
+                            <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
+                                <span class="lang lang-japanese">閉じる</span>
+                                <span class="lang lang-english d-none">Close</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <button id="btn-restored-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#restored-modal"></button>
             <div class="modal fade" id="restored-modal" tabindex="-1">
                 <div class="modal-dialog">
@@ -2015,6 +2123,10 @@
                             </div>
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal" onclick="scrollToActiveChartList()">
+                                <span class="lang lang-japanese">譜面一覧へ移動</span>
+                                <span class="lang lang-english d-none">Go to Chart List</span>
+                            </button>
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>

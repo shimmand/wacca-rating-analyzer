@@ -41,7 +41,7 @@ function initialize() {
 
             // Restore the state of wrapping text
             {
-                const toggles = document.querySelectorAll('#toggle-wrap-text')
+                const toggles = document.querySelectorAll('#wrap-text-toggle')
 
                 switch (localStorage.getItem('rating-analyzer-wrap-text')) {
                     case 'true':
@@ -61,7 +61,7 @@ function initialize() {
 
             // Restore the fixed display state of columns
             {
-                const toggles = document.querySelectorAll('#toggle-column-sticky')
+                const toggles = document.querySelectorAll('#column-sticky-toggle')
 
                 switch (localStorage.getItem('rating-analyzer-table-fixed')) {
                     case 'true':
@@ -81,7 +81,7 @@ function initialize() {
 
             // Restore the display state of "genre" columns
             {
-                const toggles = document.querySelectorAll('#toggle-column-genre')
+                const toggles = document.querySelectorAll('#column-genre-toggle')
 
                 switch (localStorage.getItem('rating-analyzer-column-genre')) {
                     case 'true':
@@ -100,7 +100,7 @@ function initialize() {
             }
 
             {
-                const toggles = document.querySelectorAll('#toggle-auto-height')
+                const toggles = document.querySelectorAll('#auto-height-toggle')
 
                 switch (localStorage.getItem('rating-analyzer-auto-height')) {
                     case 'true':
@@ -120,7 +120,7 @@ function initialize() {
 
             // Restore the display state of English song titles
             {
-                const toggles = document.querySelectorAll('#toggle-alt-title')
+                const toggles = document.querySelectorAll('#alt-title-toggle')
 
                 switch (localStorage.getItem('rating-analyzer-alt-title')) {
                     case 'true':
@@ -489,11 +489,11 @@ function analyze(){
             tableRow.classList.add('border-3', 'border-top-0', 'border-end-0', 'border-start-0')
 
             const genreColClass =
-                document.querySelector('#toggle-column-genre').checked ?
+                document.querySelector('#column-genre-toggle').checked ?
                 'genre-column' :
                 'genre-column d-none'
             const altTitleClass =
-                document.querySelector('#toggle-alt-title').checked ?
+                document.querySelector('#alt-title-toggle').checked ?
                 'd-flex alt-title' :
                 'd-flex alt-title d-none'
             const remainingScoreClass =
@@ -771,7 +771,7 @@ function analyze(){
     playdata.classList.add('is-valid')
     
     {
-        const isTableSticky = (document.querySelector('#toggle-column-sticky').checked == true)
+        const isTableSticky = (document.querySelector('#column-sticky-toggle').checked == true)
         toggleColumnFixed(isTableSticky)
     }
 
@@ -1009,7 +1009,7 @@ function toggleColumnVisibility(columnName, checked) {
 
 function toggleWrapText(checked) {
     {
-        const toggles = document.querySelectorAll('#toggle-wrap-text')
+        const toggles = document.querySelectorAll('#wrap-text-toggle')
         toggles.forEach(input => input.checked = checked)
     }
 
@@ -1031,7 +1031,7 @@ function toggleWrapText(checked) {
 // Toggle fixed view of columns
 function toggleColumnFixed(checked) {
     {
-        const toggles = document.querySelectorAll('#toggle-column-sticky')
+        const toggles = document.querySelectorAll('#column-sticky-toggle')
         toggles.forEach(input => input.checked = checked)
     }
 
@@ -1499,7 +1499,7 @@ function snapChartListView(element) {
 
 function toggleAutoHeight(checked) {
     {
-        const toggles = document.querySelectorAll('#toggle-auto-height')
+        const toggles = document.querySelectorAll('#auto-height-toggle')
         toggles.forEach(input => input.checked = checked)
     }
 

@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-17" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-18" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-17"></script>
+        <script defer src="js/script.js?date=2022-04-18"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -1044,36 +1044,36 @@
                             </div>
                             <div class="d-flex flex-wrap justify-content-start mt-1 mb-3">
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-wrap-text" onchange="toggleWrapText(this.checked)" checked>
-                                    <label class="form-check-label" for="toggle-wrap-text">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="wrap-text-toggle" onchange="toggleWrapText(this.checked)" checked>
+                                    <label class="form-check-label" for="wrap-text-toggle">
                                         <span class="lang lang-japanese">文字列を折り返す</span>
                                         <span class="lang lang-english d-none">Wrap text</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-sticky" onchange="toggleColumnFixed(this.checked)">
-                                    <label class="form-check-label" for="toggle-column-sticky">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
+                                    <label class="form-check-label" for="column-sticky-toggle">
                                         <span class="lang lang-japanese">曲名を左に固定</span>
                                         <span class="lang lang-english d-none">Fix "Song Title" column left</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-auto-height" onchange="toggleAutoHeight(this.checked)">
-                                    <label class="form-check-label" for="toggle-auto-height">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="auto-height-toggle" onchange="toggleAutoHeight(this.checked)">
+                                    <label class="form-check-label" for="auto-height-toggle">
                                         <span class="lang lang-japanese">高さを画面に合わせる</span>
                                         <span class="lang lang-english d-none">Fit height to screen</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
-                                    <label class="form-check-label" for="toggle-column-genre">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
+                                    <label class="form-check-label" for="column-genre-toggle">
                                         <span class="lang lang-japanese">ジャンル列を表示</span>
                                         <span class="lang lang-english d-none">Show "Genre" column</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-alt-title" onchange="toggleDisplayState('alt-title', this.checked)">
-                                    <label class="form-check-label" for="toggle-alt-title">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle">
                                         <span class="lang lang-japanese">英語の曲名も表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
                                     </label>
@@ -1415,36 +1415,36 @@
                             </div>
                             <div class="d-flex flex-wrap justify-content-start mt-1 mb-3">
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-wrap-text" onchange="toggleWrapText(this.checked)" checked>
-                                    <label class="form-check-label" for="toggle-wrap-text">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="wrap-text-toggle" onchange="toggleWrapText(this.checked)" checked>
+                                    <label class="form-check-label" for="wrap-text-toggle">
                                         <span class="lang lang-japanese">文字列を折り返す</span>
                                         <span class="lang lang-english d-none">Wrap text</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-sticky" onchange="toggleColumnFixed(this.checked)">
-                                    <label class="form-check-label" for="toggle-column-sticky">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-sticky-toggle" onchange="toggleColumnFixed(this.checked)">
+                                    <label class="form-check-label" for="column-sticky-toggle">
                                         <span class="lang lang-japanese">曲名を左に固定</span>
                                         <span class="lang lang-english d-none">Fix "Song Title" column left</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-auto-height" onchange="toggleAutoHeight(this.checked)">
-                                    <label class="form-check-label" for="toggle-auto-height">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="auto-height-toggle" onchange="toggleAutoHeight(this.checked)">
+                                    <label class="form-check-label" for="auto-height-toggle">
                                         <span class="lang lang-japanese">高さを画面に合わせる</span>
                                         <span class="lang lang-english d-none">Fit height to screen</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-column-genre" onchange="toggleColumnVisibility('genre', this.checked);">
-                                    <label class="form-check-label" for="toggle-column-genre">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="column-genre-toggle" onchange="toggleColumnVisibility('genre', this.checked);">
+                                    <label class="form-check-label" for="column-genre-toggle">
                                         <span class="lang lang-japanese">ジャンル列を表示</span>
                                         <span class="lang lang-english d-none">Show "Genre" column</span>
                                     </label>
                                 </div>
                                 <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="toggle-alt-title" onchange="toggleDisplayState('alt-title', this.checked)">
-                                    <label class="form-check-label" for="toggle-alt-title">
+                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle">
                                         <span class="lang lang-japanese">英語の曲名も表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
                                     </label>

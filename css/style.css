@@ -413,6 +413,7 @@ tr.table-custom-dethrone {
     word-wrap: break-word;
     max-width: calc((100vw - 3rem - 2px) / 2);
     overflow-x: hidden;
+    background-color: var(--bs-table-bg);
 }
 
 .sticky-row:not(.sticky-disabled) {
@@ -435,6 +436,14 @@ a.multi-rate-selected {
 
 .increase::before {
     content: '+';
+}
+
+.chart-list.table-responsive > table {
+    min-width: 65rem;
+}
+
+.table > :not(caption) > * > * {
+    border-bottom: 0;
 }
 
 
@@ -518,19 +527,6 @@ a.multi-rate-selected {
 
 .multi-rate-alert {
     height: 4rem;
-}
-
-.chart-list {
-    height: calc(100vh - 4.5rem - 2px);
-}
-
-.chart-list-shrink {
-    height: calc(100vh - 9rem - 2px);
-}
-
-.chart-list-grow {
-    min-height: calc(100vh - 4.5rem - 2px);
-    height: 100%;
 }
 
 .cursor-pointer {

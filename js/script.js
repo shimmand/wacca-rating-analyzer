@@ -39,39 +39,18 @@ function initialize() {
                     break
             }
 
-            // Restore the state of wrapping text
             {
-                const toggles = document.querySelectorAll('#wrap-text-toggle')
+                const toggles = document.querySelectorAll('#large-table-toggle')
 
-                switch (localStorage.getItem('rating-analyzer-wrap-text')) {
+                switch (localStorage.getItem('rating-analyzer-large-table')) {
                     case 'true':
                         toggles.forEach(input => input.checked = true)
-                        toggleWrapText(true)
+                        switchLargeTable(true)
                         break
 
                     case 'false':
                         toggles.forEach(input => input.checked = false)
-                        toggleWrapText(false)
-                        break
-
-                    default:
-                        break
-                }
-            }
-
-            // Restore the fixed display state of columns
-            {
-                const toggles = document.querySelectorAll('#column-sticky-toggle')
-
-                switch (localStorage.getItem('rating-analyzer-table-fixed')) {
-                    case 'true':
-                        toggles.forEach(input => input.checked = true)
-                        toggleColumnFixed(true)
-                        break
-
-                    case 'false':
-                        toggles.forEach(input => input.checked = false)
-                        toggleColumnFixed(false)
+                        switchLargeTable(false)
                         break
 
                     default:
@@ -92,25 +71,6 @@ function initialize() {
                     case 'false':
                         toggles.forEach(input => input.checked = false)
                         toggleColumnVisibility('genre', false)
-                        break
-
-                    default:
-                        break
-                }
-            }
-
-            {
-                const toggles = document.querySelectorAll('#auto-height-toggle')
-
-                switch (localStorage.getItem('rating-analyzer-auto-height')) {
-                    case 'true':
-                        toggles.forEach(input => input.checked = true)
-                        toggleAutoHeight(true)
-                        break
-
-                    case 'false':
-                        toggles.forEach(input => input.checked = false)
-                        toggleAutoHeight(false)
                         break
 
                     default:
@@ -426,13 +386,9 @@ function analyze(){
         chartsList.forEach((chart, index) => {
             const tempRow = document.createElement('tr')
             const tableRow = scoresTables[listIndex].appendChild(tempRow)
-            let headerElm = 'td'
-            let rateDataElm = 'td class="normal-single-rate"'
 
             if (index < targetsLength[listIndex]) {
-                headerElm = 'th scope="row" class="text-chromatic"'
-                rateDataElm = 'td class="top-single-rate"'
-                tableRow.classList.add('table-primary')
+                tableRow.classList.add('table-primary', 'top-single-rate')
                 varSingleRateLowers[listIndex] = Number(chart[6])
                 varSummedRateCurrents[listIndex] += Number(chart[6])
             }
@@ -488,105 +444,169 @@ function analyze(){
 
             tableRow.classList.add('border-3', 'border-top-0', 'border-end-0', 'border-start-0')
 
-            const genreColClass =
-                document.querySelector('#column-genre-toggle').checked ?
-                'genre-column' :
-                'genre-column d-none'
-            const altTitleClass =
-                document.querySelector('#alt-title-toggle').checked ?
-                'd-flex alt-title' :
-                'd-flex alt-title d-none'
-            const remainingScoreClass =
-                document.querySelector('#remaining-score-toggle').checked ?
-                'remaining-score' :
-                'remaining-score d-none'
-
             const code = `
-                <${headerElm}>${index + 1}</td>
-                <td class="${genreColClass}"><div class="badge border ${getGenreClass(getGenre(chart[0]))} text-shadow-black w-100"><span>${getGenreElement(getGenre(chart[0]))}</span></div></td>
-                <td class="sticky-column">
-                    <div class="d-flex">
-                        <div class="vstack my-1 me-1">
-                            <div class="badge border ${getGenreClass(getGenre(chart[0]))} m-0 p-0 w-hrem h-hrem"><span></span></div>
-                            <div class="badge border ${chart[1]} m-0 p-0 w-hrem h-hrem"><span></span></div>
+            <td>
+                <div class="list-item--small row d-lg-none d-xl-none d-xxl-none">
+                    <div class="list-item--index-wrapper col-2 d-flex">
+                        <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
+                        <div class="list-item--index fs-3">${index + 1}</div>
+                    </div>
+                    <div class="list-item--content-wrapper col-10">
+                        <div class="list-item--top-wrapper d-flex row">
+                            <div class="list-item--song-wrapper col-8 d-flex justify-content-start align-items-center">
+                                <div class="list-item--title-wrapper">
+                                    <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
+                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                </div>
+                            </div>
+                            <div class="list-item--score-wrapper col-4 d-flex justify-content-end align-items-center">
+                                <div class="list-item--score fs-3 pe-1">${chart[3]}</div>
+                            </div>
                         </div>
-                        <div class="w-100">${chart[0]}</div>
-                    </div>
-                    <div class="${altTitleClass}">
-                        <div class="vstack my-1 me-1">
-                            <div class="m-0 p-0 w-hrem h-hrem"><span></span></div>
-                            <div class="m-0 p-0 w-hrem h-hrem"><span></span></div>
+                        <div class="list-item--middle-wrapper d-flex justify-content-between m-1">
+                            <div class="list-item--badge-difficulty badge border ${chart[1]}">${chart[2]}</div>
+                            <div class="list-item--constant">${chart[4]}</div>
+                            <div class="list-item--constant-label text-gray-500">&times;</div>
+                            <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
+                            <div class="list-item--modifier-label text-gray-500">=</div>
+                            <div class="list-item--rating-now">${chart[6]}</div>
                         </div>
-                        <div class="text-gray-500 small w-100">${getEnglishTitle(chart[0])}</div>
+                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 m-1 mt-2">
+                            <div class="col">
+                                <div class="list-item--increase-label text-gray-500 small">950k</div>
+                                <div class="list-item--increase">${increases[0]}</div>
+                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[0] - chart[3]}">
+                                    <div class="mx-1 lang lang-japanese">${(increases[0] !== '-') ? 'あと' : ''}</div>
+                                    <div>${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
+                                    <div class="mx-1 lang lang-english d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="list-item--increase-label text-gray-500 small">960k</div>
+                                <div class="list-item--increase">${increases[1]}</div>
+                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[1] - chart[3]}">
+                                    <div class="mx-1 lang lang-japanese">${(increases[1] !== '-') ? 'あと' : ''}</div>
+                                    <div>${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
+                                    <div class="mx-1 lang lang-english d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="list-item--increase-label text-gray-500 small">970k</div>
+                                <div class="list-item--increase">${increases[2]}</div>
+                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[2] - chart[3]}">
+                                    <div class="mx-1 lang lang-japanese">${(increases[2] !== '-') ? 'あと' : ''}</div>
+                                    <div>${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
+                                    <div class="mx-1 lang lang-english d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="list-item--increase-label text-gray-500 small">980k</div>
+                                <div class="list-item--increase">${increases[3]}</div>
+                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[3] - chart[3]}">
+                                    <div class="mx-1 lang lang-japanese">${(increases[3] !== '-') ? 'あと' : ''}</div>
+                                    <div>${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
+                                    <div class="mx-1 lang lang-english d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="list-item--increase-label text-gray-500 small">990k</div>
+                                <div class="list-item--increase">${increases[4]}</div>
+                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2" data-remaining="${scoreBorders[4] - chart[3]}">
+                                    <div class="mx-1 lang lang-japanese">${(increases[4] !== '-') ? 'あと' : ''}</div>
+                                    <div>${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
+                                    <div class="mx-1 lang lang-english d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </td>
-                <td><div class="badge border difficulty ${chart[1]}">${chart[2]}</div></td>
-                <td>${chart[3]}</td>
-                <td>
-                    <div class="d-flex justify-content-between">
-                        <div>${chart[4]}</div>
-                        <div class="ms-1 text-gray-500">&times;</div>
+                </div>
+                <div class="list-item--large row d-none d-lg-flex d-xl-flex d-xxl-flex">
+                    <div class="list-item--index-wrapper col-1 d-flex">
+                        <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
+                        <div class="list-item--index fs-3">${index + 1}</div>
                     </div>
-                </td>
-                <td>
-                    <div class="d-flex justify-content-between">
-                        <div>${chart[5].toFixed(2)}</div>
-                        <div class="ms-1 text-gray-500">=</div>
+                    <div class="list-item--content-wrapper col-11 row mt-1">
+                        <div class="list-item--heading-wrapper col row sticky-column">
+                            <div class="list-item--song-wrapper">
+                                <div class="list-item--title-wrapper">
+                                    <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
+                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                </div>
+                                <div class="list-item--badge-wrapper">
+                                    <div class="list-item--badge-difficulty badge border ${chart[1]}">${chart[2]}</div>
+                                    <div class="list-item--badge-genre badge border ${getGenreClass(getGenre(chart[0]))} text-shadow-black"><span>${getGenreElement(getGenre(chart[0]))}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-item--main-wrapper col">
+                            <div class="list-item--result-wrapper row m-0">
+                                <div class="list-item--score-wrapper col px-0">
+                                    <div class="list-item--score">${chart[3]}</div>
+                                </div>
+                                <div class="list-item--constant-wrapper col d-flex justify-content-between px-0">
+                                    <div class="list-item--constant">${chart[4]}</div>
+                                    <div class="list-item--constant-label text-gray-500 small mx-2">&times;</div>
+                                </div>
+                                <div class="list-item--modifier-wrapper col d-flex justify-content-between px-0">
+                                    <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
+                                    <div class="list-item--modifier-label text-gray-500 small mx-2">=</div>
+                                </div>
+                                <div class="list-item--rating-wrapper col px-0">
+                                    <div class="list-item--rating-now">${chart[6]}</div>
+                                </div>
+                                <div class="list-item--rating-max-wrapper col px-0">
+                                    <div class="list-item--rating-max">${chart[7]}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-item--sub-wrapper col">
+                            <div class="list-item--increase-wrapper row">
+                                <div class="col px-0">
+                                    <div class="list-item--increase">${increases[0]}</div>
+                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[0] - chart[3]}">
+                                        <div class="mx-1 lang lang-japanese">${(increases[0] !== '-') ? 'あと' : ''}</div>
+                                        <div>${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
+                                        <div class="mx-1 lang lang-english d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
+                                    </div>
+                                </div>
+                                <div class="col px-0">
+                                    <div class="list-item--increase">${increases[1]}</div>
+                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[1] - chart[3]}">
+                                        <div class="mx-1 lang lang-japanese">${(increases[1] !== '-') ? 'あと' : ''}</div>
+                                        <div>${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
+                                        <div class="mx-1 lang lang-english d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
+                                    </div>
+                                </div>
+                                <div class="col px-0">
+                                    <div class="list-item--increase">${increases[2]}</div>
+                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[2] - chart[3]}">
+                                        <div class="mx-1 lang lang-japanese">${(increases[2] !== '-') ? 'あと' : ''}</div>
+                                        <div>${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
+                                        <div class="mx-1 lang lang-english d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
+                                    </div>
+                                </div>
+                                <div class="col px-0">
+                                    <div class="list-item--increase">${increases[3]}</div>
+                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[3] - chart[3]}">
+                                        <div class="mx-1 lang lang-japanese">${(increases[3] !== '-') ? 'あと' : ''}</div>
+                                        <div>${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
+                                        <div class="mx-1 lang lang-english d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
+                                    </div>
+                                </div>
+                                <div class="col px-0">
+                                    <div class="list-item--increase">${increases[4]}</div>
+                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2" data-remaining="${scoreBorders[4] - chart[3]}">
+                                        <div class="mx-1 lang lang-japanese">${(increases[4] !== '-') ? 'あと' : ''}</div>
+                                        <div>${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
+                                        <div class="mx-1 lang lang-english d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </td>
-                <${rateDataElm}>${chart[6]}</td>
-                <td>${chart[7]}</td>
-                <td>
-                    <div>
-                        <div>${increases[0]}</div>
-                    </div>
-                    <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[0] - chart[3]}">
-                        <div class="mx-1 lang lang-japanese">${(increases[0] !== '-') ? 'あと' : ''}</div>
-                        <div>${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
-                        <div class="mx-1 lang lang-english d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <div>${increases[1]}</div>
-                    </div>
-                    <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[1] - chart[3]}">
-                        <div class="mx-1 lang lang-japanese">${(increases[1] !== '-') ? 'あと' : ''}</div>
-                        <div>${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
-                        <div class="mx-1 lang lang-english d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <div>${increases[2]}</div>
-                    </div>
-                    <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[2] - chart[3]}">
-                        <div class="mx-1 lang lang-japanese">${(increases[2] !== '-') ? 'あと' : ''}</div>
-                        <div>${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
-                        <div class="mx-1 lang lang-english d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <div>${increases[3]}</div>
-                    </div>
-                    <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[3] - chart[3]}">
-                        <div class="mx-1 lang lang-japanese">${(increases[3] !== '-') ? 'あと' : ''}</div>
-                        <div>${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
-                        <div class="mx-1 lang lang-english d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <div>${increases[4]}</div>
-                    </div>
-                    <div class="${remainingScoreClass} d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2" data-remaining="${scoreBorders[4] - chart[3]}">
-                        <div class="mx-1 lang lang-japanese">${(increases[4] !== '-') ? 'あと' : ''}</div>
-                        <div>${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
-                        <div class="mx-1 lang lang-english d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
-                    </div>
-                </td>`
-            .replaceAll(/(^ {20}|^\n)/gm, '')
+                </div>
+            </td>`
+            .replaceAll(/(^ {12}|^\n)/gm, '')
 
             tableRow.innerHTML = code
             tableRow.setAttribute('data-index', index + 1)
@@ -608,7 +628,7 @@ function analyze(){
         })
 
         {
-            const remainingScores = document.querySelectorAll('.remaining-score')
+            const remainingScores = document.querySelectorAll('.list-item--remaining-score')
 
             remainingScores.forEach(div => {
                 if (div.innerText.trim() === '') {
@@ -618,19 +638,46 @@ function analyze(){
         }
 
         {
-            const remainingScores = document.querySelectorAll('.remaining-score')
+            const targetRows = document.querySelectorAll('.scoresTable > tr')
 
-            remainingScores.forEach(div => {
-                const tr = div.parentElement.parentElement
+            targetRows.forEach(row => {
+                const remainingScores = row.querySelectorAll('.list-item--remaining-score')
 
-                if (tr.dataset.remainingMin === '') {
-                    tr.dataset.remainingMin = div.dataset.remaining
-                } else {
-                    if (Number(div.dataset.remaining) < Number(tr.dataset.remainingMin)) {
-                        tr.dataset.remainingMin = div.dataset.remaining
-                    }
+                if (remainingScores.length > 0) {
+                    remainingScores.forEach(div => {
+                        if (row.dataset.remainingMin === '') {
+                            row.dataset.remainingMin = div.dataset.remaining
+                        } else {
+                            if (Number(div.dataset.remaining) < Number(row.dataset.remainingMin)) {
+                                row.dataset.remainingMin = div.dataset.remaining
+                            }
+                        }
+                    })
                 }
             })
+        }
+
+        {
+            switch (localStorage.getItem('rating-analyzer-large-table')) {
+                case 'true':
+                    switchLargeTable(true)
+                    break
+
+                case 'false':
+                    switchLargeTable(false)
+                    break
+
+                default:
+                    break
+            }
+        }
+
+        if (localStorage.getItem('rating-analyzer-alt-title') !== 'true') {
+            setDisplayNone('.list-item--alt-title', true)
+        }
+
+        if (localStorage.getItem('rating-analyzer-remaining-score') !== 'true') {
+            setDisplayNone('.list-item--remaining-score', true)
         }
 
         {
@@ -769,11 +816,6 @@ function analyze(){
     }
 
     playdata.classList.add('is-valid')
-    
-    {
-        const isTableSticky = (document.querySelector('#column-sticky-toggle').checked == true)
-        toggleColumnFixed(isTableSticky)
-    }
 
     if (localStorage.getItem('rating-analyzer-prev') != playdata.value) {
         const date = new Date()
@@ -1060,7 +1102,7 @@ function toggleDisplayState(className, checked) {
     localStorage.setItem(`rating-analyzer-${className}`, checked)
 
     {
-        const targets = document.querySelectorAll(`.${className}`)
+        const targets = document.querySelectorAll(`.list-item--${className}`)
 
         targets.forEach(data => {
             if (checked) {
@@ -1374,7 +1416,7 @@ function getGenreElement(genre) {
         'ANIME MUSICAL'     : '<span class="lang lang-japanese">2.5次元</span><span class="lang lang-english d-none">ANIME MUSICAL</span>',
         'VARIETY'           : '<span class="lang lang-japanese">バラエティ</span><span class="lang lang-english d-none">VARIETY</span>',
         'ORIGINAL'          : '<span class="lang lang-japanese">オリジナル</span><span class="lang lang-english d-none">ORIGINAL</span>',
-        'HARDCORE TANO*C'   : '<span class="lang lang-japanese">HARDCORE TANO*C</span><span class="lang lang-english d-none">HARDCORE TANO*C</span>'
+        'HARDCORE TANO*C'   : '<span class="lang lang-japanese">TANO*C</span><span class="lang lang-english d-none">TANO*C</span>'
     }
 
     return classes[genre]
@@ -1414,37 +1456,52 @@ function quitMultiSelectMode(listtype) {
 
 // Start the Multi Select Mode
 function startMultiSelectMode(element, listtype) {
-    if (element.tagName != 'A') {
+    if (element.tagName !== 'A') {
         return false
     }
 
-    if (listtype.match(/new|old/) == null) {
+    if (listtype.match(/new|old/) === null) {
+        return false
+    }
+
+    const parent = element.parentElement.parentElement.parentElement.parentElement.parentElement
+    
+    let tableType = ''
+    const types = ['list-item--small', 'list-item--large']
+
+    types.forEach(type => {
+        if (parent.classList.contains(type)) {
+            tableType = type
+        }
+    })
+
+    if (tableType === '') {
         return false
     }
 
     element.classList.toggle('multi-rate-selected')
 
     const tables = document.querySelectorAll('.scoresTable')
-    const tableIndex = listtype == 'new' ? 0 : 1
+    const tableIndex = listtype === 'new' ? 0 : 1
 
-    const topSingleRates = tables[tableIndex].querySelectorAll('td.top-single-rate')
+    const topSingleRates = tables[tableIndex].querySelectorAll(`.top-single-rate .${tableType} .list-item--rating-now`)
     let topSinleRatesArr =
         Array
         .from(topSingleRates)
-        .map(td => Number(td.innerHTML))
+        .map(div => Number(div.innerHTML))
         .sort((a, b) => b - a)
 
-    const selectedRates = tables[tableIndex].querySelectorAll('a.multi-rate-selected')
+    const selectedRates = tables[tableIndex].querySelectorAll(`.${tableType} a.multi-rate-selected`)
     const selectedRatesArr =
         Array
         .from(selectedRates)
-        .map(td => Number(td.dataset.rating))
+        .map(div => Number(div.dataset.rating))
         .sort((a, b) => b - a)
 
     const replaceRatesArr =
         Array
         .from(selectedRates)
-        .map(td => Number(td.dataset.now))
+        .map(div => Number(div.dataset.now))
         .sort((a, b) => b - a)
     const oldListTotal = topSinleRatesArr.reduce((a, b) => a + b, 0)
 
@@ -1462,7 +1519,7 @@ function startMultiSelectMode(element, listtype) {
         .splice(0, topSingleRates.length)
     const newListTotal = newList.reduce((a, b) => a + b, 0)
     const rateIncsease = newListTotal - oldListTotal
-    const alreadyListed = tables[tableIndex].querySelectorAll('.table-primary .multi-rate-selected')
+    const alreadyListed = tables[tableIndex].querySelectorAll(`.table-primary .${tableType} .multi-rate-selected`)
     
     {
         const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`)
@@ -1474,14 +1531,14 @@ function startMultiSelectMode(element, listtype) {
 
     tables[tableIndex]
     .querySelectorAll('.table-custom-dethrone')
-    .forEach(td => td.classList.remove('table-custom-dethrone'))
+    .forEach(tr => tr.classList.remove('table-custom-dethrone'))
 
     selectedRatesArr.forEach((_value, index) => {
         const fixedIndex = topSingleRates.length + alreadyListed.length - index - 1
         const checkRow = tables[tableIndex].querySelectorAll('tr')[fixedIndex]
         
         if (
-            (checkRow.querySelectorAll('.multi-rate-selected').length == 0) &&
+            (checkRow.querySelectorAll('.multi-rate-selected').length === 0) &&
             (fixedIndex <= topSingleRates.length - 1)
         ) {
             checkRow.classList.add('table-custom-dethrone')
@@ -1817,5 +1874,54 @@ function scrollToActiveChartList() {
                 scrollTarget.scrollIntoView()
             }
             break
+    }
+}
+
+function switchLargeTable(isEnabled) {
+    {
+        const toggles = document.querySelectorAll('#large-table-toggle')
+        toggles.forEach(input => input.checked = isEnabled)
+    }
+
+    {
+        localStorage.setItem('rating-analyzer-large-table', isEnabled)
+    }
+
+    {
+        const chartsLists = document.querySelectorAll('.chart-list')
+
+        chartsLists.forEach(list => {
+            
+            if (isEnabled) {
+                list.classList.add('table-responsive')
+            } else {
+                list.classList.remove('table-responsive')
+            }
+        })
+    }
+
+    {
+        const smalls = document.querySelectorAll('.list-item--small')
+
+        smalls.forEach(div => {
+            if (isEnabled) {
+                div.classList.add('d-none')
+            } else {
+                div.classList.remove('d-none')
+            }
+        })
+    }
+
+    {
+        const larges = document.querySelectorAll('.list-item--large')
+
+        larges.forEach(div => {
+            if (isEnabled) {
+                div.classList.remove(...div.classList)
+                div.classList.add('list-item--large', 'row')
+            } else {
+                div.classList.add('list-item--large', 'row', 'd-none', 'd-lg-flex', 'd-xl-flex', 'd-xxl-flex')
+            }
+        })
     }
 }

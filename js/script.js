@@ -98,31 +98,6 @@ function initialize() {
                 }
             }
 
-            // Restore the display state of score left to border
-            {
-                const toggles = document.querySelectorAll('#remaining-score-toggle')
-
-                switch (localStorage.getItem('rating-analyzer-remaining-score')) {
-                    case 'true':
-                        toggles.forEach(input => input.checked = true)
-                        {
-                            const selector = '.remaining-score-filter-options'
-                            document.querySelectorAll(selector).forEach(div => div.classList.add('show'))
-                        }
-                        setDisplayNone('.icon-remaining-score-filter', false)
-                        toggleDisplayState('remaining-score', true)
-                        break
-
-                    case 'false':
-                        toggles.forEach(input => input.checked = false)
-                        toggleDisplayState('remaining-score', false)
-                        break
-
-                    default:
-                        break
-                }
-            }
-
             // Restore the selected state of the type filter
             {
                 const types = ['targets', 'candidates', 'others']
@@ -452,17 +427,17 @@ function analyze(){
                         <div class="list-item--index fs-3">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
-                        <div class="list-item--top-wrapper d-flex row px-1">
-                            <div class="list-item--song-wrapper col-7 col-sm-8 col-md-9 d-flex justify-content-start align-items-center">
+                        <div class="list-item--top-wrapper p-1">
+                            <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold">${chart[0]}</div>
                                 </div>
                             </div>
-                            <div class="list-item--badge-wrapper col-5 col-sm-4 col-md-3">
-                                <div class="list-item--badge-stack vstack d-flex justify-content-end border">
-                                    <div class="list-item--badge-difficulty badge m-0 ${chart[1]}">${chart[2]}</div>
-                                    <div class="list-item--badge-genre badge m-0 ${getGenreClass(getGenre(chart[0]))} text-shadow-black text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
+                            <div class="list-item--badge-wrapper">
+                                <div class="list-item--badge-stack d-flex">
+                                    <div class="list-item--badge-difficulty badge border m-0 ${chart[1]}">${chart[2]}</div>
+                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small">${getGenreElement(getGenre(chart[0]))}</div>
                                 </div>
                             </div>
                         </div>
@@ -496,7 +471,7 @@ function analyze(){
                                 <div class="list-item--rating-now">${chart[6]}</div>
                             </div>
                         </div>
-                        <div class="list-item--graph-wrapper m-1 px-2">
+                        <div class="list-item--graph-wrapper px-2 m-1">
                             <div class="progress rounded-0" style="height: 0.25rem;">
                                 <div class="progress-bar bg-lt-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 940000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="940000" aria-valuemax="950000"></div>
                                 <div class="progress-bar bg-is-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 950000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="950000" aria-valuemax="960000"></div>
@@ -539,16 +514,18 @@ function analyze(){
                         <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
                         <div class="list-item--index fs-3">${index + 1}</div>
                     </div>
-                    <div class="list-item--content-wrapper col-11 row mt-1">
+                    <div class="list-item--content-wrapper col-11 row my-1">
                         <div class="list-item--heading-wrapper col row sticky-column">
-                            <div class="list-item--song-wrapper">
+                            <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold">${chart[0]}</div>
                                 </div>
                                 <div class="list-item--badge-wrapper">
-                                    <div class="list-item--badge-difficulty badge border ${chart[1]}">${chart[2]}</div>
-                                    <div class="list-item--badge-genre badge border ${getGenreClass(getGenre(chart[0]))} text-shadow-black"><span>${getGenreElement(getGenre(chart[0]))}</span></div>
+                                    <div class="list-item--badge-stack row align-items-center m-0">
+                                        <div class="list-item--badge-difficulty col-6 col-md-5 col-xl-4 badge border m-0 ${chart[1]}">${chart[2]}</div>
+                                        <div class="list-item--badge-genre col-6 col-md-7 col-xl-8 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -559,11 +536,11 @@ function analyze(){
                                 </div>
                                 <div class="list-item--constant-wrapper col d-flex justify-content-between px-0">
                                     <div class="list-item--constant">${chart[4]}</div>
-                                    <div class="list-item--constant-label text-gray-500 small mx-2">&times;</div>
+                                    <div class="list-item--constant-label text-gray-500 mx-2">&times;</div>
                                 </div>
                                 <div class="list-item--modifier-wrapper col d-flex justify-content-between px-0">
                                     <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
-                                    <div class="list-item--modifier-label text-gray-500 small mx-2">=</div>
+                                    <div class="list-item--modifier-label text-gray-500 mx-2">=</div>
                                 </div>
                                 <div class="list-item--rating-wrapper col px-0">
                                     <div class="list-item--rating-now">${chart[6]}</div>
@@ -668,10 +645,6 @@ function analyze(){
 
         if (localStorage.getItem('rating-analyzer-alt-title') !== 'true') {
             setDisplayNone('.list-item--alt-title', true)
-        }
-
-        if (localStorage.getItem('rating-analyzer-remaining-score') !== 'true') {
-            setDisplayNone('.list-item--remaining-score', true)
         }
 
         {
@@ -1410,7 +1383,7 @@ function getGenreElement(genre) {
         'ANIME MUSICAL'     : '<span class="lang lang-japanese">2.5次元</span><span class="lang lang-english d-none">ANIME MUSICAL</span>',
         'VARIETY'           : '<span class="lang lang-japanese">バラエティ</span><span class="lang lang-english d-none">VARIETY</span>',
         'ORIGINAL'          : '<span class="lang lang-japanese">オリジナル</span><span class="lang lang-english d-none">ORIGINAL</span>',
-        'HARDCORE TANO*C'   : '<span class="lang lang-japanese">TANO*C</span><span class="lang lang-english d-none">TANO*C</span>'
+        'HARDCORE TANO*C'   : '<span class="lang lang-japanese">HARDCORE TANO*C</span><span class="lang lang-english d-none">HARDCORE TANO*C</span>'
     }
 
     return classes[genre]

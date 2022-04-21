@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-21" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-22" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-21"></script>
+        <script defer src="js/script.js?date=2022-04-22"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -116,92 +116,90 @@
                                                 <div class="lang lang-english d-none">Example</div>
                                             </div>
                                             <div class="my-2 px-1">
-                                                <div class="list-item--small row" style="background-color: #561435;">
-                                                    <div class="list-item--small row">
-                                                        <div class="list-item--index-wrapper col-2 d-flex">
-                                                            <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
-                                                            <div class="list-item--index fs-3">18</div>
+                                                <div class="list-item--small row d-lg-none d-xl-none d-xxl-none" style="background-color: #561435;">
+                                                    <div class="list-item--index-wrapper col-2 d-flex">
+                                                        <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
+                                                        <div class="list-item--index fs-3">45</div>
+                                                    </div>
+                                                    <div class="list-item--content-wrapper col-10">
+                                                        <div class="list-item--top-wrapper p-1">
+                                                            <div class="list-item--song-wrapper">
+                                                                <div class="list-item--title-wrapper">
+                                                                    <div class="list-item--alt-title text-gray-500 small d-none"></div>
+                                                                    <div class="list-item--title fw-bold">XTREME</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="list-item--badge-wrapper">
+                                                                <div class="list-item--badge-stack d-flex">
+                                                                    <div class="list-item--badge-difficulty badge border m-0 inferno">INFERNO 14</div>
+                                                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small"><span class="lang lang-japanese d-none">HARDCORE TANO*C</span><span class="lang lang-english">HARDCORE TANO*C</span></div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="list-item--content-wrapper col-10">
-                                                            <div class="list-item--top-wrapper d-flex row px-1">
-                                                                <div class="list-item--song-wrapper col-7 col-sm-8 col-md-9 d-flex justify-content-start align-items-center">
-                                                                    <div class="list-item--title-wrapper">
-                                                                        <div class="list-item--alt-title text-gray-500 small d-none">EPHEMERA</div>
-                                                                        <div class="list-item--title fw-bold">EPHMR</div>
-                                                                    </div>
+                                                        <div class="list-item--middle-wrapper d-flex row m-1">
+                                                            <div class="list-item--score-wrapper col p-0">
+                                                                <div class="list-item--score-label text-gray-500 small">
+                                                                    <span class="lang lang-japanese d-none">スコア</span>
+                                                                    <span class="lang lang-english">Score</span>
                                                                 </div>
-                                                                <div class="list-item--badge-wrapper col-5 col-sm-4 col-md-3">
-                                                                    <div class="list-item--badge-stack vstack d-flex justify-content-end border">
-                                                                        <div class="list-item--badge-difficulty badge m-0 inferno">INFERNO 14</div>
-                                                                        <div class="list-item--badge-genre badge m-0 bg-tanoc text-shadow-black text-truncate"><span class="lang lang-japanese">TANO*C</span><span class="lang lang-english d-none">TANO*C</span></div>
-                                                                    </div>
-                                                                </div>
+                                                                <div class="list-item--score">984339</div>
                                                             </div>
-                                                            <div class="list-item--middle-wrapper d-flex row m-1">
-                                                                <div class="list-item--score-wrapper col p-0">
-                                                                    <div class="list-item--score-label text-gray-500 small">
-                                                                        <span class="lang lang-japanese">スコア</span>
-                                                                        <span class="lang lang-english d-none">Score</span>
-                                                                    </div>
-                                                                    <div class="list-item--score">980350</div>
+                                                            <div class="list-item--constant-wrapper col p-0">
+                                                                <div class="list-item--score-label text-gray-500 small">
+                                                                    <span class="lang lang-japanese d-none">定数</span>
+                                                                    <span class="lang lang-english">Constant</span>
                                                                 </div>
-                                                                <div class="list-item--constant-wrapper col p-0">
-                                                                    <div class="list-item--score-label text-gray-500 small">
-                                                                        <span class="lang lang-japanese">定数</span>
-                                                                        <span class="lang lang-english d-none">Constant</span>
-                                                                    </div>
-                                                                    <div class="list-item--constant">14.1</div>
-                                                                </div>
-                                                                <div class="list-item--modifier-wrapper col p-0">
-                                                                    <div class="list-item--score-label text-gray-500 small">
-                                                                        <span class="lang lang-japanese">係数</span>
-                                                                        <span class="lang lang-english d-none">Modifier</span>
-                                                                    </div>
-                                                                    <div class="list-item--modifier">3.75</div>
-                                                                </div>
-                                                                <div class="list-item--rating-now-wrapper col p-0">
-                                                                    <div class="list-item--score-label text-gray-500 small">
-                                                                        <span class="lang lang-japanese">Rating</span>
-                                                                        <span class="lang lang-english d-none">Rating</span>
-                                                                    </div>
-                                                                    <div class="list-item--rating-now">52.875</div>
-                                                                </div>
+                                                                <div class="list-item--constant">14.0</div>
                                                             </div>
-                                                            <div class="list-item--graph-wrapper m-1 px-2">
-                                                                <div class="progress rounded-0" style="height: 0.25rem;">
-                                                                    <div class="progress-bar bg-lt-950" role="progressbar" style="width: 80.7%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="940000" aria-valuemax="950000"></div>
-                                                                    <div class="progress-bar bg-is-950" role="progressbar" style="width: 60.7%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="950000" aria-valuemax="960000"></div>
-                                                                    <div class="progress-bar bg-is-960" role="progressbar" style="width: 40.7%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="960000" aria-valuemax="970000"></div>
-                                                                    <div class="progress-bar bg-is-970" role="progressbar" style="width: 20.699999999999996%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="970000" aria-valuemax="980000"></div>
-                                                                    <div class="progress-bar bg-is-980" role="progressbar" style="width: 0.7000000000000001%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="980000" aria-valuemax="990000"></div>
+                                                            <div class="list-item--modifier-wrapper col p-0">
+                                                                <div class="list-item--score-label text-gray-500 small">
+                                                                    <span class="lang lang-japanese d-none">係数</span>
+                                                                    <span class="lang lang-english">Modifier</span>
                                                                 </div>
+                                                                <div class="list-item--modifier">3.75</div>
                                                             </div>
-                                                            <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 px-2 m-1">
-                                                                <div class="col p-0">
-                                                                    <div class="list-item--increase-label text-gray-500 small">950k</div>
-                                                                    <div class="list-item--increase">-</div>
-                                                                    
+                                                            <div class="list-item--rating-now-wrapper col p-0">
+                                                                <div class="list-item--score-label text-gray-500 small">
+                                                                    <span class="lang lang-japanese d-none">Rating</span>
+                                                                    <span class="lang lang-english">Rating</span>
                                                                 </div>
-                                                                <div class="col p-0">
-                                                                    <div class="list-item--increase-label text-gray-500 small">960k</div>
-                                                                    <div class="list-item--increase">-</div>
-                                                                    
-                                                                </div>
-                                                                <div class="col p-0">
-                                                                    <div class="list-item--increase-label text-gray-500 small">970k</div>
-                                                                    <div class="list-item--increase">-</div>
-                                                                    
-                                                                </div>
-                                                                <div class="col p-0">
-                                                                    <div class="list-item--increase-label text-gray-500 small">980k</div>
-                                                                    <div class="list-item--increase">-</div>
-                                                                    
-                                                                </div>
-                                                                <div class="col p-0">
-                                                                    <div class="list-item--increase-label text-gray-500 small">990k</div>
-                                                                    <div class="list-item--increase"><span class="badge bg-white text-black rounded-0 box-shadow-black" ><span class="rate-counter rate-counter-exclude">+3.200</span><span class="rate-counter rate-counter-include d-none">REMOVE</span></span></div>
-                                                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="9650">9650</div>
-                                                                </div>
+                                                                <div class="list-item--rating-now">52.500</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-item--graph-wrapper px-2 m-1">
+                                                            <div class="progress rounded-0" style="height: 0.25rem;">
+                                                                <div class="progress-bar bg-lt-950" role="progressbar" style="width: 88.678%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="940000" aria-valuemax="950000"></div>
+                                                                <div class="progress-bar bg-is-950" role="progressbar" style="width: 68.678%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="950000" aria-valuemax="960000"></div>
+                                                                <div class="progress-bar bg-is-960" role="progressbar" style="width: 48.678%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="960000" aria-valuemax="970000"></div>
+                                                                <div class="progress-bar bg-is-970" role="progressbar" style="width: 28.677999999999997%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="970000" aria-valuemax="980000"></div>
+                                                                <div class="progress-bar bg-is-980" role="progressbar" style="width: 8.677999999999999%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="980000" aria-valuemax="990000"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 px-2 m-1">
+                                                            <div class="col p-0">
+                                                                <div class="list-item--increase-label text-gray-500 small">950k</div>
+                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
+                                                                
+                                                            </div>
+                                                            <div class="col p-0">
+                                                                <div class="list-item--increase-label text-gray-500 small">960k</div>
+                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
+                                                                
+                                                            </div>
+                                                            <div class="col p-0">
+                                                                <div class="list-item--increase-label text-gray-500 small">970k</div>
+                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
+                                                                
+                                                            </div>
+                                                            <div class="col p-0">
+                                                                <div class="list-item--increase-label text-gray-500 small">980k</div>
+                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
+                                                                
+                                                            </div>
+                                                            <div class="col p-0">
+                                                                <div class="list-item--increase-label text-gray-500 small">990k</div>
+                                                                <div class="list-item--increase" data-parent="list-item--small"><span class="badge bg-white text-black rounded-0 box-shadow-black"><span class="rate-counter rate-counter-exclude">+2.800</span><span class="rate-counter rate-counter-include d-none">REMOVE</span></span></div>
+                                                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="5661">5661</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -312,268 +310,6 @@
                                                 <div class="my-1">
                                                     <span class="badge border text-gray-500 text-decoration-line-through">HARD 11</span>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#36</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-09</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            譜面一覧に新しい機能を追加
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            New features added to Chart List
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-0">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            譜面一覧において、スコアボーダーとハイスコアの差を表示できるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            In the Chart List, the difference between the score border and the high score can now be shown.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            この機能は、「レーティング候補」の譜面が対象です。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            This feature only applies to "Rating Candidate" charts.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            有効にするには、表示オプションの「ボーダーまでの残りスコアを表示」にチェックを付けてください。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            To enable, please check "Show remaining score to border" in the Display Options.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="border bg-black bg-opacity-50 my-1 p-2">
-                                            <div class="d-flex border-bottom px-1 my-1">
-                                                <div class="lang lang-japanese">表示例</div>
-                                                <div class="lang lang-english d-none">Example</div>
-                                            </div>
-                                            <div class="my-1 d-flex justify-content-center">
-                                                <div class="pe-1" style="background-color: #561435;">
-                                                    <div>
-                                                        <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+1.200</p></div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-between text-gray-500 small px-1 text-end">
-                                                        <div class="me-1 lang lang-japanese">あと</div>
-                                                        <div>550</div>
-                                                        <div class="ms-1 lang lang-english d-none">left</div>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-1" style="background-color: #561435;">
-                                                    <div>
-                                                        <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+2.400</p></div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-between text-gray-500 small px-1 text-end">
-                                                        <div class="me-1 lang lang-japanese">あと</div>
-                                                        <div>10550</div>
-                                                        <div class="ms-1 lang lang-english d-none">left</div>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-1" style="background-color: #561435;">
-                                                    <div>
-                                                        <div><p class="badge bg-white text-black rounded-0 box-shadow-black m-1">+3.600</p></div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-between text-gray-500 small px-1 text-end">
-                                                        <div class="me-1 lang lang-japanese">あと</div>
-                                                        <div>20550</div>
-                                                        <div class="ms-1 lang lang-english d-none">left</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            また、「ボーダーまでの残りスコアを表示」が有効である場合のみ、ボーダーまでの残りスコアで譜面を絞り込むこともできます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            You can also filter the charts by the remaining score to the border only if "Show remaining score to border" is enabled.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            例えば、残りスコアが5000以下の譜面のみを絞り込んで表示することができます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            For example, you can filter to show only those charts with a remaining score of 5000 or less.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            使用するには、「残りスコアでフィルター」にチェックを付け、隣にある選択肢から任意のスコアを選択してください。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            To use this feature, check the "Filter by remaining score" and select any score from the options next to it.
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#35</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-03-30</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            定数テーブルを改良
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Improved constant table
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-0">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            定数テーブルのレイアウトを変更しました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Changed the layout of the constants table.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            今までは曲ごとに行が分かれて表示されていましたが、譜面ごとに表示されるようになります。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Previously, the rows were displayed separately for each song, but this has been changed to each chart.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            また、検索機能での条件の入力が少し簡単になりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Also, entering criteria in the search feature has been made a little easier.
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#34</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-03-23</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            新しい譜面へ対応
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            New charts are supported
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-0">
-                                    <div class="my-1">
-                                        <div>Candy Star</div>
-                                        <div>
-                                            <span class="badge border normal">NORMAL 3</span>
-                                            <span class="badge border hard">HARD 9</span>
-                                            <span class="badge border expert">EXPERT 13</span>
-                                            <span class="badge border">
-                                                <span class="lang lang-japanese">新曲枠</span>
-                                                <span class="lang lang-english d-none">NEWER</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div>Onigami</div>
-                                        <div>
-                                            <span class="badge border normal">NORMAL 4</span>
-                                            <span class="badge border hard">HARD 9</span>
-                                            <span class="badge border expert">EXPERT 13</span>
-                                            <span class="badge border">
-                                                <span class="lang lang-japanese">新曲枠</span>
-                                                <span class="lang lang-english d-none">NEWER</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#33</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-03-17</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            URLが新しくなりました
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            URL has been changed
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-0">
-                                    <div class="my-1">
-                                        <span class="badge bg-white text-dark">
-                                            <span class="lang lang-japanese">メモ</span>
-                                            <span class="lang lang-english d-none">NOTE</span>
-                                        </span>
-                                        <span class="lang lang-japanese">
-                                            特に必要な操作はありません。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            No action is required.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            このプログラムのURLが変更されました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            The URL of this program has been changed.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            この変更により、設定が初期化されることはありません。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            This will not cause your settings to be initialized.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="bg-gray-800 p-2 text-break">
-                                            <div>
-                                                <span class="badge bg-white text-black">
-                                                    <span class="lang lang-japanese">変更前</span>
-                                                    <span class="lang lang-english d-none">BEFORE</span>
-                                                </span>
-                                            </div>
-                                            <div>
-                                                https://shimmand.github.io/waccaSupportTools/analyzePlayData/rating.html
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="bg-gray-800 p-2 text-break">
-                                            <div>
-                                                <span class="badge bg-white text-black">
-                                                    <span class="lang lang-japanese">変更後</span>
-                                                    <span class="lang lang-english d-none">AFTER</span>
-                                                </span>
-                                            </div>
-                                            <div>
-                                                https://shimmand.github.io/wacca-rating-analyzer/index.html
                                             </div>
                                         </div>
                                     </div>
@@ -1153,7 +889,7 @@
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1 mb-3">
+                            <div class="d-flex flex-wrap justify-content-start mx-1">
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="large-table-toggle" onchange="switchLargeTable(this.checked)">
                                     <label class="form-check-label" for="large-table-toggle">
@@ -1168,21 +904,8 @@
                                         <span class="lang lang-english d-none">Show English song title</span>
                                     </label>
                                 </div>
-                                <div class="position-relative form-check d-flex align-items-center badge border me-0">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-toggle" onchange="toggleDisplayState('remaining-score', this.checked); toggleRemainingScoreFilter(this.checked);">
-                                    <label class="form-check-label" for="remaining-score-toggle">
-                                        <span class="lang lang-japanese">ボーダーまでの残りスコアを表示</span>
-                                        <span class="lang lang-english d-none">Show remaining score to border</span>
-                                    </label>
-                                    <div class="icon-remaining-score-filter position-absolute top-100 start-50 d-none" style="transform: translateY(25%)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                        </svg>
-                                    </div>
-                                </div>
                             </div>
-                            <button type="button" class="btn btn-white d-none" id="btn-remaining-score-filter" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="remaining-score-filter-1 remaining-score-filter-2"></button>
-                            <div class="collapse multi-collapse remaining-score-filter-options" id="remaining-score-filter-1">
+                            <div class="remaining-score-filter-options mt-2" id="remaining-score-filter-1">
                                 <div class="bg-black bg-opacity-50 p-2">
                                     <div class="d-flex flex-wrap justify-content-start mt-1">
                                         <div class="form-check d-flex align-items-center badge me-1">
@@ -1211,13 +934,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="badge pb-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                                        </svg>
-                                        <span class="lang lang-japanese">この項目の選択状態は保存されません。</span>
-                                        <span class="lang lang-english d-none">Selected status of this item will not be saved.</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1233,21 +949,11 @@
                                                     </div>
                                                     <div class="list-item--content-wrapper col-11 row mt-1">
                                                         <div class="list-item--heading-wrapper col row sticky-column">
-                                                            <div class="list-item--song-wrapper">
+                                                            <div class="list-item--song-wrapper p-0">
                                                                 <div class="list-item--title-wrapper">
                                                                     <div class="list-item--title small">
                                                                         <span class="lang lang-japanese">曲名</span>
                                                                         <span class="lang lang-english d-none">Song Title</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="list-item--badge-wrapper">
-                                                                    <div class="list-item--badge-difficulty badge border">
-                                                                        <span class="lang lang-japanese">難易度</span>
-                                                                        <span class="lang lang-english d-none">Difficulty</span>
-                                                                    </div>
-                                                                    <div class="list-item--badge-genre badge border">
-                                                                        <span class="lang lang-japanese">ジャンル</span>
-                                                                        <span class="lang lang-english d-none">Genre</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1533,7 +1239,7 @@
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1 mb-3">
+                            <div class="d-flex flex-wrap justify-content-start mx-1">
                                 <div class="form-check d-flex align-items-center badge border me-1">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="large-table-toggle" onchange="switchLargeTable(this.checked)">
                                     <label class="form-check-label" for="large-table-toggle">
@@ -1548,20 +1254,8 @@
                                         <span class="lang lang-english d-none">Show English song title</span>
                                     </label>
                                 </div>
-                                <div class="position-relative form-check d-flex align-items-center badge border me-0">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-toggle" onchange="toggleDisplayState('remaining-score', this.checked); document.querySelector('#btn-remaining-score-filter').click(); toggleRemainingScoreFilter(this.checked);">
-                                    <label class="form-check-label" for="remaining-score-toggle">
-                                        <span class="lang lang-japanese">ボーダーまでの残りスコアを表示</span>
-                                        <span class="lang lang-english d-none">Show remaining score to border</span>
-                                    </label>
-                                    <div class="icon-remaining-score-filter position-absolute top-100 start-50 d-none" style="transform: translateY(25%)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                        </svg>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="collapse multi-collapse remaining-score-filter-options" id="remaining-score-filter-1">
+                            <div class="remaining-score-filter-options mt-2" id="remaining-score-filter-1">
                                 <div class="bg-black bg-opacity-50 p-2">
                                     <div class="d-flex flex-wrap justify-content-start mt-1">
                                         <div class="form-check d-flex align-items-center badge me-1">
@@ -1590,13 +1284,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="badge pb-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                                        </svg>
-                                        <span class="lang lang-japanese">この項目の選択状態は保存されません。</span>
-                                        <span class="lang lang-english d-none">Selected status of this item will not be saved.</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1612,21 +1299,11 @@
                                                     </div>
                                                     <div class="list-item--content-wrapper col-11 row mt-1">
                                                         <div class="list-item--heading-wrapper col row sticky-column">
-                                                            <div class="list-item--song-wrapper">
+                                                            <div class="list-item--song-wrapper p-0">
                                                                 <div class="list-item--title-wrapper">
                                                                     <div class="list-item--title small">
                                                                         <span class="lang lang-japanese">曲名</span>
                                                                         <span class="lang lang-english d-none">Song Title</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="list-item--badge-wrapper">
-                                                                    <div class="list-item--badge-difficulty badge border">
-                                                                        <span class="lang lang-japanese">難易度</span>
-                                                                        <span class="lang lang-english d-none">Difficulty</span>
-                                                                    </div>
-                                                                    <div class="list-item--badge-genre badge border">
-                                                                        <span class="lang lang-japanese">ジャンル</span>
-                                                                        <span class="lang lang-english d-none">Genre</span>
                                                                     </div>
                                                                 </div>
                                                             </div>

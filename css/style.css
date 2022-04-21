@@ -446,6 +446,11 @@ a.multi-rate-selected {
     border-bottom: 0;
 }
 
+.list-item--remaining-score::before {
+    content: '/';
+    padding-right: 0.25rem;
+}
+
 
 /* Box */
 

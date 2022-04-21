@@ -400,7 +400,7 @@ function analyze(){
 
                 if ((chart[5] < multiplier) && ((chart[4] * multiplier) > varSingleRateLowers[listIndex])) {
                     return `
-                        <a class="badge rate-increase rounded-0 box-shadow-black m-1" 
+                        <a class="badge rate-increase rounded-0 box-shadow-black" 
                         href="#" onclick="startMultiSelectMode(this, '${targetsName[listIndex]}'); return false;" 
                         data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}">
                         <span class="rate-counter rate-counter-exclude">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
@@ -452,70 +452,84 @@ function analyze(){
                         <div class="list-item--index fs-3">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
-                        <div class="list-item--top-wrapper d-flex row">
-                            <div class="list-item--song-wrapper col-8 d-flex justify-content-start align-items-center">
+                        <div class="list-item--top-wrapper d-flex row px-1">
+                            <div class="list-item--song-wrapper col-7 col-sm-8 col-md-9 d-flex justify-content-start align-items-center">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold">${chart[0]}</div>
                                 </div>
                             </div>
-                            <div class="list-item--score-wrapper col-4 d-flex justify-content-end align-items-center">
-                                <div class="list-item--score fs-3 pe-1">${chart[3]}</div>
+                            <div class="list-item--badge-wrapper col-5 col-sm-4 col-md-3">
+                                <div class="list-item--badge-stack vstack d-flex justify-content-end border">
+                                    <div class="list-item--badge-difficulty badge m-0 ${chart[1]}">${chart[2]}</div>
+                                    <div class="list-item--badge-genre badge m-0 ${getGenreClass(getGenre(chart[0]))} text-shadow-black text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="list-item--middle-wrapper d-flex justify-content-between m-1">
-                            <div class="list-item--badge-difficulty badge border ${chart[1]}">${chart[2]}</div>
-                            <div class="list-item--constant">${chart[4]}</div>
-                            <div class="list-item--constant-label text-gray-500">&times;</div>
-                            <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
-                            <div class="list-item--modifier-label text-gray-500">=</div>
-                            <div class="list-item--rating-now">${chart[6]}</div>
+                        <div class="list-item--middle-wrapper d-flex row m-1">
+                            <div class="list-item--score-wrapper col p-0">
+                                <div class="list-item--score-label text-gray-500 small">
+                                    <span class="lang lang-japanese">スコア</span>
+                                    <span class="lang lang-english d-none">Score</span>
+                                </div>
+                                <div class="list-item--score">${chart[3]}</div>
+                            </div>
+                            <div class="list-item--constant-wrapper col p-0">
+                                <div class="list-item--score-label text-gray-500 small">
+                                    <span class="lang lang-japanese">定数</span>
+                                    <span class="lang lang-english d-none">Constant</span>
+                                </div>
+                                <div class="list-item--constant">${chart[4]}</div>
+                            </div>
+                            <div class="list-item--modifier-wrapper col p-0">
+                                <div class="list-item--score-label text-gray-500 small">
+                                    <span class="lang lang-japanese">係数</span>
+                                    <span class="lang lang-english d-none">Modifier</span>
+                                </div>
+                                <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
+                            </div>
+                            <div class="list-item--rating-now-wrapper col p-0">
+                                <div class="list-item--score-label text-gray-500 small">
+                                    <span class="lang lang-japanese">Rating</span>
+                                    <span class="lang lang-english d-none">Rating</span>
+                                </div>
+                                <div class="list-item--rating-now">${chart[6]}</div>
+                            </div>
                         </div>
-                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 m-1 mt-2">
-                            <div class="col">
+                        <div class="list-item--graph-wrapper m-1 px-2">
+                            <div class="progress rounded-0" style="height: 0.25rem;">
+                                <div class="progress-bar bg-lt-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 940000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="940000" aria-valuemax="950000"></div>
+                                <div class="progress-bar bg-is-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 950000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="950000" aria-valuemax="960000"></div>
+                                <div class="progress-bar bg-is-960${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 960000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="960000" aria-valuemax="970000"></div>
+                                <div class="progress-bar bg-is-970${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 970000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="970000" aria-valuemax="980000"></div>
+                                <div class="progress-bar bg-is-980${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 980000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="980000" aria-valuemax="990000"></div>
+                            </div>
+                        </div>
+                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 px-2 m-1">
+                            <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">950k</div>
-                                <div class="list-item--increase">${increases[0]}</div>
-                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[0] - chart[3]}">
-                                    <div class="mx-1 lang lang-japanese">${(increases[0] !== '-') ? 'あと' : ''}</div>
-                                    <div>${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
-                                    <div class="mx-1 lang lang-english d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
-                                </div>
+                                <div class="list-item--increase" data-parent="list-item--small">${increases[0]}</div>
+                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
                             </div>
-                            <div class="col">
+                            <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">960k</div>
-                                <div class="list-item--increase">${increases[1]}</div>
-                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[1] - chart[3]}">
-                                    <div class="mx-1 lang lang-japanese">${(increases[1] !== '-') ? 'あと' : ''}</div>
-                                    <div>${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
-                                    <div class="mx-1 lang lang-english d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
-                                </div>
+                                <div class="list-item--increase" data-parent="list-item--small">${increases[1]}</div>
+                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
                             </div>
-                            <div class="col">
+                            <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">970k</div>
-                                <div class="list-item--increase">${increases[2]}</div>
-                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[2] - chart[3]}">
-                                    <div class="mx-1 lang lang-japanese">${(increases[2] !== '-') ? 'あと' : ''}</div>
-                                    <div>${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
-                                    <div class="mx-1 lang lang-english d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
-                                </div>
+                                <div class="list-item--increase" data-parent="list-item--small">${increases[2]}</div>
+                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
                             </div>
-                            <div class="col">
+                            <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">980k</div>
-                                <div class="list-item--increase">${increases[3]}</div>
-                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[3] - chart[3]}">
-                                    <div class="mx-1 lang lang-japanese">${(increases[3] !== '-') ? 'あと' : ''}</div>
-                                    <div>${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
-                                    <div class="mx-1 lang lang-english d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
-                                </div>
+                                <div class="list-item--increase" data-parent="list-item--small">${increases[3]}</div>
+                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
                             </div>
-                            <div class="col">
+                            <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">990k</div>
-                                <div class="list-item--increase">${increases[4]}</div>
-                                <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2" data-remaining="${scoreBorders[4] - chart[3]}">
-                                    <div class="mx-1 lang lang-japanese">${(increases[4] !== '-') ? 'あと' : ''}</div>
-                                    <div>${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
-                                    <div class="mx-1 lang lang-english d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
-                                </div>
+                                <div class="list-item--increase" data-parent="list-item--small">${increases[4]}</div>
+                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
                             </div>
                         </div>
                     </div>
@@ -562,44 +576,24 @@ function analyze(){
                         <div class="list-item--sub-wrapper col">
                             <div class="list-item--increase-wrapper row">
                                 <div class="col px-0">
-                                    <div class="list-item--increase">${increases[0]}</div>
-                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[0] - chart[3]}">
-                                        <div class="mx-1 lang lang-japanese">${(increases[0] !== '-') ? 'あと' : ''}</div>
-                                        <div>${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
-                                        <div class="mx-1 lang lang-english d-none">${(increases[0] !== '-') ? 'left' : ''}</div>
-                                    </div>
+                                    <div class="list-item--increase" data-parent="list-item--large">${increases[0]}</div>
+                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase">${increases[1]}</div>
-                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[1] - chart[3]}">
-                                        <div class="mx-1 lang lang-japanese">${(increases[1] !== '-') ? 'あと' : ''}</div>
-                                        <div>${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
-                                        <div class="mx-1 lang lang-english d-none">${(increases[1] !== '-') ? 'left' : ''}</div>
-                                    </div>
+                                    <div class="list-item--increase" data-parent="list-item--large">${increases[1]}</div>
+                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase">${increases[2]}</div>
-                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[2] - chart[3]}">
-                                        <div class="mx-1 lang lang-japanese">${(increases[2] !== '-') ? 'あと' : ''}</div>
-                                        <div>${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
-                                        <div class="mx-1 lang lang-english d-none">${(increases[2] !== '-') ? 'left' : ''}</div>
-                                    </div>
+                                    <div class="list-item--increase" data-parent="list-item--large">${increases[2]}</div>
+                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase">${increases[3]}</div>
-                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap" data-remaining="${scoreBorders[3] - chart[3]}">
-                                        <div class="mx-1 lang lang-japanese">${(increases[3] !== '-') ? 'あと' : ''}</div>
-                                        <div>${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
-                                        <div class="mx-1 lang lang-english d-none">${(increases[3] !== '-') ? 'left' : ''}</div>
-                                    </div>
+                                    <div class="list-item--increase" data-parent="list-item--large">${increases[3]}</div>
+                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase">${increases[4]}</div>
-                                    <div class="list-item--remaining-score d-flex justify-content-between text-gray-500 small w-100 text-end text-nowrap pe-2" data-remaining="${scoreBorders[4] - chart[3]}">
-                                        <div class="mx-1 lang lang-japanese">${(increases[4] !== '-') ? 'あと' : ''}</div>
-                                        <div>${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
-                                        <div class="mx-1 lang lang-english d-none">${(increases[4] !== '-') ? 'left' : ''}</div>
-                                    </div>
+                                    <div class="list-item--increase" data-parent="list-item--large">${increases[4]}</div>
+                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
                                 </div>
                             </div>
                         </div>
@@ -1464,18 +1458,10 @@ function startMultiSelectMode(element, listtype) {
         return false
     }
 
-    const parent = element.parentElement.parentElement.parentElement.parentElement.parentElement
-    
-    let tableType = ''
-    const types = ['list-item--small', 'list-item--large']
+    const parent = element.parentElement
+    const tableType = parent.dataset.parent
 
-    types.forEach(type => {
-        if (parent.classList.contains(type)) {
-            tableType = type
-        }
-    })
-
-    if (tableType === '') {
+    if (tableType === null) {
         return false
     }
 
@@ -1923,5 +1909,10 @@ function switchLargeTable(isEnabled) {
                 div.classList.add('list-item--large', 'row', 'd-none', 'd-lg-flex', 'd-xl-flex', 'd-xxl-flex')
             }
         })
+    }
+
+    {
+        quitMultiSelectMode('new')
+        quitMultiSelectMode('old')
     }
 }

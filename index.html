@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-20" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-21" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-20"></script>
+        <script defer src="js/script.js?date=2022-04-21"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -116,81 +116,92 @@
                                                 <div class="lang lang-english d-none">Example</div>
                                             </div>
                                             <div class="my-2 px-1">
-                                                <div class="list-item--small row" style="background-color: #055160;">
-                                                    <div class="list-item--index-wrapper col-2 d-flex">
-                                                        <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
-                                                        <div class="list-item--index fs-3">1</div>
-                                                    </div>
-                                                    <div class="list-item--content-wrapper col-10 mt-1">
-                                                        <div class="list-item--heading-wrapper d-flex row">
-                                                            <div class="list-item--song-wrapper col-8">
-                                                                <div class="list-item--title-wrapper">
-                                                                    <div class="list-item--alt-title text-gray-500 small d-none">Color Code</div>
-                                                                    <div class="list-item--title fw-bold">#1f1e33</div>
-                                                                </div>
-                                                                <div class="list-item--badge-wrapper">
-                                                                    <div class="list-item--badge-difficulty badge border expert">EXPERT 13+</div>
-                                                                    <div class="list-item--badge-genre badge border bg-variety text-shadow-black"><span><span class="lang lang-japanese d-none">バラエティ</span><span class="lang lang-english">VARIETY</span></span></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="list-item--rating-wrapper col-4">
-                                                                <div class="list-item--rating-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">Rating</span>
-                                                                    <span class="lang lang-english">Rating</span>
-                                                                </div>
-                                                                <div class="list-item--rating-now fs-3">55.600</div>
-                                                            </div>
+                                                <div class="list-item--small row" style="background-color: #561435;">
+                                                    <div class="list-item--small row">
+                                                        <div class="list-item--index-wrapper col-2 d-flex">
+                                                            <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
+                                                            <div class="list-item--index fs-3">18</div>
                                                         </div>
-                                                        <div class="list-item--result-wrapper row">
-                                                            <div class="list-item--score-wrapper col">
-                                                                <div class="list-item--score-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">スコア</span>
-                                                                    <span class="lang lang-english">Score</span>
+                                                        <div class="list-item--content-wrapper col-10">
+                                                            <div class="list-item--top-wrapper d-flex row px-1">
+                                                                <div class="list-item--song-wrapper col-7 col-sm-8 col-md-9 d-flex justify-content-start align-items-center">
+                                                                    <div class="list-item--title-wrapper">
+                                                                        <div class="list-item--alt-title text-gray-500 small d-none">EPHEMERA</div>
+                                                                        <div class="list-item--title fw-bold">EPHMR</div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="list-item--score">990352</div>
-                                                            </div>
-                                                            <div class="list-item--constant-wrapper col">
-                                                                <div class="list-item--constant-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">定数</span>
-                                                                    <span class="lang lang-english">Constant</span>
+                                                                <div class="list-item--badge-wrapper col-5 col-sm-4 col-md-3">
+                                                                    <div class="list-item--badge-stack vstack d-flex justify-content-end border">
+                                                                        <div class="list-item--badge-difficulty badge m-0 inferno">INFERNO 14</div>
+                                                                        <div class="list-item--badge-genre badge m-0 bg-tanoc text-shadow-black text-truncate"><span class="lang lang-japanese">TANO*C</span><span class="lang lang-english d-none">TANO*C</span></div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="list-item--constant">13.9</div>
                                                             </div>
-                                                            <div class="list-item--modifier-wrapper col">
-                                                                <div class="list-item--modifier-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">係数</span>
-                                                                    <span class="lang lang-english">Modifier</span>
+                                                            <div class="list-item--middle-wrapper d-flex row m-1">
+                                                                <div class="list-item--score-wrapper col p-0">
+                                                                    <div class="list-item--score-label text-gray-500 small">
+                                                                        <span class="lang lang-japanese">スコア</span>
+                                                                        <span class="lang lang-english d-none">Score</span>
+                                                                    </div>
+                                                                    <div class="list-item--score">980350</div>
                                                                 </div>
-                                                                <div class="list-item--modifier">4.00</div>
-                                                            </div>
-                                                            <div class="list-item--rating-max-wrapper col">
-                                                                <div class="list-item--rating-max-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">上限</span>
-                                                                    <span class="lang lang-english">Max</span>
+                                                                <div class="list-item--constant-wrapper col p-0">
+                                                                    <div class="list-item--score-label text-gray-500 small">
+                                                                        <span class="lang lang-japanese">定数</span>
+                                                                        <span class="lang lang-english d-none">Constant</span>
+                                                                    </div>
+                                                                    <div class="list-item--constant">14.1</div>
                                                                 </div>
-                                                                <div class="list-item--rating-max"><div class="badge badge-max border bg-secondary">MAX</div></div>
+                                                                <div class="list-item--modifier-wrapper col p-0">
+                                                                    <div class="list-item--score-label text-gray-500 small">
+                                                                        <span class="lang lang-japanese">係数</span>
+                                                                        <span class="lang lang-english d-none">Modifier</span>
+                                                                    </div>
+                                                                    <div class="list-item--modifier">3.75</div>
+                                                                </div>
+                                                                <div class="list-item--rating-now-wrapper col p-0">
+                                                                    <div class="list-item--score-label text-gray-500 small">
+                                                                        <span class="lang lang-japanese">Rating</span>
+                                                                        <span class="lang lang-english d-none">Rating</span>
+                                                                    </div>
+                                                                    <div class="list-item--rating-now">52.875</div>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="list-item--increase-wrapper row bg-black bg-opacity-25 m-1 mt-2">
-                                                            <div class="col">
-                                                                <div class="list-item--increase-label text-gray-500 small">950k</div>
-                                                                <div class="list-item--increase">-</div>
+                                                            <div class="list-item--graph-wrapper m-1 px-2">
+                                                                <div class="progress rounded-0" style="height: 0.25rem;">
+                                                                    <div class="progress-bar bg-lt-950" role="progressbar" style="width: 80.7%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="940000" aria-valuemax="950000"></div>
+                                                                    <div class="progress-bar bg-is-950" role="progressbar" style="width: 60.7%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="950000" aria-valuemax="960000"></div>
+                                                                    <div class="progress-bar bg-is-960" role="progressbar" style="width: 40.7%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="960000" aria-valuemax="970000"></div>
+                                                                    <div class="progress-bar bg-is-970" role="progressbar" style="width: 20.699999999999996%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="970000" aria-valuemax="980000"></div>
+                                                                    <div class="progress-bar bg-is-980" role="progressbar" style="width: 0.7000000000000001%; max-width: 20%;" aria-valuenow="980350" aria-valuemin="980000" aria-valuemax="990000"></div>
+                                                                </div>
                                                             </div>
-                                                            <div class="col">
-                                                                <div class="list-item--increase-label text-gray-500 small">960k</div>
-                                                                <div class="list-item--increase">-</div>
-                                                            </div>
-                                                            <div class="col">
-                                                                <div class="list-item--increase-label text-gray-500 small">970k</div>
-                                                                <div class="list-item--increase">-</div>
-                                                            </div>
-                                                            <div class="col">
-                                                                <div class="list-item--increase-label text-gray-500 small">980k</div>
-                                                                <div class="list-item--increase">-</div>
-                                                            </div>
-                                                            <div class="col">
-                                                                <div class="list-item--increase-label text-gray-500 small">990k</div>
-                                                                <div class="list-item--increase">-</div>
+                                                            <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 px-2 m-1">
+                                                                <div class="col p-0">
+                                                                    <div class="list-item--increase-label text-gray-500 small">950k</div>
+                                                                    <div class="list-item--increase">-</div>
+                                                                    
+                                                                </div>
+                                                                <div class="col p-0">
+                                                                    <div class="list-item--increase-label text-gray-500 small">960k</div>
+                                                                    <div class="list-item--increase">-</div>
+                                                                    
+                                                                </div>
+                                                                <div class="col p-0">
+                                                                    <div class="list-item--increase-label text-gray-500 small">970k</div>
+                                                                    <div class="list-item--increase">-</div>
+                                                                    
+                                                                </div>
+                                                                <div class="col p-0">
+                                                                    <div class="list-item--increase-label text-gray-500 small">980k</div>
+                                                                    <div class="list-item--increase">-</div>
+                                                                    
+                                                                </div>
+                                                                <div class="col p-0">
+                                                                    <div class="list-item--increase-label text-gray-500 small">990k</div>
+                                                                    <div class="list-item--increase"><span class="badge bg-white text-black rounded-0 box-shadow-black" ><span class="rate-counter rate-counter-exclude">+3.200</span><span class="rate-counter rate-counter-include d-none">REMOVE</span></span></div>
+                                                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="9650">9650</div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -565,67 +576,6 @@
                                                 https://shimmand.github.io/wacca-rating-analyzer/index.html
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#32</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-03-15</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="badge bg-magenta text-shadow-black">
-                                            <span class="lang lang-japanese">重要</span>
-                                            <span class="lang lang-english d-none">IMPORTANT</span>
-                                        </span>
-                                        <span class="lang lang-japanese">
-                                            一部譜面が計算されない問題の修正
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Fixed issue that some charts were not calculated
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-0">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            以下の譜面において、プレイ成績が計算されない不具合がありました:
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            In the following charts, there was an issue with play results not calculated:
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <div>Good Night, Bad Luck.</div>
-                                        <div>
-                                            <span class="badge border normal">NORMAL 5</span>
-                                            <span class="badge border hard">HARD 10+</span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div>ナイト・オブ・ナイツ (かめりあ’s“ワンス・アポン・ア・ナイト”Remix)</div>
-                                        <div>
-                                            <span class="badge border normal">NORMAL 5</span>
-                                            <span class="badge border hard">HARD 10</span>
-                                            <span class="badge border expert">EXPERT 13</span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            不具合の原因はデータセットの誤りで、現在では修正されています。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            The cause of this issue was an error in the dataset, which has now been fixed.
-                                        </span>
-                                    </div>
-                                    <div class="my-2">
-                                        <span class="lang lang-japanese">
-                                            この誤りを報告および修正していただいた<em>cg505</em>さんへ感謝をいたします。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Many thanks to <em>cg505</em> for reporting and correcting this error.
-                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -1378,7 +1328,7 @@
                             </div>
                             <div class="d-flex align-items-end">
                                 <div class="me-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16" style="rotate: 45deg;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16" style="rotate: 135deg;">
                                         <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
                                         <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
                                     </svg>

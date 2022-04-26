@@ -716,6 +716,8 @@ function analyze(){
             const classColors = ['bg-plain', 'bg-navy', 'bg-yellow', 'bg-red', 'bg-purple', 'bg-blue', 'bg-silver', 'bg-gold', 'bg-rainbow']
             const classBorders = [0, 300, 600, 1000, 1300, 1600, 1900, 2200, 2500]
 
+            targetDiv.classList.remove('bg-white')
+
             classColors.forEach(color => {
                 targetDiv.classList.remove(color)
             })

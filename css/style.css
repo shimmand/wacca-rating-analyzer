@@ -530,10 +530,6 @@ a.multi-rate-selected {
     height: .5rem;
 }
 
-.multi-rate-alert {
-    height: 4rem;
-}
-
 .cursor-pointer {
     cursor: pointer;
 }

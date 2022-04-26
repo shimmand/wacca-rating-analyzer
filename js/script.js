@@ -483,27 +483,27 @@ function analyze(){
                         <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 px-2 m-1">
                             <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">950k</div>
-                                <div class="list-item--increase" data-parent="list-item--small">${increases[0]}</div>
+                                <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[0]}</div>
                                 <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">960k</div>
-                                <div class="list-item--increase" data-parent="list-item--small">${increases[1]}</div>
+                                <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[1]}</div>
                                 <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">970k</div>
-                                <div class="list-item--increase" data-parent="list-item--small">${increases[2]}</div>
+                                <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[2]}</div>
                                 <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">980k</div>
-                                <div class="list-item--increase" data-parent="list-item--small">${increases[3]}</div>
+                                <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[3]}</div>
                                 <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">990k</div>
-                                <div class="list-item--increase" data-parent="list-item--small">${increases[4]}</div>
+                                <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[4]}</div>
                                 <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
                             </div>
                         </div>
@@ -553,23 +553,23 @@ function analyze(){
                         <div class="list-item--sub-wrapper col">
                             <div class="list-item--increase-wrapper row">
                                 <div class="col px-0">
-                                    <div class="list-item--increase" data-parent="list-item--large">${increases[0]}</div>
+                                    <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[0]}</div>
                                     <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase" data-parent="list-item--large">${increases[1]}</div>
+                                    <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[1]}</div>
                                     <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase" data-parent="list-item--large">${increases[2]}</div>
+                                    <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[2]}</div>
                                     <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase" data-parent="list-item--large">${increases[3]}</div>
+                                    <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[3]}</div>
                                     <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
-                                    <div class="list-item--increase" data-parent="list-item--large">${increases[4]}</div>
+                                    <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[4]}</div>
                                     <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
                                 </div>
                             </div>
@@ -1431,6 +1431,9 @@ function startMultiSelectMode(element, listtype) {
         return false
     }
 
+    const tableIndex = listtype === 'new' ? 0 : 1
+    const tables = document.querySelectorAll('.scoresTable')
+
     const parent = element.parentElement
     const tableType = parent.dataset.parent
 
@@ -1438,10 +1441,16 @@ function startMultiSelectMode(element, listtype) {
         return false
     }
 
-    element.classList.toggle('multi-rate-selected')
+    const rowIndex = parent.dataset.index
+    const increaseToggles = tables[tableIndex].querySelectorAll(`[data-index="${rowIndex}"] .rate-increase`)
 
-    const tables = document.querySelectorAll('.scoresTable')
-    const tableIndex = listtype === 'new' ? 0 : 1
+    increaseToggles.forEach(toggle => {
+        if (toggle !== element) {
+            toggle.classList.remove('multi-rate-selected')
+        } else {
+            toggle.classList.toggle('multi-rate-selected')
+        }
+    })
 
     const topSingleRates = tables[tableIndex].querySelectorAll(`.top-single-rate .${tableType} .list-item--rating-now`)
     let topSinleRatesArr =
@@ -1496,11 +1505,13 @@ function startMultiSelectMode(element, listtype) {
         const fixedIndex = topSingleRates.length + alreadyListed.length - index - 1
         const checkRow = tables[tableIndex].querySelectorAll('tr')[fixedIndex]
         
-        if (
-            (checkRow.querySelectorAll('.multi-rate-selected').length === 0) &&
-            (fixedIndex <= topSingleRates.length - 1)
-        ) {
-            checkRow.classList.add('table-custom-dethrone')
+        if (checkRow) {
+            if (
+                (checkRow.querySelectorAll('.multi-rate-selected').length === 0) &&
+                (fixedIndex <= topSingleRates.length - 1)
+            ) {
+                checkRow.classList.add('table-custom-dethrone')
+            }
         }
     })
 }

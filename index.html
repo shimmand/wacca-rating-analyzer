@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-04-20" data-dataset="2022-04-20">
+<html lang="ja" class="fs-100" data-update="2022-04-26" data-dataset="2022-04-20">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-20" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-26" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-20"></script>
+        <script defer src="js/script.js?date=2022-04-26"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -39,28 +39,36 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-white">
-                            <div class="my-1 p-2 d-none">
+                            <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
                                         <div class="badge bg-white align-bottom text-black me-2">#42</div>
                                         <div class="badge border border-white align-bottom text-white me-2">2022-04-26</div>
                                     </div>
                                     <div class="w-100">
+                                        <span class="badge bg-magenta me-1">
+                                            <span class="lang lang-japanese">
+                                                重要
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                IMPORTANT
+                                            </span>
+                                        </span>
                                         <span class="lang lang-japanese">
-                                            複数選択モードにおける不具合を修正
+                                            不具合修正
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            Fixed a issue with Multi Select Mode
+                                            Fixed a issue
                                         </span>
                                     </div>
                                 </div>
                                 <div class="mx-2 my-1">
                                     <div class="my-1">
                                         <span class="lang lang-japanese">
-                                            複数選択モードにおける操作上の不具合を修正しました。
+                                            複数選択モードにおける不具合を修正しました。
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            Fixed a issue with action in multiple selection mode.
+                                            Fixed a issue with Multi Select Mode.
                                         </span>
                                     </div>
                                     <div class="my-1">
@@ -79,14 +87,6 @@
                                             </div>
                                             <div class="my-2 px-1">
                                                 <div class="my-1">
-                                                    <span class="lang lang-japanese">条件:</span>
-                                                    <span class="lang lang-english d-none">Conditions:</span>
-                                                </div>
-                                                <div class="my-1">
-                                                    <span class="lang lang-japanese">- それぞれの枠で対象譜面数(*)よりもプレイ済みの譜面数が少ない。（* 新曲枠: 15件、旧曲枠: 35件）</span>
-                                                    <span class="lang lang-english d-none">- Number of charts played is less than the max number(*) of targets for each list. (* Newer Charts: 15, Older Charts: 35)</span>
-                                                </div>
-                                                <div class="my-1">
                                                     <span class="lang lang-japanese">不具合:</span>
                                                     <span class="lang lang-english d-none">Issues:</span>
                                                 </div>
@@ -95,8 +95,8 @@
                                                     <span class="lang lang-english d-none">- When two or more Multi Select Mode add buttons are displayed in the same chart, it is possible to activate two or more buttons at the same time unexpectedly.</span>
                                                 </div>
                                                 <div class="my-1">
-                                                    <span class="lang lang-japanese">- 上記の操作が行われると、プレビューに表示されるレーティングの値が実際よりも大きくなる。</span>
-                                                    <span class="lang lang-english d-none">- Following the above actions, the rating value displayed in the preview will be larger than actual.</span>
+                                                    <span class="lang lang-japanese">- それぞれの枠で対象譜面数(*)よりもプレイ済みの譜面数が少ない場合、上記の操作が行われると、プレビューに表示されるレーティングの値が実際よりも大きくなる。（* 新曲枠: 15、旧曲枠: 35）</span>
+                                                    <span class="lang lang-english d-none">- If the number of charts played is less than the max number(*) of targets for each list, the rating value shown in the preview will be larger than the actual value when the above action is taken. (* Newer Charts: 15, Older Charts: 35)</span>
                                                 </div>
                                                 <div class="my-1">
                                                     <span class="lang lang-japanese">修正内容:</span>

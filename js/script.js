@@ -654,7 +654,7 @@ function analyze(){
 
         {
             const summedRateUppers = document.querySelectorAll('.summedRateUpper')
-            summedRateUppers[listIndex].innerHTML = `MAX ${varSummedRateUppers[listIndex].toFixed(3)}`
+            summedRateUppers[listIndex].innerHTML = varSummedRateUppers[listIndex].toFixed(3)
         }
 
         {
@@ -707,12 +707,12 @@ function analyze(){
         varClassRanges[(varClassRanges.length - 1)] = (totalRateUpper - 2500)
 
         document.querySelector('#total-rate-current').innerHTML = totalRateCurrent
-        document.querySelector('#total-rate-upper').innerHTML = `MAX ${totalRateUpper}`
+        document.querySelector('#total-rate-upper').innerHTML = `${totalRateUpper}`
         document.querySelector('#summary-total').innerHTML = totalRateCurrent
         document.querySelector('#summary-total-ratio').innerHTML = `${Number(totalRateCurrent / totalRateUpper * 100).toFixed(1)}%`
 
         {
-            const targetDiv = document.querySelector('#total-rate-class')
+            const targetDiv = document.querySelector('#total-rate-current')
             const classColors = ['bg-plain', 'bg-navy', 'bg-yellow', 'bg-red', 'bg-purple', 'bg-blue', 'bg-silver', 'bg-gold', 'bg-rainbow']
             const classBorders = [0, 300, 600, 1000, 1300, 1600, 1900, 2200, 2500]
 

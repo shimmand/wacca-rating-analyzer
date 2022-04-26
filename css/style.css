@@ -248,49 +248,46 @@ html.fs-50 {
 
 /* Rate class */
 
+.text-clip {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
 .bg-plain {
     background-color: #adb5bd;
-    color: var(--bs-doby-color);
 }
 
 .bg-navy {
     background-color: #0d6efd;
-    color: var(--bs-doby-color);
 }
 
 .bg-yellow {
     background-color: #ffc107;
-    color: var(--bs-doby-color);
 }
 
 .bg-red {
     background-color: #d63384;
-    color: var(--bs-doby-color);
 }
 
 .bg-purple {
     background-color: #6f42c1;
-    color: var(--bs-doby-color);
 }
 
 .bg-blue {
-    background: linear-gradient(30deg, #c0feff, #00beec, #c0feff);
-    color: var(--bs-doby-color);
+    background-image: linear-gradient(30deg, #c0feff, #00beec, #c0feff);
 }
 
 .bg-silver {
-    background: linear-gradient(30deg, #eaffff, #aaaaaa, #eaffff);
-    color: var(--bs-doby-color);
+    background-image: linear-gradient(30deg, #eaffff, #aaaaaa, #eaffff);
 }
 
 .bg-gold {
-    background: linear-gradient(30deg, #eee100, #ffb100, #eee100);
-    color: var(--bs-doby-color);
+    background-image: linear-gradient(30deg, #eee100, #ffb100, #eee100);
 }
 
 .bg-rainbow {
-    background: linear-gradient(30deg, #ff008a, #d2e717, #00ffeb);
-    color: var(--bs-doby-color);
+    background-image: linear-gradient(30deg, #ff008a, #d2e717, #00ffeb);
 }
 
 .bg-older {
@@ -447,8 +444,11 @@ a.multi-rate-selected {
 }
 
 .list-item--remaining-score::before {
-    content: '/';
-    padding-right: 0.25rem;
+    content: '(';
+}
+
+.list-item--remaining-score::after {
+    content: ')';
 }
 
 

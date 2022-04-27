@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-04-27" data-dataset="2022-04-27">
+<html lang="ja" class="fs-100" data-update="2022-04-28" data-dataset="2022-04-28">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-27-01" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-04-28" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-27-01"></script>
+        <script defer src="js/script.js?date=2022-04-28"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -61,14 +61,15 @@
                                             <span class="badge border normal">NORMAL 8</span>
                                             <span class="badge border hard">HARD 10+</span>
                                             <span class="badge border expert">EXPERT 14</span>
+                                            <span class="badge border inferno border border-danger">INFERNO 15</span>
                                             <span class="badge border">
                                                 <span class="lang lang-japanese">新曲枠</span>
                                                 <span class="lang lang-english d-none">NEWER</span>
                                             </span>
                                         </div>
                                         <div>
-                                            <span class="lang lang-japanese">* INFERNO は数日以内に追加されます。</span>
-                                            <span class="lang lang-english d-none">* INFERNO will be added within a few days.</span>
+                                            <span class="lang lang-japanese">2022-04-28 追記: INFERNOに対応しました。</span>
+                                            <span class="lang lang-english d-none">Added on 2022-04-28: INFERNO are now supported.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -182,188 +183,6 @@
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#39</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-19</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            譜面一覧のデザインを変更
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Chart List design updated
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            譜面一覧のデザインを変更しました。(試験的)
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Updated the design of the Chart List. (experimental)
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            この新しいデザインでは、画面の小さな端末において、横にスクロールしなくても全ての情報を確認できるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            The new design allows you to see all information without scrolling horizontally on devices with small screens.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            従来のデザインの方がお好みであれば、表示オプションで<span class="badge border">常にフルサイズの表を使用</span>をオンにしてください。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            If you prefer the same design as before, please check <span class="badge border">Use fullsize table only</span> in the Display Option.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="border bg-black bg-opacity-50 my-1 p-2">
-                                            <div class="d-flex border-bottom px-1 my-1">
-                                                <div class="lang lang-japanese">例</div>
-                                                <div class="lang lang-english d-none">Example</div>
-                                            </div>
-                                            <div class="my-2 px-1">
-                                                <div class="row" style="background-color: #561435;">
-                                                    <div class="list-item--index-wrapper col-2 d-flex">
-                                                        <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
-                                                        <div class="list-item--index fs-3">45</div>
-                                                    </div>
-                                                    <div class="list-item--content-wrapper col-10">
-                                                        <div class="list-item--top-wrapper p-1">
-                                                            <div class="list-item--song-wrapper">
-                                                                <div class="list-item--title-wrapper">
-                                                                    <div class="list-item--alt-title text-gray-500 small d-none"></div>
-                                                                    <div class="list-item--title fw-bold">XTREME</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="list-item--badge-wrapper">
-                                                                <div class="list-item--badge-stack d-flex">
-                                                                    <div class="list-item--badge-difficulty badge border m-0 inferno">INFERNO 14</div>
-                                                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small"><span class="lang lang-japanese d-none">HARDCORE TANO*C</span><span class="lang lang-english">HARDCORE TANO*C</span></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="list-item--middle-wrapper d-flex row m-1">
-                                                            <div class="list-item--score-wrapper col p-0">
-                                                                <div class="list-item--score-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">スコア</span>
-                                                                    <span class="lang lang-english">Score</span>
-                                                                </div>
-                                                                <div class="list-item--score">984339</div>
-                                                            </div>
-                                                            <div class="list-item--constant-wrapper col p-0">
-                                                                <div class="list-item--score-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">定数</span>
-                                                                    <span class="lang lang-english">Constant</span>
-                                                                </div>
-                                                                <div class="list-item--constant">14.0</div>
-                                                            </div>
-                                                            <div class="list-item--modifier-wrapper col p-0">
-                                                                <div class="list-item--score-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">係数</span>
-                                                                    <span class="lang lang-english">Modifier</span>
-                                                                </div>
-                                                                <div class="list-item--modifier">3.75</div>
-                                                            </div>
-                                                            <div class="list-item--rating-now-wrapper col p-0">
-                                                                <div class="list-item--score-label text-gray-500 small">
-                                                                    <span class="lang lang-japanese d-none">Rating</span>
-                                                                    <span class="lang lang-english">Rating</span>
-                                                                </div>
-                                                                <div class="list-item--rating-now">52.500</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="list-item--graph-wrapper px-2 m-1">
-                                                            <div class="progress rounded-0" style="height: 0.25rem;">
-                                                                <div class="progress-bar bg-lt-950" role="progressbar" style="width: 88.678%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="940000" aria-valuemax="950000"></div>
-                                                                <div class="progress-bar bg-is-950" role="progressbar" style="width: 68.678%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="950000" aria-valuemax="960000"></div>
-                                                                <div class="progress-bar bg-is-960" role="progressbar" style="width: 48.678%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="960000" aria-valuemax="970000"></div>
-                                                                <div class="progress-bar bg-is-970" role="progressbar" style="width: 28.677999999999997%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="970000" aria-valuemax="980000"></div>
-                                                                <div class="progress-bar bg-is-980" role="progressbar" style="width: 8.677999999999999%; max-width: 20%;" aria-valuenow="984339" aria-valuemin="980000" aria-valuemax="990000"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 px-2 m-1">
-                                                            <div class="col p-0">
-                                                                <div class="list-item--increase-label text-gray-500 small">950k</div>
-                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
-                                                                
-                                                            </div>
-                                                            <div class="col p-0">
-                                                                <div class="list-item--increase-label text-gray-500 small">960k</div>
-                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
-                                                                
-                                                            </div>
-                                                            <div class="col p-0">
-                                                                <div class="list-item--increase-label text-gray-500 small">970k</div>
-                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
-                                                                
-                                                            </div>
-                                                            <div class="col p-0">
-                                                                <div class="list-item--increase-label text-gray-500 small">980k</div>
-                                                                <div class="list-item--increase" data-parent="list-item--small">-</div>
-                                                                
-                                                            </div>
-                                                            <div class="col p-0">
-                                                                <div class="list-item--increase-label text-gray-500 small">990k</div>
-                                                                <div class="list-item--increase" data-parent="list-item--small"><span class="badge bg-white text-black rounded-0 box-shadow-black"><span class="rate-counter rate-counter-exclude">+2.800</span><span class="rate-counter rate-counter-include d-none">REMOVE</span></span></div>
-                                                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="5661">5661</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#38</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-17</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            レイアウトを変更
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Change layout
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            いつも旧曲枠を見るためにページの下までスクロールするのが面倒に感じていたので、新曲枠と旧曲枠を切り替えて表示できる機能を付けました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            I always tired of scrolling to the bottom of the page to see the Older Charts, so I added a feature to switch between the Newer Charts and Older Charts entries.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            新曲枠または旧曲枠のヘッダーを押すだけで切り替えられます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Simply press the header of Newer Charts or Older Charts to switch.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            また、分析または復元が完了した際に表示されるダイアログに「譜面一覧へ移動」ボタンを追加しました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            In addition, I added a "Go to Chart List" button to the dialog that displays when an analysis or restoration is completed.
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
                                         <div class="badge bg-white align-bottom text-black me-2">#37</div>
                                         <div class="badge border border-white align-bottom text-white me-2">2022-04-13</div>
                                     </div>
@@ -388,39 +207,9 @@
                                                 <span class="lang lang-english d-none">NEWER</span>
                                             </span>
                                         </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="border bg-black bg-opacity-50 my-1 p-2">
-                                            <div class="d-flex border-bottom px-1 my-1">
-                                                <div class="lang lang-japanese">情報</div>
-                                                <div class="lang lang-english d-none">Info</div>
-                                            </div>
-                                            <div class="my-2 px-1">
-                                                <div class="my-1">
-                                                    <span class="lang lang-japanese">2022-04-17更新:</span>
-                                                    <span class="lang lang-english d-none">Updated 2022-04-17:</span>
-                                                </div>
-                                                <div class="my-1">
-                                                    <span class="lang lang-japanese">以下の譜面に対応しました。</span>
-                                                    <span class="lang lang-english d-none">The following are now supported.</span>
-                                                </div>
-                                                <div class="my-1">
-                                                    <span class="badge border hard">HARD 11</span>
-                                                </div>
-                                            </div>
-                                            <div class="my-1 px-1 small text-gray-500 text-decoration-line-through">
-                                                <div class="my-1">
-                                                    <span class="lang lang-japanese">現時点では以下の譜面に対応していません。</span>
-                                                    <span class="lang lang-english d-none">The following are not supported at this time.</span>
-                                                </div>
-                                                <div class="my-1">
-                                                    <span class="lang lang-japanese">近日中に対応する予定です。</span>
-                                                    <span class="lang lang-english d-none">These will be supported in a few days.</span>
-                                                </div>
-                                                <div class="my-1">
-                                                    <span class="badge border text-gray-500 text-decoration-line-through">HARD 11</span>
-                                                </div>
-                                            </div>
+                                        <div class="my-1">
+                                            <span class="lang lang-japanese">2022-04-17 追記: HARDに対応しました。</span>
+                                            <span class="lang lang-english d-none">Added on 2022-04-17: HARD are now supported.</span>
                                         </div>
                                     </div>
                                 </div>

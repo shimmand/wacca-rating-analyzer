@@ -422,26 +422,26 @@ function analyze(){
             const code = `
             <td>
                 <div class="list-item--small row d-lg-none d-xl-none d-xxl-none">
-                    <div class="list-item--index-wrapper col-2 d-flex">
-                        <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
-                        <div class="list-item--index fs-3">${index + 1}</div>
+                    <div class="list-item--index-wrapper col-2 d-flex justify-content-center pe-0">
+                        <div class="list-item--index-symbol text-gray-500 small mx-1">#</div>
+                        <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
-                        <div class="list-item--top-wrapper p-1">
+                        <div class="list-item--top-wrapper p-0">
                             <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
                             </div>
                             <div class="list-item--badge-wrapper">
                                 <div class="list-item--badge-stack d-flex">
                                     <div class="list-item--badge-difficulty badge border m-0 ${chart[1]}">${chart[2]}</div>
-                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small">${getGenreElement(getGenre(chart[0]))}</div>
+                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="list-item--middle-wrapper d-flex row m-1">
+                        <div class="list-item--middle-wrapper d-flex row m-0 mt-1">
                             <div class="list-item--score-wrapper col p-0">
                                 <div class="list-item--score-label text-gray-500 small">
                                     <span class="lang lang-japanese">スコア</span>
@@ -471,7 +471,7 @@ function analyze(){
                                 <div class="list-item--rating-now">${chart[6]}</div>
                             </div>
                         </div>
-                        <div class="list-item--graph-wrapper px-2 m-1">
+                        <div class="list-item--graph-wrapper m-0 mt-1 px-1">
                             <div class="progress rounded-0" style="height: 0.25rem;">
                                 <div class="progress-bar bg-lt-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 940000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="940000" aria-valuemax="950000"></div>
                                 <div class="progress-bar bg-is-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 950000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="950000" aria-valuemax="960000"></div>
@@ -480,7 +480,7 @@ function analyze(){
                                 <div class="progress-bar bg-is-980${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 980000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="980000" aria-valuemax="990000"></div>
                             </div>
                         </div>
-                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 px-2 m-1">
+                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 m-0 mt-1 px-1">
                             <div class="col p-0">
                                 <div class="list-item--increase-label text-gray-500 small">950k</div>
                                 <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[0]}</div>
@@ -511,21 +511,19 @@ function analyze(){
                 </div>
                 <div class="list-item--large row d-none d-lg-flex d-xl-flex d-xxl-flex">
                     <div class="list-item--index-wrapper col-1 d-flex">
-                        <div class="list-item--index-symbol text-gray-500 small m-1">#</div>
-                        <div class="list-item--index fs-3">${index + 1}</div>
+                        <div class="list-item--index-symbol text-gray-500 small mx-1">#</div>
+                        <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
-                    <div class="list-item--content-wrapper col-11 row my-1">
+                    <div class="list-item--content-wrapper col-11 row mb-1">
                         <div class="list-item--heading-wrapper col row sticky-column">
                             <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
-                                <div class="list-item--badge-wrapper">
-                                    <div class="list-item--badge-stack row align-items-center m-0">
-                                        <div class="list-item--badge-difficulty col-6 col-md-5 col-xl-4 badge border m-0 ${chart[1]}">${chart[2]}</div>
-                                        <div class="list-item--badge-genre col-6 col-md-7 col-xl-8 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
-                                    </div>
+                                <div class="list-item--badge-wrapper d-flex">
+                                    <div class="list-item--badge-difficulty badge border m-0 ${chart[1]}">${chart[2]}</div>
+                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                                 </div>
                             </div>
                         </div>

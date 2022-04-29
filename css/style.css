@@ -436,7 +436,7 @@ a.multi-rate-selected {
 }
 
 .chart-list.table-responsive > table {
-    min-width: 65rem;
+    min-width: 75rem;
 }
 
 .table > :not(caption) > * > * {

@@ -421,9 +421,9 @@ function analyze(){
 
             const code = `
             <td>
-                <div class="list-item--small row d-lg-none d-xl-none d-xxl-none">
-                    <div class="list-item--index-wrapper col-2 d-flex justify-content-center pe-0">
-                        <div class="list-item--index-symbol text-gray-500 small mx-1">#</div>
+                <div class="list-item--small row d-xl-none d-xxl-none">
+                    <div class="list-item--index-wrapper col-2 d-flex">
+                        <div class="list-item--index-symbol d-none d-sm-flex d-md-flex d-lg-flex text-gray-500 small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
@@ -509,9 +509,9 @@ function analyze(){
                         </div>
                     </div>
                 </div>
-                <div class="list-item--large row d-none d-lg-flex d-xl-flex d-xxl-flex">
+                <div class="list-item--large row d-none d-xl-flex d-xxl-flex">
                     <div class="list-item--index-wrapper col-1 d-flex">
-                        <div class="list-item--index-symbol text-gray-500 small mx-1">#</div>
+                        <div class="list-item--index-symbol d-none d-xl-flex d-xxl-flex text-gray-500 small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-11 row mb-1">
@@ -1891,7 +1891,7 @@ function switchLargeTable(isEnabled) {
                 div.classList.remove(...div.classList)
                 div.classList.add('list-item--large', 'row')
             } else {
-                div.classList.add('list-item--large', 'row', 'd-none', 'd-lg-flex', 'd-xl-flex', 'd-xxl-flex')
+                div.classList.add('list-item--large', 'row', 'd-none', 'd-xl-flex', 'd-xxl-flex')
             }
         })
     }

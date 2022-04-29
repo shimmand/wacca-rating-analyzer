@@ -511,7 +511,7 @@ function analyze(){
                 </div>
                 <div class="list-item--large row d-none d-xl-flex d-xxl-flex">
                     <div class="list-item--index-wrapper col-1 d-flex">
-                        <div class="list-item--index-symbol d-none d-xl-flex d-xxl-flex text-gray-500 small mx-1">#</div>
+                        <div class="list-item--index-symbol text-gray-500 small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-11 row mb-1">

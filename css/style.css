@@ -383,20 +383,27 @@ tr {
     --bs-table-bg: #212529;
 }
 
-tr.table-primary {
+tr.table-target {
     --bs-table-bg: #055160;
     border-color: #087990;
     color: #ffffff;
 }
 
-tr.table-custom-magenta {
+tr.table-candidate {
     --bs-table-bg: #561435;
     border-color: #801f4f;
 }
 
-tr.table-custom-dethrone {
+tr.table-dethrone {
     --bs-table-bg: #6c757d;
     --bs-table-striped-bg: #6c757d;
+}
+
+.top-single-rate .list-item--small,
+.top-single-rate .list-item--large,
+.top-single-rate .list-item--large .sticky-column {
+    background-image: linear-gradient(0deg,rgba(5,81,96,.2) 25%,transparent 25%,transparent 50%,rgba(5,81,96,.2) 50%,rgba(5,81,96,.2) 75%,transparent 75%,transparent);
+    background-size: 1rem 1rem;
 }
 
 .pt-half {

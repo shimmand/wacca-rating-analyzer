@@ -363,7 +363,7 @@ function analyze(){
             const tableRow = scoresTables[listIndex].appendChild(tempRow)
 
             if (index < targetsLength[listIndex]) {
-                tableRow.classList.add('table-primary', 'top-single-rate')
+                tableRow.classList.add('table-target', 'top-single-rate')
                 varSingleRateLowers[listIndex] = Number(chart[6])
                 varSummedRateCurrents[listIndex] += Number(chart[6])
             }
@@ -398,10 +398,10 @@ function analyze(){
             if (increases.filter(e => (e === '-')).length === increases.length) {
                 tableRow.classList.add('all-clear')
             } else {
-                tableRow.classList.add('table-custom-magenta')
+                tableRow.classList.add('table-candidate')
             }
 
-            if (tableRow.classList.contains('table-primary') || tableRow.classList.contains('table-custom-magenta')) {
+            if (tableRow.classList.contains('table-target') || tableRow.classList.contains('table-candidate')) {
                 const multipliers = [targetMultipliers[0], ...targetMultipliers]
 
                 multipliers.forEach((multiplier, index) => {
@@ -509,7 +509,7 @@ function analyze(){
                         </div>
                     </div>
                 </div>
-                <div class="list-item--large row d-none d-xl-flex d-xxl-flex">
+                <div class="list-item--large row d-none d-xl-flex d-xxl-flex${(index < targetsLength[listIndex]) ? ' bg-target-striped' : ''}">
                     <div class="list-item--index-wrapper col-1 d-flex">
                         <div class="list-item--index-symbol text-gray-500 small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
@@ -845,9 +845,9 @@ function toggleChartVisibilityByType(type, checked) {
 
     {
         const selectors = [
-            'tr[data-index].table-primary',
-            'tr[data-index].table-custom-magenta',
-            'tr[data-index]:not(.table-primary):not(.table-custom-magenta)'
+            'tr[data-index].table-target',
+            'tr[data-index].table-candidate',
+            'tr[data-index]:not(.table-target):not(.table-candidate)'
         ]
 
         const targetRows = document.querySelectorAll(selectors[types.indexOf(type)])
@@ -868,9 +868,9 @@ function toggleChartVisibilityByType(type, checked) {
 function updateChartVisibilityByType() {
     const types = ['targets', 'candidates', 'others']
     const selectors = [
-            'tr[data-index].table-primary',
-            'tr[data-index].table-custom-magenta',
-            'tr[data-index]:not(.table-primary):not(.table-custom-magenta)'
+            'tr[data-index].table-target',
+            'tr[data-index].table-candidate',
+            'tr[data-index]:not(.table-target):not(.table-candidate)'
         ]
 
     types.forEach(type => {
@@ -1416,8 +1416,8 @@ function quitMultiSelectMode(listtype) {
         }
 
         {
-            const tableDatas = tables[tableIndex].querySelectorAll('.table-custom-dethrone')
-            tableDatas.forEach(td => td.classList.remove('table-custom-dethrone'))
+            const tableDatas = tables[tableIndex].querySelectorAll('.table-dethrone')
+            tableDatas.forEach(td => td.classList.remove('table-dethrone'))
         }
     }
 }
@@ -1488,7 +1488,7 @@ function startMultiSelectMode(element, listtype) {
         .splice(0, topSingleRates.length)
     const newListTotal = newList.reduce((a, b) => a + b, 0)
     const rateIncsease = newListTotal - oldListTotal
-    const alreadyListed = tables[tableIndex].querySelectorAll(`.table-primary .${tableType} .multi-rate-selected`)
+    const alreadyListed = tables[tableIndex].querySelectorAll(`.table-target .${tableType} .multi-rate-selected`)
     
     {
         const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`)
@@ -1499,8 +1499,8 @@ function startMultiSelectMode(element, listtype) {
     }
 
     tables[tableIndex]
-    .querySelectorAll('.table-custom-dethrone')
-    .forEach(tr => tr.classList.remove('table-custom-dethrone'))
+    .querySelectorAll('.table-dethrone')
+    .forEach(tr => tr.classList.remove('table-dethrone'))
 
     selectedRatesArr.forEach((_value, index) => {
         const fixedIndex = topSingleRates.length + alreadyListed.length - index - 1
@@ -1511,7 +1511,7 @@ function startMultiSelectMode(element, listtype) {
                 (checkRow.querySelectorAll('.multi-rate-selected').length === 0) &&
                 (fixedIndex <= topSingleRates.length - 1)
             ) {
-                checkRow.classList.add('table-custom-dethrone')
+                checkRow.classList.add('table-dethrone')
             }
         }
     })

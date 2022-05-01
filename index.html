@@ -11,9 +11,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-04-29-01" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-02" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-04-29-01"></script>
+        <script defer src="js/script.js?date=2022-05-02"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container p-0">
@@ -2315,8 +2315,8 @@
                                             </div>
                                         </div>
                                         <div class="mt-2">
-                                            <span class="lang lang-japanese">現在のレーティングに使用されている譜面です。これらは、スコアを上昇させてもレーティングが上昇しません。</span>
-                                            <span class="lang lang-english d-none">The chart that used for the current rating. These will not increase your rating even if the score is increased.</span>
+                                            <span class="lang lang-japanese">現在のレーティングに使用されている譜面です。これらは、スコアを上昇させてもレーティングが上昇しません。スコアが99万点以上の譜面が1つもない場合には表示されません。</span>
+                                            <span class="lang lang-english d-none">The chart that used for the current rating. These will not increase your rating even if the score is increased. If there is no chart with a score of 990000 or higher, this item will not be displayed.</span>
                                         </div>
                                         <div class="mt-2">
                                             <div class="badge border filter-candidates text-shadow-black">
@@ -2325,8 +2325,8 @@
                                             </div>
                                         </div>
                                         <div class="mt-2">
-                                            <span class="lang lang-japanese">スコアを上昇させることでレーティングが上昇する譜面です。レーティング対象を上書きします。</span>
-                                            <span class="lang lang-english d-none">The chart that increases your rating by increasing your score. This overrides "Rating Targets".</span>
+                                            <span class="lang lang-japanese">スコアを上昇させることでレーティングが上昇する譜面です。</span>
+                                            <span class="lang lang-english d-none">The chart that increases your rating by increasing your score.</span>
                                         </div>
                                         <div class="mt-2">
                                             <div class="badge border filter-others text-shadow-black">
@@ -2350,8 +2350,8 @@
                                                 <span class="lang lang-english d-none">Note: Displayed only while "Multi Select Mode" is on.</span>
                                             </div>
                                             <div class="mt-2">
-                                                <span class="lang lang-japanese">複数選択モードにて選択された譜面により、レーティング対象の上位から追い出されてしまう譜面です。</span>
-                                                <span class="lang lang-english d-none">The chart that will be kicked out from the top of the list due to some chart with a higher rating selected in "Multi Select Mode".</span>
+                                                <span class="lang lang-japanese">複数選択モードにて選択された譜面により、レーティング対象から除外されてしまう譜面です。</span>
+                                                <span class="lang lang-english d-none">The chart that will be excluded from the rating targets due to some chart with a higher rating selected in "Multi Select Mode".</span>
                                             </div>
                                         </div>
                                     </div>
@@ -2412,7 +2412,7 @@
                                         </div>
                                         <div class="mt-2">
                                             <span class="lang lang-japanese">
-                                                譜面のハイスコアに応じて定数に乗算される係数です。
+                                                譜面のハイスコアに応じて定数に乗算される係数（補正値）です。
                                             </span>
                                             <span class="lang lang-english d-none">
                                                 This is the modified value that is multiplied with a constant based on the high score of each chart.
@@ -2420,13 +2420,13 @@
                                         </div>
                                         <div class="mt-2">
                                             <div class="badge border">
-                                                <span class="lang lang-japanese">Rating (現在の譜面別レーティング)</span>
-                                                <span class="lang lang-english d-none">Now (Current rating by chart)</span>
+                                                <span class="lang lang-japanese">Rating （現在の譜面別レーティング）</span>
+                                                <span class="lang lang-english d-none">Rating (Current rating by chart)</span>
                                             </div>
                                         </div>
                                         <div class="mt-2">
                                             <span class="lang lang-japanese">
-                                                定数を現在の補正値で乗じた値です。
+                                                定数を現在の係数（補正値）で乗じた値です。
                                             </span>
                                             <span class="lang lang-english d-none">
                                                 This is the value of multiplied by the constant and the current modified value.
@@ -2434,7 +2434,7 @@
                                         </div>
                                         <div class="mt-2">
                                             <div class="badge border">
-                                                <span class="lang lang-japanese">上限 (最大の譜面別レーティング)</span>
+                                                <span class="lang lang-japanese">上限（最大の譜面別レーティング）</span>
                                                 <span class="lang lang-english d-none">Max (Max rating by chart)</span>
                                             </div>
                                         </div>

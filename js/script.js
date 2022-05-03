@@ -423,14 +423,14 @@ function analyze(){
             <td>
                 <div class="list-item--small row d-xl-none d-xxl-none">
                     <div class="list-item--index-wrapper col-2 d-flex">
-                        <div class="list-item--index-symbol d-none d-sm-flex d-md-flex d-lg-flex text-gray-500 small mx-1">#</div>
+                        <div class="list-item--index-symbol d-none d-sm-flex d-md-flex d-lg-flex text-dimmed small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
                         <div class="list-item--top-wrapper p-0">
                             <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
-                                    <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
+                                    <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
                             </div>
@@ -443,28 +443,28 @@ function analyze(){
                         </div>
                         <div class="list-item--middle-wrapper d-flex row m-0 mt-1">
                             <div class="list-item--score-wrapper col p-0">
-                                <div class="list-item--score-label text-gray-500 small">
+                                <div class="list-item--score-label text-dimmed small">
                                     <span class="lang lang-japanese">スコア</span>
                                     <span class="lang lang-english d-none">Score</span>
                                 </div>
                                 <div class="list-item--score">${chart[3]}</div>
                             </div>
                             <div class="list-item--constant-wrapper col p-0">
-                                <div class="list-item--score-label text-gray-500 small">
+                                <div class="list-item--score-label text-dimmed small">
                                     <span class="lang lang-japanese">定数</span>
                                     <span class="lang lang-english d-none">Constant</span>
                                 </div>
                                 <div class="list-item--constant">${chart[4]}</div>
                             </div>
                             <div class="list-item--modifier-wrapper col p-0">
-                                <div class="list-item--score-label text-gray-500 small">
+                                <div class="list-item--score-label text-dimmed small">
                                     <span class="lang lang-japanese">係数</span>
                                     <span class="lang lang-english d-none">Modifier</span>
                                 </div>
                                 <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
                             </div>
                             <div class="list-item--rating-now-wrapper col p-0">
-                                <div class="list-item--score-label text-gray-500 small">
+                                <div class="list-item--score-label text-dimmed small">
                                     <span class="lang lang-japanese">Rating</span>
                                     <span class="lang lang-english d-none">Rating</span>
                                 </div>
@@ -482,43 +482,43 @@ function analyze(){
                         </div>
                         <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 m-0 mt-1 px-1">
                             <div class="col p-0">
-                                <div class="list-item--increase-label text-gray-500 small">950k</div>
+                                <div class="list-item--increase-label text-dimmed small">950k</div>
                                 <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[0]}</div>
-                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
+                                <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
-                                <div class="list-item--increase-label text-gray-500 small">960k</div>
+                                <div class="list-item--increase-label text-dimmed small">960k</div>
                                 <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[1]}</div>
-                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
+                                <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
-                                <div class="list-item--increase-label text-gray-500 small">970k</div>
+                                <div class="list-item--increase-label text-dimmed small">970k</div>
                                 <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[2]}</div>
-                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
+                                <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
-                                <div class="list-item--increase-label text-gray-500 small">980k</div>
+                                <div class="list-item--increase-label text-dimmed small">980k</div>
                                 <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[3]}</div>
-                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
+                                <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
                             </div>
                             <div class="col p-0">
-                                <div class="list-item--increase-label text-gray-500 small">990k</div>
+                                <div class="list-item--increase-label text-dimmed small">990k</div>
                                 <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[4]}</div>
-                                <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
+                                <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="list-item--large row d-none d-xl-flex d-xxl-flex${(index < targetsLength[listIndex]) ? ' bg-target-striped' : ''}">
                     <div class="list-item--index-wrapper col-1 d-flex">
-                        <div class="list-item--index-symbol text-gray-500 small mx-1">#</div>
+                        <div class="list-item--index-symbol text-dimmed small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-11 row mb-1">
                         <div class="list-item--heading-wrapper col row sticky-column">
                             <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
-                                    <div class="list-item--alt-title text-gray-500 small">${getEnglishTitle(chart[0])}</div>
+                                    <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
                                 <div class="list-item--badge-wrapper d-flex">
@@ -534,11 +534,11 @@ function analyze(){
                                 </div>
                                 <div class="list-item--constant-wrapper col d-flex justify-content-between px-0">
                                     <div class="list-item--constant">${chart[4]}</div>
-                                    <div class="list-item--constant-label text-gray-500 mx-2">&times;</div>
+                                    <div class="list-item--constant-label text-dimmed mx-2">&times;</div>
                                 </div>
                                 <div class="list-item--modifier-wrapper col d-flex justify-content-between px-0">
                                     <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
-                                    <div class="list-item--modifier-label text-gray-500 mx-2">=</div>
+                                    <div class="list-item--modifier-label text-dimmed mx-2">=</div>
                                 </div>
                                 <div class="list-item--rating-wrapper col px-0">
                                     <div class="list-item--rating-now">${chart[6]}</div>
@@ -552,23 +552,23 @@ function analyze(){
                             <div class="list-item--increase-wrapper row">
                                 <div class="col px-0">
                                     <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[0]}</div>
-                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
+                                    <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[0] - chart[3]}">${(increases[0] !== '-') ? scoreBorders[0] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
                                     <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[1]}</div>
-                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
+                                    <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[1] - chart[3]}">${(increases[1] !== '-') ? scoreBorders[1] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
                                     <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[2]}</div>
-                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
+                                    <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[2] - chart[3]}">${(increases[2] !== '-') ? scoreBorders[2] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
                                     <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[3]}</div>
-                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
+                                    <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[3] - chart[3]}">${(increases[3] !== '-') ? scoreBorders[3] - chart[3] : ''}</div>
                                 </div>
                                 <div class="col px-0">
                                     <div class="list-item--increase" data-parent="list-item--large" data-index="${index + 1}">${increases[4]}</div>
-                                    <div class="list-item--remaining-score text-gray-500 small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
+                                    <div class="list-item--remaining-score text-dimmed small" data-remaining="${scoreBorders[4] - chart[3]}">${(increases[4] !== '-') ? scoreBorders[4] - chart[3] : ''}</div>
                                 </div>
                             </div>
                         </div>

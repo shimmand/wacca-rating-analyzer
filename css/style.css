@@ -42,6 +42,10 @@ hr {
     text-shadow: #ffffff 0 0.1rem, #ffffff 0 0.1rem 0.15rem;
 }
 
+.text-dimmed {
+    color: #adb5bd;
+}
+
 .text-gray-100 {
     color: #f8f9fa;
 }

@@ -1,49 +1,48 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-04-28" data-dataset="2022-04-28">
+<html lang="ja" class="fs-100" data-update="2022-04-28" data-dataset="2022-04-28" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="theme-color" content="#000000">
         <meta http-equiv="pragma" content="no-cache"/>
         <meta http-equiv="cache-control" content="no-cache"/>
         <meta http-equiv="expires" content="0"/>
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-02" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-04" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-02"></script>
+        <script defer src="js/script.js?date=2022-05-04"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
-        <div id="container-loading" class="container p-0">
+        <div id="container-loading" class="container-xxl p-0">
             <div class="d-flex justify-content-center align-items-center vh-100">
-                <div class="spinner-border text-white" style="width: 96px; height: 96px;" role="status">
+                <div class="spinner-border" style="width: 96px; height: 96px;" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
         </div>
 
-        <div id="container-main" class="container p-0 d-none">
+        <div id="container-main" class="container-xxl p-0 d-none">
 
             <!-- news modal begins -->
             <button id="btn-news-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#news-modal"></button>
             <div class="modal fade" id="news-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">お知らせ</span>
                                 <span class="lang lang-english d-none">News</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
                                         <div class="badge bg-white align-bottom text-black me-2">#42</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-27</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-04-27</div>
                                     </div>
                                     <div class="w-100">
                                         <span class="lang lang-japanese">
@@ -78,17 +77,9 @@
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
                                         <div class="badge bg-white align-bottom text-black me-2">#41</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-26</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-04-26</div>
                                     </div>
                                     <div class="w-100">
-                                        <span class="badge bg-magenta me-1">
-                                            <span class="lang lang-japanese">
-                                                重要
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                IMPORTANT
-                                            </span>
-                                        </span>
                                         <span class="lang lang-japanese">
                                             不具合修正
                                         </span>
@@ -154,7 +145,7 @@
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
                                         <div class="badge bg-white align-bottom text-black me-2">#40</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-20</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-04-20</div>
                                     </div>
                                     <div class="w-100">
                                         <span class="lang lang-japanese">
@@ -184,7 +175,7 @@
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
                                         <div class="badge bg-white align-bottom text-black me-2">#37</div>
-                                        <div class="badge border border-white align-bottom text-white me-2">2022-04-13</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-04-13</div>
                                     </div>
                                     <div class="w-100">
                                         <span class="lang lang-japanese">
@@ -215,7 +206,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -228,7 +219,7 @@
 
             <div id="box-title" class="bg-gray-800 p-2">
                 <div class="d-flex">
-                    <a class="small text-white text-decoration-none" href="https://shimmand.github.io/waccaSupportTools/" target="_blank" rel="noopener noreferrer">
+                    <a class="small text-decoration-none" href="https://shimmand.github.io/waccaSupportTools/" target="_blank" rel="noopener noreferrer">
                         <span class="btn badge btn-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-badge bi-caret-left-fill" viewBox="0 0 16 16">
                                 <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
@@ -237,19 +228,19 @@
                         </span>
                     </a>
                 </div>
-                <hr class="text-white my-2">
-                <div class="h3 text-heading text-white">WACCA RATING ANALYZER</div>
+                <hr class="my-2">
+                <div class="h3 text-heading">WACCA RATING ANALYZER</div>
 
                 <!-- version area begins -->
                 <div class="d-flex">
                     <div class="d-flex border border-white">
                         <div class="badge bg-white text-dark">DATASET</div>
-                        <div class="badge text-white">2022-04-27</div>
+                        <div class="badge">2022-04-27</div>
                     </div>
                 </div>
                 <!-- version area ends -->
 
-                <hr class="text-white my-2">
+                <hr class="my-2">
                 <div class="btn-toolbar mt-0" role="toolbar">
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-white me-2" data-bs-toggle="modal" data-bs-target="#modal-introduction">
@@ -294,7 +285,7 @@
             </div>
             <div id="box-input" class="bg-gray-800 p-2 my-2">
                 <div class="position-relative form-floating">
-                    <textarea class="form-control playdata border-0 bg-dark rounded-0 text-white" id="playdata" style="font-size: 16px;"></textarea>
+                    <textarea class="form-control playdata border-0 bg-dark rounded-0" id="playdata" style="font-size: 16px;"></textarea>
                     <label for="playdata">
                         <div class="text-white">
                             <span class="lang lang-japanese">プレイデータ</span>
@@ -320,7 +311,7 @@
                         </span>
                     </div>
                     <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-denied">
-                        <div class="bg-magenta text-white px-1">
+                        <div class="bg-magenta px-1">
                             <span class="lang lang-japanese">
                                 クリップボードへアクセスできません。
                                 <span class="badge border border-white align-bottom ms-1 me-1">データを読込</span>
@@ -345,7 +336,7 @@
                         </div>
                     </div>
                     <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-empty">
-                        <div class="bg-magenta text-white px-1">
+                        <div class="bg-magenta px-1">
                             <span class="lang lang-japanese">
                                 データが空です。
                                 マイページへ戻り、ブックマークレットを再度実行してください。
@@ -357,7 +348,7 @@
                         </div>
                     </div>
                     <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-invalid">
-                        <div class="bg-magenta text-white px-1">
+                        <div class="bg-magenta px-1">
                             <span class="lang lang-japanese">
                                 入力されたデータの書式が不正です。
                                 マイページへ戻り、ブックマークレットを再度実行してください。
@@ -493,21 +484,21 @@
             <div id="box-summary" class="bg-gray-800 my-2">
                 <div class="justify-content-between bg-gray-700 sticky-top p-2 shadow">
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="h3 text-heading text-white">
+                        <div class="h3 text-heading">
                             <span class="lang lang-japanese">概要</span>
                             <span class="lang lang-english d-none">Summary</span>
                         </div>
                         <div class="bg-dark px-2">
                             <div class="d-flex">
-                                <div id="total-rate-current-label" class="text-gray-500 small me-2">
+                                <div id="total-rate-current-label" class="text-dimmed small me-2">
                                     <span class="lang lang-japanese">合計</span>
                                     <span class="lang lang-english d-none">Total</span>
                                 </div>
                                 <div id="total-rate-current" class="bg-white text-clip fs-3 lh-1">0.000</div>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <div id="total-rate-symbol" class="text-gray-500 small lh-1 me-1">/</div>
-                                <div id="total-rate-upper" class="text-gray-500 small lh-1">0.000</div>
+                                <div id="total-rate-symbol" class="text-dimmed small lh-1 me-1">/</div>
+                                <div id="total-rate-upper" class="text-dimmed small lh-1">0.000</div>
                             </div>
                         </div>
                     </div>
@@ -536,12 +527,12 @@
                                 <div class="progress-bar graph-bar-rate bg-gold" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 <div class="progress-bar graph-bar-rate bg-rainbow" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <div class="position-absolute top-0 translate-middle current-loc text-white" style="left: 0%!important; top: -24%!important;">
+                            <div class="position-absolute top-0 translate-middle current-loc" style="left: 0%!important; top: -24%!important;">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"></path>
                                 </svg>
                             </div>
-                            <div class="position-absolute top-100 translate-middle current-loc text-white" style="left: 0%!important; top: 114%!important;">
+                            <div class="position-absolute top-100 translate-middle current-loc" style="left: 0%!important; top: 114%!important;">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
                                     <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"></path>
                                 </svg>
@@ -564,7 +555,7 @@
                                 <div id="summary-subtotal-newer">0.000</div>
                                 <div id="summary-subtotal-newer-ratio" class="small">0.0%</div>
                             </div>
-                            <div class="flex-fill bg-gray-900 text-white ms-1">
+                            <div class="flex-fill bg-gray-900 ms-1">
                                 <div class="small">
                                     <span class="lang lang-japanese">合計</span>
                                     <span class="lang lang-english d-none">Total</span>
@@ -579,7 +570,7 @@
             <div id="box-newer" class="box-entry bg-gray-800 my-2">
                 <div class="justify-content-between bg-gray-700 sticky-top p-2 shadow">
                     <div class="d-flex justify-content-between align-items-center cursor-pointer" onclick="switchChartsEntry('older')">
-                        <div class="d-flex flex-wrap align-items-end text-white">
+                        <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">新曲枠</span>
                                 <span class="lang lang-english d-none">Newer Charts</span>
@@ -599,22 +590,22 @@
                         </div>
                         <div class="bg-dark px-2">
                             <div class="d-flex">
-                                <div id="newer-subtotal-current-label" class="text-gray-500 small me-2">
+                                <div id="newer-subtotal-current-label" class="text-dimmed small me-2">
                                     <span class="lang lang-japanese">小計</span>
                                     <span class="lang lang-english d-none">Subtotal</span>
                                 </div>
                                 <div id="newer-subtotal-current" class="bg-white text-clip fs-3 lh-1 summedRateCurrent">0.000</div>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <div id="newer-subtotal-symbol" class="text-gray-500 small lh-1 me-1">/</div>
-                                <div id="newer-subtotal-upper" class="text-gray-500 small lh-1 summedRateUpper">0.000</div>
+                                <div id="newer-subtotal-symbol" class="text-dimmed small lh-1 me-1">/</div>
+                                <div id="newer-subtotal-upper" class="text-dimmed small lh-1 summedRateUpper">0.000</div>
                             </div>
                         </div>
                     </div>
                     <div id="multi-rate-alert-new" class="multi-rate-alert border border-white mt-2 p-2 d-none">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <div class="alert-heading text-white h6 m-0">
+                                <div class="alert-heading h6 m-0">
                                     <span class="lang lang-japanese">複数選択モード</span>
                                     <span class="lang lang-english d-none">Multi Select Mode</span>
                                 </div>
@@ -645,7 +636,7 @@
                 <div class="p-2">
                     <div class="mt-2">
                         <div class="mx-2 p-2">
-                            <div class="small text-white">
+                            <div class="small">
                                 <span class="lang lang-japanese">
                                     新曲枠では、譜面別レーティングの上位15譜面がレーティングの対象となります。
                                 </span>
@@ -656,12 +647,12 @@
                         </div>
                     </div>
                     <div class="stats-graph mt-2">
-                        <div class="h6 border-bottom text-white m-2 px-1 pb-1">
+                        <div class="h6 border-bottom m-2 px-1 pb-1">
                             <span class="lang lang-japanese">統計</span>
                             <span class="lang lang-english d-none">Statistics</span>
                         </div>
                         <div class="mx-2 p-2">
-                            <div class="small text-white">
+                            <div class="small">
                                 <span class="lang lang-japanese">
                                     新曲枠におけるレーティング対象とレーティング候補の内訳です。
                                     レーティングが高くなるほど、上位のスコア帯の占める割合が高くなります。
@@ -708,13 +699,13 @@
                         </div>
                     </div>
                     <div class="mt-2" id="list-newer">
-                        <div class="h6 border-bottom text-white m-2 px-1 pb-1">
+                        <div class="h6 border-bottom m-2 px-1 pb-1">
                             <span class="lang lang-japanese">譜面一覧</span>
                             <span class="lang lang-english d-none">Chart List</span>
                         </div>
                         <div class="mx-2 p-2">
                             <div class="d-flex align-items-center">
-                                <div class="small text-white me-1 py-1">
+                                <div class="small me-1 py-1">
                                     <span class="lang lang-japanese">
                                         新曲枠に分類される譜面の一覧です。
                                         譜面別レーティングの高い順に並び替えて譜面を表示しています。
@@ -737,7 +728,7 @@
                             </div>
                         </div>
                         <div class="mx-2 p-2">
-                            <div class="h6 small text-white">
+                            <div class="h6 small">
                                 <span class="lang lang-japanese">種類フィルター</span>
                                 <span class="lang lang-english d-none">Type Filter</span>
                             </div>
@@ -766,7 +757,7 @@
                             </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white">
+                            <div class="h6 small">
                                 <span class="lang lang-japanese">難易度フィルター</span>
                                 <span class="lang lang-english d-none">Difficulty Filter</span>
                             </div>
@@ -790,7 +781,7 @@
                             </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white">
+                            <div class="h6 small">
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
@@ -820,7 +811,7 @@
                                                 <span class="lang lang-english d-none">Filter by remaining score</span>
                                             </label>
                                             <div class="mx-1">
-                                                <select class="remaining-score-filter-select form-select form-select-light btn-white bg-dark text-white border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                                <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
                                                     <option value="5000" selected>5000</option>
                                                     <option value="4500">4500</option>
                                                     <option value="4000">4000</option>
@@ -932,7 +923,7 @@
             <div id="box-older" class="box-entry bg-gray-800 my-2 d-none">
                 <div class="justify-content-between bg-gray-700 sticky-top p-2 shadow">
                     <div class="d-flex justify-content-between align-items-center cursor-pointer" onclick="switchChartsEntry('newer')">
-                        <div class="d-flex flex-wrap align-items-end text-white">
+                        <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">旧曲枠</span>
                                 <span class="lang lang-english d-none">Older Charts</span>
@@ -952,22 +943,22 @@
                         </div>
                         <div class="bg-dark px-2">
                             <div class="d-flex">
-                                <div id="older-subtotal-current-label" class="text-gray-500 small me-2">
+                                <div id="older-subtotal-current-label" class="text-dimmed small me-2">
                                     <span class="lang lang-japanese">小計</span>
                                     <span class="lang lang-english d-none">Subtotal</span>
                                 </div>
                                 <div id="older-subtotal-current" class="bg-white text-clip fs-3 lh-1 summedRateCurrent">0.000</div>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <div id="older-subtotal-symbol" class="text-gray-500 small lh-1 me-1">/</div>
-                                <div id="older-subtotal-upper" class="text-gray-500 small lh-1 summedRateUpper">0.000</div>
+                                <div id="older-subtotal-symbol" class="text-dimmed small lh-1 me-1">/</div>
+                                <div id="older-subtotal-upper" class="text-dimmed small lh-1 summedRateUpper">0.000</div>
                             </div>
                         </div>
                     </div>
                     <div id="multi-rate-alert-old" class="multi-rate-alert border border-white mt-2 p-2 d-none">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <div class="alert-heading text-white h6 m-0">
+                                <div class="alert-heading h6 m-0">
                                     <span class="lang lang-japanese">複数選択モード</span>
                                     <span class="lang lang-english d-none">Multi Select Mode</span>
                                 </div>
@@ -998,7 +989,7 @@
                 <div class="p-2">
                     <div class="mt-2">
                         <div class="mx-2 p-2">
-                            <div class="small text-white">
+                            <div class="small">
                                 <span class="lang lang-japanese">
                                     新曲枠では、譜面別レーティングの上位35譜面がレーティングの対象となります。
                                 </span>
@@ -1009,12 +1000,12 @@
                         </div>
                     </div>
                     <div class="stats-graph mt-2">
-                        <div class="h6 border-bottom text-white m-2 px-1 pb-1">
+                        <div class="h6 border-bottom m-2 px-1 pb-1">
                             <span class="lang lang-japanese">統計</span>
                             <span class="lang lang-english d-none">Statistics</span>
                         </div>
                         <div class="mx-2 p-2">
-                            <div class="small text-white">
+                            <div class="small">
                                 <span class="lang lang-japanese">
                                     旧曲枠におけるレーティング対象とレーティング候補の内訳です。
                                     レーティングが高くなるほど、上位のスコア帯の占める割合が高くなります。
@@ -1061,13 +1052,13 @@
                         </div>
                     </div>
                     <div class="mt-2" id="list-older">
-                        <div class="h6 border-bottom text-white m-2 px-1 pb-1">
+                        <div class="h6 border-bottom m-2 px-1 pb-1">
                             <span class="lang lang-japanese">譜面一覧</span>
                             <span class="lang lang-english d-none">Chart List</span>
                         </div>
                         <div class="mx-2 p-2">
                             <div class="d-flex align-items-center">
-                                <div class="small text-white me-1 py-1">
+                                <div class="small me-1 py-1">
                                     <span class="lang lang-japanese">
                                         旧曲枠に分類される譜面の一覧です。
                                         譜面別レーティングの高い順に並び替えて譜面を表示しています。
@@ -1090,7 +1081,7 @@
                             </div>
                         </div>
                         <div class="mx-2 p-2">
-                            <div class="h6 small text-white">
+                            <div class="h6 small">
                                 <span class="lang lang-japanese">種類フィルター</span>
                                 <span class="lang lang-english d-none">Type Filter</span>
                             </div>
@@ -1119,7 +1110,7 @@
                             </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white">
+                            <div class="h6 small">
                                 <span class="lang lang-japanese">難易度フィルター</span>
                                 <span class="lang lang-english d-none">Difficulty Filter</span>
                             </div>
@@ -1143,7 +1134,7 @@
                             </div>
                         </div>
                         <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small text-white">
+                            <div class="h6 small">
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
@@ -1173,7 +1164,7 @@
                                                 <span class="lang lang-english d-none">Filter by remaining score</span>
                                             </label>
                                             <div class="mx-1">
-                                                <select class="remaining-score-filter-select form-select form-select-light btn-white bg-dark text-white border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-2" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                                <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-2" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
                                                     <option value="5000" selected>5000</option>
                                                     <option value="4500">4500</option>
                                                     <option value="4000">4000</option>
@@ -1285,11 +1276,11 @@
             <div id="box-footer" class="bg-gray-800 p-2">
                 <div class="d-flex justify-content-center text-break">
                     <div>
-                        <span class="small text-white">Dev. by shimmand</span>
+                        <span class="small">Dev. by shimmand</span>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center text-break">
-                    <a class="small text-white text-decoration-none" href="https://github.com/shimmand/wacca-rating-analyzer" target="_blank" rel="noopener noreferrer">
+                    <a class="small text-decoration-none" href="https://github.com/shimmand/wacca-rating-analyzer" target="_blank" rel="noopener noreferrer">
                         <div class="ms-0">
                             <span class="text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -1307,14 +1298,12 @@
             <!-- modal begins -->
             <div class="modal fade" id="modal-introduction" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header d-flex">
-                            <div class="modal-title h3" id="">
-                                <div class="modal-title h3 text-heading text-white">
-                                    <div class="">
-                                        <span class="lang lang-japanese">はじめに</span>
-                                        <span class="lang lang-english d-none">Introduction</span>
-                                    </div>
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0 d-flex">
+                            <div class="modal-title h3 text-heading ">
+                                <div class="">
+                                    <span class="lang lang-japanese">はじめに</span>
+                                    <span class="lang lang-english d-none">Introduction</span>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center">
@@ -1337,7 +1326,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="mt-2">
                                 <div class="justify-content-between py-1">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -1349,8 +1338,8 @@
                                 </div>
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
-                                        <span class="lang lang-japanese"><span class="bg-magenta text-white px-1">WACCA RATING ANALYZER</span> は、WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。</span>
-                                        <span class="lang lang-english d-none">The <span class="bg-magenta text-white px-1">WACCA RATING ANALYZER</span> provides you useful data for increasing your rating based on the data available on your WACCA My Page.</span>
+                                        <span class="lang lang-japanese"><span class="bg-magenta px-1">WACCA RATING ANALYZER</span> は、WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。</span>
+                                        <span class="lang lang-english d-none">The <span class="bg-magenta px-1">WACCA RATING ANALYZER</span> provides you useful data for increasing your rating based on the data available on your WACCA My Page.</span>
                                     </div>
                                 </div>
                             </div>
@@ -1364,7 +1353,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">データ収集なし</span>
                                         <span class="lang lang-english d-none">No data collection</span>
                                     </div>
@@ -1374,7 +1363,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">レーティング候補譜面の上限数なし</span>
                                         <span class="lang lang-english d-none">Show more 'Rating Candidate Charts'</span>
                                     </div>
@@ -1384,7 +1373,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">レーティング上昇量が詳細に分かる</span>
                                         <span class="lang lang-english d-none">Detailed rating increase</span>
                                     </div>
@@ -1444,7 +1433,7 @@
                                         <div class="accordion border border-magenta m-2" id="accordion-android-user">
                                             <div class="accordion-item border-0">
                                                 <div class="h2 accordion-header" id="accordion-android-user-1">
-                                                    <button class="accordion-button collapsed bg-magenta text-white rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-android-user-1" aria-expanded="false" aria-controls="collapse-android-user-1">
+                                                    <button class="accordion-button collapsed bg-magenta rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-android-user-1" aria-expanded="false" aria-controls="collapse-android-user-1">
                                                         <span class="me-1">
                                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
                                                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -1476,7 +1465,7 @@
                                         <span class="lang lang-japanese">2. ブックマークレットをコピーします。</span>
                                         <span class="lang lang-english d-none">2. Copy the bookmarklet.</span>
                                         <div class="input-group m-2">
-                                            <input type="text" class="form-control bg-dark text-white rounded-0" id="copyTarget" placeholder="code" aria-label="code" aria-describedby="button-addon" value="javascript:(function(){let%20path='https://shimmand.github.io/wacca-rating-analyzer/bookmarklet/main.js';import(path).then((obj)=>obj.main())})();" readonly="">
+                                            <input type="text" class="form-control bg-dark tetx-white rounded-0" id="copyTarget" placeholder="code" aria-label="code" aria-describedby="button-addon" value="javascript:(function(){let%20path='https://shimmand.github.io/wacca-rating-analyzer/bookmarklet/main.js';import(path).then((obj)=>obj.main())})();" readonly="">
                                             <button type="button" class="btn btn-white rounded-0 m-1" onclick="copyBookmarklet();" type="button" id="button-addon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
                                                     <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
@@ -1547,10 +1536,10 @@
                                     <div class="m-2 px-1">
                                         <div>
                                             <span class="lang lang-japanese">
-                                                2. <span class="badge border border-white text-white align-bottom">プレイデータ</span> を押します。
+                                                2. <span class="badge border border-white align-bottom">プレイデータ</span> を押します。
                                             </span>
                                             <span class="lang lang-english d-none">
-                                                2. Press <span class="badge border border-white text-white align-bottom">プレイデータ (Play Data)</span> .
+                                                2. Press <span class="badge border border-white align-bottom">プレイデータ (Play Data)</span> .
                                             </span>
                                         </div>
                                         <div>
@@ -1607,8 +1596,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-magenta">
-                                            <span class="bg-magenta text-white px-1">
+                                        <div>
+                                            <span class="bg-magenta px-1">
                                                 <span class="lang lang-japanese">ブックマークレットを実行する手順は、端末の環境により異なる場合があります。</span>
                                                 <span class="lang lang-english d-none">*The steps for executing the bookmarklet may vary depending on the device environment.</span>
                                             </span>
@@ -1618,10 +1607,10 @@
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">
-                                            4. ブックマークレットの処理が完了した旨がページ上に表示されたら、 <span class="badge border border-white text-white align-bottom">プログラムを開く</span> を押します。
+                                            4. ブックマークレットの処理が完了した旨がページ上に表示されたら、 <span class="badge border border-white align-bottom">プログラムを開く</span> を押します。
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            4. When you see the message on the page that the bookmarklet has been processed, press <span class="badge border border-white text-white align-bottom">Open the Web Program</span>.
+                                            4. When you see the message on the page that the bookmarklet has been processed, press <span class="badge border border-white align-bottom">Open the Web Program</span>.
                                         </span>
                                     </div>
                                     <div class="m-2 px-1">
@@ -1636,24 +1625,24 @@
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">
-                                            5. <span class="badge border border-white text-white align-bottom">データを読込 (STEP 1)</span> を押します。
+                                            5. <span class="badge border border-white align-bottom">データを読込 (STEP 1)</span> を押します。
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            5. Press <span class="badge border border-white text-white align-bottom">Load Your Data (STEP 1)</span>.
+                                            5. Press <span class="badge border border-white align-bottom">Load Your Data (STEP 1)</span>.
                                         </span>
                                     </div>
                                 </div>
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">
-                                            6. <span class="badge border border-white text-white align-bottom">分析を実行 (STEP 2)</span> を押します。
+                                            6. <span class="badge border border-white align-bottom">分析を実行 (STEP 2)</span> を押します。
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            6. Press <span class="badge border border-white text-white align-bottom">Start Analysis (STEP 2)</span>.
+                                            6. Press <span class="badge border border-white align-bottom">Start Analysis (STEP 2)</span>.
                                         </span>
                                     </div>
                                 </div>
-                                <div class="border border-white text-white mt-2">
+                                <div class="border border-white mt-2">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">完了！</span>
                                         <span class="lang lang-english d-none">Complete!</span>
@@ -1661,7 +1650,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -1672,15 +1661,15 @@
             </div>
             <div class="modal fade" id="modal-data-export" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">CSVで保存</span>
                                 <span class="lang lang-english d-none">Save as CSV</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
                                 <div class="mt-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down-circle bi-lg" viewBox="0 0 16 16">
@@ -1709,7 +1698,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-2" onclick="saveTableData();">
                                     <span class="lang lang-japanese">エクスポート</span>
@@ -1727,15 +1716,15 @@
             <button id="btn-restore-fail-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#restore-fail-modal"></button>
             <div class="modal fade" id="restore-fail-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-magenta">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-magenta bg-gray-800 modal-shadow-magenta">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">復元不可</span>
                                 <span class="lang lang-english d-none">Unable to Restore</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
                                 <div class="mt-0 text-magenta">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle bi-lg" viewBox="0 0 16 16">
@@ -1755,7 +1744,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -1767,17 +1756,17 @@
             <button id="btn-analyzed-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#analyzed-modal"></button>
             <div class="modal fade" id="analyzed-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">分析完了</span>
                                 <span class="lang lang-english d-none">Analysis Complete</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
-                                <div class="mt-0 text-white">
+                                <div class="mt-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-lg bi-check-circle" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
@@ -1791,7 +1780,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal" onclick="scrollToActiveChartList()">
                                 <span class="lang lang-japanese">譜面一覧へ移動</span>
                                 <span class="lang lang-english d-none">Go to Chart List</span>
@@ -1807,17 +1796,17 @@
             <button id="btn-restored-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#restored-modal"></button>
             <div class="modal fade" id="restored-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">復元完了</span>
                                 <span class="lang lang-english d-none">Restore Complete</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
-                                <div class="mt-0 text-white">
+                                <div class="mt-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-lg bi-check-circle" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
@@ -1831,12 +1820,12 @@
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">更新日時: </span>
                                         <span class="lang lang-english d-none">Last Update: </span>
-                                        <span class="bg-magenta text-white px-1" id="last-update">0000-00-00 00:00</span>
+                                        <span class="bg-magenta px-1" id="last-update">0000-00-00 00:00</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal" onclick="scrollToActiveChartList()">
                                 <span class="lang lang-japanese">譜面一覧へ移動</span>
                                 <span class="lang lang-english d-none">Go to Chart List</span>
@@ -1851,23 +1840,23 @@
             </div>
             <div class="modal fade" id="does-not-work-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">ヘルプ</span>
                                 <span class="lang lang-english d-none">Help</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <span class="lang lang-japanese">
-                                <span class="badge border border-white text-white align-bottom">データを読込</span> が動作しない場合、代わりにプレイデータ欄へクリップボードの内容を貼り付け、そのまま <span class="badge border border-white text-white align-bottom">分析を実行</span> を押してください。
+                                <span class="badge border border-white align-bottom">データを読込</span> が動作しない場合、代わりにプレイデータ欄へクリップボードの内容を貼り付け、そのまま <span class="badge border border-white align-bottom">分析を実行</span> を押してください。
                             </span>
                             <span class="lang lang-english d-none">
-                                If nothing happens when you press <span class="badge border border-white text-white align-bottom">Load Your Data</span>, paste the clipboard contents into the Play Data field instead, and then press <span class="badge border border-white text-white align-bottom">Start Analysis</span>.
+                                If nothing happens when you press <span class="badge border border-white align-bottom">Load Your Data</span>, paste the clipboard contents into the Play Data field instead, and then press <span class="badge border border-white align-bottom">Start Analysis</span>.
                             </span>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -1878,15 +1867,15 @@
             </div>
             <div class="modal fade" id="modal-settings" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">設定</span>
                                 <span class="lang lang-english d-none">Settings</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="justify-content-between py-1">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="h5 mb-0 ps-2">
@@ -1896,7 +1885,7 @@
                                 </div>
                             </div>
                             <div class="mt-2">
-                                <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                     <span class="lang lang-japanese">Cookie</span>
                                     <span class="lang lang-english d-none">Cookie</span>
                                 </div>
@@ -1906,7 +1895,7 @@
                                 </div>
                             </div>
                             <div class="mt-2">
-                                <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                     <span class="lang lang-japanese">LocalStorage</span>
                                     <span class="lang lang-english d-none">LocalStorage</span>
                                 </div>
@@ -1959,7 +1948,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -1970,15 +1959,15 @@
             </div>
             <div class="modal fade" id="modal-data-erase" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-magenta">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-magenta bg-gray-800 modal-shadow-magenta">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">データ消去</span>
                                 <span class="lang lang-english d-none">Erase Data</span>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
                                 <div class="mt-0 text-magenta">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle bi-lg" viewBox="0 0 16 16">
@@ -1998,7 +1987,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-white me-2" data-bs-toggle="modal" data-bs-target="#modal-settings">
                                     <span class="lang lang-japanese">キャンセル</span>
@@ -2016,14 +2005,14 @@
             <button type="button" class="btn btn-white me-2 d-none" id="btn-modal-data-erase-done" data-bs-toggle="modal" data-bs-target="#modal-data-erase-done"></button>
             <div class="modal fade" id="modal-data-erase-done" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
                 <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-magenta">
-                        <div class="modal-header">
-                            <div class="modal-title h3 text-heading text-white">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-magenta">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
                                 <span class="lang lang-japanese">データ消去完了</span>
                                 <span class="lang lang-english d-none">Erase Complete</span>
                             </div>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="mt-2">
                                 <div class="m-2 px-1">
                                     <span class="lang lang-japanese">データを消去しました。</span>
@@ -2040,19 +2029,17 @@
             </div>
             <div class="modal fade" id="help-input-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
-                            <div class="modal-title h3" id="">
-                                <div class="modal-title h3 text-heading text-white">
-                                    <span class="lang lang-japanese">ヘルプ</span>
-                                    <span class="lang lang-english d-none">Help</span>
-                                </div>
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
+                                <span class="lang lang-japanese">ヘルプ</span>
+                                <span class="lang lang-english d-none">Help</span>
                             </div>
                             <div class="d-flex align-items-center">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="mt-2">
                                 <div class="justify-content-between py-1">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -2063,7 +2050,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">入力</span>
                                         <span class="lang lang-english d-none">Input</span>
                                     </div>
@@ -2135,7 +2122,7 @@
                                     </table>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">内部データ</span>
                                         <span class="lang lang-english d-none">Internal Data</span>
                                     </div>
@@ -2197,7 +2184,7 @@
                                     </table>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">表示</span>
                                         <span class="lang lang-english d-none">Display</span>
                                     </div>
@@ -2242,7 +2229,7 @@
                                     </table>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">その他</span>
                                         <span class="lang lang-english d-none">Others</span>
                                     </div>
@@ -2269,7 +2256,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -2280,10 +2267,10 @@
             </div>
             <div class="modal fade" id="help-chart-list-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
                             <div class="modal-title h3" id="">
-                                <div class="modal-title h3 text-heading text-white">
+                                <div class="modal-title h3 text-heading">
                                     <span class="lang lang-japanese">ヘルプ</span>
                                     <span class="lang lang-english d-none">Help</span>
                                 </div>
@@ -2292,7 +2279,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="mt-2">
                                 <div class="justify-content-between py-1">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -2449,7 +2436,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1 text-white">
+                                    <div class="h6 border-bottom border-white m-2 px-1 pb-1">
                                         <span class="lang lang-japanese">複数選択モード</span>
                                         <span class="lang lang-english d-none">Multi Select Mode</span>
                                     </div>
@@ -2497,7 +2484,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -2508,10 +2495,10 @@
             </div>
             <div class="modal fade" id="chart-dataset-modal" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-0 bg-dark modal-shadow-white">
-                        <div class="modal-header">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
                             <div class="modal-title h3" id="">
-                                <div class="modal-title h3 text-heading text-white">
+                                <div class="modal-title h3 text-heading">
                                     <span class="lang lang-japanese">定数テーブル</span>
                                     <span class="lang lang-english d-none">Constants Table</span>
                                 </div>
@@ -2520,7 +2507,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         </div>
-                        <div class="modal-body text-white">
+                        <div class="modal-body">
                             <div class="d-flex justify-content-between mt-2">
                                 <div class="d-flex align-items-center px-2 py-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -2529,7 +2516,7 @@
                                 </div>
                                 <div class="ms-2 flex-grow-1">
                                     <div class="position-relative">
-                                        <input type="text" class="form-control bg-dark border-white text-white rounded-0 position-relative" id="dataset-filter-input" placeholder="Search this table..." value="" oninput="filterDatasetTable(this.value)" style="font-size: 16px;">
+                                        <input type="text" class="form-control bg-dark border-white rounded-0 position-relative" id="dataset-filter-input" placeholder="Search this table..." value="" oninput="filterDatasetTable(this.value)" style="font-size: 16px;">
                                         <div class="position-absolute" style="top: -3rem!important;">
                                             <div class="bg-black bg-opacity-50 small">
                                                 <div class="p-1 filter-option-tooltip d-none" id="filter-option-tooltip-difficulty">
@@ -2773,7 +2760,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer border-0 bg-gray-900">
                             <a class="text-dark text-decoration-none" href="https://shimmand.github.io/wacca-rating-analyzer/assets/dataset.csv" target="_blank" rel="noopener noreferrer">
                                 <button type="button" class="h-100 btn btn-white rounded-0 m-1">
                                     <div>

@@ -1,4 +1,7 @@
-// Initialize with user settings
+/**
+ * Initialize with user settings
+ * @returns 
+ */
 function initialize() {
     try {
         const datasetParam = document.querySelector('html').dataset.dataset
@@ -233,8 +236,9 @@ function getLastUpdate() {
     return document.querySelector('html').dataset.update
 }
 
-
-// Paste the clipboard contents into the textarea.
+/**
+ * Paste the clipboard contents into the textarea
+ */
 function paste() {
     const playdata = document.querySelector('#playdata')
     playdata.classList.remove('is-invalid')
@@ -254,14 +258,19 @@ function paste() {
     setDisplayNone('#btn-does-not-work-modal', false)
 }
 
-// Display a message when access to the clipboard is denied.
+/**
+ * Display a message when access to the clipboard is denied
+ */
 function showDeniedWarning() {
     document.querySelector('#playdata').classList.add('is-invalid')
     setDisplayNone('.error-feedback-1', true)
     setDisplayNone('#warning-denied', false)
 }
 
-// Analyze play results based on text in the text area.
+/**
+ * Analyze play results based on text in the text area.
+ * @returns 
+ */
 function analyze(){
     const playdata = document.querySelector('#playdata')
     const charts = playdata.value.split('\n')
@@ -399,8 +408,7 @@ function analyze(){
                         data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}" 
                         data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]} ${index}" 
                         data-query-class="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}">
-                        <span class="rate-counter rate-counter-exclude">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
-                        <span class="rate-counter rate-counter-include d-none">REMOVE</span>
+                        <span class="rate-counter">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
                         </a>
                         `.replaceAll(/(^ {24}|^\n)/gm, '').replaceAll('\n', '')
                 } else {

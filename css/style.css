@@ -616,3 +616,12 @@ svg.svg-fs-6 {
 .modal-shadow-magenta {
     box-shadow: 0 0 2rem #d63384;
 }
+
+.modal.fade .modal-dialog {
+    transition: transform .15s ease;
+    transform: translate(0, -50px);
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}

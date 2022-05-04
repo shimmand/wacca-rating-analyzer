@@ -202,6 +202,23 @@ function initialize() {
                     break
             }
 
+            if (document.querySelector('.chart-list--item')) {
+                restoreCheckList()
+                applyCheckList()
+            }
+
+            switch (localStorage.getItem('rating-analyzer-check-list-visible')) {
+                case 'true':
+                    toggleCheckListVisibility(true)
+                    break
+
+                case 'false':
+                    break
+
+                default:
+                    break
+            }
+
             switchLoadingView(false)
         }
 
@@ -361,6 +378,8 @@ function analyze(){
         chartsList.forEach((chart, index) => {
             const tempRow = document.createElement('tr')
             const tableRow = scoresTables[listIndex].appendChild(tempRow)
+            
+            tableRow.classList.add('chart-list--item')
 
             if (index < targetsLength[listIndex]) {
                 tableRow.classList.add('table-target', 'top-single-rate')
@@ -370,14 +389,16 @@ function analyze(){
 
             tableRow.classList.add(`difficulty-${chart[1]}`)
 
-            const increases = targetMultipliers.map(multiplier => {
+            const increases = targetMultipliers.map((multiplier, index) => {
                 const targetsName = ['new', 'old']
 
                 if ((chart[5] < multiplier) && ((chart[4] * multiplier) > varSingleRateLowers[listIndex])) {
                     return `
                         <a class="badge rate-increase rounded-0 box-shadow-black" 
-                        href="#" onclick="startMultiSelectMode(this, '${targetsName[listIndex]}'); return false;" 
-                        data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}">
+                        href="#" onclick="modifyCheckListItem(this); return false;" 
+                        data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}" 
+                        data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]} ${index}" 
+                        data-query-class="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}">
                         <span class="rate-counter rate-counter-exclude">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
                         <span class="rate-counter rate-counter-include d-none">REMOVE</span>
                         </a>
@@ -1422,127 +1443,172 @@ function quitMultiSelectMode(listtype) {
     }
 }
 
-// Start the Multi Select Mode
-function startMultiSelectMode(element, listtype) {
+function modifyCheckListItem(element) {
     if (element.tagName !== 'A') {
         return false
     }
 
-    if (listtype.match(/new|old/) === null) {
-        return false
-    }
-
-    const tableIndex = listtype === 'new' ? 0 : 1
-    const tables = document.querySelectorAll('.scoresTable')
-
-    const parent = element.parentElement
-    const tableType = parent.dataset.parent
-
-    if (tableType === null) {
-        return false
-    }
-
-    const rowIndex = parent.dataset.index
-    const increaseToggles = tables[tableIndex].querySelectorAll(`[data-index="${rowIndex}"] .rate-increase`)
-
-    increaseToggles.forEach(toggle => {
-        if (toggle !== element) {
-            toggle.classList.remove('multi-rate-selected')
-        } else {
-            toggle.classList.toggle('multi-rate-selected')
-        }
-    })
-
-    const topSingleRates = tables[tableIndex].querySelectorAll(`.top-single-rate .${tableType} .list-item--rating-now`)
-    let topSinleRatesArr =
-        Array
-        .from(topSingleRates)
-        .map(div => Number(div.innerHTML))
-        .sort((a, b) => b - a)
-
-    const selectedRates = tables[tableIndex].querySelectorAll(`.${tableType} a.multi-rate-selected`)
-    const selectedRatesArr =
-        Array
-        .from(selectedRates)
-        .map(div => Number(div.dataset.rating))
-        .sort((a, b) => b - a)
-
-    const replaceRatesArr =
-        Array
-        .from(selectedRates)
-        .map(div => Number(div.dataset.now))
-        .sort((a, b) => b - a)
-    const oldListTotal = topSinleRatesArr.reduce((a, b) => a + b, 0)
-
-    replaceRatesArr.forEach(value => {
-        const arrIndex = topSinleRatesArr.indexOf(value)
-
-        if (arrIndex != -1) {
-            topSinleRatesArr.splice(arrIndex, 1)
-        }
-    })
-
-    const newList =
-        [...topSinleRatesArr, ...selectedRatesArr]
-        .sort((a, b) => b - a)
-        .splice(0, topSingleRates.length)
-    const newListTotal = newList.reduce((a, b) => a + b, 0)
-    const rateIncsease = newListTotal - oldListTotal
-    const alreadyListed = tables[tableIndex].querySelectorAll(`.table-target .${tableType} .multi-rate-selected`)
-    
+    // Toggle only selected button, deactivate all others
     {
-        const rateAlert = document.querySelector(`#multi-rate-alert-${listtype}`)
-        rateAlert.classList.remove('d-none')
-        rateAlert.querySelector('.before').innerHTML = oldListTotal.toFixed(3)
-        rateAlert.querySelector('.after').innerHTML = newListTotal.toFixed(3)
-        rateAlert.querySelector('.increase').innerHTML = rateIncsease.toFixed(3)
-    }
-
-    tables[tableIndex]
-    .querySelectorAll('.table-dethrone')
-    .forEach(tr => tr.classList.remove('table-dethrone'))
-
-    selectedRatesArr.forEach((_value, index) => {
-        const fixedIndex = topSingleRates.length + alreadyListed.length - index - 1
-        const checkRow = tables[tableIndex].querySelectorAll('tr')[fixedIndex]
-        
-        if (checkRow) {
-            if (
-                (checkRow.querySelectorAll('.multi-rate-selected').length === 0) &&
-                (fixedIndex <= topSingleRates.length - 1)
-            ) {
-                checkRow.classList.add('table-dethrone')
-            }
-        }
-    })
-}
-
-function snapChartListView(element) {
-    if (element.classList.contains('chart-list-grow')) {
-        return false
-    }
-
-    element.parentElement.scrollIntoView(false)
-}
-
-function toggleAutoHeight(checked) {
-    {
-        const toggles = document.querySelectorAll('#auto-height-toggle')
-        toggles.forEach(input => input.checked = checked)
-    }
-
-    localStorage.setItem('rating-analyzer-auto-height', checked)
-
-    {
-        const chartlists = document.querySelectorAll('.chart-list')
-
-        chartlists.forEach(list => {
-            if (checked) {
-                list.classList.remove('chart-list-grow')
+        const anchors = document.querySelectorAll(`a[data-query-class="${element.dataset.queryClass}"]`)
+        anchors.forEach(anchor => {
+            if (anchor.dataset.query === element.dataset.query) {
+                anchor.classList.toggle('multi-rate-selected')
             } else {
-                list.classList.add('chart-list-grow')
+                anchor.classList.remove('multi-rate-selected')
             }
         })
+    }
+
+    // Change to make the state of small list and large list same
+    {
+        const anchors = document.querySelectorAll(`a[data-query="${element.dataset.query}"]`)
+        anchors.forEach(anchor => {
+            if (element.classList.contains('multi-rate-selected')) {
+                anchor.classList.add('multi-rate-selected')
+            } else {
+                anchor.classList.remove('multi-rate-selected')
+            }
+        })
+    }
+
+    saveCheckList()
+    applyCheckList()
+    toggleCheckListVisibility(true)
+}
+
+function saveCheckList() {
+    const selectedRates = document.querySelectorAll(`.list-item--small a.multi-rate-selected`)
+    const checklist = Array.from(selectedRates).map(a => a.dataset.query).join('\n')
+    localStorage.setItem('rating-analyzer-check-list', checklist)
+}
+
+function restoreCheckList() {
+    const checklist = localStorage.getItem('rating-analyzer-check-list')
+    
+    if (!checklist) {
+        return false
+    }
+
+    checklist.split('\n').forEach(line => {
+        const buttons = document.querySelectorAll(`.chart-list--item a[data-query="${line}"]`)
+        if (buttons) {
+            buttons.forEach(button => {
+                button.classList.add('multi-rate-selected')
+            })
+        }
+    })
+}
+
+/**
+ * @param {Number} listindex
+ */
+function clearCheckListLauncher(listindex) {
+    const confirms = document.querySelectorAll('.check-list--modal-confirm-text')
+    confirms.forEach(div => div.classList.add('d-none'))
+    confirms[listindex].classList.remove('d-none')
+    document.querySelector('#check-list--clear-target').value = listindex
+    document.querySelector('#btn-clear-checklist-modal').click()
+}
+
+function clearCheckList() {
+    const index = document.querySelector('#check-list--clear-target').value
+    if ((index !== '0') && (index !== '1')) {
+        return false
+    }
+    const chartLists = document.querySelectorAll('.scoresTable')
+    const anchors = chartLists[index].querySelectorAll('a.multi-rate-selected')
+    anchors.forEach(anchor => anchor.classList.remove('multi-rate-selected'))
+    saveCheckList()
+    applyCheckList()
+}
+
+function applyCheckList() {
+    const chartLists = document.querySelectorAll('.scoresTable')
+    chartLists.forEach((chartlist, index) => {
+        const topSingleRates = chartlist.querySelectorAll(`.top-single-rate .list-item--small .list-item--rating-now`)
+        let topSinleRatesArr =
+            Array
+            .from(topSingleRates)
+            .map(div => Number(div.innerHTML))
+            .sort((a, b) => b - a)
+
+        const selectedRates = chartlist.querySelectorAll(`.list-item--small a.multi-rate-selected`)
+        const selectedRatesArr =
+            Array
+            .from(selectedRates)
+            .map(div => Number(div.dataset.rating))
+            .sort((a, b) => b - a)
+
+        const replaceRatesArr =
+            Array
+            .from(selectedRates)
+            .map(div => Number(div.dataset.now))
+            .sort((a, b) => b - a)
+        const oldListTotal = topSinleRatesArr.reduce((a, b) => a + b, 0)
+
+        replaceRatesArr.forEach(value => {
+            const arrIndex = topSinleRatesArr.indexOf(value)
+
+            if (arrIndex != -1) {
+                topSinleRatesArr.splice(arrIndex, 1)
+            }
+        })
+
+        const newList =
+            [...topSinleRatesArr, ...selectedRatesArr]
+            .sort((a, b) => b - a)
+            .splice(0, topSingleRates.length)
+        const newListTotal = newList.reduce((a, b) => a + b, 0)
+        const rateIncsease = newListTotal - oldListTotal
+        const alreadyListed = chartlist.querySelectorAll(`.table-target .list-item--small .multi-rate-selected`)
+        
+        {
+            const entries = document.querySelectorAll('.box-entry')
+            const indicators = entries[index].querySelectorAll('.check-list--indicator-icon')
+
+            if (selectedRates.length > 0) {
+                indicators.forEach(e => e.classList.add('text-magenta'))
+            } else {
+                indicators.forEach(e => e.classList.remove('text-magenta'))
+            }
+
+            entries[index].querySelector('.check-list--rating-after').innerHTML = newListTotal.toFixed(3)
+            entries[index].querySelector('.check-list--rating-increase').innerHTML = rateIncsease.toFixed(3)
+        }
+
+        chartlist
+        .querySelectorAll('.table-dethrone')
+        .forEach(tr => tr.classList.remove('table-dethrone'))
+
+        selectedRatesArr.forEach((_value, index) => {
+            const fixedIndex = topSingleRates.length + alreadyListed.length - index - 1
+            const checkRow = chartlist.querySelectorAll('tr')[fixedIndex]
+            
+            if (checkRow) {
+                if (
+                    (checkRow.querySelectorAll('.multi-rate-selected').length === 0) &&
+                    (fixedIndex <= topSingleRates.length - 1)
+                ) {
+                    checkRow.classList.add('table-dethrone')
+                }
+            }
+        })
+    })
+}
+
+/**
+ * @param {Boolean} isVisible
+ */
+function toggleCheckListVisibility(isVisible) {
+    if (isVisible) {
+        document.querySelectorAll('.check-list--hidden').forEach(e => e.classList.add('d-none'))
+        document.querySelectorAll('.check-list--visible').forEach(e => e.classList.remove('d-none'))
+        localStorage.setItem('rating-analyzer-check-list-visible', true)
+    } else {
+        document.querySelectorAll('.check-list--hidden').forEach(e => e.classList.remove('d-none'))
+        document.querySelectorAll('.check-list--visible').forEach(e => e.classList.add('d-none'))
+        localStorage.setItem('rating-analyzer-check-list-visible', false)
     }
 }
 
@@ -1894,10 +1960,5 @@ function switchLargeTable(isEnabled) {
                 div.classList.add('list-item--large', 'row', 'd-none', 'd-xl-flex', 'd-xxl-flex')
             }
         })
-    }
-
-    {
-        quitMultiSelectMode('new')
-        quitMultiSelectMode('old')
     }
 }

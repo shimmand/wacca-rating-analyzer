@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-05" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-05-01" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-05"></script>
+        <script defer src="js/script.js?date=2022-05-05-01"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -1525,19 +1525,15 @@
                             </div>
                         </div>
                         <div class="modal-body">
+                            <div class="d-flex justify-content-center align-items-center text-nowrap w-100">
+                                <div class="fs-3 text-clip bg-heading drop-shadow-black">WACCA RATING ANALYZER</div>
+                            </div>
+                            <div class="bg-heading" style="height: 1px; width: 100%;"></div>
                             <div class="mt-2">
-                                <div class="justify-content-between py-1">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="h5 mb-0 ps-2">
-                                            <span class="lang lang-japanese">ようこそ</span>
-                                            <span class="lang lang-english d-none">Welcome</span>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
-                                        <span class="lang lang-japanese"><span class="bg-magenta px-1">WACCA RATING ANALYZER</span> は、WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。</span>
-                                        <span class="lang lang-english d-none">The <span class="bg-magenta px-1">WACCA RATING ANALYZER</span> provides you useful data for increasing your rating based on the data available on your WACCA My Page.</span>
+                                        <span class="lang lang-japanese">WACCA RATING ANALYZER は、WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。</span>
+                                        <span class="lang lang-english d-none">The WACCA RATING ANALYZER provides you useful data for increasing your rating based on the data available on your WACCA My Page.</span>
                                     </div>
                                 </div>
                             </div>
@@ -1628,14 +1624,14 @@
                                             <span class="lang lang-japanese">*ブックマークの名前の変更は任意です。</span>
                                             <span class="lang lang-english d-none">*Renaming your bookmarks is optional.</span>
                                         </div>
-                                        <div class="accordion border border-magenta m-2" id="accordion-android-user">
+                                        <div class="accordion border border-white m-2" id="accordion-android-user">
                                             <div class="accordion-item border-0">
                                                 <div class="h2 accordion-header" id="accordion-android-user-1">
-                                                    <button class="accordion-button collapsed bg-magenta rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-android-user-1" aria-expanded="false" aria-controls="collapse-android-user-1">
+                                                    <button class="accordion-button collapsed bg-white text-black rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-android-user-1" aria-expanded="false" aria-controls="collapse-android-user-1">
                                                         <span class="me-1">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                                                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                                                             </svg>
                                                         </span>
                                                         <span class="lang lang-japanese">Android端末をご利用の方へ</span>
@@ -1663,7 +1659,7 @@
                                         <span class="lang lang-japanese">2. ブックマークレットをコピーします。</span>
                                         <span class="lang lang-english d-none">2. Copy the bookmarklet.</span>
                                         <div class="input-group m-2">
-                                            <input type="text" class="form-control bg-dark tetx-white rounded-0" id="copyTarget" placeholder="code" aria-label="code" aria-describedby="button-addon" value="javascript:(function(){let%20path='https://shimmand.github.io/wacca-rating-analyzer/bookmarklet/main.js';import(path).then((obj)=>obj.main())})();" readonly="">
+                                            <input type="text" class="form-control bg-dark text-white rounded-0" id="copyTarget" placeholder="code" aria-label="code" aria-describedby="button-addon" value="javascript:(function(){let%20path='https://shimmand.github.io/wacca-rating-analyzer/bookmarklet/main.js';import(path).then((obj)=>obj.main())})();" readonly="">
                                             <button type="button" class="btn btn-white rounded-0 m-1" onclick="copyBookmarklet();" type="button" id="button-addon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
                                                     <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
@@ -1752,53 +1748,39 @@
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">3. ブックマークレットを実行します。</span>
                                         <span class="lang lang-english d-none">3. Run the bookmarklet.</span>
-                                        <div class="accordion border border-white m-2" id="accordion-how-to-run">
-                                            <div class="accordion-item border-0">
-                                                <div class="h2 accordion-header" id="accordion-how-to-run-1">
-                                                    <button class="accordion-button collapsed bg-white text-black rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-how-to-run-1" aria-expanded="false" aria-controls="collapse-how-to-run-1">
-                                                        <span class="me-1">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-code-square" viewBox="0 0 16 16">
-                                                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                                                <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
-                                                            </svg>
-                                                        </span>
-                                                        <span class="lang lang-japanese">iPhoneやiPad、標準的なパソコンをご利用の方へ</span>
-                                                        <span class="lang lang-english d-none">For iPhone, iPad, and most PCs users</span>
-                                                    </button>
+                                        <div class="bg-gray-900 p-1">
+                                            <div class="mt-2">
+                                                <div class="h6 border-bottom border-white m-2 px-1 pb-1">
+                                                    <span class="lang lang-japanese">iPhoneやiPad、標準的なパソコンをご利用の方</span>
+                                                    <span class="lang lang-english d-none">For iPhone, iPad, and most PCs users</span>
                                                 </div>
-                                                <div id="collapse-how-to-run-1" class="accordion-collapse collapse" aria-labelledby="accordion-how-to-run-1" data-bs-parent="#accordion-how-to-run">
-                                                    <div class="accordion-body bg-dark p-2">
-                                                        <span class="lang lang-japanese">ブックマークの一覧からブックマークレットを押してください。</span>
-                                                        <span class="lang lang-english d-none">Open the list of bookmarks and press the bookmarklet.</span>
-                                                    </div>
+                                                <div class="m-2 px-1">
+                                                    <span class="lang lang-japanese">ブックマークの一覧からブックマークレットを押してください。</span>
+                                                    <span class="lang lang-english d-none">Open the list of bookmarks and press the bookmarklet.</span>
                                                 </div>
                                             </div>
-                                            <div class="accordion-item border-0">
-                                                <div class="h2 accordion-header" id="accordion-how-to-run-2">
-                                                    <button class="accordion-button collapsed bg-white text-black rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-how-to-run-2" aria-expanded="false" aria-controls="collapse-how-to-run-2">
-                                                        <span class="me-1">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-code-square" viewBox="0 0 16 16">
-                                                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                                                <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
-                                                            </svg>
-                                                        </span>
-                                                        <span class="lang lang-japanese">Android端末およびモバイルOSを搭載した一部のパソコンをご利用の方へ</span>
-                                                        <span class="lang lang-english d-none">For Android device (and PCs with mobile OS) users</span>
-                                                    </button>
+                                            <div class="mt-2">
+                                                <div class="h6 border-bottom border-white m-2 px-1 pb-1">
+                                                    <span class="lang lang-japanese">Android端末およびモバイルOSを搭載した一部のパソコンをご利用の方</span>
+                                                    <span class="lang lang-english d-none">For Android device (and PCs with mobile OS) users</span>
                                                 </div>
-                                                <div id="collapse-how-to-run-2" class="accordion-collapse collapse" aria-labelledby="accordion-how-to-run-2" data-bs-parent="#accordion-how-to-run">
-                                                    <div class="accordion-body bg-dark p-2">
-                                                        <span class="lang lang-japanese">アドレスバーにブックマークレットの名前を入力し、表示された候補の中からブックマークレットを押してください。</span>
-                                                        <span class="lang lang-english d-none">Type the name of the bookmarklet in the address bar and press the bookmarklet from the list of suggestions.</span>
-                                                    </div>
+                                                <div class="m-2 px-1">
+                                                    <span class="lang lang-japanese">アドレスバーにブックマークレットの名前を入力し、表示された候補の中からブックマークレットを押してください。</span>
+                                                    <span class="lang lang-english d-none">Type the name of the bookmarklet in the address bar and press the bookmarklet from the list of suggestions.</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <span class="bg-magenta px-1">
-                                                <span class="lang lang-japanese">ブックマークレットを実行する手順は、端末の環境により異なる場合があります。</span>
-                                                <span class="lang lang-english d-none">*The steps for executing the bookmarklet may vary depending on the device environment.</span>
-                                            </span>
+                                            <div class="d-flex align-items-center m-2 p-1" style="background-color: #801f4f;">
+                                                <div class="ms-0">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                                        <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="ms-2">
+                                                    <span class="lang lang-japanese">ブックマークレットを実行する手順は、端末の環境により異なる場合があります。</span>
+                                                    <span class="lang lang-english d-none">*The steps for executing the bookmarklet may vary depending on the device environment.</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

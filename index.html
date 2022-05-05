@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-05-02" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-05-03" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-05-02"></script>
+        <script defer src="js/script.js?date=2022-05-05-03"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -667,7 +667,7 @@
                         </div>
                     </div>
                     <div id="check-list--new" class="check-list--wrapper d-flex justify-content-end align-items-center">
-                        <div id="check-list--hidden-newer" class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 2.625rem;">
+                        <div id="check-list--hidden-newer" class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'new')">
                                     <div class="small text-dimmed">
@@ -680,15 +680,18 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="check-list--indicator-icon svg-wrapper">
+                                <div class="check-list--indicator-icon position-relative svg-wrapper">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                     </svg>
+                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                        <span class="visually-hidden">ACTIVE</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="check-list--visible-newer" class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 2.625rem;">
+                        <div id="check-list--visible-newer" class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'new')">
                                     <div class="small text-dimmed">
@@ -701,11 +704,14 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="check-list--indicator-icon svg-wrapper">
+                                <div class="check-list--indicator-icon position-relative svg-wrapper">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                     </svg>
+                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                        <span class="visually-hidden">ACTIVE</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="lang-wrapper small px-1">
@@ -730,36 +736,15 @@
                                     <div class="check-list--rating-label text-dimmed small lh-1 me-1">+</div>
                                     <div class="check-list--rating-increase text-dimmed small lh-1">0.000</div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="multi-rate-alert-new" class="multi-rate-alert border border-white mt-2 p-2 d-none">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="alert-heading h6 m-0">
-                                    <span class="lang lang-japanese">複数選択モード</span>
-                                    <span class="lang lang-english d-none">Multi Select Mode</span>
-                                </div>
-                                <div class="d-flex justify-content-center align-items-center border border-white">
-                                    <div id="newer-multi-rate-before" class="badge before">0.000</div>
-                                    <div id="newer-multi-rate-symbol" class="badge symbol p-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-badge bi-caret-right-fill" viewBox="0 0 16 16">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div class="check-list--rating-total-before text-clip bg-white small lh-1">0.000</div>
+                                    <div class="check-list--rating-total-symbol d-flex mx-1 text-dimmed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill bi-badge" viewBox="0 0 16 16">
                                             <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg>
                                     </div>
-                                    <div id="newer-multi-rate-after" class="badge after">0.000</div>
-                                    <div id="newer-multi-rate-diff" class="badge bg-magenta border border-magenta increase">0.000</div>
+                                    <div class="check-list--rating-total-after text-clip bg-white small lh-1">0.000</div>
                                 </div>
-                            </div>
-                            <div>
-                                <button type="button" class="text-nowrap btn btn-white border-5 border-0 border-start border-magenta" onclick="quitMultiSelectMode('new');">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-                                        <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-                                    </svg>
-                                    <span class="lang lang-japanese">終了</span>
-                                    <span class="lang lang-english d-none">Done</span>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -1087,7 +1072,7 @@
                         </div>
                     </div>
                     <div id="check-list--old" class="check-list--wrapper d-flex justify-content-end align-items-center">
-                        <div class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 2.625rem;">
+                        <div class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'old')">
                                     <div class="small text-dimmed">
@@ -1100,15 +1085,18 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="check-list--indicator-icon svg-wrapper">
+                                <div class="check-list--indicator-icon position-relative svg-wrapper">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                     </svg>
+                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                        <span class="visually-hidden">ACTIVE</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 2.625rem;">
+                        <div class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'old')">
                                     <div class="small text-dimmed">
@@ -1121,11 +1109,14 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="check-list--indicator-icon svg-wrapper">
+                                <div class="check-list--indicator-icon position-relative svg-wrapper">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                     </svg>
+                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                        <span class="visually-hidden">ACTIVE</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="lang-wrapper small px-1">
@@ -1150,36 +1141,15 @@
                                     <div class="check-list--rating-label text-dimmed small lh-1 me-1">+</div>
                                     <div class="check-list--rating-increase text-dimmed small lh-1">0.000</div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="multi-rate-alert-old" class="multi-rate-alert border border-white mt-2 p-2 d-none">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="alert-heading h6 m-0">
-                                    <span class="lang lang-japanese">複数選択モード</span>
-                                    <span class="lang lang-english d-none">Multi Select Mode</span>
-                                </div>
-                                <div class="d-flex justify-content-center align-items-center border border-white">
-                                    <div id="older-multi-rate-before" class="badge before">0.000</div>
-                                    <div id="older-multi-rate-symbol" class="badge symbol p-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-badge bi-caret-right-fill" viewBox="0 0 16 16">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div class="check-list--rating-total-before text-clip bg-white small lh-1">0.000</div>
+                                    <div class="check-list--rating-total-symbol d-flex mx-1 text-dimmed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill bi-badge" viewBox="0 0 16 16">
                                             <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg>
                                     </div>
-                                    <div id="older-multi-rate-after" class="badge after">0.000</div>
-                                    <div id="older-multi-rate-diff" class="badge bg-magenta border border-magenta increase">0.000</div>
+                                    <div class="check-list--rating-total-after text-clip bg-white small lh-1">0.000</div>
                                 </div>
-                            </div>
-                            <div>
-                                <button type="button" class="text-nowrap btn btn-white border-5 border-0 border-start border-magenta" onclick="quitMultiSelectMode('old');">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-                                        <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-                                    </svg>
-                                    <span class="lang lang-japanese">終了</span>
-                                    <span class="lang lang-english d-none">Done</span>
-                                </button>
                             </div>
                         </div>
                     </div>

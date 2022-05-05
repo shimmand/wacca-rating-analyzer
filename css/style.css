@@ -606,19 +606,19 @@ svg.svg-fs-6 {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
-.bi-badge {
-    width: .75rem;
-    height: .75rem;
-}
-
 .bi {
     width: 1rem;
     height: 1rem;
 }
 
 .bi-lg {
-    width: 4rem;
-    height: 4rem;
+    width: 4rem!important;
+    height: 4rem!important;
+}
+
+.bi-badge {
+    width: .75rem!important;
+    height: .75rem!important;
 }
 
 .modal-shadow-white {

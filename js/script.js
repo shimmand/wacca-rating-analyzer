@@ -733,26 +733,26 @@ function analyze(){
 
         varClassRanges[(varClassRanges.length - 1)] = (totalRateUpper - 2500)
 
-        document.querySelector('#total-rate-current').innerHTML = totalRateCurrent
+        document.querySelectorAll(['.check-list--rating-total-before', '#total-rate-current']).forEach(target => target.innerHTML = totalRateCurrent)
         document.querySelector('#total-rate-upper').innerHTML = `${totalRateUpper}`
         document.querySelector('#summary-total').innerHTML = totalRateCurrent
         document.querySelector('#summary-total-ratio').innerHTML = `${Number(totalRateCurrent / totalRateUpper * 100).toFixed(1)}%`
 
         {
-            const targetDiv = document.querySelector('#total-rate-current')
+            const targetDiv = document.querySelectorAll(['.check-list--rating-total-before', '#total-rate-current'])
             const classColors = ['bg-plain', 'bg-navy', 'bg-yellow', 'bg-red', 'bg-purple', 'bg-blue', 'bg-silver', 'bg-gold', 'bg-rainbow']
             const classBorders = [0, 300, 600, 1000, 1300, 1600, 1900, 2200, 2500]
 
-            targetDiv.classList.remove('bg-white')
+            targetDiv.forEach(target => target.classList.remove('bg-white'))
 
             classColors.forEach(color => {
-                targetDiv.classList.remove(color)
+                targetDiv.forEach(target => target.classList.remove(color))
             })
 
             checkColor:
             for (let index = classBorders.length - 1; index > 0; index--) {
                 if (totalRateCurrent >= classBorders[index]) {
-                    targetDiv.classList.add(classColors[index])
+                    targetDiv.forEach(target => target.classList.add(classColors[index])) 
                     break checkColor
                 }
             }
@@ -1573,12 +1573,33 @@ function applyCheckList() {
         
         {
             const entries = document.querySelectorAll('.box-entry')
-            const indicators = entries[index].querySelectorAll('.check-list--indicator-icon')
+            const indicators = entries[index].querySelectorAll('.check-list--indicator-icon .check-list--indicator-icon-active')
 
             if (selectedRates.length > 0) {
-                indicators.forEach(e => e.classList.add('text-magenta'))
+                indicators.forEach(e => e.classList.remove('d-none'))
             } else {
-                indicators.forEach(e => e.classList.remove('text-magenta'))
+                indicators.forEach(e => e.classList.add('d-none'))
+            }
+
+            const currentTotal = document.querySelector('#total-rate-current')
+            const afterTotal = entries[index].querySelector('.check-list--rating-total-after')
+
+            const classColors = ['bg-plain', 'bg-navy', 'bg-yellow', 'bg-red', 'bg-purple', 'bg-blue', 'bg-silver', 'bg-gold', 'bg-rainbow']
+            const classBorders = [0, 300, 600, 1000, 1300, 1600, 1900, 2200, 2500]
+
+            afterTotal.innerHTML = (Number(currentTotal.innerText) + rateIncsease).toFixed(3)
+            afterTotal.classList.remove('bg-white')
+
+            classColors.forEach(color => {
+                afterTotal.classList.remove(color)
+            })
+
+            checkColor:
+            for (let index = classBorders.length - 1; index > 0; index--) {
+                if ((Number(currentTotal.innerText) + rateIncsease) >= classBorders[index]) {
+                    afterTotal.classList.add(classColors[index])
+                    break checkColor
+                }
             }
 
             entries[index].querySelector('.check-list--rating-after').innerHTML = newListTotal.toFixed(3)

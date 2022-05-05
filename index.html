@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-05-04" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-05-06" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-05-04"></script>
+        <script defer src="js/script.js?date=2022-05-06"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -670,11 +670,11 @@
                         <div id="check-list--hidden-newer" class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'new')">
-                                    <div class="small text-dimmed">
+                                    <div class="d-flex small text-dimmed">
                                         <span class="lang lang-japanese">表示</span>
                                         <span class="lang lang-english d-none">Show</span>
                                     </div>
-                                    <div class="svg-wrapper text-dimmed">
+                                    <div class="d-flex svg-wrapper text-dimmed">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                                         </svg>
@@ -694,11 +694,11 @@
                         <div id="check-list--visible-newer" class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'new')">
-                                    <div class="small text-dimmed">
+                                    <div class="d-flex small text-dimmed">
                                         <span class="lang lang-japanese">非表示</span>
                                         <span class="lang lang-english d-none">Hide</span>
                                     </div>
-                                    <div class="svg-wrapper text-dimmed">
+                                    <div class="d-flex svg-wrapper text-dimmed">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                                         </svg>
@@ -713,15 +713,40 @@
                                         <span class="visually-hidden">ACTIVE</span>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="lang-wrapper small px-1">
+                                <div class="dropdown">
+                                    <button class="btn btn-sm dropdown-toggle text-white px-0 py-2 mx-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="lang lang-japanese">チェックリスト</span>
                                         <span class="lang lang-english d-none">Checklist</span>
-                                    </div>
-                                    <div class="lang-wrapper hover-text-magenta text-dimmed cursor-pointer small px-1" onclick="clearCheckListLauncher(0);">
-                                        <span class="lang lang-japanese">クリア...</span>
-                                        <span class="lang lang-english d-none">Clear...</span>
-                                    </div>
+                                    </button>
+                                    <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuButton1">
+                                        <li>
+                                            <a class="dropdown-item" onclick="activateChecklistViewer();">
+                                                <span class="lang lang-japanese">一覧表示</span>
+                                                <span class="lang lang-english d-none">List View</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" onclick="clearCheckListLauncher(0);">
+                                                <span class="lang lang-japanese">クリア...</span>
+                                                <span class="lang lang-english d-none">Clear...</span>
+                                            </a>
+                                        </li>
+                                        <li class="d-none d-xxs-flex">
+                                            <a class="dropdown-item" onclick="toggleCheckListVisibility(false, 'new');">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex">
+                                                        <span class="lang lang-japanese">非表示</span>
+                                                        <span class="lang lang-english d-none">Hide</span>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="bg-dark px-2">
@@ -843,60 +868,119 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mx-2 p-2">
-                            <div class="h6 small">
-                                <span class="lang lang-japanese">種類フィルター</span>
-                                <span class="lang lang-english d-none">Type Filter</span>
+                        <div class="chart-list-control--wrapper position-relative mx-2 px-2">
+                            <div class="chart-list-control--check-list-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
+                                <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
+                                    <div class="m-1">
+                                        <span class="lang lang-japanese">チェックリストを一覧表示中</span>
+                                        <span class="lang lang-english d-none">Checklist viewer is active</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center m-1">
+                                        <div class="mx-1">
+                                            <button type="button" class="btn btn-white me-0" onclick="activateChecklistViewer();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">再読み込み</span>
+                                                <span class="lang lang-english d-none">Reload</span>
+                                            </button>
+                                        </div>
+                                        <div class="mx-1">
+                                            <button type="button" class="btn btn-white me-0" onclick="refreshChartVisibility();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">終了</span>
+                                                <span class="lang lang-english d-none">Exit</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
-                                <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black me-1">
-                                    <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-newer" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
-                                    <label class="form-check-label" for="rating-targets-toggle-newer">
-                                        <span class="lang lang-japanese">レーティング対象</span>
-                                        <span class="lang lang-english d-none">Rating Targets</span>
-                                    </label>
+                            <div class="chart-list-control--label">
+                                <div class="h6 small">
+                                    <span class="lang lang-japanese">フィルター</span>
+                                    <span class="lang lang-english d-none">Filters</span>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black me-1">
-                                    <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-newer" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
-                                    <label class="form-check-label" for="rating-candidates-toggle-newer">
-                                        <span class="lang lang-japanese">レーティング候補</span>
-                                        <span class="lang lang-english d-none">Rating Candidates</span>
-                                    </label>
+                            </div>
+                            <div class="chart-list-control--type-filter">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black me-1">
+                                        <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-newer" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
+                                        <label class="form-check-label" for="rating-targets-toggle-newer">
+                                            <span class="lang lang-japanese">レーティング対象</span>
+                                            <span class="lang lang-english d-none">Rating Targets</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black me-1">
+                                        <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-newer" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
+                                        <label class="form-check-label" for="rating-candidates-toggle-newer">
+                                            <span class="lang lang-japanese">レーティング候補</span>
+                                            <span class="lang lang-english d-none">Rating Candidates</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black me-0">
+                                        <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-newer" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
+                                        <label class="form-check-label" for="rating-others-toggle-newer">
+                                            <span class="lang lang-japanese">その他</span>
+                                            <span class="lang lang-english d-none">Others</span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black me-0">
-                                    <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-newer" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
-                                    <label class="form-check-label" for="rating-others-toggle-newer">
-                                        <span class="lang lang-japanese">その他</span>
-                                        <span class="lang lang-english d-none">Others</span>
-                                    </label>
+                            </div>
+                            <div class="chart-list-control--difficulty-filter">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center badge border normal me-1">
+                                        <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-newer" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-normal-toggle-newer">NORMAL</label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border hard me-1">
+                                        <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-newer" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-hard-toggle-newer">HARD</label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border expert me-1">
+                                        <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-newer" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-expert-toggle-newer">EXPERT</label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border inferno me-0">
+                                        <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-newer" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-inferno-toggle-newer">INFERNO</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="remaining-score-filter-options" id="remaining-score-filter-1">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center border badge me-1">
+                                        <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-filter-toggle" onchange="toggleDisplayState('remaining-score-filter', this.checked); filterByRemainingScore(document.querySelector('#remaining-score-filter-select-1').value,this.checked)">
+                                        <label class="form-check-label" for="remaining-score-filter-toggle">
+                                            <span class="lang lang-japanese">残りスコアでフィルター</span>
+                                            <span class="lang lang-english d-none">Filter by remaining score</span>
+                                        </label>
+                                        <div class="mx-1">
+                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                                <option value="5000" selected>5000</option>
+                                                <option value="4500">4500</option>
+                                                <option value="4000">4000</option>
+                                                <option value="3500">3500</option>
+                                                <option value="3000">3000</option>
+                                                <option value="2500">2500</option>
+                                                <option value="2000">2000</option>
+                                                <option value="1500">1500</option>
+                                                <option value="1000">1000</option>
+                                                <option value="500">500</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span class="lang lang-japanese">以下</span>
+                                            <span class="lang lang-english d-none">or less</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small">
-                                <span class="lang lang-japanese">難易度フィルター</span>
-                                <span class="lang lang-english d-none">Difficulty Filter</span>
-                            </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
-                                <div class="form-check d-flex align-items-center badge border normal me-1">
-                                    <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-newer" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-normal-toggle-newer">NORMAL</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border hard me-1">
-                                    <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-newer" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-hard-toggle-newer">HARD</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border expert me-1">
-                                    <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-newer" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-expert-toggle-newer">EXPERT</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border inferno me-0">
-                                    <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-newer" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-inferno-toggle-newer">INFERNO</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rounded-bottom mx-2 p-2">
+                        <div class="chart-list-control--display-options-wrapper mx-2 p-2">
                             <div class="h6 small">
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
@@ -915,37 +999,6 @@
                                         <span class="lang lang-japanese">英語の曲名も表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
                                     </label>
-                                </div>
-                            </div>
-                            <div class="remaining-score-filter-options mt-2" id="remaining-score-filter-1">
-                                <div class="bg-black bg-opacity-50 p-2">
-                                    <div class="d-flex flex-wrap justify-content-start mt-1">
-                                        <div class="form-check d-flex align-items-center badge me-1">
-                                            <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-filter-toggle" onchange="toggleDisplayState('remaining-score-filter', this.checked); filterByRemainingScore(document.querySelector('#remaining-score-filter-select-1').value,this.checked)">
-                                            <label class="form-check-label" for="remaining-score-filter-toggle">
-                                                <span class="lang lang-japanese">残りスコアでフィルター</span>
-                                                <span class="lang lang-english d-none">Filter by remaining score</span>
-                                            </label>
-                                            <div class="mx-1">
-                                                <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
-                                                    <option value="5000" selected>5000</option>
-                                                    <option value="4500">4500</option>
-                                                    <option value="4000">4000</option>
-                                                    <option value="3500">3500</option>
-                                                    <option value="3000">3000</option>
-                                                    <option value="2500">2500</option>
-                                                    <option value="2000">2000</option>
-                                                    <option value="1500">1500</option>
-                                                    <option value="1000">1000</option>
-                                                    <option value="500">500</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <span class="lang lang-japanese">以下</span>
-                                                <span class="lang lang-english d-none">or less</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1075,11 +1128,11 @@
                         <div class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'old')">
-                                    <div class="small text-dimmed">
+                                    <div class="d-flex small text-dimmed">
                                         <span class="lang lang-japanese">表示</span>
                                         <span class="lang lang-english d-none">Show</span>
                                     </div>
-                                    <div class="svg-wrapper text-dimmed">
+                                    <div class="d-flex svg-wrapper text-dimmed">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                                         </svg>
@@ -1099,11 +1152,11 @@
                         <div class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 3.375rem;">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'old')">
-                                    <div class="small text-dimmed">
+                                    <div class="d-flex small text-dimmed">
                                         <span class="lang lang-japanese">非表示</span>
                                         <span class="lang lang-english d-none">Hide</span>
                                     </div>
-                                    <div class="svg-wrapper text-dimmed">
+                                    <div class="d-flex svg-wrapper text-dimmed">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                                         </svg>
@@ -1118,15 +1171,40 @@
                                         <span class="visually-hidden">ACTIVE</span>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="lang-wrapper small px-1">
+                                <div class="dropdown">
+                                    <button class="btn btn-sm dropdown-toggle text-white px-0 py-2 mx-1" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="lang lang-japanese">チェックリスト</span>
                                         <span class="lang lang-english d-none">Checklist</span>
-                                    </div>
-                                    <div class="lang-wrapper hover-text-magenta text-dimmed cursor-pointer small px-1" onclick="clearCheckListLauncher(1);">
-                                        <span class="lang lang-japanese">クリア...</span>
-                                        <span class="lang lang-english d-none">Clear...</span>
-                                    </div>
+                                    </button>
+                                    <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuButton2">
+                                        <li>
+                                            <a class="dropdown-item" onclick="activateChecklistViewer();">
+                                                <span class="lang lang-japanese">一覧表示</span>
+                                                <span class="lang lang-english d-none">List View</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" onclick="clearCheckListLauncher(1);">
+                                                <span class="lang lang-japanese">クリア...</span>
+                                                <span class="lang lang-english d-none">Clear...</span>
+                                            </a>
+                                        </li>
+                                        <li class="d-none d-xxs-flex">
+                                            <a class="dropdown-item" onclick="toggleCheckListVisibility(false, 'old');">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex">
+                                                        <span class="lang lang-japanese">非表示</span>
+                                                        <span class="lang lang-english d-none">Hide</span>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="bg-dark px-2">
@@ -1248,60 +1326,119 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mx-2 p-2">
-                            <div class="h6 small">
-                                <span class="lang lang-japanese">種類フィルター</span>
-                                <span class="lang lang-english d-none">Type Filter</span>
+                        <div class="chart-list-control--wrapper position-relative mx-2 px-2">
+                            <div class="chart-list-control--check-list-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
+                                <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
+                                    <div class="m-1">
+                                        <span class="lang lang-japanese">チェックリストを一覧表示中</span>
+                                        <span class="lang lang-english d-none">Checklist viewer is active</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center m-1">
+                                        <div class="mx-1">
+                                            <button type="button" class="btn btn-white me-0" onclick="activateChecklistViewer();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">再読み込み</span>
+                                                <span class="lang lang-english d-none">Reload</span>
+                                            </button>
+                                        </div>
+                                        <div class="mx-1">
+                                            <button type="button" class="btn btn-white me-0" onclick="refreshChartVisibility();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">終了</span>
+                                                <span class="lang lang-english d-none">Exit</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
-                                <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black me-1">
-                                    <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-older" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
-                                    <label class="form-check-label" for="rating-targets-toggle-older">
-                                        <span class="lang lang-japanese">レーティング対象</span>
-                                        <span class="lang lang-english d-none">Rating Targets</span>
-                                    </label>
+                            <div class="chart-list-control--label">
+                                <div class="h6 small">
+                                    <span class="lang lang-japanese">フィルター</span>
+                                    <span class="lang lang-english d-none">Filters</span>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black me-1">
-                                    <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-older" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
-                                    <label class="form-check-label" for="rating-candidates-toggle-older">
-                                        <span class="lang lang-japanese">レーティング候補</span>
-                                        <span class="lang lang-english d-none">Rating Candidates</span>
-                                    </label>
+                            </div>
+                            <div class="chart-list-control--type-filter">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black me-1">
+                                        <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-older" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
+                                        <label class="form-check-label" for="rating-targets-toggle-older">
+                                            <span class="lang lang-japanese">レーティング対象</span>
+                                            <span class="lang lang-english d-none">Rating Targets</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black me-1">
+                                        <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-older" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
+                                        <label class="form-check-label" for="rating-candidates-toggle-older">
+                                            <span class="lang lang-japanese">レーティング候補</span>
+                                            <span class="lang lang-english d-none">Rating Candidates</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black me-0">
+                                        <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-older" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
+                                        <label class="form-check-label" for="rating-others-toggle-older">
+                                            <span class="lang lang-japanese">その他</span>
+                                            <span class="lang lang-english d-none">Others</span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black me-0">
-                                    <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-older" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
-                                    <label class="form-check-label" for="rating-others-toggle-older">
-                                        <span class="lang lang-japanese">その他</span>
-                                        <span class="lang lang-english d-none">Others</span>
-                                    </label>
+                            </div>
+                            <div class="chart-list-control--difficulty-filter">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center badge border normal me-1">
+                                        <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-older" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-normal-toggle-older">NORMAL</label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border hard me-1">
+                                        <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-older" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-hard-toggle-older">HARD</label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border expert me-1">
+                                        <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-older" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-expert-toggle-older">EXPERT</label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border inferno me-0">
+                                        <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-older" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
+                                        <label class="form-check-label" for="difficulty-inferno-toggle-older">INFERNO</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="remaining-score-filter-options" id="remaining-score-filter-1">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center border badge me-1">
+                                        <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-filter-toggle" onchange="toggleDisplayState('remaining-score-filter', this.checked); filterByRemainingScore(document.querySelector('#remaining-score-filter-select-1').value,this.checked)">
+                                        <label class="form-check-label" for="remaining-score-filter-toggle">
+                                            <span class="lang lang-japanese">残りスコアでフィルター</span>
+                                            <span class="lang lang-english d-none">Filter by remaining score</span>
+                                        </label>
+                                        <div class="mx-1">
+                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                                <option value="5000" selected>5000</option>
+                                                <option value="4500">4500</option>
+                                                <option value="4000">4000</option>
+                                                <option value="3500">3500</option>
+                                                <option value="3000">3000</option>
+                                                <option value="2500">2500</option>
+                                                <option value="2000">2000</option>
+                                                <option value="1500">1500</option>
+                                                <option value="1000">1000</option>
+                                                <option value="500">500</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span class="lang lang-japanese">以下</span>
+                                            <span class="lang lang-english d-none">or less</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="rounded-bottom mx-2 p-2">
-                            <div class="h6 small">
-                                <span class="lang lang-japanese">難易度フィルター</span>
-                                <span class="lang lang-english d-none">Difficulty Filter</span>
-                            </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
-                                <div class="form-check d-flex align-items-center badge border normal me-1">
-                                    <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-older" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-normal-toggle-older">NORMAL</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border hard me-1">
-                                    <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-older" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-hard-toggle-older">HARD</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border expert me-1">
-                                    <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-older" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-expert-toggle-older">EXPERT</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center badge border inferno me-0">
-                                    <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-older" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
-                                    <label class="form-check-label" for="difficulty-inferno-toggle-older">INFERNO</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rounded-bottom mx-2 p-2">
+                        <div class="chart-list-control--display-options-wrapper mx-2 p-2">
                             <div class="h6 small">
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
@@ -1320,37 +1457,6 @@
                                         <span class="lang lang-japanese">英語の曲名も表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
                                     </label>
-                                </div>
-                            </div>
-                            <div class="remaining-score-filter-options mt-2" id="remaining-score-filter-1">
-                                <div class="bg-black bg-opacity-50 p-2">
-                                    <div class="d-flex flex-wrap justify-content-start mt-1">
-                                        <div class="form-check d-flex align-items-center badge me-1">
-                                            <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-filter-toggle" onchange="toggleDisplayState('remaining-score-filter', this.checked); filterByRemainingScore(document.querySelector('#remaining-score-filter-select-2').value,this.checked)">
-                                            <label class="form-check-label" for="remaining-score-filter-toggle">
-                                                <span class="lang lang-japanese">残りスコアでフィルター</span>
-                                                <span class="lang lang-english d-none">Filter by remaining score</span>
-                                            </label>
-                                            <div class="mx-1">
-                                                <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border rounded-0 h-100 fw-bold py-0" id="remaining-score-filter-select-2" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
-                                                    <option value="5000" selected>5000</option>
-                                                    <option value="4500">4500</option>
-                                                    <option value="4000">4000</option>
-                                                    <option value="3500">3500</option>
-                                                    <option value="3000">3000</option>
-                                                    <option value="2500">2500</option>
-                                                    <option value="2000">2000</option>
-                                                    <option value="1500">1500</option>
-                                                    <option value="1000">1000</option>
-                                                    <option value="500">500</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <span class="lang lang-japanese">以下</span>
-                                                <span class="lang lang-english d-none">or less</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

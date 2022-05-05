@@ -205,7 +205,7 @@ function initialize() {
                     break
             }
 
-            if (document.querySelector('.chart-list--item')) {
+            if (document.querySelector('tr.chart-list--item')) {
                 restoreCheckList()
                 applyCheckList()
             }
@@ -874,9 +874,9 @@ function toggleChartVisibilityByType(type, checked) {
 
     {
         const selectors = [
-            'tr[data-index].table-target',
-            'tr[data-index].table-candidate',
-            'tr[data-index]:not(.table-target):not(.table-candidate)'
+            'tr.chart-list--item.table-target',
+            'tr.chart-list--item.table-candidate',
+            'tr.chart-list--item:not(.table-target):not(.table-candidate)'
         ]
 
         const targetRows = document.querySelectorAll(selectors[types.indexOf(type)])
@@ -897,9 +897,9 @@ function toggleChartVisibilityByType(type, checked) {
 function updateChartVisibilityByType() {
     const types = ['targets', 'candidates', 'others']
     const selectors = [
-            'tr[data-index].table-target',
-            'tr[data-index].table-candidate',
-            'tr[data-index]:not(.table-target):not(.table-candidate)'
+            'tr.chart-list--item.table-target',
+            'tr.chart-list--item.table-candidate',
+            'tr.chart-list--item:not(.table-target):not(.table-candidate)'
         ]
 
     types.forEach(type => {
@@ -947,6 +947,25 @@ function toggleChartVisibilityByDifficulty(difficulty, checked) {
     refreshChartVisibility()
 }
 
+// Set filters based on the current difficulty options
+function updateChartVisibilityByDifficulty() {
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
+
+    difficulties.forEach(difficulty => {
+        const checkboxes = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
+        const checked = checkboxes[0].checked
+        const targetRows = document.querySelectorAll(`.difficulty-${difficulty}`)
+
+        targetRows.forEach(row => {
+            if (checked) {
+                row.classList.remove('difficulty-hidden')
+            } else {
+                row.classList.add('difficulty-hidden')
+            }
+        })
+    })
+}
+
 function filterByRemainingScore(difference, checked) {
     if (String(difference).match(/[0-9]+/g)[0] !== String(difference)) {
         return false
@@ -987,28 +1006,9 @@ function toggleRemainingScoreFilter(checked) {
     }
 }
 
-// Set filters based on the current difficulty options
-function updateChartVisibilityByDifficulty() {
-    const difficulties = ['normal', 'hard', 'expert', 'inferno']
-
-    difficulties.forEach(difficulty => {
-        const checkboxes = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
-        const checked = checkboxes[0].checked
-        const targetRows = document.querySelectorAll(`.difficulty-${difficulty}`)
-
-        targetRows.forEach(row => {
-            if (checked) {
-                row.classList.remove('difficulty-hidden')
-            } else {
-                row.classList.add('difficulty-hidden')
-            }
-        })
-    })
-}
-
 // Apply a filter to the table
 function refreshChartVisibility() {
-    const rows = document.querySelectorAll('tr[data-index]')
+    const rows = document.querySelectorAll('tr.chart-list--item')
 
     rows.forEach(row => {
         if (
@@ -1021,6 +1021,23 @@ function refreshChartVisibility() {
             row.classList.remove('d-none')
         }
     })
+
+    setDisplayNone('.chart-list-control--check-list-active', true)
+}
+
+// Show only charts that have been added to the checklist
+function activateChecklistViewer() {
+    const rows = document.querySelectorAll('tr.chart-list--item')
+
+    rows.forEach(row => {
+        if (row.querySelectorAll('.list-item--small a.multi-rate-selected').length === 0) {
+            row.classList.add('d-none')
+        } else {
+            row.classList.remove('d-none')
+        }
+    })
+
+    setDisplayNone('.chart-list-control--check-list-active', false)
 }
 
 // Toggle the display status of any column
@@ -1499,7 +1516,7 @@ function restoreCheckList() {
     }
 
     checklist.split('\n').forEach(line => {
-        const buttons = document.querySelectorAll(`.chart-list--item a[data-query="${line}"]`)
+        const buttons = document.querySelectorAll(`tr.chart-list--item a[data-query="${line}"]`)
         if (buttons) {
             buttons.forEach(button => {
                 button.classList.add('multi-rate-selected')
@@ -1522,11 +1539,17 @@ function clearCheckListLauncher(listindex) {
 function clearCheckList() {
     const index = document.querySelector('#check-list--clear-target').value
     if ((index !== '0') && (index !== '1')) {
-        return false
+        return
     }
+
+    if (document.querySelectorAll('tr.chart-list--item').length === 0) {
+        return
+    }
+
     const chartLists = document.querySelectorAll('.scoresTable')
     const anchors = chartLists[index].querySelectorAll('a.multi-rate-selected')
     anchors.forEach(anchor => anchor.classList.remove('multi-rate-selected'))
+    refreshChartVisibility()
     saveCheckList()
     applyCheckList()
 }
@@ -1781,7 +1804,7 @@ function saveTableData() {
         }
     }
 
-    const dataTableRow = document.querySelectorAll('tr[data-index]')
+    const dataTableRow = document.querySelectorAll('tr.chart-list--item')
 
     dataTableRow.forEach((tr, index) => {
         if (index > 0) dataTableText += '\n'
@@ -1927,21 +1950,21 @@ function scrollToActiveChartList() {
         case 'newer':
             {
                 const scrollTarget = document.querySelector('#list-newer')
-                scrollTarget.scrollIntoView()
+                scrollTarget.scrollIntoView({block: "nearest"})
             }
             break
 
         case 'older':
             {
                 const scrollTarget = document.querySelector('#list-older')
-                scrollTarget.scrollIntoView()
+                scrollTarget.scrollIntoView({block: "nearest"})
             }
             break
 
         default:
             {
                 const scrollTarget = document.querySelector('#list-newer')
-                scrollTarget.scrollIntoView()
+                scrollTarget.scrollIntoView({block: "nearest"})
             }
             break
     }

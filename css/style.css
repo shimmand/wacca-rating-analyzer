@@ -254,6 +254,10 @@ html.fs-50 {
     color: #d63384;
 }
 
+.btn-check:focus+.btn, .btn:focus {
+    box-shadow: none;
+}
+
 
 /* Rate class */
 
@@ -641,4 +645,35 @@ svg.svg-fs-6 {
 
 .collapsing {
     transition: height .2s ease;
+}
+
+
+/* Display Controls */
+
+@media only screen and (max-width: 575.98px) {
+    .d-xs-none {
+        display: none!important;
+    }
+
+    .d-xs-block {
+        display: block!important;
+    }
+
+    .d-xs-flex {
+        display: flex!important;
+    }
+}
+
+@media only screen and (max-width: 374.98px) {
+    .d-xxs-none {
+        display: none!important;
+    }
+
+    .d-xxs-block {
+        display: block!important;
+    }
+
+    .d-xxs-flex {
+        display: flex!important;
+    }
 }

@@ -1581,27 +1581,6 @@ function applyCheckList() {
                 indicators.forEach(e => e.classList.add('d-none'))
             }
 
-            const currentTotal = document.querySelector('#total-rate-current')
-            const afterTotal = entries[index].querySelector('.check-list--rating-total-after')
-
-            const classColors = ['bg-plain', 'bg-navy', 'bg-yellow', 'bg-red', 'bg-purple', 'bg-blue', 'bg-silver', 'bg-gold', 'bg-rainbow']
-            const classBorders = [0, 300, 600, 1000, 1300, 1600, 1900, 2200, 2500]
-
-            afterTotal.innerHTML = (Number(currentTotal.innerText) + rateIncsease).toFixed(3)
-            afterTotal.classList.remove('bg-white')
-
-            classColors.forEach(color => {
-                afterTotal.classList.remove(color)
-            })
-
-            checkColor:
-            for (let index = classBorders.length - 1; index > 0; index--) {
-                if ((Number(currentTotal.innerText) + rateIncsease) >= classBorders[index]) {
-                    afterTotal.classList.add(classColors[index])
-                    break checkColor
-                }
-            }
-
             entries[index].querySelector('.check-list--rating-after').innerHTML = newListTotal.toFixed(3)
             entries[index].querySelector('.check-list--rating-increase').innerHTML = rateIncsease.toFixed(3)
         }
@@ -1624,6 +1603,31 @@ function applyCheckList() {
             }
         })
     })
+
+    {
+        const currentTotal = document.querySelector('#total-rate-current')
+        const afterTotals = document.querySelectorAll('.check-list--rating-total-after')
+        const increases = document.querySelectorAll('.check-list--rating-increase')
+        const increasesTotal = Array.from(increases).reduce((sum, increase) => sum + Number(increase.innerText), 0)
+
+        const classColors = ['bg-plain', 'bg-navy', 'bg-yellow', 'bg-red', 'bg-purple', 'bg-blue', 'bg-silver', 'bg-gold', 'bg-rainbow']
+        const classBorders = [0, 300, 600, 1000, 1300, 1600, 1900, 2200, 2500]
+
+        afterTotals.forEach(total => total.innerHTML = (Number(currentTotal.innerText) + Number(increasesTotal)).toFixed(3))
+        afterTotals.forEach(total => total.classList.remove('bg-white')) 
+
+        classColors.forEach(color => {
+            afterTotals.forEach(total => total.classList.remove(color))
+        })
+
+        checkColor:
+        for (let index = classBorders.length - 1; index > 0; index--) {
+            if ((Number(currentTotal.innerText) + Number(increasesTotal)) >= classBorders[index]) {
+                afterTotals.forEach(total => total.classList.add(classColors[index]))
+                break checkColor
+            }
+        }
+    }
 }
 
 /**

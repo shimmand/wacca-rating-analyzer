@@ -391,7 +391,7 @@ function analyze(){
             tableRow.classList.add('chart-list--item')
 
             if (index < targetsLength[listIndex]) {
-                tableRow.classList.add('table-target', 'top-single-rate')
+                tableRow.classList.add('table-targets', 'top-single-rate')
                 varSingleRateLowers[listIndex] = Number(chart[6])
                 varSummedRateCurrents[listIndex] += Number(chart[6])
             }
@@ -427,10 +427,10 @@ function analyze(){
             if (increases.filter(e => (e === '-')).length === increases.length) {
                 tableRow.classList.add('all-clear')
             } else {
-                tableRow.classList.add('table-candidate')
+                tableRow.classList.add('table-candidates')
             }
 
-            if (tableRow.classList.contains('table-target') || tableRow.classList.contains('table-candidate')) {
+            if (tableRow.classList.contains('table-targets') || tableRow.classList.contains('table-candidates')) {
                 const multipliers = [targetMultipliers[0], ...targetMultipliers]
 
                 multipliers.forEach((multiplier, index) => {
@@ -623,6 +623,36 @@ function analyze(){
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
 
             tableRow.setAttribute('data-file-row', fileRow)
+
+            {
+                const tempRow = document.createElement('tr')
+                const tableRow = scoresTables[listIndex].appendChild(tempRow)
+                const alert = `
+                <td>
+                    <div class="list-item--alert d-flex justify-content-start align-items-center">
+                        <div class="svg-wrapper d-flex mx-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                            </svg>
+                        </div>
+                        <div class="d-flex vstack mx-1">
+                            <div class="d-flex small">
+                                <span class="lang lang-japanese">表示できる譜面がありません。</span>
+                                <span class="lang lang-english d-none">There are no charts to display.</span>
+                            </div>
+                            <div class="d-flex small">
+                                <span class="lang lang-japanese">フィルターの選択内容を変更してください。</span>
+                                <span class="lang lang-english d-none">Please change the filter selections.</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>`
+                .replaceAll(/(^ {16}|^\n)/gm, '')
+
+                tableRow.innerHTML = alert
+                tableRow.classList.add('chart-list--alert', 'd-none')
+            }
         })
 
         {
@@ -871,49 +901,55 @@ function toggleChartVisibilityByType(type, checked) {
     }
 
     localStorage.setItem(`rating-analyzer-filter-type-${type}`, checked)
-
-    {
-        const selectors = [
-            'tr.chart-list--item.table-target',
-            'tr.chart-list--item.table-candidate',
-            'tr.chart-list--item:not(.table-target):not(.table-candidate)'
-        ]
-
-        const targetRows = document.querySelectorAll(selectors[types.indexOf(type)])
-
-        targetRows.forEach(row => {
-            if (checked) {
-                row.classList.remove('type-hidden')
-            } else {
-                row.classList.add('type-hidden')
-            }
-        })
-    }
-
+    updateChartVisibilityByType()
     refreshChartVisibility()
 }
 
 // Set filters based on the current type options
 function updateChartVisibilityByType() {
-    const types = ['targets', 'candidates', 'others']
-    const selectors = [
-            'tr.chart-list--item.table-target',
-            'tr.chart-list--item.table-candidate',
-            'tr.chart-list--item:not(.table-target):not(.table-candidate)'
-        ]
-
-    types.forEach(type => {
-        const checkboxes = document.querySelectorAll(`.rating-${type}-toggle`)
-        const checked = checkboxes[0].checked
-        const targetRows = document.querySelectorAll(selectors[types.indexOf(type)])
-
-        targetRows.forEach(row => {
-            if (checked) {
-                row.classList.remove('type-hidden')
-            } else {
+    const rows = document.querySelectorAll('tr.chart-list--item')
+    rows.forEach(row => {
+        row.classList.remove('type-hidden')
+        {
+            const key = 'rating-analyzer-filter-type-targets'
+            if (
+                (localStorage.getItem(key) === 'false') &&
+                (row.classList.contains('table-targets')) &&
+                (row.classList.contains('table-candidates') === false)
+            ) {
                 row.classList.add('type-hidden')
             }
-        })
+        }
+        {
+            const key = 'rating-analyzer-filter-type-candidates'
+            if (
+                (localStorage.getItem(key) === 'false') &&
+                (row.classList.contains('table-candidates'))
+            ) {
+                row.classList.add('type-hidden')
+            }
+        }
+        {
+            const key1 = 'rating-analyzer-filter-type-targets'
+            const key2 = 'rating-analyzer-filter-type-candidates'
+            if (
+                (localStorage.getItem(key1) !== 'false') &&
+                (localStorage.getItem(key2) === 'false') &&
+                (row.classList.contains('table-targets'))
+            ) {
+                row.classList.remove('type-hidden')
+            }
+        }
+        {
+            const key = 'rating-analyzer-filter-type-others'
+            if (
+                (localStorage.getItem(key) === 'false') &&
+                (row.classList.contains('table-targets') === false) &&
+                (row.classList.contains('table-candidates') === false)
+            ) {
+                row.classList.add('type-hidden')
+            }
+        }
     })
 }
 
@@ -1023,6 +1059,19 @@ function refreshChartVisibility() {
     })
 
     setDisplayNone('.chart-list-control--check-list-active', true)
+
+    {
+        const entries = document.querySelectorAll('.box-entry')
+        entries.forEach(entry => {
+            const rows = entry.querySelectorAll('.scoresTable tr.chart-list--item:not(.d-none)')
+            const alert = entry.querySelector('.scoresTable tr.chart-list--alert')
+            if (rows.length === 0) {
+                alert.classList.remove('d-none')
+            } else {
+                alert.classList.add('d-none')
+            }
+        })
+    }
 }
 
 // Show only charts that have been added to the checklist
@@ -1937,12 +1986,23 @@ function switchChartsEntry(entryName) {
         return false
     }
 
+    const entry = document.querySelector(`#box-${entryName}`)
     const scrollY = window.scrollY
 
     setDisplayNone('.box-entry', true)
     setDisplayNone(`#box-${entryName}`, false)
     window.scroll(0, scrollY)
     localStorage.setItem('rating-analyzer-charts-entry', entryName)
+    
+    {
+        const symbol = entry.querySelector('.charts-entry--rotate-symbol-wrapper > svg')
+        symbol.classList.remove('rotate-turn')
+        window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function() {
+                symbol.classList.add('rotate-turn')
+            })
+        })
+    }
 }
 
 function scrollToActiveChartList() {
@@ -1950,21 +2010,21 @@ function scrollToActiveChartList() {
         case 'newer':
             {
                 const scrollTarget = document.querySelector('#list-newer')
-                scrollTarget.scrollIntoView({block: "nearest"})
+                scrollTarget.scrollIntoView()
             }
             break
 
         case 'older':
             {
                 const scrollTarget = document.querySelector('#list-older')
-                scrollTarget.scrollIntoView({block: "nearest"})
+                scrollTarget.scrollIntoView()
             }
             break
 
         default:
             {
                 const scrollTarget = document.querySelector('#list-newer')
-                scrollTarget.scrollIntoView({block: "nearest"})
+                scrollTarget.scrollIntoView()
             }
             break
     }

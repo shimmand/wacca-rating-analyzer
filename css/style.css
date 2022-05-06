@@ -400,13 +400,13 @@ tr {
     --bs-table-bg: #212529;
 }
 
-tr.table-target {
+tr.table-targets {
     --bs-table-bg: #055160;
     border-color: #087990;
     color: #ffffff;
 }
 
-tr.table-candidate {
+tr.table-candidates {
     --bs-table-bg: #561435;
     border-color: #801f4f;
 }
@@ -414,17 +414,6 @@ tr.table-candidate {
 tr.table-dethrone {
     --bs-table-bg: #6c757d;
     --bs-table-striped-bg: #6c757d;
-}
-
-.top-single-rate .list-item--small,
-.top-single-rate .list-item--large,
-.top-single-rate .list-item--large .sticky-column {
-    background-image: linear-gradient(0deg,rgba(5,81,96,.2) 25%,transparent 25%,transparent 50%,rgba(5,81,96,.2) 50%,rgba(5,81,96,.2) 75%,transparent 75%,transparent);
-    background-size: 1rem 1rem;
-}
-
-.pt-half {
-    padding-top: .125rem!important;
 }
 
 .sticky-column:not(.sticky-disabled) {
@@ -479,39 +468,39 @@ a.multi-rate-selected {
 /* Box */
 
 .bg-gray-100 {
-    background-color:#f8f9fa
+    background-color:#f8f9fa;
 }
 
 .bg-gray-200 {
-    background-color:#e9ecef
+    background-color:#e9ecef;
 }
 
 .bg-gray-300 {
-    background-color:#dee2e6
+    background-color:#dee2e6;
 }
 
 .bg-gray-400 {
-    background-color:#ced4da
+    background-color:#ced4da;
 }
 
 .bg-gray-500 {
-    background-color:#adb5bd
+    background-color:#adb5bd;
 }
 
 .bg-gray-600 {
-    background-color:#6c757d
+    background-color:#6c757d;
 }
 
 .bg-gray-700 {
-    background-color:#495057
+    background-color:#495057;
 }
 
 .bg-gray-800 {
-    background-color:#343a40
+    background-color:#343a40;
 }
 
 .bg-gray-900 {
-    background-color:#212529
+    background-color:#212529;
 }
 
 .bg-cyan {
@@ -647,6 +636,10 @@ svg.svg-fs-6 {
     transition: height .2s ease;
 }
 
+.dropdown-menu.show {
+    transition: transform .2s ease;
+}
+
 
 /* Display Controls */
 
@@ -676,4 +669,12 @@ svg.svg-fs-6 {
     .d-xxs-flex {
         display: flex!important;
     }
+}
+
+/* Others */
+
+.rotate-turn {
+    transition: transform .5s ease;
+    transform: rotate(.5turn);
+    transform-origin: center center;
 }

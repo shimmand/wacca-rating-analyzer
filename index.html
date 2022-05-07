@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-05-07" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-05-07-01" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-07"></script>
+        <script defer src="js/script.js?date=2022-05-07-01"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -632,8 +632,8 @@
                 </div>
             </div>
             <div id="box-newer" class="box-entry bg-gray-800 my-2">
-                <div class="sticky-top">
-                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer" onclick="switchChartsEntry('older')">
+                <div class="sticky-top d-flex vstack align-items-end">
+                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer w-100" onclick="switchChartsEntry('older')">
                         <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">新曲枠</span>
@@ -666,109 +666,132 @@
                             </div>
                         </div>
                     </div>
-                    <div id="check-list--new" class="check-list--wrapper d-flex justify-content-end align-items-center">
-                        <div id="check-list--hidden-newer" class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 3.375rem;">
-                            <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'new')">
-                                    <div class="d-flex small text-dimmed">
-                                        <span class="lang lang-japanese">表示</span>
-                                        <span class="lang lang-english d-none">Show</span>
+                    <div id="check-list--new" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative">
+                        <div class="position-absolute top-100 start-50 translate-middle">
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-0 shadow" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false); activateChecklistViewer();">
+                                        <span class="lang lang-japanese">一覧表示</span>
+                                        <span class="lang lang-english d-none">List View</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false); clearCheckListLauncher(0);">
+                                        <span class="lang lang-japanese">クリア...</span>
+                                        <span class="lang lang-english d-none">Clear...</span>
+                                    </a>
+                                </li>
+                                <li class="d-none d-xxs-flex">
+                                    <a class="dropdown-item" onclick="toggleDropdownMenu(false); toggleCheckListVisibility(false, 'new');">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex small">
+                                                <span class="lang lang-japanese">パネルを非表示</span>
+                                                <span class="lang lang-english d-none">Hide Panel</span>
+                                            </div>
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-2 border-top">
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false);">
+                                        <span class="lang lang-japanese">メニューを閉じる</span>
+                                        <span class="lang lang-english d-none">Close Menu</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="check-list--hidden-newer" class="check-list--control check-list--control-hidden d-flex align-items-center bg-gray-700 pt-0 shadow">
+                            <div class="d-flex align-items-center m-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'new')">
+                                        <div class="d-flex small text-dimmed">
+                                            <span class="lang lang-japanese">表示</span>
+                                            <span class="lang lang-english d-none">Show</span>
+                                        </div>
+                                        <div class="d-flex svg-wrapper text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                            </svg>
+                                        </div>
                                     </div>
-                                    <div class="d-flex svg-wrapper text-dimmed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                    <div class="check-list--indicator-icon position-relative svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                         </svg>
-                                    </div>
-                                </div>
-                                <div class="check-list--indicator-icon position-relative svg-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-                                    </svg>
-                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
-                                        <span class="visually-hidden">ACTIVE</span>
+                                        <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                            <span class="visually-hidden">ACTIVE</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="check-list--visible-newer" class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 3.375rem;">
-                            <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'new')">
-                                    <div class="d-flex small text-dimmed">
-                                        <span class="lang lang-japanese">非表示</span>
-                                        <span class="lang lang-english d-none">Hide</span>
+                        <div id="check-list--visible-newer" class="check-list--control check-list--control-visible d-flex align-items-center bg-gray-700 pt-0 shadow">
+                            <div class="d-flex align-items-center m-2 mt-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'new')">
+                                        <div class="d-flex small text-dimmed">
+                                            <span class="lang lang-japanese">非表示</span>
+                                            <span class="lang lang-english d-none">Hide</span>
+                                        </div>
+                                        <div class="d-flex svg-wrapper text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                            </svg>
+                                        </div>
                                     </div>
-                                    <div class="d-flex svg-wrapper text-dimmed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <div class="check-list--indicator-icon position-relative svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                         </svg>
+                                        <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                            <span class="visually-hidden">ACTIVE</span>
+                                        </div>
+                                    </div>
+                                    <div class="btn btn-sm d-flex vstack text-white small p-1" onclick="toggleDropdownMenu(true);">
+                                        <div class="d-flex">
+                                            <span class="lang lang-japanese">チェックリスト</span>
+                                            <span class="lang lang-english d-none">Checklist</span>
+                                        </div>
+                                        <div class="d-flex align-items-center text-dimmed">
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">メニュー</span>
+                                                <span class="lang lang-english d-none">Menu</span>
+                                            </div>
+                                            <div class="d-flex ms-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="check-list--indicator-icon position-relative svg-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-                                    </svg>
-                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
-                                        <span class="visually-hidden">ACTIVE</span>
+                                <div class="bg-dark px-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="text-dimmed small me-2">
+                                            <span class="lang lang-japanese">予測</span>
+                                            <span class="lang lang-english d-none">Prediction</span>
+                                        </div>
+                                        <div class="check-list--rating-after bg-white text-clip fs-3 lh-1">0.000</div>
                                     </div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm dropdown-toggle text-white px-0 py-2 mx-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span class="lang lang-japanese">チェックリスト</span>
-                                        <span class="lang lang-english d-none">Checklist</span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark rounded-0 shadow" aria-labelledby="dropdownMenuButton1">
-                                        <li>
-                                            <a class="dropdown-item" onclick="activateChecklistViewer();">
-                                                <span class="lang lang-japanese">一覧表示</span>
-                                                <span class="lang lang-english d-none">List View</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" onclick="clearCheckListLauncher(0);">
-                                                <span class="lang lang-japanese">クリア...</span>
-                                                <span class="lang lang-english d-none">Clear...</span>
-                                            </a>
-                                        </li>
-                                        <li class="d-none d-xxs-flex">
-                                            <a class="dropdown-item" onclick="toggleCheckListVisibility(false, 'new');">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="d-flex">
-                                                        <span class="lang lang-japanese">非表示</span>
-                                                        <span class="lang lang-english d-none">Hide</span>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bg-dark px-2">
-                                <div class="d-flex justify-content-between">
-                                    <div class="text-dimmed small me-2">
-                                        <span class="lang lang-japanese">予測</span>
-                                        <span class="lang lang-english d-none">Prediction</span>
+                                    <div class="d-flex justify-content-end">
+                                        <div class="check-list--rating-label text-dimmed small lh-1 me-1">+</div>
+                                        <div class="check-list--rating-increase text-dimmed small lh-1">0.000</div>
                                     </div>
-                                    <div class="check-list--rating-after bg-white text-clip fs-3 lh-1">0.000</div>
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <div class="check-list--rating-label text-dimmed small lh-1 me-1">+</div>
-                                    <div class="check-list--rating-increase text-dimmed small lh-1">0.000</div>
-                                </div>
-                                <div class="d-flex justify-content-end align-items-center">
-                                    <div class="check-list--rating-total-before text-clip bg-white small lh-1">0.000</div>
-                                    <div class="check-list--rating-total-symbol d-flex mx-1 text-dimmed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill bi-badge" viewBox="0 0 16 16">
-                                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                                        </svg>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <div class="check-list--rating-total-before text-clip bg-white small lh-1">0.000</div>
+                                        <div class="check-list--rating-total-symbol d-flex mx-1 text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill bi-badge" viewBox="0 0 16 16">
+                                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="check-list--rating-total-after text-clip bg-white small lh-1">0.000</div>
                                     </div>
-                                    <div class="check-list--rating-total-after text-clip bg-white small lh-1">0.000</div>
                                 </div>
                             </div>
                         </div>
@@ -903,6 +926,10 @@
                                 <div class="h6 small">
                                     <span class="lang lang-japanese">フィルター</span>
                                     <span class="lang lang-english d-none">Filters</span>
+                                </div>
+                                <div class="text-dimmed small">
+                                    <span class="lang lang-japanese">「その他」がオンの場合、読み込みに時間がかかる場合があります。</span>
+                                    <span class="lang lang-english d-none">When "Other" is on, it may take longer to load.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--type-filter">
@@ -1106,8 +1133,8 @@
                 </div>
             </div>
             <div id="box-older" class="box-entry bg-gray-800 my-2 d-none">
-                <div class="sticky-top">
-                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer" onclick="switchChartsEntry('newer')">
+                <div class="sticky-top d-flex vstack align-items-end">
+                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer w-100" onclick="switchChartsEntry('newer')">
                         <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">旧曲枠</span>
@@ -1140,109 +1167,132 @@
                             </div>
                         </div>
                     </div>
-                    <div id="check-list--old" class="check-list--wrapper d-flex justify-content-end align-items-center">
-                        <div class="check-list--hidden d-flex align-items-center bg-gray-700 p-2 pt-0 shadow" style="height: 3.375rem;">
-                            <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'old')">
-                                    <div class="d-flex small text-dimmed">
-                                        <span class="lang lang-japanese">表示</span>
-                                        <span class="lang lang-english d-none">Show</span>
+                    <div id="check-list--old" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative">
+                        <div class="position-absolute top-100 start-50 translate-middle">
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-0 shadow" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false); activateChecklistViewer();">
+                                        <span class="lang lang-japanese">一覧表示</span>
+                                        <span class="lang lang-english d-none">List View</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false); clearCheckListLauncher(1);">
+                                        <span class="lang lang-japanese">クリア...</span>
+                                        <span class="lang lang-english d-none">Clear...</span>
+                                    </a>
+                                </li>
+                                <li class="d-none d-xxs-flex">
+                                    <a class="dropdown-item" onclick="toggleDropdownMenu(false); toggleCheckListVisibility(false, 'old');">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex small">
+                                                <span class="lang lang-japanese">パネルを非表示</span>
+                                                <span class="lang lang-english d-none">Hide Panel</span>
+                                            </div>
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-2 border-top">
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false);">
+                                        <span class="lang lang-japanese">メニューを閉じる</span>
+                                        <span class="lang lang-english d-none">Close Menu</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="check-list--hidden-older" class="check-list--control check-list--control-hidden d-flex align-items-center bg-gray-700 pt-0 shadow">
+                            <div class="d-flex align-items-center m-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'old')">
+                                        <div class="d-flex small text-dimmed">
+                                            <span class="lang lang-japanese">表示</span>
+                                            <span class="lang lang-english d-none">Show</span>
+                                        </div>
+                                        <div class="d-flex svg-wrapper text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                            </svg>
+                                        </div>
                                     </div>
-                                    <div class="d-flex svg-wrapper text-dimmed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                    <div class="check-list--indicator-icon position-relative svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                         </svg>
-                                    </div>
-                                </div>
-                                <div class="check-list--indicator-icon position-relative svg-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-                                    </svg>
-                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
-                                        <span class="visually-hidden">ACTIVE</span>
+                                        <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                            <span class="visually-hidden">ACTIVE</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="check-list--visible d-flex align-items-center bg-gray-700 p-2 pt-0 shadow d-none" style="height: 3.375rem;">
-                            <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'old')">
-                                    <div class="d-flex small text-dimmed">
-                                        <span class="lang lang-japanese">非表示</span>
-                                        <span class="lang lang-english d-none">Hide</span>
+                        <div id="check-list--visible-older" class="check-list--control check-list--control-visible d-flex align-items-center bg-gray-700 pt-0 shadow">
+                            <div class="d-flex align-items-center m-2 mt-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'old')">
+                                        <div class="d-flex small text-dimmed">
+                                            <span class="lang lang-japanese">非表示</span>
+                                            <span class="lang lang-english d-none">Hide</span>
+                                        </div>
+                                        <div class="d-flex svg-wrapper text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                            </svg>
+                                        </div>
                                     </div>
-                                    <div class="d-flex svg-wrapper text-dimmed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <div class="check-list--indicator-icon position-relative svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                                         </svg>
+                                        <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
+                                            <span class="visually-hidden">ACTIVE</span>
+                                        </div>
+                                    </div>
+                                    <div class="btn btn-sm d-flex vstack text-white small p-1" onclick="toggleDropdownMenu(true);">
+                                        <div class="d-flex">
+                                            <span class="lang lang-japanese">チェックリスト</span>
+                                            <span class="lang lang-english d-none">Checklist</span>
+                                        </div>
+                                        <div class="d-flex align-items-center text-dimmed">
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">メニュー</span>
+                                                <span class="lang lang-english d-none">Menu</span>
+                                            </div>
+                                            <div class="d-flex ms-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="check-list--indicator-icon position-relative svg-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check svg-fs-3" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-                                    </svg>
-                                    <div class="check-list--indicator-icon-active position-absolute top-0 start-0 translate-middle p-1 bg-magenta border border-light rounded-circle d-none">
-                                        <span class="visually-hidden">ACTIVE</span>
+                                <div class="bg-dark px-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="text-dimmed small me-2">
+                                            <span class="lang lang-japanese">予測</span>
+                                            <span class="lang lang-english d-none">Prediction</span>
+                                        </div>
+                                        <div class="check-list--rating-after bg-white text-clip fs-3 lh-1">0.000</div>
                                     </div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm dropdown-toggle text-white px-0 py-2 mx-1" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span class="lang lang-japanese">チェックリスト</span>
-                                        <span class="lang lang-english d-none">Checklist</span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark rounded-0 shadow" aria-labelledby="dropdownMenuButton2">
-                                        <li>
-                                            <a class="dropdown-item" onclick="activateChecklistViewer();">
-                                                <span class="lang lang-japanese">一覧表示</span>
-                                                <span class="lang lang-english d-none">List View</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" onclick="clearCheckListLauncher(1);">
-                                                <span class="lang lang-japanese">クリア...</span>
-                                                <span class="lang lang-english d-none">Clear...</span>
-                                            </a>
-                                        </li>
-                                        <li class="d-none d-xxs-flex">
-                                            <a class="dropdown-item" onclick="toggleCheckListVisibility(false, 'old');">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="d-flex">
-                                                        <span class="lang lang-japanese">非表示</span>
-                                                        <span class="lang lang-english d-none">Hide</span>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bg-dark px-2">
-                                <div class="d-flex justify-content-between">
-                                    <div class="text-dimmed small me-2">
-                                        <span class="lang lang-japanese">予測</span>
-                                        <span class="lang lang-english d-none">Prediction</span>
+                                    <div class="d-flex justify-content-end">
+                                        <div class="check-list--rating-label text-dimmed small lh-1 me-1">+</div>
+                                        <div class="check-list--rating-increase text-dimmed small lh-1">0.000</div>
                                     </div>
-                                    <div class="check-list--rating-after bg-white text-clip fs-3 lh-1">0.000</div>
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <div class="check-list--rating-label text-dimmed small lh-1 me-1">+</div>
-                                    <div class="check-list--rating-increase text-dimmed small lh-1">0.000</div>
-                                </div>
-                                <div class="d-flex justify-content-end align-items-center">
-                                    <div class="check-list--rating-total-before text-clip bg-white small lh-1">0.000</div>
-                                    <div class="check-list--rating-total-symbol d-flex mx-1 text-dimmed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill bi-badge" viewBox="0 0 16 16">
-                                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                                        </svg>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <div class="check-list--rating-total-before text-clip bg-white small lh-1">0.000</div>
+                                        <div class="check-list--rating-total-symbol d-flex mx-1 text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill bi-badge" viewBox="0 0 16 16">
+                                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="check-list--rating-total-after text-clip bg-white small lh-1">0.000</div>
                                     </div>
-                                    <div class="check-list--rating-total-after text-clip bg-white small lh-1">0.000</div>
                                 </div>
                             </div>
                         </div>
@@ -1377,6 +1427,10 @@
                                 <div class="h6 small">
                                     <span class="lang lang-japanese">フィルター</span>
                                     <span class="lang lang-english d-none">Filters</span>
+                                </div>
+                                <div class="text-dimmed small">
+                                    <span class="lang lang-japanese">「その他」がオンの場合、読み込みに時間がかかる場合があります。</span>
+                                    <span class="lang lang-english d-none">When "Other" is on, it may take longer to load.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--type-filter">

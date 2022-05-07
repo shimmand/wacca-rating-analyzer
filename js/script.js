@@ -216,9 +216,11 @@ function initialize() {
                     break
 
                 case 'false':
+                    toggleCheckListVisibility(false)
                     break
 
                 default:
+                    toggleCheckListVisibility(false)
                     break
             }
 
@@ -651,7 +653,33 @@ function analyze(){
                 .replaceAll(/(^ {16}|^\n)/gm, '')
 
                 tableRow.innerHTML = alert
-                tableRow.classList.add('chart-list--alert', 'd-none')
+                tableRow.classList.add('chart-list--alert', 'chart-list--alert-filter', 'd-none')
+            }
+
+            {
+                const tempRow = document.createElement('tr')
+                const tableRow = scoresTables[listIndex].appendChild(tempRow)
+                const alert = `
+                <td>
+                    <div class="list-item--alert d-flex justify-content-start align-items-center">
+                        <div class="svg-wrapper d-flex mx-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                            </svg>
+                        </div>
+                        <div class="d-flex vstack mx-1">
+                            <div class="d-flex small">
+                                <span class="lang lang-japanese">チェックリストが空です。</span>
+                                <span class="lang lang-english d-none">No items added to checklist.</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>`
+                .replaceAll(/(^ {16}|^\n)/gm, '')
+
+                tableRow.innerHTML = alert
+                tableRow.classList.add('chart-list--alert', 'chart-list--alert-check', 'd-none')
             }
         })
 
@@ -1046,6 +1074,10 @@ function toggleRemainingScoreFilter(checked) {
 function refreshChartVisibility() {
     const rows = document.querySelectorAll('tr.chart-list--item')
 
+    if (rows.length === 0) {
+        return
+    }
+
     rows.forEach(row => {
         if (
             row.classList.contains('type-hidden') ||
@@ -1063,13 +1095,26 @@ function refreshChartVisibility() {
     {
         const entries = document.querySelectorAll('.box-entry')
         entries.forEach(entry => {
+            entry.querySelectorAll('.scoresTable tr.chart-list--alert').forEach(alert => alert.classList.add('d-none'))
             const rows = entry.querySelectorAll('.scoresTable tr.chart-list--item:not(.d-none)')
-            const alert = entry.querySelector('.scoresTable tr.chart-list--alert')
+            const alert = entry.querySelector('.scoresTable tr.chart-list--alert-filter')
             if (rows.length === 0) {
                 alert.classList.remove('d-none')
             } else {
                 alert.classList.add('d-none')
             }
+        })
+    }
+
+    {
+        const lists = document.querySelectorAll('.chart-list')
+        lists.forEach(list => {
+            list.classList.remove('opacity-trans-100')
+            window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function() {
+                    list.classList.add('opacity-trans-100')
+                })
+            })
         })
     }
 }
@@ -1078,6 +1123,10 @@ function refreshChartVisibility() {
 function activateChecklistViewer() {
     const rows = document.querySelectorAll('tr.chart-list--item')
 
+    if (rows.length === 0) {
+        return
+    }
+
     rows.forEach(row => {
         if (row.querySelectorAll('.list-item--small a.multi-rate-selected').length === 0) {
             row.classList.add('d-none')
@@ -1085,6 +1134,32 @@ function activateChecklistViewer() {
             row.classList.remove('d-none')
         }
     })
+
+    {
+        const entries = document.querySelectorAll('.box-entry')
+        entries.forEach(entry => {
+            entry.querySelectorAll('.scoresTable tr.chart-list--alert').forEach(alert => alert.classList.add('d-none'))
+            const rows = entry.querySelectorAll('.scoresTable tr.chart-list--item:not(.d-none)')
+            const alert = entry.querySelector('.scoresTable tr.chart-list--alert-check')
+            if (rows.length === 0) {
+                alert.classList.remove('d-none')
+            } else {
+                alert.classList.add('d-none')
+            }
+        })
+    }
+
+    {
+        const lists = document.querySelectorAll('.chart-list')
+        lists.forEach(list => {
+            list.classList.remove('opacity-trans-100')
+            window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function() {
+                    list.classList.add('opacity-trans-100')
+                })
+            })
+        })
+    }
 
     setDisplayNone('.chart-list-control--check-list-active', false)
 }
@@ -1172,6 +1247,18 @@ function toggleDisplayState(className, checked) {
             } else {
                 data.classList.add('d-none')
             }
+        })
+    }
+
+    {
+        const lists = document.querySelectorAll('.chart-list')
+        lists.forEach(list => {
+            list.classList.remove('opacity-trans-100')
+            window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function() {
+                    list.classList.add('opacity-trans-100')
+                })
+            })
         })
     }
 }
@@ -1548,7 +1635,10 @@ function modifyCheckListItem(element) {
 
     saveCheckList()
     applyCheckList()
-    toggleCheckListVisibility(true)
+
+    if (document.querySelectorAll('.check-list--control-visible.width-trans-100').length === 0) {
+        toggleCheckListVisibility(true)
+    }
 }
 
 function saveCheckList() {
@@ -1706,15 +1796,51 @@ function applyCheckList() {
  * @param {Boolean} isVisible
  */
 function toggleCheckListVisibility(isVisible) {
+    {
+        const controls = document.querySelectorAll('.check-list--control')
+        controls.forEach(control => {
+            control.classList.remove('width-trans-100')
+        })
+    }
+
     if (isVisible) {
-        document.querySelectorAll('.check-list--hidden').forEach(e => e.classList.add('d-none'))
-        document.querySelectorAll('.check-list--visible').forEach(e => e.classList.remove('d-none'))
+        const controls = document.querySelectorAll('.check-list--control-visible')
+        controls.forEach(control => {
+            control.classList.remove('width-trans-100')
+            window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function() {
+                    control.classList.add('width-trans-100')
+                })
+            })
+        })
         localStorage.setItem('rating-analyzer-check-list-visible', true)
     } else {
-        document.querySelectorAll('.check-list--hidden').forEach(e => e.classList.remove('d-none'))
-        document.querySelectorAll('.check-list--visible').forEach(e => e.classList.add('d-none'))
+        const controls = document.querySelectorAll('.check-list--control-hidden')
+        controls.forEach(control => {
+            control.classList.remove('width-trans-100')
+            window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function() {
+                    control.classList.add('width-trans-100')
+                })
+            })
+        })
+        toggleDropdownMenu(false)
         localStorage.setItem('rating-analyzer-check-list-visible', false)
     }
+}
+
+/**
+ * @param {Boolean} isVisible 
+ */
+function toggleDropdownMenu(isVisible) {
+    const menus = document.querySelectorAll('.dropdown-menu')
+    menus.forEach(menu => {
+        if (isVisible) {
+            menu.classList.add('show')
+        } else {
+            menu.classList.remove('show')
+        }
+    })
 }
 
 // Generate a dataset table
@@ -1981,25 +2107,31 @@ function setDisplayNone(selector, isEnabled = true) {
  * @returns {Boolean}
  */
 function switchChartsEntry(entryName) {
-    const entries = ['newer', 'older']
-    if (entries.indexOf(entryName) === -1) {
+    const entryNames = ['newer', 'older']
+    const entryIndex = entryNames.indexOf(entryName)
+
+    if (entryIndex === -1) {
         return false
     }
 
-    const entry = document.querySelector(`#box-${entryName}`)
+    const entries = document.querySelectorAll('.box-entry')
+    const entry = entries[entryIndex]
     const scrollY = window.scrollY
 
-    setDisplayNone('.box-entry', true)
-    setDisplayNone(`#box-${entryName}`, false)
+    entries.forEach(entry => entry.classList.add('d-none'))
+    entry.classList.remove('d-none')
+    
     window.scroll(0, scrollY)
     localStorage.setItem('rating-analyzer-charts-entry', entryName)
-    
+
     {
         const symbol = entry.querySelector('.charts-entry--rotate-symbol-wrapper > svg')
         symbol.classList.remove('rotate-turn')
+        entry.classList.remove('opacity-trans-100')
         window.requestAnimationFrame(function() {
             window.requestAnimationFrame(function() {
                 symbol.classList.add('rotate-turn')
+                entry.classList.add('opacity-trans-100')
             })
         })
     }
@@ -2075,6 +2207,20 @@ function switchLargeTable(isEnabled) {
             } else {
                 div.classList.add('list-item--large', 'row', 'd-none', 'd-xl-flex', 'd-xxl-flex')
             }
+        })
+    }
+
+    {
+        const lists = document.querySelectorAll('.chart-list')
+        lists.forEach(list => {
+            list.classList.remove('opacity-trans-100')
+        })
+        lists.forEach(list => {
+            window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function() {
+                    list.classList.add('opacity-trans-100')
+                })
+            })
         })
     }
 }

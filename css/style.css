@@ -636,10 +636,6 @@ svg.svg-fs-6 {
     transition: height .2s ease;
 }
 
-.dropdown-menu.show {
-    transition: transform .2s ease;
-}
-
 
 /* Display Controls */
 
@@ -677,4 +673,32 @@ svg.svg-fs-6 {
     transition: transform .5s ease;
     transform: rotate(.5turn);
     transform-origin: center center;
+}
+
+.box-entry {
+    opacity: 0;
+}
+
+.chart-list {
+    opacity: 0;
+}
+
+.opacity-trans-100 {
+    opacity: 1;
+    transition: opacity .2s ease;
+}
+
+.check-list--control {
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.check-list--wrapper {
+    width: fit-content;
+}
+
+.width-trans-100 {
+    width: 100%;
+    transition: width .2s ease;
 }

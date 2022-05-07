@@ -1596,11 +1596,6 @@ function quitMultiSelectMode(listtype) {
             const tableDatas = tables[tableIndex].querySelectorAll('.multi-rate-selected')
             tableDatas.forEach(td => td.classList.remove('multi-rate-selected'))
         }
-
-        {
-            const tableDatas = tables[tableIndex].querySelectorAll('.table-dethrone')
-            tableDatas.forEach(td => td.classList.remove('table-dethrone'))
-        }
     }
 }
 
@@ -1746,24 +1741,6 @@ function applyCheckList() {
             entries[index].querySelector('.check-list--rating-after').innerHTML = newListTotal.toFixed(3)
             entries[index].querySelector('.check-list--rating-increase').innerHTML = rateIncsease.toFixed(3)
         }
-
-        chartlist
-        .querySelectorAll('.table-dethrone')
-        .forEach(tr => tr.classList.remove('table-dethrone'))
-
-        selectedRatesArr.forEach((_value, index) => {
-            const fixedIndex = topSingleRates.length + alreadyListed.length - index - 1
-            const checkRow = chartlist.querySelectorAll('tr')[fixedIndex]
-            
-            if (checkRow) {
-                if (
-                    (checkRow.querySelectorAll('.multi-rate-selected').length === 0) &&
-                    (fixedIndex <= topSingleRates.length - 1)
-                ) {
-                    checkRow.classList.add('table-dethrone')
-                }
-            }
-        })
     })
 
     {

@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-05-07-02" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-05-07-03" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-07-02"></script>
+        <script defer src="js/script.js?date=2022-05-07-03"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -632,8 +632,8 @@
                 </div>
             </div>
             <div id="box-newer" class="box-entry bg-gray-800 my-2">
-                <div class="sticky-top d-flex vstack align-items-end">
-                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer w-100" onclick="switchChartsEntry('older')">
+                <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
+                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto w-100" onclick="switchChartsEntry('older')">
                         <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">新曲枠</span>
@@ -666,7 +666,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="check-list--new" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative">
+                    <div id="check-list--new" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative pointer-events-auto">
                         <div class="position-absolute top-100 start-50 translate-middle">
                             <ul class="dropdown-menu dropdown-menu-dark rounded-0 shadow" aria-labelledby="dropdownMenuButton1">
                                 <li>
@@ -696,7 +696,12 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li class="mt-2 border-top">
+                                <li class="m-2">
+                                    <div class="bg-white bg-opacity-50" style="width: 100%; height: 1px;">
+                                        <span class="visually-hidden">hr</span>
+                                    </div>
+                                </li>
+                                <li>
                                     <a class="dropdown-item small" onclick="toggleDropdownMenu(false);">
                                         <span class="lang lang-japanese">メニューを閉じる</span>
                                         <span class="lang lang-english d-none">Close Menu</span>
@@ -1133,8 +1138,8 @@
                 </div>
             </div>
             <div id="box-older" class="box-entry bg-gray-800 my-2 d-none">
-                <div class="sticky-top d-flex vstack align-items-end">
-                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer w-100" onclick="switchChartsEntry('newer')">
+                <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
+                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto w-100" onclick="switchChartsEntry('newer')">
                         <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">旧曲枠</span>
@@ -1167,7 +1172,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="check-list--old" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative">
+                    <div id="check-list--old" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative pointer-events-auto">
                         <div class="position-absolute top-100 start-50 translate-middle">
                             <ul class="dropdown-menu dropdown-menu-dark rounded-0 shadow" aria-labelledby="dropdownMenuButton1">
                                 <li>
@@ -1197,7 +1202,12 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li class="mt-2 border-top">
+                                <li class="m-2">
+                                    <div class="bg-white bg-opacity-50" style="width: 100%; height: 1px;">
+                                        <span class="visually-hidden">hr</span>
+                                    </div>
+                                </li>
+                                <li>
                                     <a class="dropdown-item small" onclick="toggleDropdownMenu(false);">
                                         <span class="lang lang-japanese">メニューを閉じる</span>
                                         <span class="lang lang-english d-none">Close Menu</span>

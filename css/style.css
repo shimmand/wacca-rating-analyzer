@@ -702,3 +702,15 @@ svg.svg-fs-6 {
     width: 100%;
     transition: width .2s ease;
 }
+
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.pointer-events-auto {
+    pointer-events: auto;
+}
+
+.dropdown-menu {
+    transform: translate(-50%, 0);
+}

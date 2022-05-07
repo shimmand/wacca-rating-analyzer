@@ -1100,6 +1100,11 @@ function refreshChartVisibility() {
             const alert = entry.querySelector('.scoresTable tr.chart-list--alert-filter')
             if (rows.length === 0) {
                 alert.classList.remove('d-none')
+                entry.querySelector('.chart-list').scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                })
             } else {
                 alert.classList.add('d-none')
             }
@@ -1143,6 +1148,11 @@ function activateChecklistViewer() {
             const alert = entry.querySelector('.scoresTable tr.chart-list--alert-check')
             if (rows.length === 0) {
                 alert.classList.remove('d-none')
+                entry.querySelector('.chart-list').scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                })
             } else {
                 alert.classList.add('d-none')
             }

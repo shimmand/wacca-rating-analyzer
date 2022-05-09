@@ -454,7 +454,6 @@ function analyze(){
             <td>
                 <div class="list-item--small row d-xl-none d-xxl-none">
                     <div class="list-item--index-wrapper col-2 d-flex">
-                        <div class="list-item--index-symbol d-none d-sm-flex d-md-flex d-lg-flex text-dimmed small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
@@ -473,10 +472,17 @@ function analyze(){
                             </div>
                         </div>
                         <div class="list-item--middle-wrapper d-flex row m-0 mt-1">
-                            <div class="list-item--score-wrapper col p-0">
-                                <div class="list-item--score-label text-dimmed small">
-                                    <span class="lang lang-japanese">スコア</span>
-                                    <span class="lang lang-english d-none">Score</span>
+                            <div class="list-item--score-wrapper hover-trans-opacity cursor-pointer col p-0" data-list-index="${listIndex}" data-index="${index + 1}" onclick="modifyScoreModalLauncher(this); return false;">
+                                <div class="list-item--score-label d-flex align-items-center text-dimmed small">
+                                    <div class="d-flex ms-0">
+                                        <span class="lang lang-japanese">スコア</span>
+                                        <span class="lang lang-english d-none">Score</span>
+                                    </div>
+                                    <div class="d-flex ms-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-fill bi-badge" viewBox="0 0 16 16">
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                        </svg>
+                                    </div>
                                 </div>
                                 <div class="list-item--score">${chart[3]}</div>
                             </div>
@@ -500,6 +506,13 @@ function analyze(){
                                     <span class="lang lang-english d-none">Rating</span>
                                 </div>
                                 <div class="list-item--rating-now">${chart[6]}</div>
+                            </div>
+                            <div class="list-item--rating-max-wrapper col p-0 d-xxs-none d-xs-none">
+                                <div class="list-item--score-label text-dimmed small">
+                                    <span class="lang lang-japanese">上限</span>
+                                    <span class="lang lang-english d-none">Max</span>
+                                </div>
+                                <div class="list-item--rating-max">${chart[7]}</div>
                             </div>
                         </div>
                         <div class="list-item--graph-wrapper m-0 mt-1 px-1">
@@ -542,7 +555,6 @@ function analyze(){
                 </div>
                 <div class="list-item--large row d-none d-xl-flex d-xxl-flex${(index < targetsLength[listIndex]) ? ' bg-target-striped' : ''}">
                     <div class="list-item--index-wrapper col-1 d-flex">
-                        <div class="list-item--index-symbol text-dimmed small mx-1">#</div>
                         <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-11 row mb-1">
@@ -560,8 +572,19 @@ function analyze(){
                         </div>
                         <div class="list-item--main-wrapper col">
                             <div class="list-item--result-wrapper row m-0">
-                                <div class="list-item--score-wrapper col px-0">
+                                <div class="list-item--score-wrapper hover-trans-opacity cursor-pointer col px-0" data-list-index="${listIndex}" data-index="${index + 1}" onclick="modifyScoreModalLauncher(this); return false;">
                                     <div class="list-item--score">${chart[3]}</div>
+                                    <div class="d-flex align-items-center text-dimmed small">
+                                        <div class="d-flex ms-0">
+                                            <span class="lang lang-japanese">編集</span>
+                                            <span class="lang lang-english d-none">Edit</span>
+                                        </div>
+                                        <div class="d-flex ms-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-fill bi-badge" viewBox="0 0 16 16">
+                                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="list-item--constant-wrapper col d-flex justify-content-between px-0">
                                     <div class="list-item--constant">${chart[4]}</div>
@@ -609,6 +632,7 @@ function analyze(){
             .replaceAll(/(^ {12}|^\n)/gm, '')
 
             tableRow.innerHTML = code
+            tableRow.setAttribute('data-list-index', listIndex)
             tableRow.setAttribute('data-index', index + 1)
             tableRow.setAttribute('data-const', chart[4])
             tableRow.setAttribute('data-rate', chart[6])
@@ -2006,6 +2030,20 @@ function setLanguage(language) {
         }
     })
 
+    const langInputs = document.querySelectorAll('.placeholder-lang')
+
+    langInputs.forEach(input => {
+        const attr = input.getAttribute(`data-placeholder-${language}`)
+        if (attr !== null) {
+            input.setAttribute('placeholder', attr)
+        } else {
+            const engAttr = input.getAttribute('data-placeholder-english')
+            if (engAttr !== null) {
+                input.setAttribute('placeholder', engAttr)
+            }
+        }
+    })
+
     const langOpts = document.querySelectorAll(`.opt-lang-${language}`)
 
     langOpts.forEach(option => {
@@ -2210,4 +2248,103 @@ function switchLargeTable(isEnabled) {
             })
         })
     }
+}
+
+function modifyScoreModalLauncher(source) {
+    const sourceItem = document.querySelector(`tr[data-list-index="${source.dataset.listIndex}"][data-index="${source.dataset.index}"]`)
+    const sourceTitle = sourceItem.querySelector('.list-item--title').innerHTML
+    const sourceDifficulty = sourceItem.querySelector('.list-item--badge-difficulty').innerHTML
+    const sourceScore = sourceItem.querySelector('.list-item--score').innerHTML
+    const control = document.querySelector('.modify-score--main')
+
+    const titleElm = control.querySelector('.modify-score--title')
+    titleElm.innerHTML = sourceTitle
+
+    const difficultyElm = control.querySelector('.modify-score--badge-difficulty')
+    difficultyElm.innerHTML = sourceDifficulty
+
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
+    difficulties.forEach(e => {
+        difficultyElm.classList.remove(e)
+        if (String(sourceDifficulty).toLowerCase().indexOf(e) !== -1) {
+            difficultyElm.classList.add(e)
+        }
+    })
+    
+    const scoreElm = control.querySelector('.modify-score--score-current-value')
+    scoreElm.innerHTML = sourceScore
+
+    const newScore = control.querySelector('.modify-score--score-new-value')
+    newScore.value = ''
+
+    const alertElm = control.querySelector('.modify-score--alert-wrapper')
+    alertElm.classList.add('d-none')
+
+    const button = document.querySelector('#btn-modify-score-modal')
+    button.click()
+}
+
+/**
+ * @returns 
+ */
+function modifyScoreModal(abort = false) {
+    const control = document.querySelector('.modify-score--main')
+    const title = control.querySelector('.modify-score--title').innerHTML.replace(',', '__')
+    const difficulty = control.querySelector('.modify-score--badge-difficulty').innerHTML
+    const newScore = control.querySelector('.modify-score--score-new-value').value
+    const alertElm = control.querySelector('.modify-score--alert-wrapper')
+    const button = document.querySelector('#btn-modify-score-modal')
+
+    if (String(newScore) === '') {
+        alertElm.classList.remove('d-none')
+        return
+    }
+
+    if ((String(newScore).match(/[0-9]{1,7}/) == false) && (String(newScore) !== '0')) {
+        alertElm.classList.remove('d-none')
+        return
+    }
+
+    if (String(newScore).match(/[0-9]{1,7}/)[0] !== newScore) {
+        alertElm.classList.remove('d-none')
+        return
+    }
+
+    if (Number(newScore) > 1000000) {
+        alertElm.classList.remove('d-none')
+        return
+    }
+
+    if ((Number(newScore) < 100000) && (abort === false)) {
+        const confirm = document.querySelector('.modify-score-confirm--score-new-value')
+        confirm.innerHTML = newScore
+        const alert = document.querySelector('#btn-modify-score-confirm-modal')
+        alert.click();
+        return
+    }
+
+    const playdata = localStorage.getItem('rating-analyzer-prev').split('\n')
+    const newPlaydata = playdata.map(chart => {
+        if (chart.indexOf(`${title},${difficulty},`) !== -1) {
+            return `${title},${difficulty},${newScore}`
+        } else {
+            return chart
+        }
+    })
+
+    const playdataInput = document.querySelector('#playdata')
+    playdataInput.value = newPlaydata.join('\n')
+
+    button.click()
+
+    activateAnalyzeModeViaRedirect()
+}
+
+function activateAnalyzeModeViaRedirect() {
+    const playdata = document.querySelector('#playdata')
+
+    localStorage.setItem('rating-analyzer-temp', playdata.value)
+    localStorage.setItem('rating-analyzer-analyze-mode', 'true')
+    playdata.value = ''
+    location.href = 'https://bit.ly/3tiGGDb'
 }

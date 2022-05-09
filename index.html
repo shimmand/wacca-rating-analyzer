@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-05-04" data-dataset="2022-04-28" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-05-10" data-dataset="2022-04-28" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-05-08" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-05-10" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-08"></script>
+        <script defer src="js/script.js?date=2022-05-10"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -38,6 +38,99 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#44</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-05-10</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            スコア編集機能の紹介
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Introducing the new "Score Edit" feature
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            「スコア編集」機能を実装しました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added "Score Edit" feature.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            スコアを更新した際に、このページで直接新しいスコアへ変更することができるようになります。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            When you update a score on a chart, you can now change it to the new score directly on this page.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            この機能を使用するには、「分析を実行」または「復元」で分析結果を表示させた状態で、目的の譜面に表示されているスコアを押してください。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            To use this function, press "Start Analysis" or "Restore" to display the analysis results, and then press the score displayed in the chart you want.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        (
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-fill bi-badge" viewBox="0 0 16 16">
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                        </svg>
+                                        <span class="lang lang-japanese">
+                                            鉛筆のアイコンが目印です
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Find the pencil icon.
+                                        </span>
+                                        )
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            なおスコアを更新した譜面が多数ある場合は、この機能ではなく、これまで通りマイページでブックマークレットを実行することをおすすめします。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Note that if you have many charts with updated scores, it is recommended that you continue to run the bookmarklet in My Page instead of using this feature.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <div class="border bg-black bg-opacity-50 my-1 p-2">
+                                            <div class="d-flex border-bottom px-1 my-1">
+                                                <div class="lang lang-japanese">使い方 (例)</div>
+                                                <div class="lang lang-english d-none">How to use (example)</div>
+                                            </div>
+                                            <div class="my-2 px-1">
+                                                <div class="my-1">
+                                                    <span class="lang lang-japanese">1. ブックマークからこのページを開きます。(または、ブラウザーでこのページを常に開いておきます。)</span>
+                                                    <span class="lang lang-english d-none">1. Open this page from your browser bookmarks. (Or, keep this page open in your browser.)</span>
+                                                </div>
+                                                <div class="my-1">
+                                                    <span class="lang lang-japanese">2. 「復元」を押して、分析結果を表示させます。</span>
+                                                    <span class="lang lang-english d-none">2. Press "Restore" to display the analysis results.</span>
+                                                </div>
+                                                <div class="my-1">
+                                                    <span class="lang lang-japanese">3. 任意の譜面に表示されているスコアを押して、「スコア編集」画面を開きます。</span>
+                                                    <span class="lang lang-english d-none">3. Press the score displayed on any score to open the "Score Edit" dialog.</span>
+                                                </div>
+                                                <div class="my-1">
+                                                    <span class="lang lang-japanese">4. 新しいスコアを入力して、「適用」を押します。</span>
+                                                    <span class="lang lang-english d-none">4. Enter the new score and press "Apply".</span>
+                                                </div>
+                                                <div class="my-1">
+                                                    <span class="lang lang-japanese">5. ページが自動的に再読み込みされ、新しいスコアを反映した分析結果が表示されます。</span>
+                                                    <span class="lang lang-english d-none">5. The page will automatically reload and this program will display the analysis results with the new score.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -634,7 +727,7 @@
             <div id="box-newer" class="box-entry bg-gray-800 my-2">
                 <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
                     <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto w-100" onclick="switchChartsEntry('older')">
-                        <div class="d-flex flex-wrap align-items-end">
+                        <div class="d-flex flex-wrap align-items-end hover-trans-opacity">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">新曲枠</span>
                                 <span class="lang lang-english d-none">Newer Charts</span>
@@ -712,7 +805,7 @@
                         <div id="check-list--hidden-newer" class="check-list--control check-list--control-hidden d-flex align-items-center bg-gray-700 pt-0 shadow">
                             <div class="d-flex align-items-center m-2">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'new')">
+                                    <div class="d-flex align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(true, 'new')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">表示</span>
                                             <span class="lang lang-english d-none">Show</span>
@@ -738,7 +831,7 @@
                         <div id="check-list--visible-newer" class="check-list--control check-list--control-visible d-flex align-items-center bg-gray-700 pt-0 shadow">
                             <div class="d-flex align-items-center m-2 mt-0">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'new')">
+                                    <div class="d-flex d-xxs-none align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(false, 'new')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">非表示</span>
                                             <span class="lang lang-english d-none">Hide</span>
@@ -758,7 +851,7 @@
                                             <span class="visually-hidden">ACTIVE</span>
                                         </div>
                                     </div>
-                                    <div class="btn btn-sm d-flex vstack text-white small p-1" onclick="toggleDropdownMenu(true);">
+                                    <div class="btn btn-sm d-flex vstack hover-trans-opacity text-white small p-1" onclick="toggleDropdownMenu(true);">
                                         <div class="d-flex">
                                             <span class="lang lang-japanese">チェックリスト</span>
                                             <span class="lang lang-english d-none">Checklist</span>
@@ -1140,7 +1233,7 @@
             <div id="box-older" class="box-entry bg-gray-800 my-2 d-none">
                 <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
                     <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto w-100" onclick="switchChartsEntry('newer')">
-                        <div class="d-flex flex-wrap align-items-end">
+                        <div class="d-flex flex-wrap align-items-end hover-trans-opacity">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">旧曲枠</span>
                                 <span class="lang lang-english d-none">Older Charts</span>
@@ -1218,7 +1311,7 @@
                         <div id="check-list--hidden-older" class="check-list--control check-list--control-hidden d-flex align-items-center bg-gray-700 pt-0 shadow">
                             <div class="d-flex align-items-center m-2">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(true, 'old')">
+                                    <div class="d-flex align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(true, 'old')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">表示</span>
                                             <span class="lang lang-english d-none">Show</span>
@@ -1244,7 +1337,7 @@
                         <div id="check-list--visible-older" class="check-list--control check-list--control-visible d-flex align-items-center bg-gray-700 pt-0 shadow">
                             <div class="d-flex align-items-center m-2 mt-0">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex align-items-center cursor-pointer" onclick="toggleCheckListVisibility(false, 'old')">
+                                    <div class="d-flex d-xxs-none align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(false, 'old')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">非表示</span>
                                             <span class="lang lang-english d-none">Hide</span>
@@ -1264,7 +1357,7 @@
                                             <span class="visually-hidden">ACTIVE</span>
                                         </div>
                                     </div>
-                                    <div class="btn btn-sm d-flex vstack text-white small p-1" onclick="toggleDropdownMenu(true);">
+                                    <div class="btn btn-sm d-flex vstack hover-trans-opacity text-white small p-1" onclick="toggleDropdownMenu(true);">
                                         <div class="d-flex">
                                             <span class="lang lang-japanese">チェックリスト</span>
                                             <span class="lang lang-english d-none">Checklist</span>
@@ -2420,6 +2513,149 @@
                                 <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-0" data-bs-dismiss="modal" onclick="clearCheckList();">
                                     <span class="lang lang-japanese">OK</span>
                                     <span class="lang lang-english d-none">OK</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="btn-modify-score-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#modify-score-modal"></button>
+            <div class="modal fade" id="modify-score-modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title h3 text-heading">
+                                <span class="lang lang-japanese">スコア編集</span>
+                                <span class="lang lang-english d-none">Score Edit</span>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex justify-content-between align-items-center mt-0">
+                                <div class="mt-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-lg bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg>
+                                </div>
+                                <div class="mt-0 w-100">
+                                    <div class="m-2 px-1">
+                                        <span class="lang lang-japanese">以下譜面の新しいスコアを入力してください。</span>
+                                        <span class="lang lang-english d-none">Enter the new score for the following chart.</span>
+                                    </div>
+                                    <div class="modify-score--main m-2 px-1">
+                                        <div class="modify-score--title-wrapper">
+                                            <div class="modify-score--title fw-bold">TITLE</div>
+                                        </div>
+                                        <div class="modify-score--badge-wrapper">
+                                            <div class="modify-score--badge-difficulty badge border m-0">DIFFICULTY</div>
+                                        </div>
+                                        <div class="modify-score--score-current-wrapper d-flex justify-content-start align-items-center">
+                                            <div class="modify-score--score-current-label d-flex small">
+                                                <span class="lang lang-japanese">スコア</span>
+                                                <span class="lang lang-english d-none">Score</span>
+                                            </div>
+                                            <div class="modify-score--score-current-value d-flex ms-1">SCORE</div>
+                                        </div>
+                                        <div class="modify-score--score-new-wrapper">
+                                            <input type="number" class="form-control modify-score--score-new-value bg-gray-900 text-white rounded-0 placeholder-lang" id="exampleFormControlInput3" min="0" max="1000000" placeholder="New Score" data-placeholder-japanese="新しいスコア" data-placeholder-english="New Score">
+                                        </div>
+                                        <div class="modify-score--alert-wrapper d-none">
+                                            <div class="modify-score--alert d-flex vstack bg-magenta p-1 mt-1">
+                                                <span class="lang lang-japanese">スコアは 0〜1000000 の範囲で入力してください。</span>
+                                                <span class="lang lang-english d-none">Please enter a score in the range of 0-1000000.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center mt-0">
+                                <div class="mt-0">
+                                    <div class="m-2 px-1">
+                                        <div class="bg-gray-900 small p-1">
+                                            <div class="m-2 px-1">
+                                                <span class="lang lang-japanese">「適用」を押すと、変更を反映するためにプログラムが再読み込みされます。</span>
+                                                <span class="lang lang-english d-none">After pressing "Apply", this program will be reloaded to apply the changes.</span>
+                                            </div>
+                                            <div class="m-2 px-1">
+                                                <span class="lang lang-japanese">スコアを更新した譜面が多数ある場合は、この機能ではなく、マイページでブックマークレットを実行することをおすすめします。</span>
+                                                <span class="lang lang-english d-none">If you have many charts with updated scores, it is recommended to run the bookmarklet on My Page rather than using this feature.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0 bg-gray-900">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-white me-2" data-bs-dismiss="modal">
+                                    <span class="lang lang-japanese">キャンセル</span>
+                                    <span class="lang lang-english d-none">Cancel</span>
+                                </button>
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-0" onclick="modifyScoreModal();">
+                                    <span class="lang lang-japanese">適用</span>
+                                    <span class="lang lang-english d-none">Apply</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="btn-modify-score-confirm-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#modify-score-confirm-modal"></button>
+            <div class="modal fade" id="modify-score-confirm-modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
+                        <div class="modal-header bg-gray-700 shadow border-0">
+                            <div class="modal-title d-flex vstack">
+                                <div class="d-flex small">
+                                    <span class="lang lang-japanese">スコア編集</span>
+                                    <span class="lang lang-english d-none">Score Edit</span>
+                                </div>
+                                <div class="d-flex fs-3">
+                                    <span class="lang lang-japanese">確認</span>
+                                    <span class="lang lang-english d-none">Confirm</span>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex justify-content-between align-items-center mt-0">
+                                <div class="mt-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-question-circle bi-lg" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                    </svg>
+                                </div>
+                                <div class="mt-0 w-100">
+                                    <div class="m-2 px-1">
+                                        <span class="lang lang-japanese">スコアが低すぎます！</span>
+                                        <span class="lang lang-english d-none">The score entered is too low!</span>
+                                    </div>
+                                    <div class="m-2 px-1">
+                                        <span class="lang lang-japanese">本当にこのスコアを登録しますか？</span>
+                                        <span class="lang lang-english d-none">Are you sure you want to submit with this score?</span>
+                                    </div>
+                                    <div class="modify-score-confirm--main m-2 px-1">
+                                        <div class="modify-score-confirm--score-current-wrapper d-flex justify-content-start align-items-center">
+                                            <div class="modify-score-confirm--score-new-label d-flex small">
+                                                <span class="lang lang-japanese">入力されたスコア</span>
+                                                <span class="lang lang-english d-none">Score entered</span>
+                                            </div>
+                                            <div class="modify-score-confirm--score-new-value d-flex ms-1">SCORE</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0 bg-gray-900">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-white me-2" data-bs-toggle="modal" data-bs-target="#modify-score-modal">
+                                    <span class="lang lang-japanese">キャンセル</span>
+                                    <span class="lang lang-english d-none">Cancel</span>
+                                </button>
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-0" onclick="modifyScoreModal(true);">
+                                    <span class="lang lang-japanese">続行</span>
+                                    <span class="lang lang-english d-none">Continue</span>
                                 </button>
                             </div>
                         </div>

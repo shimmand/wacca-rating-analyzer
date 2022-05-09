@@ -1310,7 +1310,7 @@ function activateAnalyzeMode() {
     localStorage.setItem('rating-analyzer-temp', playdata.value)
     localStorage.setItem('rating-analyzer-analyze-mode', 'true')
     playdata.value = ''
-    location.reload()
+    location.href = 'https://bit.ly/3tiGGDb'
 }
 
 // Run the analyze
@@ -2337,14 +2337,5 @@ function modifyScoreModal(abort = false) {
 
     button.click()
 
-    activateAnalyzeModeViaRedirect()
-}
-
-function activateAnalyzeModeViaRedirect() {
-    const playdata = document.querySelector('#playdata')
-
-    localStorage.setItem('rating-analyzer-temp', playdata.value)
-    localStorage.setItem('rating-analyzer-analyze-mode', 'true')
-    playdata.value = ''
-    location.href = 'https://bit.ly/3tiGGDb'
+    activateAnalyzeMode()
 }

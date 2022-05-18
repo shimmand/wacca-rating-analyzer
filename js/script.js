@@ -125,7 +125,7 @@ function initialize() {
 
             // Restore the selected state of the difficulty filter
             {
-                const difficulties = getDifficulties()
+                const difficulties = ['normal', 'hard', 'expert', 'inferno']
 
                 difficulties.forEach(difficulty => {
                     const toggles = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
@@ -274,47 +274,26 @@ function showDeniedWarning() {
  * @returns 
  */
 function analyze(){
-    {
-        const playdata = document.querySelector('#playdata')
-        const charts = playdata.value.split('\n')
-
-        if (playdata.value.length === 0) {
-            playdata.classList.add('is-invalid')
-            setDisplayNone('.error-feedback-1', true)
-            setDisplayNone('#warning-empty', false)
-            return
-
-        } else {
-            const searchPattern = /[^,]+,(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+?,[0-9]{1,7}/g
-            const testResult = charts.map(chart => chart.match(searchPattern) == chart)
-            
-            if (!testResult.indexOf(false)) {
-                playdata.classList.add('is-invalid')
-                setDisplayNone('.error-feedback-1', true)
-                setDisplayNone('#warning-invalid', false)
-                return
-            }
-        }
-
-        const dataset = getChartTable()
-        const indexes = getDatasetIndex()
-
-        const difficulties = getDifficulties()
-        console.log(difficulties)
-
-        dataset.forEach((line, index) => {
-            if (index > 0) {
-                difficulties.forEach(difficulty => {
-                    if (String(playdata.value).includes(`${String(line[indexes['title']]).replace(',', '__')},${String(line[indexes[difficulty + '-level']]).toUpperCase()},`) === false) {
-                        playdata.value += `\n${String(line[indexes['title']]).replace(',', '__')},${String(line[indexes[difficulty + '-level']]).toUpperCase()},0`
-                    }
-                })
-            }
-        })
-    }
-
     const playdata = document.querySelector('#playdata')
     const charts = playdata.value.split('\n')
+
+    if (playdata.value.length === 0) {
+        playdata.classList.add('is-invalid')
+        setDisplayNone('.error-feedback-1', true)
+        setDisplayNone('#warning-empty', false)
+        return
+
+    } else {
+        const searchPattern = /[^,]+,(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+?,[0-9]{1,7}/g
+        const testResult = charts.map(chart => chart.match(searchPattern) == chart)
+        
+        if (!testResult.indexOf(false)) {
+            playdata.classList.add('is-invalid')
+            setDisplayNone('.error-feedback-1', true)
+            setDisplayNone('#warning-invalid', false)
+            return
+        }
+    }
 
     const scoresTables = document.querySelectorAll('.scoresTable')
 
@@ -960,10 +939,6 @@ function analyze(){
     setDisplayNone('#btn-does-not-work-modal', true)
 }
 
-function getDifficulties() {
-    return ['normal', 'hard', 'expert', 'inferno']
-}
-
 // Set filters based on changes in type options
 function toggleChartVisibilityByType(type, checked) {
     const types = ['targets', 'candidates', 'others']
@@ -1032,7 +1007,7 @@ function updateChartVisibilityByType() {
 
 // Set filters based on changes in difficulty options
 function toggleChartVisibilityByDifficulty(difficulty, checked) {
-    const difficulties = getDifficulties()
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
 
     if (difficulties.includes(difficulty) === false) {
         return false
@@ -1062,7 +1037,7 @@ function toggleChartVisibilityByDifficulty(difficulty, checked) {
 
 // Set filters based on the current difficulty options
 function updateChartVisibilityByDifficulty() {
-    const difficulties = getDifficulties()
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
 
     difficulties.forEach(difficulty => {
         const checkboxes = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
@@ -1545,6 +1520,34 @@ function isThisChartNewer(songTitle, diffValue) {
     }
 }
 
+// Get chart constants
+function getChartConstants(songTitle, diffValue) {
+    const songs = getChartTable()
+    const indexes = getDatasetIndex()
+    
+    for (let i = 0; i < songs.length; i++) {
+        const song = songs[i]
+
+        if (song[indexes['title']] == songTitle) {
+            if (song[indexes['normal-level']] == diffValue) {
+                return Number(song[indexes['normal-constant']]).toFixed(1)
+            }
+
+            if (song[indexes['hard-level']] == diffValue) {
+                return Number(song[indexes['hard-constant']]).toFixed(1)
+            }
+
+            if (song[indexes['expert-level']] == diffValue) {
+                return Number(song[indexes['expert-constant']]).toFixed(1)
+            }
+
+            if (song[indexes['inferno-level']] == diffValue) {
+                return Number(song[indexes['inferno-constant']]).toFixed(1)
+            }
+        }
+    }
+}
+
 // Get the genre from the song title
 function getGenre(songTitle) {
     const songs = getChartTable()
@@ -1867,7 +1870,7 @@ function generateDatasetTable() {
 
     const songs = getChartTable()
     const indexes = getDatasetIndex()
-    const difficulties = getDifficulties()
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
 
     let rowIndex = 0
     const tableContent = songs.map((song, index) => {
@@ -2260,7 +2263,7 @@ function modifyScoreModalLauncher(source) {
     const difficultyElm = control.querySelector('.modify-score--badge-difficulty')
     difficultyElm.innerHTML = sourceDifficulty
 
-    const difficulties = getDifficulties()
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
     difficulties.forEach(e => {
         difficultyElm.classList.remove(e)
         if (String(sourceDifficulty).toLowerCase().indexOf(e) !== -1) {

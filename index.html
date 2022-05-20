@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-05-05-19-01" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-05-05-21" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-05-19-01"></script>
+        <script defer src="js/script.js?date=2022-05-21"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -155,7 +155,7 @@
                                                 </div>
                                                 <div class="my-1 ms-1">
                                                     <span class="lang lang-japanese">- 「スコア編集」機能の追加と同時に追加した他の処理が原因であり、「スコア編集」機能そのものは原因ではありませんでした。</span>
-                                                    <span class="lang lang-english d-none">- The "Score Edit" function itself is not the cause of the problem, but other processes added at the same time the "Score Edit" function was added.</span>
+                                                    <span class="lang lang-english d-none">- The "Score Edit" feature itself is not the cause of the problem, but other processes added at the same time the "Score Edit" feature was added.</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1296,7 +1296,7 @@
                             </div>
                         </div>
                         <div class="border my-3 mx-2 p-2 min-vh-100">
-                            <div id="chart-list-new"  class="chart-list">
+                            <div id="chart-list-new"  class="chart-list opacity-trans-100">
                                 <table class="table table-dark table-sm">
                                     <thead>
                                         <tr>
@@ -1338,7 +1338,7 @@
                                                                 </div>
                                                                 <div class="list-item--rating-wrapper col px-0">
                                                                     <div class="list-item--rating-label small">
-                                                                        <span class="lang lang-japanese">Rating</span>
+                                                                        <span class="lang lang-japanese">レート</span>
                                                                         <span class="lang lang-english d-none">Rating</span>
                                                                     </div>
                                                                 </div>
@@ -1802,7 +1802,7 @@
                             </div>
                         </div>
                         <div class="border my-3 mx-2 p-2 min-vh-100">
-                            <div id="chart-list-old" class="chart-list">
+                            <div id="chart-list-old" class="chart-list opacity-trans-100">
                                 <table class="table table-dark table-sm">
                                     <thead>
                                         <tr>
@@ -1844,7 +1844,7 @@
                                                                 </div>
                                                                 <div class="list-item--rating-wrapper col px-0">
                                                                     <div class="list-item--rating-label small">
-                                                                        <span class="lang lang-japanese">Rating</span>
+                                                                        <span class="lang lang-japanese">レート</span>
                                                                         <span class="lang lang-english d-none">Rating</span>
                                                                     </div>
                                                                 </div>
@@ -2709,7 +2709,7 @@
                                 <div class="mt-0 w-100">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">以下譜面の新しいスコアを入力してください。</span>
-                                        <span class="lang lang-english d-none">Enter the new score for the following chart.</span>
+                                        <span class="lang lang-english d-none">Enter the new score for the following chart:</span>
                                     </div>
                                     <div class="modify-score--main m-2 px-1">
                                         <div class="modify-score--title-wrapper">
@@ -2720,8 +2720,8 @@
                                         </div>
                                         <div class="modify-score--score-current-wrapper d-flex justify-content-start align-items-center">
                                             <div class="modify-score--score-current-label d-flex small">
-                                                <span class="lang lang-japanese">スコア</span>
-                                                <span class="lang lang-english d-none">Score</span>
+                                                <span class="lang lang-japanese">現在のスコア:</span>
+                                                <span class="lang lang-english d-none">Current Score:</span>
                                             </div>
                                             <div class="modify-score--score-current-value d-flex ms-1">SCORE</div>
                                         </div>
@@ -2730,8 +2730,8 @@
                                         </div>
                                         <div class="modify-score--alert-wrapper d-none">
                                             <div class="modify-score--alert d-flex vstack bg-magenta p-1 mt-1">
-                                                <span class="lang lang-japanese">スコアは 0〜1000000 の範囲で入力してください。</span>
-                                                <span class="lang lang-english d-none">Please enter a score in the range of 0-1000000.</span>
+                                                <span class="lang lang-japanese">0〜1000000 の範囲で入力してください。</span>
+                                                <span class="lang lang-english d-none">Please enter in the range of 0-1000000.</span>
                                             </div>
                                         </div>
                                     </div>
@@ -2806,8 +2806,8 @@
                                     <div class="modify-score-confirm--main m-2 px-1">
                                         <div class="modify-score-confirm--score-current-wrapper d-flex justify-content-start align-items-center">
                                             <div class="modify-score-confirm--score-new-label d-flex small">
-                                                <span class="lang lang-japanese">入力されたスコア</span>
-                                                <span class="lang lang-english d-none">Score entered</span>
+                                                <span class="lang lang-japanese">入力されたスコア:</span>
+                                                <span class="lang lang-english d-none">Score entered:</span>
                                             </div>
                                             <div class="modify-score-confirm--score-new-value d-flex ms-1">SCORE</div>
                                         </div>
@@ -3194,7 +3194,7 @@
                                         </div>
                                         <div class="mt-2">
                                             <div class="badge border">
-                                                <span class="lang lang-japanese">Rating （現在の譜面別レーティング）</span>
+                                                <span class="lang lang-japanese">レート （現在の譜面別レーティング）</span>
                                                 <span class="lang lang-english d-none">Rating (Current rating by chart)</span>
                                             </div>
                                         </div>

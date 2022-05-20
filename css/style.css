@@ -163,6 +163,13 @@ html.fs-50 {
     text-shadow: #000000 0 0.1rem, #000000 0 0.1rem 0.15rem;
 }
 
+.badge.inferno-15 {
+    background-color: #4a004f;
+    text-shadow: #000000 0 0.1rem, #000000 0 0.1rem 0.15rem;
+    box-shadow: inset 0 0 .5rem var(--bs-danger);
+    border-color: var(--bs-danger)!important;
+}
+
 .badge.badge-max {
     text-shadow: #000000 0 0.1rem, #000000 0 0.1rem 0.15rem;
 }
@@ -308,11 +315,11 @@ html.fs-50 {
 }
 
 .bg-older {
-    background-color: #801f4f;
+    background-image: linear-gradient(30deg, #d63384, #801f4f, #d63384, #801f4f, #d63384);
 }
 
 .bg-newer {
-    background-color: #087990;
+    background-image: linear-gradient(30deg, #0dcaf0, #087990, #0dcaf0, #087990, #0dcaf0);
 }
 
 .bg-lt-950 {

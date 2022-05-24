@@ -295,31 +295,33 @@ html.fs-50 {
 }
 
 .bg-blue {
-    background-image: linear-gradient(30deg, #c0feff, #00beec, #c0feff);
+    background-image: linear-gradient(45deg, #c0feff, #00beec, #c0feff);
 }
 
 .bg-silver {
-    background-image: linear-gradient(30deg, #eaffff, #aaaaaa, #eaffff);
+    background-image: linear-gradient(45deg, #eaffff, #aaaaaa, #eaffff);
 }
 
 .bg-gold {
-    background-image: linear-gradient(30deg, #eee100, #ffb100, #eee100);
+    background-image: linear-gradient(45deg, #eee100, #ffb100, #eee100);
 }
 
 .bg-rainbow {
-    background-image: linear-gradient(30deg, #ff008a, #d2e717, #00ffeb);
+    background-image: linear-gradient(45deg, #ff008a, #d2e717, #00ffeb);
 }
 
 .bg-heading {
-    background-image: linear-gradient(30deg, #0dcaf0, #ffffff, #d63384);
+    background-image: linear-gradient(45deg, #0dcaf0, #ffffff, #d63384);
 }
 
 .bg-older {
-    background-image: linear-gradient(30deg, #d63384, #801f4f, #d63384, #801f4f, #d63384);
+    background-image: linear-gradient(45deg, #ab296a 25%, #d63384 25%, #d63384 50%, #ab296a 50%, #ab296a 75%, #d63384 75%, #d63384);
+    background-size: 1rem 1rem;
 }
 
 .bg-newer {
-    background-image: linear-gradient(30deg, #0dcaf0, #087990, #0dcaf0, #087990, #0dcaf0);
+    background-image: linear-gradient(45deg, #59359a 25%, #6f42c1 25%, #6f42c1 50%, #59359a 50%, #59359a 75%, #6f42c1 75%, #6f42c1);
+    background-size: 1rem 1rem;
 }
 
 .bg-lt-950 {
@@ -526,16 +528,20 @@ a.multi-rate-selected {
     border-color: #d63384!important;
 }
 
+.border-purple {
+    border-color: #6f42c1!important;
+}
+
 .border-black {
     border-color: #000000!important;
 }
 
 .box-shadow-black {
-    box-shadow: 0.1rem 0.1rem #000000;
+    box-shadow: 2px 2px #000000;
 }
 
 .box-shadow-white {
-    box-shadow: 0.1rem 0.1rem #ffffff;
+    box-shadow: 2px 2px #ffffff;
 }
 
 .drop-shadow-black {
@@ -550,18 +556,13 @@ a.multi-rate-selected {
     transform: skew(-10deg);
 }
 
-.w-hrem {
-    width: .5rem;
-}
-
-.h-hrem {
-    height: .5rem;
-}
-
 .cursor-pointer {
     cursor: pointer;
 }
 
+.shadow-inset {
+    box-shadow: inset 0 0 .5rem #212529, inset 0 0 .5rem #212529, inset 0 0 .5rem #212529;
+}
 
 /* SVGs */
 
@@ -725,4 +726,8 @@ svg.svg-fs-6 {
 .hover-trans-opacity:hover {
     opacity: .75;
     transition: opacity .2s ease;
+}
+
+.vr {
+    opacity: 1;
 }

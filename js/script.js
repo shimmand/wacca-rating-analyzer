@@ -27,6 +27,8 @@ function initialize() {
             // Generate a dataset table
             generateDatasetTable()
 
+            document.querySelector('.input-player-name').value = localStorage.getItem('rating-analyzer-player-name')
+
             // Restore the language settings
             switch (localStorage.getItem('rating-analyzer-lang')) {
                 case 'japanese':
@@ -632,6 +634,26 @@ function analyze(){
 
             tableRow.setAttribute('data-file-row', fileRow)
 
+            const imageData = `
+                    ${String(chart[0]).replaceAll(',', '__')},${String(chart[1]).toUpperCase()},${chart[3]},
+                    ${chart[4]},${chart[5].toFixed(2)},${chart[6]}`
+                .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
+
+            tableRow.setAttribute('data-image-data', imageData)
+            
+            {
+                const date = new Date()
+                const dateValue = [
+                    date.getFullYear(),
+                    '-',
+                    ('0' + (date.getMonth() + 1)).slice(-2),
+                    '-',
+                    ('0' + date.getDate()).slice(-2)
+                ].join('')
+
+                localStorage.setItem('rating-analyzer-image-data-date', dateValue)
+            }
+
             {
                 const tempRow = document.createElement('tr')
                 const tableRow = scoresTables[listIndex].appendChild(tempRow)
@@ -801,6 +823,8 @@ function analyze(){
         document.querySelector('#total-rate-upper').innerHTML = `${totalRateUpper}`
         document.querySelector('#summary-total').innerHTML = totalRateCurrent
         document.querySelector('#summary-total-ratio').innerHTML = `${Number(totalRateCurrent / totalRateUpper * 100).toFixed(1)}%`
+
+        localStorage.setItem('rating-analyzer-current-rating', totalRateCurrent)
 
         {
             const targetDiv = document.querySelectorAll(['.check-list--rating-total-before', '#total-rate-current'])
@@ -2281,4 +2305,26 @@ function modifyScoreModal(abort = false) {
     button.click()
 
     activateAnalyzeMode()
+}
+
+function generateImageData() {
+    const input = document.querySelector('.input-player-name')
+    localStorage.setItem('rating-analyzer-player-name', input.value)
+
+    let data = ''
+    const topCharts = document.querySelectorAll('.top-single-rate')
+
+    if (topCharts.length === 0) {
+        return
+    }
+
+    topCharts.forEach(chart => {
+        if (data !== '') {
+            data += '\n'
+        }
+        data += chart.dataset.imageData
+    })
+
+    localStorage.setItem('rating-analyzer-image-data', data)
+    location.href = 'export.html'
 }

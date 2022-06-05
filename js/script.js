@@ -942,6 +942,11 @@ function analyze(){
         buttons.forEach(button => button.disabled = true)
     }
 
+    {
+        const buttons = document.querySelectorAll(['#btn-save', '#btn-image'])
+        buttons.forEach(button => button.disabled = false)
+    }
+
     setDisplayNone('#btn-does-not-work-modal', true)
 }
 
@@ -2026,23 +2031,28 @@ function showLocalStorageContent() {
         const row = document.createElement('tr')
         const key = storage.key(index)
         const value = storage.getItem(key).replaceAll(/\n/gm, '<br>')
+        const multiLinedItems = [
+            'rating-analyzer-prev',
+            'rating-analyzer-check-list',
+            'rating-analyzer-image-data'
+        ]
 
-        if (key !== 'rating-analyzer-prev') {
-            row.innerHTML = `
-                <td>${index}</td>
-                <td>${key}</td>
-                <td>${value}</td>`
-            .replaceAll(/(^ {12}|^\n)/gm, '')
-        } else {
+        if (multiLinedItems.indexOf(key) !== -1) {
             row.innerHTML = `
                 <td>${index}</td>
                 <td>${key}</td>
                 <td>
-                    <div class="table-responsive border m-1 p-1" style="max-height: 50vh;">
+                    <div class="table-responsive border p-1" style="max-height: 50vh;">
                         ${value}
                     </div>
                 </td>`
             .replaceAll(/(^ {12}|^\n)/gm, '')
+        } else {
+            row.innerHTML = `
+            <td>${index}</td>
+            <td>${key}</td>
+            <td>${value}</td>`
+        .replaceAll(/(^ {12}|^\n)/gm, '')
         }
 
         output.appendChild(row)
@@ -2305,26 +2315,4 @@ function modifyScoreModal(abort = false) {
     button.click()
 
     activateAnalyzeMode()
-}
-
-function generateImageData() {
-    const input = document.querySelector('.input-player-name')
-    localStorage.setItem('rating-analyzer-player-name', input.value)
-
-    let data = ''
-    const topCharts = document.querySelectorAll('.top-single-rate')
-
-    if (topCharts.length === 0) {
-        return
-    }
-
-    topCharts.forEach(chart => {
-        if (data !== '') {
-            data += '\n'
-        }
-        data += chart.dataset.imageData
-    })
-
-    localStorage.setItem('rating-analyzer-image-data', data)
-    location.href = 'export.html'
 }

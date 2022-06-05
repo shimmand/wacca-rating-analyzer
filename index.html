@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-06-03" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-06-06" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-06-03"></script>
+        <script defer src="js/script.js?date=2022-06-06"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -38,6 +38,87 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#49</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-06-06</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            楽曲の削除に伴う影響について
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Effects of the removal of songs
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            6月16日、WACCAから14曲（42譜面）が削除されます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            On June 16, 14 songs (42 charts) will be removed from WACCA.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            このプログラムも楽曲の削除を反映し、完了次第、これらの楽曲が分析から除外されます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            This program also reflects the removal of songs, and these songs will be removed from the analysis as soon as the removal is complete.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            上記に伴い、プレイヤーによりレーティング値が減少する可能性がありますのでご注意ください。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Please note that this may result in a decrease in rating value for some players.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <a class="text-dark text-decoration-none" href="https://info-wacca.marv.jp/article/15157" target="_blank" rel="noopener noreferrer">
+                                            <button type="button" class="h-100 btn btn-white rounded-0 m-1"  id="help">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">公式サイトで見る</span>
+                                                <span class="lang lang-english d-none">View on official website</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            なお、これらの楽曲のスコアを画像で保存できる機能を公開しました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            In addition, a feature that allows you to save the scores of these songs as images is now available.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            残念ながら、楽曲の削除が完了するとマイページでさえこれらのスコアを見られなくなるため、もし記録したい場合は是非この機能をお使いください。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Sadly, you will not be able to see these scores even on My Page once the songs have been deleted, so if you want to record them, please use this feature.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <a class="text-dark text-decoration-none" href="removal-20220616.html" target="_blank" rel="noopener noreferrer">
+                                            <button type="button" class="h-100 btn btn-white rounded-0 m-1"  id="help">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-image" viewBox="0 0 16 16">
+                                                    <path d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                                    <path d="M14 14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5V14zM4 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">14曲を画像で保存</span>
+                                                <span class="lang lang-english d-none">Save 14 songs as image</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -85,7 +166,7 @@
                                                     <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
                                                 </svg>
                                                 <span class="lang lang-japanese">画像の例を見る</span>
-                                                <span class="lang lang-english d-none">See example images</span>
+                                                <span class="lang lang-english d-none">View example images</span>
                                             </button>
                                         </a>
                                     </div>
@@ -418,70 +499,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#43</div>
-                                        <div class="badge border border-white align-bottom me-2">2022-05-04</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            チェックリスト機能の紹介
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Introducing the new "Checklist" feature
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            「複数選択モード」を改良しました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Improved "Multi Select Mode".
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            名前も「チェックリスト」に変わりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            The name of the function has also been changed to "Checklist".
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="border bg-black bg-opacity-50 my-1 p-2">
-                                            <div class="d-flex border-bottom px-1 my-1">
-                                                <div class="lang lang-japanese">変更点</div>
-                                                <div class="lang lang-english d-none">Changes</div>
-                                            </div>
-                                            <div class="my-2 px-1">
-                                                <div class="my-1">
-                                                    <span class="lang lang-japanese">- 選択した譜面とスコアボーダーが、ブラウザーに記憶されるようになります。これにより、ブラウザーのタブを閉じても、次回このページを開いた際に選択内容が復元されます。</span>
-                                                    <span class="lang lang-english d-none">- The charts and score borders you select will be stored in your browser. This will restore your selections the next time you open this page, even if you close the browser tab.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            使い方はこれまでと変わらず、それぞれの譜面に表示されている <div class="badge bg-white align-bottom text-black">+0.000</div> を押すだけです。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            The usage is the same as before, just press the <div class="badge bg-white align-bottom text-black">+0.000</div> on each chart.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            名前の通り「チェックリスト」として使ってみてください。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            As the name indicates, use it as a "checklist".
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
@@ -669,14 +686,14 @@
                         </button>
                     </div>
                     <div class="btn-group mt-2 me-2" role="group">
-                        <button type="button" class="btn btn-white me-2" id="btn-save" data-bs-toggle="modal" data-bs-target="#modal-data-export">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                        <button type="button" class="btn btn-white me-2" id="btn-save" data-bs-toggle="modal" data-bs-target="#modal-data-export" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-spreadsheet" viewBox="0 0 16 16">
+                                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"/>
                             </svg>
                             <span class="lang lang-japanese">CSVで保存</span>
                             <span class="lang lang-english d-none">Save as CSV</span>
                         </button>
-                        <button type="button" class="btn btn-white me-2" id="btn-image" data-bs-toggle="modal" data-bs-target="#modal-data-image-export">
+                        <button type="button" class="btn btn-white me-2" id="btn-image" data-bs-toggle="modal" data-bs-target="#modal-data-image-export" disabled>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-image" viewBox="0 0 16 16">
                                 <path d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                                 <path d="M14 14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5V14zM4 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4z"/>
@@ -684,20 +701,12 @@
                             <span class="lang lang-japanese">画像で保存</span>
                             <span class="lang lang-english d-none">Save as Image</span>
                         </button>
-                        <button type="button" class="btn btn-white me-2" id="btn-dataset" data-bs-toggle="modal" data-bs-target="#chart-dataset-modal">
+                        <button type="button" class="btn btn-white me-0" id="btn-dataset" data-bs-toggle="modal" data-bs-target="#chart-dataset-modal">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
                                 <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
                             </svg>
                             <span class="lang lang-japanese">定数テーブル</span>
                             <span class="lang lang-english d-none">Constants Table</span>
-                        </button>
-                        <button type="button" class="btn btn-white me-0" id="btn-settings" data-bs-toggle="modal" data-bs-target="#modal-settings">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-                            </svg>
-                            <span class="lang lang-japanese">設定</span>
-                            <span class="lang lang-english d-none">Settings</span>
                         </button>
                     </div>
                     <div class="btn-group mt-2 me-2" role="group">
@@ -741,6 +750,14 @@
                         </button>
                     </div>
                     <div class="btn-group mt-2 me-2" role="group">
+                        <button type="button" class="btn btn-white me-2" id="btn-settings" data-bs-toggle="modal" data-bs-target="#modal-settings">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                            </svg>
+                            <span class="lang lang-japanese">設定</span>
+                            <span class="lang lang-english d-none">Settings</span>
+                        </button>
                         <button type="button" class="btn btn-white border-5 border-0 border-start border-cyan me-2" data-bs-toggle="modal" data-bs-target="#help-input-modal">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -1384,9 +1401,15 @@
                                                             <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                                                         </svg>
                                                     </div>
-                                                    <div class="d-flex small mx-1">
-                                                        <span class="lang lang-japanese">データを表示するには分析の実行が必要です。</span>
-                                                        <span class="lang lang-english d-none">Analysis is required to display the data.</span>
+                                                    <div class="d-flex vstack mx-1">
+                                                        <div class="d-flex small">
+                                                            <span class="lang lang-japanese">分析結果がありません。</span>
+                                                            <span class="lang lang-english d-none">There are no analysis results.</span>
+                                                        </div>
+                                                        <div class="d-flex small">
+                                                            <span class="lang lang-japanese">分析または復元を実行してください。</span>
+                                                            <span class="lang lang-english d-none">Please run the analysis or the restoration.</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -1914,9 +1937,15 @@
                                                             <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                                                         </svg>
                                                     </div>
-                                                    <div class="d-flex small mx-1">
-                                                        <span class="lang lang-japanese">データを表示するには分析の実行が必要です。</span>
-                                                        <span class="lang lang-english d-none">Analysis is required to display the data.</span>
+                                                    <div class="d-flex vstack mx-1">
+                                                        <div class="d-flex small">
+                                                            <span class="lang lang-japanese">分析結果がありません。</span>
+                                                            <span class="lang lang-english d-none">There are no analysis results.</span>
+                                                        </div>
+                                                        <div class="d-flex small">
+                                                            <span class="lang lang-japanese">分析または復元を実行してください。</span>
+                                                            <span class="lang lang-english d-none">Please run the analysis or the restoration.</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -2316,34 +2345,28 @@
                                 <div class="mt-0">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">譜面一覧をCSVファイルとして出力します。</span>
-                                        <span class="lang lang-english d-none">Ready to output Chart List as a CSV file.</span>
+                                        <span class="lang lang-english d-none">Ready to export the Chart List as a CSV file.</span>
                                     </div>
                                     <div class="m-2 px-1">
-                                        <span class="lang lang-japanese">ファイルを保存するには、「エクスポート」をクリックしてください。</span>
+                                        <span class="lang lang-japanese">ファイルを保存するには、「出力」をクリックしてください。</span>
                                         <span class="lang lang-english d-none">To continue, please click "Export".</span>
                                     </div>
-                                    <div class="border m-2 px-1 small">
-                                        <div class="m-2 px-1">
-                                            <span class="lang lang-japanese">端末によってはクリックした後に「表示」と「ダウンロード」を選択できますが、「表示」を選択するとこのページが初期化されますのでご注意ください。</span>
-                                            <span class="lang lang-english d-none">After clicking on it, depending on your device, you may be able to choose between "View" and "Download", but please note that this page will be initialized if you choose "View".</span>
-                                        </div>
-                                        <div class="m-2 px-1">
-                                            <span class="lang lang-japanese">もしページが初期化されてしまった場合、「復元」ボタンをクリックするだけで分析結果を復元できます。</span>
-                                            <span class="lang lang-english d-none">If this page has been initialized, you can restore the analysis results by simply clicking the "Restore" button.</span>
-                                        </div>
+                                    <div class="m-2 px-1 small text-dimmed">
+                                        <span class="lang lang-japanese">ダウンロードの開始前に「表示」と「ダウンロード」を確認された場合、「ダウンロード」を選択してください。</span>
+                                        <span class="lang lang-english d-none">Before starting the download, if you are asked to "View" or "Download," please select "Download.</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer border-0 bg-gray-900">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-2" onclick="saveTableData();">
-                                    <span class="lang lang-japanese">エクスポート</span>
-                                    <span class="lang lang-english d-none">Export</span>
+                                <button type="button" class="btn btn-white me-2" data-bs-dismiss="modal">
+                                    <span class="lang lang-japanese">キャンセル</span>
+                                    <span class="lang lang-english d-none">Cancel</span>
                                 </button>
-                                <button type="button" class="btn btn-white" data-bs-dismiss="modal">
-                                    <span class="lang lang-japanese">閉じる</span>
-                                    <span class="lang lang-english d-none">Close</span>
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-0" onclick="saveTableData();">
+                                    <span class="lang lang-japanese">出力</span>
+                                    <span class="lang lang-english d-none">Export</span>
                                 </button>
                             </div>
                         </div>
@@ -2363,43 +2386,46 @@
                         <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
                                 <div class="mt-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-image bi-lg" viewBox="0 0 16 16">
-                                        <path d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-                                        <path d="M14 14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5V14zM4 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down-circle bi-lg" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
                                     </svg>
                                 </div>
                                 <div class="mt-0">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">レーティング対象譜面の一覧を画像として出力します。</span>
-                                        <span class="lang lang-english d-none">This feature exports a list of your Rating Target charts as an image.</span>
+                                        <span class="lang lang-english d-none">Ready to export the list of your Rating Target charts as an image.</span>
                                     </div>
                                     <div class="m-2 px-1">
-                                        <span class="lang lang-japanese">開始するには、「エクスポート」をクリックしてください。</span>
+                                        <span class="lang lang-japanese">開始するには、「出力」をクリックしてください。</span>
                                         <span class="lang lang-english d-none">To continue, please click "Export".</span>
                                     </div>
                                     <div class="mx-2 mt-2 px-1">
                                         <span class="lang lang-japanese">プレイヤー名（任意）:</span>
-                                        <span class="lang lang-english d-none">Player Name (optional):</span>
+                                        <span class="lang lang-english d-none">Player's Name (optional):</span>
                                     </div>
                                     <div class="mx-2 mb-2 px-1">
-                                        <input type="text" class="form-control input-player-name bg-gray-900 text-white rounded-0 placeholder-lang" id="exampleFormControlInput4" maxlength="8" placeholder="Player Name" data-placeholder-japanese="プレイヤー名" data-placeholder-english="Player Name" style="font-size: 16px;">
+                                        <input type="text" class="form-control input-player-name bg-gray-900 text-white rounded-0 placeholder-lang" id="exampleFormControlInput4" maxlength="8" placeholder="up to 8 chars" data-placeholder-japanese="全半角8文字まで" data-placeholder-english="up to 8 chars" style="font-size: 16px;">
                                     </div>
                                     <div class="m-2 px-1 small text-dimmed">
                                         <span class="lang lang-japanese">プレイヤー名を入力すると、画像にプレイヤー名を含めることができます。</span>
-                                        <span class="lang lang-english d-none">If you enter a player name, you can include the player name in the image.</span>
+                                        <span class="lang lang-english d-none">If you enter your player's name, you can include it in the image.</span>
+                                    </div>
+                                    <div class="m-2 px-1 small text-dimmed">
+                                        <span class="lang lang-japanese">ダウンロードの開始前に「表示」と「ダウンロード」を確認された場合、「ダウンロード」を選択してください。</span>
+                                        <span class="lang lang-english d-none">Before starting the download, if you are asked to "View" or "Download," please select "Download.</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer border-0 bg-gray-900">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-2" onclick="generateImageData();" data-bs-dismiss="modal">
-                                    <span class="lang lang-japanese">エクスポート</span>
-                                    <span class="lang lang-english d-none">Export</span>
+                                <button type="button" class="btn btn-white me-2" data-bs-dismiss="modal">
+                                    <span class="lang lang-japanese">キャンセル</span>
+                                    <span class="lang lang-english d-none">Cancel</span>
                                 </button>
-                                <button type="button" class="btn btn-white" data-bs-dismiss="modal">
-                                    <span class="lang lang-japanese">閉じる</span>
-                                    <span class="lang lang-english d-none">Close</span>
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-0" onclick="generateImageData();" data-bs-dismiss="modal">
+                                    <span class="lang lang-japanese">出力</span>
+                                    <span class="lang lang-english d-none">Export</span>
                                 </button>
                             </div>
                         </div>
@@ -3390,10 +3416,10 @@
                                                     <strong>difficulty:</strong>( normal | hard | expert | inferno ) or ( n | h | e | i )
                                                 </div>
                                                 <div class="p-1 filter-option-tooltip d-none" id="filter-option-tooltip-level">
-                                                    <strong>level:</strong>( 1 | 2 | 3 | ... | 13 | 13+ | 14 )
+                                                    <strong>level:</strong>( 1 | 2 | 3 | ... | 13+ | 14 | 15 )
                                                 </div>
                                                 <div class="p-1 filter-option-tooltip d-none" id="filter-option-tooltip-constant">
-                                                    <strong>constant:</strong>( 1.0 | 2.0 | 3.0 | ... | 14.0 | 14.1 | 14.2 )
+                                                    <strong>constant:</strong>( 1.0 | 2.0 | 3.0 | ... | 14.1 | 14.2 | 15.0 )
                                                 </div>
                                                 <div class="p-1 filter-option-tooltip d-none" id="filter-option-tooltip-newer">
                                                     <strong>newer:</strong>( true | false ) or ( t | f )

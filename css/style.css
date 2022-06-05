@@ -537,11 +537,11 @@ a.multi-rate-selected {
 }
 
 .box-shadow-black {
-    box-shadow: 2px 2px #000000;
+    box-shadow: 2px 2px #0000007f;
 }
 
 .box-shadow-white {
-    box-shadow: 2px 2px #ffffff;
+    box-shadow: 2px 2px #ffffff7f;
 }
 
 .drop-shadow-black {

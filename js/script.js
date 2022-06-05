@@ -2316,3 +2316,25 @@ function modifyScoreModal(abort = false) {
 
     activateAnalyzeMode()
 }
+
+function generateImageData() {
+    const input = document.querySelector('.input-player-name')
+    localStorage.setItem('rating-analyzer-player-name', input.value)
+
+    let data = ''
+    const topCharts = document.querySelectorAll('.top-single-rate')
+
+    if (topCharts.length === 0) {
+        return
+    }
+
+    topCharts.forEach(chart => {
+        if (data !== '') {
+            data += '\n'
+        }
+        data += chart.dataset.imageData
+    })
+
+    localStorage.setItem('rating-analyzer-image-data', data)
+    location.href = 'export.html'
+}

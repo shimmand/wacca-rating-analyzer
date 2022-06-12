@@ -383,7 +383,7 @@ function analyze(){
 
             tableRow.classList.add(`difficulty-${chart[1]}`)
 
-            const increases = targetMultipliers.map((multiplier, index) => {
+            const increases = targetMultipliers.map((multiplier, buttonIndex) => {
                 const targetsName = ['new', 'old']
 
                 if ((chart[5] < multiplier) && ((chart[4] * multiplier) > varSingleRateLowers[listIndex])) {
@@ -391,8 +391,9 @@ function analyze(){
                         <a class="badge rate-increase rounded-0 box-shadow-black" 
                         href="#" onclick="modifyCheckListItem(this); return false;" 
                         data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}" 
-                        data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]} ${index}" 
-                        data-query-class="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}">
+                        data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]} ${buttonIndex}" 
+                        data-query-class="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}"
+                        data-list-index="${listIndex}" data-index="${index + 1}" data-button-index="${buttonIndex}">
                         <span class="rate-counter">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
                         </a>
                         `.replaceAll(/(^ {24}|^\n)/gm, '').replaceAll('\n', '')
@@ -622,7 +623,7 @@ function analyze(){
             tableRow.setAttribute('data-rate', chart[6])
             tableRow.setAttribute('data-remaining-min', '')
 
-            const chartType = (listIndex == 0) ? 'New' : 'Old'
+            const chartType = (listIndex == 0) ? 'Newer' : 'Older'
             const maxRate = Number(4 * chart[4]).toFixed(3)
             const fileRow = `
                     "${chartType}","${index + 1}","${chart[0]}","${chart[2]}","${chart[3]}",
@@ -634,13 +635,15 @@ function analyze(){
 
             tableRow.setAttribute('data-file-row', fileRow)
 
-            const imageData = `
-                    ${String(chart[0]).replaceAll(',', '__')},${String(chart[1]).toUpperCase()},${chart[3]},
+            {
+                const imageData = `
+                    ${listIndex},${String(chart[0]).replaceAll(',', '__')},${String(chart[2]).toUpperCase()},${chart[3]},
                     ${chart[4]},${chart[5].toFixed(2)},${chart[6]}`
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
 
-            tableRow.setAttribute('data-image-data', imageData)
-            
+                tableRow.setAttribute('data-image-data', imageData)
+            }
+
             {
                 const date = new Date()
                 const dateValue = [
@@ -943,7 +946,7 @@ function analyze(){
     }
 
     {
-        const buttons = document.querySelectorAll(['#btn-save', '#btn-image'])
+        const buttons = document.querySelectorAll(['#btn-export'])
         buttons.forEach(button => button.disabled = false)
     }
 
@@ -1620,12 +1623,22 @@ function modifyCheckListItem(element) {
 
     // Change to make the state of small list and large list same
     {
+        const goals = [950000, 960000, 970000, 980000, 990000]
+
         const anchors = document.querySelectorAll(`a[data-query="${element.dataset.query}"]`)
         anchors.forEach(anchor => {
             if (element.classList.contains('multi-rate-selected')) {
                 anchor.classList.add('multi-rate-selected')
+
+                const selector = `tr[data-list-index="${anchor.dataset.listIndex}"][data-index="${anchor.dataset.index}"]`
+                const motherRow = document.querySelector(selector)
+                motherRow.dataset.imageDataChecklists = `${goals[Number(anchor.dataset.buttonIndex)]},${anchor.innerText}`
             } else {
                 anchor.classList.remove('multi-rate-selected')
+
+                const selector = `tr[data-list-index="${anchor.dataset.listIndex}"][data-index="${anchor.dataset.index}"]`
+                const motherRow = document.querySelector(selector)
+                motherRow.dataset.imageDataChecklists = ''
             }
         })
     }
@@ -1645,6 +1658,7 @@ function saveCheckList() {
 }
 
 function restoreCheckList() {
+    const goals = [950000, 960000, 970000, 980000, 990000]
     const checklist = localStorage.getItem('rating-analyzer-check-list')
     
     if (!checklist) {
@@ -1653,10 +1667,19 @@ function restoreCheckList() {
 
     checklist.split('\n').forEach(line => {
         const buttons = document.querySelectorAll(`tr.chart-list--item a[data-query="${line}"]`)
+
+        if (buttons.length !== 2) {
+            return
+        }
+
         if (buttons) {
             buttons.forEach(button => {
                 button.classList.add('multi-rate-selected')
             })
+
+            const selector = `tr[data-list-index="${buttons[0].dataset.listIndex}"][data-index="${buttons[0].dataset.index}"]`
+            const motherRow = document.querySelector(selector)
+            motherRow.dataset.imageDataChecklists = `${goals[Number(buttons[0].dataset.buttonIndex)]},${buttons[0].innerText}`
         }
     })
 }
@@ -1753,6 +1776,8 @@ function applyCheckList() {
 
         const classColors = ['bg-plain', 'bg-navy', 'bg-yellow', 'bg-red', 'bg-purple', 'bg-blue', 'bg-silver', 'bg-gold', 'bg-rainbow']
         const classBorders = [0, 300, 600, 1000, 1300, 1600, 1900, 2200, 2500]
+
+        localStorage.setItem('rating-analyzer-check-list-rating', (Number(currentTotal.innerText) + Number(increasesTotal)).toFixed(3))
 
         afterTotals.forEach(total => total.innerHTML = (Number(currentTotal.innerText) + Number(increasesTotal)).toFixed(3))
         afterTotals.forEach(total => total.classList.remove('bg-white')) 
@@ -1940,8 +1965,8 @@ function saveTableData() {
     let dataTableText = ''
     
     {
-        const headerTextJpn = '"種別","#","曲名","レベル","スコア","定数","補正","現在","上限","950k","960k","970k","980k","990k"\n'
-        const headerTextEng = '"Type","#","Song Title","Level","Score","Constant","Modifier","Now","Max","950k","960k","970k","980k","990k"\n'
+        const headerTextJpn = '"枠","#","曲名","レベル","スコア","定数","補正","現在","上限","950k","960k","970k","980k","990k"\n'
+        const headerTextEng = '"List","#","Song Title","Level","Score","Constant","Modifier","Now","Max","950k","960k","970k","980k","990k"\n'
         
         switch (localStorage.getItem('rating-analyzer-lang')) {
             case 'japanese':
@@ -2335,6 +2360,55 @@ function generateImageData() {
         data += chart.dataset.imageData
     })
 
-    localStorage.setItem('rating-analyzer-image-data', data)
-    location.href = 'export.html'
+    localStorage.setItem('rating-analyzer-image-data-targets', data)
+    location.href = 'export/targets.html'
+}
+
+function generateChecklistImageData() {
+    const input = document.querySelector('.input-player-name')
+    localStorage.setItem('rating-analyzer-player-name', input.value)
+
+    let data = ''
+    const listitems = document.querySelectorAll('tr[data-image-data-checklists*=","]')
+
+    if (listitems.length === 0) {
+        return
+    }
+
+    listitems.forEach(chart => {
+        if (data !== '') {
+            data += '\n'
+        }
+        data += chart.dataset.imageData
+        data += ','
+        data += chart.dataset.imageDataChecklists
+    })
+
+    const fixedData = Array
+        .from(data.split('\n'))
+        .sort((a, b) => {
+            return Number(b.match(/[0-9]{1}\.[0-9]{3}$/gi)) - Number(a.match(/[0-9]{1}\.[0-9]{3}$/gi))
+        })
+        .join('\n')
+
+    localStorage.setItem('rating-analyzer-image-data-checklists', fixedData)
+    location.href = 'export/checklists.html'
+}
+
+/**
+ * 
+ * @param {String} option 
+ */
+function applyExportOption(option) {
+    const additionalOpts = document.querySelectorAll('.export-image-show')
+    if (option.indexOf('image') !== -1) {
+        additionalOpts.forEach(div => div.classList.remove('d-none'))
+    } else {
+        additionalOpts.forEach(div => div.classList.add('d-none'))
+    }
+
+    const buttons = document.querySelectorAll('.export-button')
+    buttons.forEach(button => button.classList.add('d-none'))
+
+    document.querySelector(option).classList.remove('d-none')
 }

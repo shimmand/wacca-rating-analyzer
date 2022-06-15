@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-06-12" data-dataset="2022-06-01" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-06-16" data-dataset="2022-06-16" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -10,9 +10,9 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-06-12" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-06-16" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-06-12"></script>
+        <script defer src="js/script.js?date=2022-06-16"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -38,6 +38,236 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#51</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-06-16</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-exclamation-circle svg-fs-5" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                            </svg>
+                                        </span>
+                                        <span class="lang lang-japanese">
+                                            一部譜面への対応を終了
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Some charts are no longer supported
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>
+                                            <span class="lang lang-japanese">
+                                                WACCAから以下の譜面が削除されたため、このプログラムにおいても対象の譜面への対応を終了しました。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                The following charts have been removed from WACCA, and this program no longer supports them.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>You Only Live Once</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 1</span>
+                                            <span class="badge border hard">HARD 5</span>
+                                            <span class="badge border expert">EXPERT 9</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>The Light</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 7+</span>
+                                            <span class="badge border expert">EXPERT 12</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>EXCITE</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 1</span>
+                                            <span class="badge border hard">HARD 6</span>
+                                            <span class="badge border expert">EXPERT 10</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>徒花ネクロマンシー</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 6+</span>
+                                            <span class="badge border expert">EXPERT 9+</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>ようこそジャパリパークへ</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 2</span>
+                                            <span class="badge border hard">HARD 7</span>
+                                            <span class="badge border expert">EXPERT 10+</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>POP TEAM EPIC</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 7+</span>
+                                            <span class="badge border expert">EXPERT 11</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>Nameless Story</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 7</span>
+                                            <span class="badge border expert">EXPERT 10</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>五等分の気持ち</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 2</span>
+                                            <span class="badge border hard">HARD 6</span>
+                                            <span class="badge border expert">EXPERT 9+</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>ギミチョコ!!</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 4</span>
+                                            <span class="badge border hard">HARD 10</span>
+                                            <span class="badge border expert">EXPERT 12+</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>ウマーベラス</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 1</span>
+                                            <span class="badge border hard">HARD 6+</span>
+                                            <span class="badge border expert">EXPERT 9+</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>劣等上等</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 8</span>
+                                            <span class="badge border expert">EXPERT 11+</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>気まぐれメルシィ feat. 初音ミク</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 7</span>
+                                            <span class="badge border expert">EXPERT 10</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>スクランブル交際</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 8</span>
+                                            <span class="badge border expert">EXPERT 11</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div>乙女解剖</div>
+                                        <div>
+                                            <span class="badge border normal">NORMAL 3</span>
+                                            <span class="badge border hard">HARD 7</span>
+                                            <span class="badge border expert">EXPERT 9</span>
+                                            <span class="badge border">
+                                                <span class="lang lang-japanese">旧曲枠</span>
+                                                <span class="lang lang-english d-none">OLDER</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -92,12 +322,6 @@
                                         </span>
                                         <span class="lang lang-english d-none">
                                             It would be good to use the images to share with other players and receive assignments(challenges).
-                                        </span>
-                                        <span class="text-dimmed lang lang-japanese">
-                                            日本以外でこの文化ってあるんですかね？
-                                        </span>
-                                        <span class="text-dimmed lang lang-english d-none">
-                                            BTW, do you know if this culture exists outside of Japan?
                                         </span>
                                     </div>
                                     <div class="my-1">

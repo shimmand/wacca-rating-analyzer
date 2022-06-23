@@ -283,6 +283,8 @@ function analyze(){
     scoresTables.forEach(table => table.innerHTML = '')
     playdata.classList.remove('is-invalid')
 
+    findMissingItems()
+
     let chartsListNew = []
     let chartsListOld = []
 
@@ -2411,4 +2413,69 @@ function applyExportOption(option) {
     buttons.forEach(button => button.classList.add('d-none'))
 
     document.querySelector(option).classList.remove('d-none')
+}
+
+/**
+ * Find missing items in the play data and add items as needed.
+ * @returns {Array}
+ */
+function findMissingItems() {
+    let items = []
+    const input = document.querySelector('#playdata')
+    let playdata  = input.value
+    const songs = getChartTable()
+    const indexes = getDatasetIndex()
+
+    for (let i = 0; i < songs.length; i++) {
+        if (i === 0) {
+            continue
+        }
+
+        const song = songs[i]
+        const fixedTitle = String(song[indexes['title']]).replace(',', '__')
+        
+        if (String(playdata).includes(fixedTitle) === false) {
+            items.push(song[indexes['title']])
+            
+            const insertLines = `
+                ${fixedTitle},${song[indexes['normal-level']]},0
+                ${fixedTitle},${song[indexes['hard-level']]},0
+                ${fixedTitle},${song[indexes['expert-level']]},0
+                ${fixedTitle},${song[indexes['inferno-level']]},0`
+            .replaceAll(/(^ {16}|^\n)/gm, '')
+
+            if (String(input.value).length === 0) {
+                if (i === 1) {
+                    playdata = `${insertLines}`
+                } else {
+                    playdata = `${playdata}\n${insertLines}`
+                }
+            } else {
+                if (i === 1) {
+                    playdata = `${insertLines}\n${playdata}`
+                } else {
+                    const prevTitle = songs[i - 1][indexes['title']]
+                    const prevTitlePos = String(playdata).lastIndexOf(prevTitle)
+                    const prevLineEndPos = String(playdata).indexOf('\n', prevTitlePos)
+                    const prevLines = String(playdata).substring(0, prevLineEndPos)
+                    const nextLines = String(playdata).substring(prevLineEndPos + 1)
+                    playdata = `${prevLines}\n${insertLines}\n${nextLines}`
+                }
+            }
+        }
+    }
+
+    if (items.length > 0) {
+        const missingItems = document.querySelectorAll('.missing-items')
+        missingItems.forEach(e => e.classList.remove('d-none'))
+
+        const missingItemsList = document.querySelector('.missing-items-list')
+        items.forEach(item => {
+            const insertText = `<div>${item}</div>`
+            missingItemsList.insertAdjacentHTML('beforeend', insertText)
+        })
+    }
+
+    input.value = playdata
+    return items
 }

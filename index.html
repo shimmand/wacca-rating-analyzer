@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-06-23" data-dataset="2022-06-23" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-06-24" data-dataset="2022-06-23" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -38,6 +38,48 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#53</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-06-24</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            譜面追加時の動作を変更
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Change behavior when new charts are added
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            このプログラムが新しい譜面に対応した際に、ブックマークレットを使用しなくても、それらが譜面一覧に表示されるようになりました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            When the program supports new charts, they will now appear in the Chart List without the need to use the bookmarklet.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            具体的には、「復元」を押すとプレイデータとデータセットの内容を毎回比較し、もしプレイデータに不足している譜面がある場合には、自動的にスコア0としてデータを追加するようになります。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Specifically, when you press "Restore" it will compare the play data to the contents of the data set, and if there are missing charts in the play data, it will automatically add data with a score of 0.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            この変更により、このプログラムが新しい譜面に対応次第、すぐにスコア編集機能を用いてスコアを登録できるようになります。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            This change will allow you to register scores using the "Score Edit" feature as soon as this program supports the new chart.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -2832,8 +2874,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="d-flex align-items-center mt-0">
-                                <div class="mt-0">
+                            <div class="d-flex align-items-start  mt-0">
+                                <div class="mt-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-lg bi-check-circle" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
@@ -2848,6 +2890,16 @@
                                         <span class="lang lang-japanese">更新日時: </span>
                                         <span class="lang lang-english d-none">Last Update: </span>
                                         <span class="bg-magenta px-1" id="last-update">0000-00-00 00:00</span>
+                                    </div>
+                                    <div class="m-2 px-1 small text-dimmed missing-items d-none">
+                                        <span class="lang lang-japanese">以下の曲はプレイデータに見つからなかったため、空のデータを追加しました。</span>
+                                        <span class="lang lang-english d-none">The following songs were not found in the play data, so empty data was automatically added.</span>
+                                    </div>
+                                    <div class="m-2 px-1 small text-dimmed missing-items d-none">
+                                        <span class="lang lang-japanese">最新のスコアを登録するには、ブックマークレットまたはスコア編集機能を使用してください。</span>
+                                        <span class="lang lang-english d-none">If you want to register your latest score, please use the bookmarklet or the "Score Edit" feature.</span>
+                                    </div>
+                                    <div class="border border-white small m-2 px-1 overflow-scroll missing-items missing-items-list d-none" style="max-height: 10rem;">
                                     </div>
                                 </div>
                             </div>

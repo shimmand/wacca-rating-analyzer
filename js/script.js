@@ -258,7 +258,7 @@ function showDeniedWarning() {
  */
 function analyze(){
     const playdata = document.querySelector('#playdata')
-    const charts = playdata.value.split('\n')
+    let charts = playdata.value.split('\n')
 
     if (playdata.value.length === 0) {
         playdata.classList.add('is-invalid')
@@ -284,6 +284,7 @@ function analyze(){
     playdata.classList.remove('is-invalid')
 
     findMissingItems()
+    charts = playdata.value.split('\n')
 
     let chartsListNew = []
     let chartsListOld = []

@@ -12,7 +12,7 @@ function initialize() {
 
         xhr.onload = () => {
             const response = xhr.responseText
-            const datasetArr = response.split('\n').filter(line => line.length > 0).map(line => `[${line}]`)
+            const datasetArr = response.replaceAll(/([^,])""([^,])/gm, '$1\\\"$2').split('\n').filter(line => line.length > 0).map(line => `[${line}]`)
             const scriptCode = `
                 function getChartTable() {
                     return [

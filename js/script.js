@@ -29,6 +29,11 @@ function initialize() {
 
             document.querySelector('.input-player-name').value = localStorage.getItem('rating-analyzer-player-name')
 
+            {
+                const badge = document.querySelector('.dataset-version-value')
+                badge.innerHTML = datasetParam.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/g)[0]
+            }
+
             // Restore the language settings
             switch (localStorage.getItem('rating-analyzer-lang')) {
                 case 'japanese':

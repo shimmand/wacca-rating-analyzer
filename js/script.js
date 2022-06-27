@@ -653,6 +653,20 @@ function analyze(){
             }
 
             {
+                const searchText = `
+                    ${String(chart[0]).toLowerCase()} 
+                    ${String(getEnglishTitle(chart[0])).toLowerCase()} 
+                    difficulty:${chart[1]} difficulty:${String(chart[1])[0]} 
+                    level:${String(chart[2]).match(/[0-9+]+/g)[0]} 
+                    score:${chart[3]} 
+                    constant:${chart[4]} 
+                    rating:${chart[6]} `
+                .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
+                
+                tableRow.setAttribute('data-search-text', searchText)
+            }
+
+            {
                 const date = new Date()
                 const dateValue = [
                     date.getFullYear(),
@@ -2484,4 +2498,59 @@ function findMissingItems() {
 
     input.value = playdata
     return items
+}
+
+function activateKeywordSearch(keyword, index) {
+    const keywords = String(keyword).replaceAll('　',' ').toLowerCase().split(' ')
+    const list = document.querySelectorAll('.chart-list')[index]
+    const rows = list.querySelectorAll('tr.chart-list--item')
+    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
+
+    if (rows.length === 0) {
+        return
+    }
+
+    if (String(keyword).length === 0) {
+        refreshChartVisibility()
+        button.classList.add('d-none')
+        return
+    } else {
+        button.classList.remove('d-none')
+    }
+
+    rows.forEach(row => {
+        row.classList.remove('d-none')
+        keywords.forEach(key => {
+            if (key.indexOf(':') !== -1) {
+                if (row.dataset.searchText.indexOf(`${key} `) === -1) {
+                    row.classList.add('d-none')
+                }
+            } else {
+                if (row.dataset.searchText.indexOf(key) === -1) {
+                    row.classList.add('d-none')
+                }
+            }
+        })
+    })
+}
+
+function addKeywordSearchOption(option, index) {
+    const input = document.querySelectorAll('.input-keyword-search')[index]
+    input.value += ` ${option}`
+
+    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
+    button.classList.remove('d-none')
+
+    input.focus()
+}
+
+function quitKeywordSearch(index) {
+    const input = document.querySelectorAll('.input-keyword-search')[index]
+    input.value = ''
+
+    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
+    button.classList.add('d-none')
+
+    refreshChartVisibility()
+    input.focus()
 }

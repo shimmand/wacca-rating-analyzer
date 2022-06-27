@@ -12,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
         <link href="css/style.css?date=2022-06-16" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-06-27"></script>
+        <script defer src="js/script.js?date=2022-06-28"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -1341,7 +1341,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="chart-list-control--wrapper position-relative mx-2 px-2">
+                        <div class="chart-list-control--wrapper position-relative mx-2 p-2">
                             <div class="chart-list-control--check-list-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
                                 <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
                                     <div class="m-1">
@@ -1379,7 +1379,7 @@
                                 </div>
                                 <div class="text-dimmed small">
                                     <span class="lang lang-japanese">「その他」がオンの場合、読み込みに時間がかかる場合があります。</span>
-                                    <span class="lang lang-english d-none">When "Other" is on, it may take longer to load.</span>
+                                    <span class="lang lang-english d-none">When "Other" is enabled, it may take longer to load.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--type-filter">
@@ -1459,6 +1459,63 @@
                                             <span class="lang lang-english d-none">or less</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-list-control--keyword-search-wrapper position-relative mx-2 p-2">
+                            <div class="chart-list-control--label">
+                                <div class="h6 small">
+                                    <span class="lang lang-japanese">キーワード検索</span>
+                                    <span class="lang lang-english d-none">Keyword Search</span>
+                                </div>
+                                <div class="text-dimmed small">
+                                    <span class="lang lang-japanese">曲名は英語表記でも入力できます。</span>
+                                    <span class="lang lang-english d-none">You can enter song titles in English as well.</span>
+                                </div>
+                                <div class="text-dimmed small">
+                                    <span class="lang lang-japanese">「キーワード検索」の使用中は、「フィルター」が一時的に無効になります。</span>
+                                    <span class="lang lang-english d-none">While using "Keyword Search" feature, "Filter" will be temporarily disabled.</span>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--keyword-search-input">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="position-relative w-100" style="max-width: 40rem;">
+                                        <input type="text" class="form-control bg-dark text-white border-white rounded-0 placeholder-lang input-keyword-search" placeholder="Enter song title or options..." data-placeholder-japanese="曲名またはオプションを入力..." data-placeholder-english="Enter song title or options..." value="" oninput="activateKeywordSearch(this.value, 0)" style="font-size: 16px;">
+                                        <div class="position-absolute top-50 end-0 translate-middle-y p-3 button-quit-keyword-search d-none" onclick="quitKeywordSearch(0);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--label d-flex mt-2">
+                                <div class="d-flex align-items-center ms-0">
+                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('difficulty:', 0)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                        difficulty:
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-center ms-1">
+                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level:', 0)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                        level:
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-center ms-1">
+                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant:', 0)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                        constant:
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1877,7 +1934,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="chart-list-control--wrapper position-relative mx-2 px-2">
+                        <div class="chart-list-control--wrapper position-relative mx-2 p-2">
                             <div class="chart-list-control--check-list-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
                                 <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
                                     <div class="m-1">
@@ -1915,7 +1972,7 @@
                                 </div>
                                 <div class="text-dimmed small">
                                     <span class="lang lang-japanese">「その他」がオンの場合、読み込みに時間がかかる場合があります。</span>
-                                    <span class="lang lang-english d-none">When "Other" is on, it may take longer to load.</span>
+                                    <span class="lang lang-english d-none">When "Other" is enabled, it may take longer to load.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--type-filter">
@@ -1995,6 +2052,63 @@
                                             <span class="lang lang-english d-none">or less</span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-list-control--keyword-search-wrapper position-relative mx-2 p-2">
+                            <div class="chart-list-control--label">
+                                <div class="h6 small">
+                                    <span class="lang lang-japanese">キーワード検索</span>
+                                    <span class="lang lang-english d-none">Keyword Search</span>
+                                </div>
+                                <div class="text-dimmed small">
+                                    <span class="lang lang-japanese">曲名は英語表記でも入力できます。</span>
+                                    <span class="lang lang-english d-none">You can enter song titles in English as well.</span>
+                                </div>
+                                <div class="text-dimmed small">
+                                    <span class="lang lang-japanese">「キーワード検索」の使用中は、「フィルター」が一時的に無効になります。</span>
+                                    <span class="lang lang-english d-none">While using "Keyword Search" feature, "Filter" will be temporarily disabled.</span>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--keyword-search-input">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="position-relative w-100" style="max-width: 40rem;">
+                                        <input type="text" class="form-control bg-dark text-white border-white rounded-0 placeholder-lang input-keyword-search" placeholder="Enter song title or options..." data-placeholder-japanese="曲名またはオプションを入力..." data-placeholder-english="Enter song title or options..." value="" oninput="activateKeywordSearch(this.value, 1)" style="font-size: 16px;">
+                                        <div class="position-absolute top-50 end-0 translate-middle-y p-3 button-quit-keyword-search d-none" onclick="quitKeywordSearch(1);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--label d-flex mt-2">
+                                <div class="d-flex align-items-center ms-0">
+                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('difficulty:', 1)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                        difficulty:
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-center ms-1">
+                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level:', 1)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                        level:
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-center ms-1">
+                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant:', 1)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                        constant:
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -2772,7 +2886,7 @@
                                         <span class="bg-magenta px-1" id="last-update">0000-00-00 00:00</span>
                                     </div>
                                     <div class="m-2 px-1 small text-dimmed missing-items d-none">
-                                        <span class="lang lang-japanese">以下の曲はプレイデータに見つからなかったため、空のデータを追加しました。</span>
+                                        <span class="lang lang-japanese">既存のプレイデータに以下の曲が見つからなかったため、空のデータを追加しました。</span>
                                         <span class="lang lang-english d-none">The following songs were not found in the play data, so empty data was automatically added.</span>
                                     </div>
                                     <div class="m-2 px-1 small text-dimmed missing-items d-none">

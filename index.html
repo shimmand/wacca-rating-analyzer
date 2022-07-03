@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-07-02" data-dataset="2022-07-02" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-07-03" data-dataset="2022-07-03" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -12,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
         <link href="css/style.css?date=2022-06-16" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-06-28"></script>
+        <script defer src="js/script.js?date=2022-07-03"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0">
@@ -41,8 +41,8 @@
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#62</div>
-                                        <div class="badge border border-white align-bottom me-2">2022-07-02</div>
+                                        <div class="badge bg-white align-bottom text-black me-2">#63</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-07-03</div>
                                     </div>
                                     <div class="w-100">
                                         <span class="lang lang-japanese">
@@ -54,6 +54,21 @@
                                     </div>
                                 </div>
                                 <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <div class="text-dimmed small mt-2">#63 Update (2022-07-03)</div>
+                                        <div class="p-1 bg-gray-900">
+                                            <div>Middle</div>
+                                            <div>
+                                                <span class="badge border normal">NORMAL 3</span>
+                                                <span class="badge border hard">HARD 7</span>
+                                                <span class="badge border expert">EXPERT 12+</span>
+                                                <span class="badge border">
+                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="my-1">
                                         <div class="text-dimmed small mt-2">#62 Update (2022-07-02)</div>
                                         <div class="p-1 bg-gray-900">
@@ -1413,10 +1428,12 @@
                                     <span class="lang lang-japanese">
                                         新曲枠に分類される譜面の一覧です。
                                         譜面別レーティングの高い順に並び替えて譜面を表示しています。
+                                        任意のスコアをクリックすると、そのスコアを編集することができます。
                                     </span>
                                     <span class="lang lang-english d-none">
                                         This is a list of charts included in the Newer Charts.
                                         The charts are sorted in order of the highest rating by chart.
+                                        You can edit any score by clicking on it.
                                     </span>
                                 </div>
                                 <div class="ms-auto">
@@ -2006,10 +2023,12 @@
                                     <span class="lang lang-japanese">
                                         旧曲枠に分類される譜面の一覧です。
                                         譜面別レーティングの高い順に並び替えて譜面を表示しています。
+                                        任意のスコアをクリックすると、そのスコアを編集することができます。
                                     </span>
                                     <span class="lang lang-english d-none">
                                         This is a list of charts included in the Older Charts.
                                         The charts are sorted in order of the highest rating by chart.
+                                        You can edit any score by clicking on it.
                                     </span>
                                 </div>
                                 <div class="ms-auto">
@@ -2566,8 +2585,8 @@
                                 <div class="justify-content-between py-1">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="h5 mb-0 ps-2">
-                                            <span class="lang lang-japanese">使い方</span>
-                                            <span class="lang lang-english d-none">How to Use</span>
+                                            <span class="lang lang-japanese">スコアの登録（ブックマークレット）</span>
+                                            <span class="lang lang-english d-none">Register Your Score (Bookmarklet)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -2638,9 +2657,9 @@
                                                         <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                                                     </svg>
                                                 </div>
-                                                <div class="ms-2">
-                                                    <span class="lang lang-japanese">ブックマークレットを実行する手順は、端末の環境により異なる場合があります。</span>
-                                                    <span class="lang lang-english d-none">*The steps for executing the bookmarklet may vary depending on the device environment.</span>
+                                                <div class="ms-2 small">
+                                                    <span class="lang lang-japanese">端末によっては、ブックマークレットを実行する手順が上記の説明と異なる場合があります。</span>
+                                                    <span class="lang lang-english d-none">Depending on the device, the steps for running the bookmarklet may differ from those explained above.</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -2684,10 +2703,103 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="border border-white mt-2">
+                                <div class="mt-2">
+                                    <div class="m-2 px-1 border">
+                                        <div>
+                                            <span class="lang lang-japanese">完了！</span>
+                                            <span class="lang lang-english d-none">Complete!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <div class="justify-content-between py-1">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="h5 mb-0 ps-2">
+                                            <span class="lang lang-japanese">スコアの登録（スコア編集機能）</span>
+                                            <span class="lang lang-english d-none">Register Your Score (Score Edit)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="d-flex align-items-center m-2 p-1" style="background-color: #801f4f;">
+                                        <div class="ms-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="ms-2 small">
+                                            <span class="lang lang-japanese">スコア編集機能を使用する前に、少なくとも一度はブックマークレットを使用してデータを読み込む必要があります。</span>
+                                            <span class="lang lang-english d-none">To use the "Score Edit" feature, you need to load your data by using the bookmarklet once.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
                                     <div class="m-2 px-1">
-                                        <span class="lang lang-japanese">完了！</span>
-                                        <span class="lang lang-english d-none">Complete!</span>
+                                        <span class="lang lang-japanese">1. このページを開きます。</span>
+                                        <span class="lang lang-english d-none">1. Open this page.</span>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="m-2 px-1">
+                                        <div>
+                                            <span class="lang lang-japanese">
+                                                2. 「復元」ボタンを押します。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                2. Press "Restore" button.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="m-2 px-1">
+                                        <div>
+                                            <span class="lang lang-japanese">
+                                                3. 編集したいスコアをクリックします。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                3. Click on any score you want to edit.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="m-2 px-1">
+                                        <div>
+                                            <span class="lang lang-japanese">
+                                                4. 新しいスコアを入力して、「適用」ボタンを押します。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                4. Enter the new score and press the "Apply" button.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="d-flex align-items-center bg-gray-900 m-2 p-1">
+                                        <div class="ms-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-lightbulb svg-fs-3" viewBox="0 0 16 16">
+                                                <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="ms-2 small">
+                                            <span class="lang lang-japanese">
+                                                ゲームをプレイする直前にステップ2（復元）まで進めておけば、スコアを更新した際にすぐに新しいスコアを登録できるので便利です。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                It is useful to go through step 2(Restore) just before you play the game so that when you update your score you can easily register your new score right away.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="m-2 px-1 border">
+                                        <div>
+                                            <span class="lang lang-japanese">完了！</span>
+                                            <span class="lang lang-english d-none">Complete!</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

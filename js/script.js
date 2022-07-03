@@ -963,11 +963,6 @@ function analyze(){
     }
 
     {
-        const buttons = document.querySelectorAll(['#btn-paste', '#btn-analyze'])
-        buttons.forEach(button => button.disabled = true)
-    }
-
-    {
         const buttons = document.querySelectorAll(['#btn-export'])
         buttons.forEach(button => button.disabled = false)
     }
@@ -2081,7 +2076,8 @@ function showLocalStorageContent() {
         const multiLinedItems = [
             'rating-analyzer-prev',
             'rating-analyzer-check-list',
-            'rating-analyzer-image-data'
+            'rating-analyzer-image-data-targets',
+            'rating-analyzer-image-data-checklists'
         ]
 
         if (multiLinedItems.indexOf(key) !== -1) {

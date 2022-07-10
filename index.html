@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-07-10" data-dataset="2022-07-10" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-07-11-0500" data-dataset="2022-07-10" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -12,14 +12,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
         <link href="css/style.css?date=2022-06-16" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-07-03"></script>
+        <script defer src="js/script.js?date=2022-07-11"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
-        <div id="container-loading" class="container-xxl p-0">
-            <div class="d-flex justify-content-center align-items-center vh-100">
+        <div id="container-loading" class="container-xxl p-0 vh-100">
+            <div class="d-flex vstack justify-content-center align-items-center vh-100">
                 <div class="spinner-border" style="width: 96px; height: 96px;" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
+                <div class="fs-5 text-dimmed mt-2">Loading...</div>
             </div>
         </div>
 
@@ -41,16 +42,44 @@
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#102</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-07-11</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            「復元」ボタンを削除
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Remove "Restore" button
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            「復元」ボタンを削除し、 このページを開くだけで自動的に復元が実行されるようになりました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            The "Restore" button has been removed so that simply opening this page will automatically execute the restore process without having to press this "Restore" button.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            このページを開くだけで、すぐに「スコア編集」を使えるようになります。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            With this change, you will be able to use the "Score Edit" feature quickly by simply opening this page.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
                                         <div class="badge bg-white align-bottom text-black me-2">#101</div>
                                         <div class="badge border border-white align-bottom me-2">2022-07-08</div>
                                     </div>
                                     <div class="w-100">
-                                        <span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-exclamation-circle svg-fs-5" viewBox="0 0 16 16">
-                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-                                            </svg>
-                                        </span>
                                         <span class="lang lang-japanese">
                                             このプログラムの今後について
                                         </span>
@@ -68,101 +97,115 @@
                                             Even if WACCA goes offline and My Page of WACCA is no longer available, this program will continue to be available.
                                         </span>
                                     </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <div class="d-flex mx-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                                            </svg>
+                                    <div class="accordion border border-white mt-2" id="accordion-news-item--102">
+                                        <div class="accordion-item border-0">
+                                            <div class="h2 accordion-header" id="accordion-news-item--102-1">
+                                                <button class="accordion-button collapsed bg-white text-black rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-news-item--102-1" aria-expanded="false" aria-controls="collapse-news-item--102-1">
+                                                    <span class="lang lang-japanese">続きを見る...</span>
+                                                    <span class="lang lang-english d-none">Read more...</span>
+                                                </button>
+                                            </div>
+                                            <div id="collapse-news-item--102-1" class="accordion-collapse collapse" aria-labelledby="accordion-news-item--102-1" data-bs-parent="#accordion-news-item--102">
+                                                <div class="accordion-body bg-gray-800 p-2">
+                                                    <div class="d-flex align-items-center my-1">
+                                                        <div class="d-flex mx-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="d-flex mx-1">
+                                                            <span class="lang lang-japanese">
+                                                                このプログラムは引き続き利用可能
+                                                            </span>
+                                                            <span class="lang lang-english d-none">
+                                                                This program remains available
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1 bg-gray-900 px-2">
+                                                        <span class="lang lang-japanese">
+                                                            - 特に問題がない限り、このプログラムは今後も提供され続けます。
+                                                        </span>
+                                                        <span class="lang lang-english d-none">
+                                                            - As long as there are no problems, this program will continue to be available.
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center my-1">
+                                                        <div class="d-flex mx-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="d-flex mx-1">
+                                                            <span class="lang lang-japanese">
+                                                                スコアは引き続き編集可能
+                                                            </span>
+                                                            <span class="lang lang-english d-none">
+                                                                Scores remain editable
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1 bg-gray-900 px-2">
+                                                        <span class="lang lang-japanese">
+                                                            - マイページが利用できなくなると、ブックマークレットを使用してスコアを更新することはできなくなりますが、「スコア編集」機能を使用することで任意の譜面のスコアを更新することができます。
+                                                        </span>
+                                                        <span class="lang lang-english d-none">
+                                                            - After My Page is no longer available, you will not be able to update your scores using the bookmarklet, but you can use the "Score Edit" feature to update your scores for any chart.
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center my-1">
+                                                        <div class="d-flex mx-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="d-flex mx-1">
+                                                            <span class="lang lang-japanese">
+                                                                レーティングシステムも引き続き利用可能
+                                                            </span>
+                                                            <span class="lang lang-english d-none">
+                                                                Rating system also remains available
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1 bg-gray-900 px-2">
+                                                        <span class="lang lang-japanese">
+                                                            - WACCAがオフラインに移行しても、現在のレーティングシステムと同等の機能を実現できます。
+                                                        </span>
+                                                        <span class="lang lang-english d-none">
+                                                            - Even if WACCA goes offline, this program will provide you with the same functionality as the current rating system.
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center my-1">
+                                                        <div class="d-flex mx-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="d-flex mx-1">
+                                                            <span class="lang lang-japanese">
+                                                                継続メンテナンスの停止
+                                                            </span>
+                                                            <span class="lang lang-english d-none">
+                                                                Stop continuous maintenance
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1 bg-gray-900 px-2">
+                                                        <span class="lang lang-japanese">
+                                                            - 新しい機能の追加やパフォーマンスの改善といった更新が、継続的に行われなくなります。
+                                                        </span>
+                                                        <span class="lang lang-english d-none">
+                                                            - There will no longer be continuous updates, such as the addition of new features or performance improvements.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="d-flex mx-1">
-                                            <span class="lang lang-japanese">
-                                                このプログラムは引き続き利用可能
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                This program remains available
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1 bg-gray-900 px-2">
-                                        <span class="lang lang-japanese">
-                                            - 特に問題がない限り、このプログラムは今後も提供され続けます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            - As long as there are no problems, this program will continue to be available.
-                                        </span>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <div class="d-flex mx-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                                            </svg>
-                                        </div>
-                                        <div class="d-flex mx-1">
-                                            <span class="lang lang-japanese">
-                                                スコアは引き続き編集可能
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                Scores remain editable
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1 bg-gray-900 px-2">
-                                        <span class="lang lang-japanese">
-                                            - マイページが利用できなくなると、ブックマークレットを使用してスコアを更新することはできなくなりますが、「スコア編集」機能を使用することで任意の譜面のスコアを更新することができます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            - After My Page is no longer available, you will not be able to update your scores using the bookmarklet, but you can use the "Score Edit" feature to update your scores for any chart.
-                                        </span>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <div class="d-flex mx-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                                            </svg>
-                                        </div>
-                                        <div class="d-flex mx-1">
-                                            <span class="lang lang-japanese">
-                                                レーティングシステムも引き続き利用可能
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                Rating system also remains available
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1 bg-gray-900 px-2">
-                                        <span class="lang lang-japanese">
-                                            - WACCAがオフラインに移行しても、現在のレーティングシステムと同等の機能を実現できます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            - Even if WACCA goes offline, this program will provide you with the same functionality as the current rating system.
-                                        </span>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <div class="d-flex mx-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-                                            </svg>
-                                        </div>
-                                        <div class="d-flex mx-1">
-                                            <span class="lang lang-japanese">
-                                                継続メンテナンスの停止
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                Stop continuous maintenance
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1 bg-gray-900 px-2">
-                                        <span class="lang lang-japanese">
-                                            - 新しい機能の追加やパフォーマンスの改善といった更新が、継続的に行われなくなります。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            - There will no longer be continuous updates, such as the addition of new features or performance improvements.
-                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -227,228 +270,242 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#67 Update (2022-07-07)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Viyella's Nightmare</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 11</span>
-                                                <span class="badge border expert">EXPERT 13+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
+                                    <div class="accordion border border-white mt-2" id="accordion-news-item--52">
+                                        <div class="accordion-item border-0">
+                                            <div class="h2 accordion-header" id="accordion-news-item--52-1">
+                                                <button class="accordion-button collapsed bg-white text-black rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-news-item--52-1" aria-expanded="false" aria-controls="collapse-news-item--52-1">
+                                                    <span class="lang lang-japanese">続きを見る...</span>
+                                                    <span class="lang lang-english d-none">Read more...</span>
+                                                </button>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#66 Update (2022-07-06)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Odin</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 10+</span>
-                                                <span class="badge border expert">EXPERT 13</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#65 Update (2022-07-05)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>EXTRA HARD</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 11</span>
-                                                <span class="badge border expert">EXPERT 14</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#64 Update (2022-07-04)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Obtain An Unused Whale In The Abstract Sea</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 2</span>
-                                                <span class="badge border hard">HARD 6</span>
-                                                <span class="badge border expert">EXPERT 13</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#63 Update (2022-07-03)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Middle</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 3</span>
-                                                <span class="badge border hard">HARD 7</span>
-                                                <span class="badge border expert">EXPERT 12+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#62 Update (2022-07-02)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Avenue</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 3</span>
-                                                <span class="badge border hard">HARD 7+</span>
-                                                <span class="badge border expert">EXPERT 12+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#61 Update (2022-07-01)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>えくすとりーむ↑↑おんがくスクール feat. ななひら</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 10+</span>
-                                                <span class="badge border expert">EXPERT 13+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#60 Update (2022-06-30)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>T+ VS SHARK</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 10+</span>
-                                                <span class="badge border expert">EXPERT 13+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#59 Update (2022-06-29)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Brand New World feat. Yukacco</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 3</span>
-                                                <span class="badge border hard">HARD 7</span>
-                                                <span class="badge border expert">EXPERT 11+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#58 Update (2022-06-28)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>SUPER EMULATOR</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 11</span>
-                                                <span class="badge border expert">EXPERT 14</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#57 Update (2022-06-27)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>GAKKY</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 10+</span>
-                                                <span class="badge border expert">EXPERT 13+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#56 Update (2022-06-26)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>NIGHTWAVE FRAGMENTS</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 10</span>
-                                                <span class="badge border expert">EXPERT 13+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#55 Update (2022-06-25)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>N3XTAGE</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 4</span>
-                                                <span class="badge border hard">HARD 10</span>
-                                                <span class="badge border expert">EXPERT 12+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#54 Update (2022-06-24)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Big Daddy</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 5</span>
-                                                <span class="badge border hard">HARD 8+</span>
-                                                <span class="badge border expert">EXPERT 13</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#52 Update (2022-06-23)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Ready Go feat. Yukacco</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 3</span>
-                                                <span class="badge border hard">HARD 8</span>
-                                                <span class="badge border expert">EXPERT 12</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
+                                            <div id="collapse-news-item--52-1" class="accordion-collapse collapse" aria-labelledby="accordion-news-item--52-1" data-bs-parent="#accordion-news-item--52">
+                                                <div class="accordion-body bg-gray-800 p-2">
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#67 Update (2022-07-07)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Viyella's Nightmare</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 11</span>
+                                                                <span class="badge border expert">EXPERT 13+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#66 Update (2022-07-06)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Odin</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 10+</span>
+                                                                <span class="badge border expert">EXPERT 13</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#65 Update (2022-07-05)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>EXTRA HARD</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 11</span>
+                                                                <span class="badge border expert">EXPERT 14</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#64 Update (2022-07-04)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Obtain An Unused Whale In The Abstract Sea</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 2</span>
+                                                                <span class="badge border hard">HARD 6</span>
+                                                                <span class="badge border expert">EXPERT 13</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#63 Update (2022-07-03)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Middle</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 3</span>
+                                                                <span class="badge border hard">HARD 7</span>
+                                                                <span class="badge border expert">EXPERT 12+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#62 Update (2022-07-02)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Avenue</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 3</span>
+                                                                <span class="badge border hard">HARD 7+</span>
+                                                                <span class="badge border expert">EXPERT 12+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#61 Update (2022-07-01)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>えくすとりーむ↑↑おんがくスクール feat. ななひら</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 10+</span>
+                                                                <span class="badge border expert">EXPERT 13+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#60 Update (2022-06-30)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>T+ VS SHARK</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 10+</span>
+                                                                <span class="badge border expert">EXPERT 13+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#59 Update (2022-06-29)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Brand New World feat. Yukacco</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 3</span>
+                                                                <span class="badge border hard">HARD 7</span>
+                                                                <span class="badge border expert">EXPERT 11+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#58 Update (2022-06-28)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>SUPER EMULATOR</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 11</span>
+                                                                <span class="badge border expert">EXPERT 14</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#57 Update (2022-06-27)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>GAKKY</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 10+</span>
+                                                                <span class="badge border expert">EXPERT 13+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#56 Update (2022-06-26)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>NIGHTWAVE FRAGMENTS</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 10</span>
+                                                                <span class="badge border expert">EXPERT 13+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#55 Update (2022-06-25)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>N3XTAGE</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 4</span>
+                                                                <span class="badge border hard">HARD 10</span>
+                                                                <span class="badge border expert">EXPERT 12+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#54 Update (2022-06-24)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Big Daddy</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 5</span>
+                                                                <span class="badge border hard">HARD 8+</span>
+                                                                <span class="badge border expert">EXPERT 13</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#52 Update (2022-06-23)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Ready Go feat. Yukacco</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 3</span>
+                                                                <span class="badge border hard">HARD 8</span>
+                                                                <span class="badge border expert">EXPERT 12</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -919,7 +976,7 @@
                 <div class="d-flex">
                     <div class="bg-gray-900 d-flex align-items-center countdown-wrapper font-monospace fs-3 p-1">
                         <div class="d-flex px-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock svg-fs-4" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-clock svg-fs-5" viewBox="0 0 16 16">
                                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
                             </svg>
@@ -957,13 +1014,25 @@
                             <span class="lang lang-english d-none">Clear</span>
                         </button>
                     </div>
-                    <div class="valid-feedback mt-2">
-                        <span class="lang lang-japanese">
-                            分析が完了しました！
-                        </span>
-                        <span class="lang lang-english d-none">
-                            Analysis complete!
-                        </span>
+                    <div class="valid-feedback d-flex align-items-center mt-2">
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-white rounded-0" onclick="scrollToActiveChartList();">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                </svg>
+                                <span class="lang lang-japanese">譜面一覧へ移動</span>
+                                <span class="lang lang-english d-none">Go to Chart List</span>
+                            </button>
+                        </div>
+                        <div class="vr mx-2"></div>
+                        <div class="d-flex">
+                            <span class="lang lang-japanese">
+                                分析が完了しました！
+                            </span>
+                            <span class="lang lang-english d-none">
+                                Analysis complete!
+                            </span>
+                        </div>
                     </div>
                     <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-denied">
                         <div class="bg-magenta text-white px-1">
@@ -1028,22 +1097,13 @@
                             <span class="lang lang-japanese">データを読込</span>
                             <span class="lang lang-english d-none">Load Your Data</span>
                         </button>
-                        <button type="button" class="btn btn-white me-2" id="btn-analyze" onclick="activateAnalyzeMode();">
+                        <button type="button" class="btn btn-white me-0" id="btn-analyze" onclick="activateAnalyzeMode();">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
                                 <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
                             </svg>
                             <div class="position-absolute top-0 start-50 translate-middle badge bg-white box-shadow-black text-black">STEP 2</div>
                             <span class="lang lang-japanese">分析を実行</span>
                             <span class="lang lang-english d-none">Start Analysis</span>
-                        </button>
-                        <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta" id="btn-restore" onclick="activateRestoreMode()">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
-                                <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
-                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
-                                <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
-                            </svg>
-                            <span class="lang lang-japanese">復元</span>
-                            <span class="lang lang-english d-none">Restore</span>
                         </button>
                     </div>
                     <div class="btn-group mt-2 me-2" role="group">
@@ -2820,23 +2880,14 @@
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
                                         <div>
-                                            <span class="lang lang-japanese">
-                                                2. 「復元」ボタンを押します。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                2. Press "Restore" button.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-2">
-                                    <div class="m-2 px-1">
-                                        <div>
-                                            <span class="lang lang-japanese">
-                                                3. 編集したいスコアをクリックします。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                3. Click on any score you want to edit.
+                                            <span class="lang lang-japanese">2. 編集したいスコアをクリックします。</span>
+                                            <span class="lang lang-english d-none">2. Click on any score you want to edit.</span>
+                                            <span class="text-dimmed">
+                                                (
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                                </svg>
+                                                )
                                             </span>
                                         </div>
                                     </div>
@@ -2845,10 +2896,10 @@
                                     <div class="m-2 px-1">
                                         <div>
                                             <span class="lang lang-japanese">
-                                                4. 新しいスコアを入力して、「適用」ボタンを押します。
+                                                3. 新しいスコアを入力して、「適用」ボタンを押します。
                                             </span>
                                             <span class="lang lang-english d-none">
-                                                4. Enter the new score and press the "Apply" button.
+                                                3. Enter the new score and press the "Apply" button.
                                             </span>
                                         </div>
                                     </div>
@@ -2862,10 +2913,10 @@
                                         </div>
                                         <div class="ms-2 small">
                                             <span class="lang lang-japanese">
-                                                ゲームをプレイする直前にステップ2（復元）まで進めておけば、スコアを更新した際にすぐに新しいスコアを登録できるので便利です。
+                                                ゲームをプレイする直前にこのページを開いておけば、スコアを更新した際にすぐに新しいスコアを登録できるので便利です。
                                             </span>
                                             <span class="lang lang-english d-none">
-                                                It is useful to go through step 2(Restore) just before you play the game so that when you update your score you can easily register your new score right away.
+                                                It is recommended that you open this page just before playing a game so that you can quickly register a new score when you update your score.
                                             </span>
                                         </div>
                                     </div>
@@ -3534,8 +3585,8 @@
                                 </div>
                                 <div class="mt-0 w-100">
                                     <div class="m-2 px-1">
-                                        <span class="lang lang-japanese">スコアが低すぎます！</span>
-                                        <span class="lang lang-english d-none">The score entered is too low!</span>
+                                        <span class="lang lang-japanese">現在登録されているスコアよりも低いようです。</span>
+                                        <span class="lang lang-english d-none">You have entered a score that is lower than the currently registered score.</span>
                                     </div>
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">本当にこのスコアを登録しますか？</span>
@@ -3641,24 +3692,6 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="badge bg-white text-dark border-5 border-0 border-start border-magenta">
-                                                        <span class="lang lang-japanese">復元</span>
-                                                        <span class="lang lang-english d-none">Restore</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <span class="lang lang-japanese">前回のデータを復元します。</span>
-                                                        <span class="lang lang-english d-none">This will restore the previous analysis data.</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="lang lang-japanese">前回の分析以降にWACCAでスコアを更新していない場合、このページを開いて「復元」をクリックするだけで分析結果を確認できます。</span>
-                                                        <span class="lang lang-english d-none">If you have not updated any chart scores in WACCA since the last analysis, just open this page and click this button to see the results of the analysis.</span>
-                                                    </div>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -3674,18 +3707,14 @@
                                             <tr>
                                                 <td>
                                                     <div class="badge bg-white text-dark">
-                                                        <span class="lang lang-japanese">CSVで保存</span>
-                                                        <span class="lang lang-english d-none">Save as CSV</span>
+                                                        <span class="lang lang-japanese">エクスポート</span>
+                                                        <span class="lang lang-english d-none">Export</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <span class="lang lang-japanese">分析結果をCSVファイルで保存します。</span>
-                                                        <span class="lang lang-english d-none">This will output the analysis results in a CSV file.</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="lang lang-japanese">ファイルの内容は譜面一覧と同一です。</span>
-                                                        <span class="lang lang-english d-none">The contents of the file are the same as the chart list.</span>
+                                                        <span class="lang lang-japanese">プレイ成績をCSVファイルや画像でエクスポートすることができます。</span>
+                                                        <span class="lang lang-english d-none">This will export your playing results as a CSV file or image.</span>
                                                     </div>
                                                 </td>
                                             </tr>

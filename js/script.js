@@ -174,13 +174,17 @@ function initialize() {
                     break
 
                 case 'false':
+                    restorePrevData()
                     break
             
                 default:
+                    findMissingItems()
+                    analyze()
+                    document.querySelector('[data-bs-target="#modal-introduction"]').click()
                     break
             }
 
-            // Run the restore function if the program is in restore mode.
+            /* // Run the restore function if the program is in restore mode.
             switch (localStorage.getItem('rating-analyzer-restore-mode')) {
                 case 'true':
                     restorePrevData()
@@ -191,7 +195,7 @@ function initialize() {
 
                 default:
                     break
-            }
+            } */
 
             if (document.querySelector('tr.chart-list--item')) {
                 restoreCheckList()
@@ -253,7 +257,7 @@ function paste() {
  */
 function showDeniedWarning() {
     document.querySelector('#playdata').classList.add('is-invalid')
-    setDisplayNone('.error-feedback-1', true)
+    setDisplayNone('.error-feedback-1, .valid-feedback', true)
     setDisplayNone('#warning-denied', false)
 }
 
@@ -862,11 +866,15 @@ function analyze(){
                 targetDiv.forEach(target => target.classList.remove(color))
             })
 
-            checkColor:
-            for (let index = classBorders.length - 1; index > 0; index--) {
-                if (totalRateCurrent >= classBorders[index]) {
-                    targetDiv.forEach(target => target.classList.add(classColors[index])) 
-                    break checkColor
+            if (totalRateCurrent < classBorders[1]) {
+                targetDiv.forEach(target => target.classList.add(classColors[0])) 
+            } else {
+                checkColor:
+                for (let index = classBorders.length - 1; index > 0; index--) {
+                    if (totalRateCurrent >= classBorders[index]) {
+                        targetDiv.forEach(target => target.classList.add(classColors[index])) 
+                        break checkColor
+                    }
                 }
             }
         }
@@ -1360,7 +1368,12 @@ function restorePrevData() {
         document.querySelector('#last-update').innerHTML = prevDataDate
     }
 
-    document.querySelector('#btn-restored-modal').click()
+    {
+        const missingItems = document.querySelectorAll('.missing-items-list > div')
+        if (missingItems.length !== 0) {
+            document.querySelector('#btn-restored-modal').click()
+        }
+}
 }
 
 // Change the display scale
@@ -1797,17 +1810,21 @@ function applyCheckList() {
         localStorage.setItem('rating-analyzer-check-list-rating', (Number(currentTotal.innerText) + Number(increasesTotal)).toFixed(3))
 
         afterTotals.forEach(total => total.innerHTML = (Number(currentTotal.innerText) + Number(increasesTotal)).toFixed(3))
-        afterTotals.forEach(total => total.classList.remove('bg-white')) 
+        afterTotals.forEach(total => total.classList.remove('bg-white'))
 
         classColors.forEach(color => {
             afterTotals.forEach(total => total.classList.remove(color))
         })
 
-        checkColor:
-        for (let index = classBorders.length - 1; index > 0; index--) {
-            if ((Number(currentTotal.innerText) + Number(increasesTotal)) >= classBorders[index]) {
-                afterTotals.forEach(total => total.classList.add(classColors[index]))
-                break checkColor
+        if ((Number(currentTotal.innerText) + Number(increasesTotal)) < classBorders[1]) {
+            afterTotals.forEach(total => total.classList.add(classColors[0]))
+        } else {
+            checkColor:
+            for (let index = classBorders.length - 1; index > 0; index--) {
+                if ((Number(currentTotal.innerText) + Number(increasesTotal)) >= classBorders[index]) {
+                    afterTotals.forEach(total => total.classList.add(classColors[index]))
+                    break checkColor
+                }
             }
         }
     }
@@ -2179,26 +2196,19 @@ function switchChartsEntry(entryName) {
 }
 
 function scrollToActiveChartList() {
+    const scrollTargets = document.querySelectorAll('.chart-list-control--display-options-wrapper')
+
     switch (localStorage.getItem('rating-analyzer-charts-entry')) {
         case 'newer':
-            {
-                const scrollTarget = document.querySelector('#list-newer')
-                scrollTarget.scrollIntoView()
-            }
+            scrollTargets[0].scrollIntoView()
             break
 
         case 'older':
-            {
-                const scrollTarget = document.querySelector('#list-older')
-                scrollTarget.scrollIntoView()
-            }
+            scrollTargets[1].scrollIntoView()
             break
 
         default:
-            {
-                const scrollTarget = document.querySelector('#list-newer')
-                scrollTarget.scrollIntoView()
-            }
+            scrollTargets[0].scrollIntoView()
             break
     }
 }
@@ -2311,6 +2321,7 @@ function modifyScoreModal(abort = false) {
     const control = document.querySelector('.modify-score--main')
     const title = control.querySelector('.modify-score--title').innerHTML.replace(',', '__')
     const difficulty = control.querySelector('.modify-score--badge-difficulty').innerHTML
+    const oldScore = control.querySelector('.modify-score--score-current-value').innerHTML
     const newScore = control.querySelector('.modify-score--score-new-value').value
     const alertElm = control.querySelector('.modify-score--alert-wrapper')
     const button = document.querySelector('#btn-modify-score-modal')
@@ -2330,12 +2341,7 @@ function modifyScoreModal(abort = false) {
         return
     }
 
-    if (Number(newScore) > 1000000) {
-        alertElm.classList.remove('d-none')
-        return
-    }
-
-    if ((Number(newScore) < 100000) && (abort === false)) {
+    if ((Number(newScore) < Number(oldScore)) && (abort === false)) {
         const confirm = document.querySelector('.modify-score-confirm--score-new-value')
         confirm.innerHTML = newScore
         const alert = document.querySelector('#btn-modify-score-confirm-modal')

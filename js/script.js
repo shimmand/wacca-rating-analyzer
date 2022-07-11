@@ -1364,11 +1364,6 @@ function restorePrevData() {
     analyze()
 
     {
-        const prevDataDate = localStorage.getItem('rating-analyzer-prev-date')
-        document.querySelector('#last-update').innerHTML = prevDataDate
-    }
-
-    {
         const missingItems = document.querySelectorAll('.missing-items-list > div')
         if (missingItems.length !== 0) {
             document.querySelector('#btn-restored-modal').click()

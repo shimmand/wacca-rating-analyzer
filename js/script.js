@@ -244,12 +244,13 @@ function paste() {
 
         promise.then(clipText => {
             playdata.value = clipText
+            activateAnalyzeMode()
         }, _reason => {
+            playdata.value = ''
+            document.querySelector('#btn-analyze').disabled = false
             showDeniedWarning()
         })
     }
-
-    setDisplayNone('#btn-does-not-work-modal', false)
 }
 
 /**
@@ -974,8 +975,6 @@ function analyze(){
         const buttons = document.querySelectorAll(['#btn-export'])
         buttons.forEach(button => button.disabled = false)
     }
-
-    setDisplayNone('#btn-does-not-work-modal', true)
 }
 
 // Set filters based on changes in type options
@@ -1296,7 +1295,6 @@ function toggleDisplayState(className, checked) {
 // Clear the text area
 function clearPlaydata() {
     document.querySelector('#playdata').value = ''
-    location.reload()
 }
 
 // Enable data analyze mode
@@ -2066,10 +2064,10 @@ function setLanguage(language) {
         }
     })
 
-    const langOpts = document.querySelectorAll(`.opt-lang-${language}`)
+    const langSelects = document.querySelectorAll(`.select-lang`)
 
-    langOpts.forEach(option => {
-        option.checked = true
+    langSelects.forEach(select => {
+        select.value = language
     })
 
     localStorage.setItem('rating-analyzer-lang', language)

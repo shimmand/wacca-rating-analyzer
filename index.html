@@ -12,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
         <link href="css/style.css?date=2022-06-16" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-07-11-01"></script>
+        <script defer src="js/script.js?date=2022-07-13"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0 vh-100">
@@ -1028,7 +1028,7 @@
             </div>
             <div id="box-input" class="bg-gray-800 p-2 my-2">
                 <div class="position-relative form-floating">
-                    <textarea class="form-control playdata text-white border-0 bg-dark rounded-0" id="playdata" style="font-size: 16px;"></textarea>
+                    <textarea class="form-control playdata text-white border-0 bg-dark rounded-0" id="playdata" style="font-size: 16px;" oninput="document.querySelector('#btn-analyze').disabled = false;"></textarea>
                     <label for="playdata">
                         <div class="text-white">
                             <span class="lang lang-japanese">プレイデータ</span>
@@ -1068,37 +1068,28 @@
                     <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-denied">
                         <div class="bg-magenta text-white px-1">
                             <span class="lang lang-japanese">
-                                クリップボードへアクセスできません。
-                                <span class="badge border border-white align-bottom ms-1 me-1">データを読込</span>
-                                を押したあと、
-                                <span class="badge border border-white align-bottom ms-1 me-1">ペースト</span>
-                                または
-                                <span class="badge border border-white align-bottom ms-1 me-1">許可</span>
-                                を押してください。
-                                <span class="badge border border-white align-bottom ms-1 me-1">データを読込が動作しない場合</span> を押すとヘルプが表示されます。
+                                クリップボードへのアクセスが拒否されました。
+                                「読込＆分析」を押した後、表示されたメニューから「貼り付け」または「許可」を選択してください。
+                                それでも動作しない場合、「クリア」を押してテキストエリアを消去した後、クリップボードの内容を手動で貼り付けて、「分析(手動)」を押してください。
                             </span>
                             <span class="lang lang-english d-none">
-                                Allow your browser to access the clipboard.
-                                After pressing
-                                <span class="badge border border-white align-bottom">Load Your Data</span>
-                                , please press
-                                <span class="badge border border-white align-bottom">Paste</span>
-                                or
-                                <span class="badge border border-white align-bottom">Allow</span>
-                                .
-                                You can also press <span class="badge border border-white align-bottom ms-1 me-1">If Load Your Data does not work</span> to get help.
+                                Clipboard access denied.
+                                After pressing "Load & Analyze", select "Paste" or "Allow" from the menu that appears.
+                                If it still does not work, press "Clear" to clear the text area, then manually paste the clipboard contents and press "Analyze (manual)".
                             </span>
                         </div>
                     </div>
                     <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-empty">
                         <div class="bg-magenta text-white px-1">
                             <span class="lang lang-japanese">
-                                データが空です。
+                                テキストエリアが空です。
                                 マイページへ戻り、ブックマークレットを再度実行してください。
+                                読み込みを中止するには、ページを再読み込みしてください。
                             </span>
                             <span class="lang lang-english d-none">
-                                Text field is empty.
-                                Please go back to My Page and run the bookmarklet again.
+                                Text area is empty.
+                                Please return to My Page and run the bookmarklet again.
+                                To stop loading, please reload the page.
                             </span>
                         </div>
                     </div>
@@ -1107,10 +1098,12 @@
                             <span class="lang lang-japanese">
                                 入力されたデータの書式が不正です。
                                 マイページへ戻り、ブックマークレットを再度実行してください。
+                                読み込みを中止するには、ページを再読み込みしてください。
                             </span>
                             <span class="lang lang-english d-none">
                                 The format of the data you input is invalid.
-                                Please go back to My Page and run the bookmarklet again.
+                                Please return to My Page and run the bookmarklet again.
+                                To stop loading, please reload the page.
                             </span>
                         </div>
                     </div>
@@ -1118,113 +1111,87 @@
             </div>
             <div id="box-control" class="bg-gray-800 px-2 pb-2 my-2">
                 <div class="btn-toolbar" role="toolbar">
-                    <div class="btn-group mt-2 me-2" role="group">
-                        <button type="button" class="btn btn-white me-2" id="btn-paste" onclick="paste()">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
-                            </svg>
-                            <div class="position-absolute top-0 start-50 translate-middle badge bg-white box-shadow-black text-black">STEP 1</div>
-                            <span class="lang lang-japanese">データを読込</span>
-                            <span class="lang lang-english d-none">Load Your Data</span>
-                        </button>
-                        <button type="button" class="btn btn-white me-0" id="btn-analyze" onclick="activateAnalyzeMode();">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
-                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
-                            </svg>
-                            <div class="position-absolute top-0 start-50 translate-middle badge bg-white box-shadow-black text-black">STEP 2</div>
-                            <span class="lang lang-japanese">分析を実行</span>
-                            <span class="lang lang-english d-none">Start Analysis</span>
-                        </button>
-                    </div>
-                    <div class="btn-group mt-2 me-2" role="group">
-                        <button type="button" class="btn btn-white me-2" id="btn-export" data-bs-toggle="modal" data-bs-target="#modal-data-export" disabled>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                            </svg>
-                            <span class="lang lang-japanese">エクスポート</span>
-                            <span class="lang lang-english d-none">Export</span>
-                        </button>
-                        <button type="button" class="btn btn-white me-0" id="btn-dataset" data-bs-toggle="modal" data-bs-target="#chart-dataset-modal">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
-                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
-                            </svg>
-                            <span class="lang lang-japanese">定数テーブル</span>
-                            <span class="lang lang-english d-none">Constants Table</span>
-                        </button>
-                    </div>
-                    <div class="btn-group mt-2 me-2" role="group">
-                        <input type="radio" class="btn-check opt-lang-japanese" name="radio-lang-1" id="radio-lang-1-1" autocomplete="off" onchange="setLanguage('japanese')">
-                        <label class="btn btn-white btn-dim ms-0 me-2" for="radio-lang-1-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
-                            </svg>
-                            Japanese
-                        </label>
-                        <input type="radio" class="btn-check opt-lang-english" name="radio-lang-1" id="radio-lang-1-2" autocomplete="off" onchange="setLanguage('english')">
-                        <label class="btn btn-white btn-dim me-2" for="radio-lang-1-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
-                            </svg>
-                            English
-                        </label>
-                        <button type="button" class="btn btn-white me-0 p-0">
-                            <div class="position-relative d-flex align-items-center bg-white h-100">
-                                <div class="position-absolute" style="margin-left: 0.75rem; pointer-events: none;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
-                                        <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"></path>
-                                        <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"></path>
-                                    </svg>
-                                </div>
-                                <select class="form-select btn-white border-0 rounded-0 h-100" id="select-disp-scale" onchange="changeDisplayScale();" style="padding-left: 2rem;">
-                                    <option value="100" selected="">100%</option>
-                                    <option value="95">95%</option>
-                                    <option value="90">90%</option>
-                                    <option value="85">85%</option>
-                                    <option value="80">80%</option>
-                                    <option value="75">75%</option>
-                                    <option value="70">70%</option>
-                                    <option value="65">65%</option>
-                                    <option value="60">60%</option>
-                                    <option value="55">55%</option>
-                                    <option value="50">50%</option>
-                                </select>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="btn-group mt-2 me-2" role="group">
-                        <button type="button" class="btn btn-white me-2" id="btn-settings" data-bs-toggle="modal" data-bs-target="#modal-settings">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-                            </svg>
-                            <span class="lang lang-japanese">設定</span>
-                            <span class="lang lang-english d-none">Settings</span>
-                        </button>
-                        <button type="button" class="btn btn-white border-5 border-0 border-start border-cyan me-2" data-bs-toggle="modal" data-bs-target="#help-input-modal">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                            </svg>
-                            <span class="lang lang-japanese">ヘルプ</span>
-                            <span class="lang lang-english d-none">Help</span>
-                        </button>
-                        <button id="btn-does-not-work-modal" type="button" class="btn btn-white border-5 border-0 border-start border-magenta me-0 d-none" data-bs-toggle="modal" data-bs-target="#does-not-work-modal">
-                            <span class="me-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                    <button type="button" class="btn btn-white me-2 mt-2" id="btn-paste" onclick="paste()">
+                        <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                        </svg>
+                        <span class="lang lang-japanese">読込＆分析</span>
+                        <span class="lang lang-english d-none">Load & Analyze</span>
+                    </button>
+                    <button type="button" class="btn btn-white me-2 mt-2" id="btn-analyze" onclick="activateAnalyzeMode();" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
+                            <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
+                        </svg>
+                        <span class="lang lang-japanese">分析(手動)</span>
+                        <span class="lang lang-english d-none">Analyze (manual)</span>
+                    </button>
+                    <button type="button" class="btn btn-white me-2 mt-2" id="btn-export" data-bs-toggle="modal" data-bs-target="#modal-data-export" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                        </svg>
+                        <span class="lang lang-japanese">エクスポート</span>
+                        <span class="lang lang-english d-none">Export</span>
+                    </button>
+                    <button type="button" class="btn btn-white me-2 mt-2" id="btn-dataset" data-bs-toggle="modal" data-bs-target="#chart-dataset-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+                        </svg>
+                        <span class="lang lang-japanese">定数テーブル</span>
+                        <span class="lang lang-english d-none">Constants Table</span>
+                    </button>
+                    <button type="button" class="btn btn-white me-2 mt-2 p-0">
+                        <div class="position-relative d-flex align-items-center bg-white h-100">
+                            <div class="position-absolute" style="margin-left: 0.75rem; pointer-events: none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                                 </svg>
-                            </span>
-                            <span class="lang lang-japanese">
-                                <span class="badge border border-dark text-black align-bottom">データを読込</span> が動作しない場合
-                            </span>
-                            <span class="lang lang-english d-none">
-                                If <span class="badge border border-dark text-black align-bottom">Load Your Data</span> does not work
-                            </span>
-                        </button>
-                    </div>
+                            </div>
+                            <select class="select-lang form-select btn-white border-0 rounded-0 h-100" onchange="setLanguage(this.value);" style="padding-left: 2rem;">
+                                <option value="japanese" selected>Japanese</option>
+                                <option value="english">English</option>
+                            </select>
+                        </div>
+                    </button>
+                    <button type="button" class="btn btn-white me-2 mt-2 p-0">
+                        <div class="position-relative d-flex align-items-center bg-white h-100">
+                            <div class="position-absolute" style="margin-left: 0.75rem; pointer-events: none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
+                                    <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"></path>
+                                    <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"></path>
+                                </svg>
+                            </div>
+                            <select class="form-select btn-white border-0 rounded-0 h-100" id="select-disp-scale" onchange="changeDisplayScale();" style="padding-left: 2rem;">
+                                <option value="100" selected>100%</option>
+                                <option value="95">95%</option>
+                                <option value="90">90%</option>
+                                <option value="85">85%</option>
+                                <option value="80">80%</option>
+                                <option value="75">75%</option>
+                                <option value="70">70%</option>
+                                <option value="65">65%</option>
+                                <option value="60">60%</option>
+                                <option value="55">55%</option>
+                                <option value="50">50%</option>
+                            </select>
+                        </div>
+                    </button>
+                    <button type="button" class="btn btn-white me-2 mt-2" id="btn-settings" data-bs-toggle="modal" data-bs-target="#modal-settings">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                        </svg>
+                        <span class="lang lang-japanese">設定</span>
+                        <span class="lang lang-english d-none">Settings</span>
+                    </button>
+                    <button type="button" class="btn btn-white border-5 border-0 border-start border-cyan me-0 mt-2" data-bs-toggle="modal" data-bs-target="#help-input-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                        </svg>
+                        <span class="lang lang-japanese">ヘルプ</span>
+                        <span class="lang lang-english d-none">Help</span>
+                    </button>
                 </div>
             </div>
             <div id="box-summary" class="bg-gray-800 my-2">
@@ -2554,20 +2521,19 @@
                             </div>
                             <div class="d-flex align-items-center">
                                 <div class="btn-group me-2" role="group">
-                                    <input type="radio" class="btn-check opt-lang-japanese" name="radio-lang-2" id="radio-lang-2-1" autocomplete="off" onchange="setLanguage('japanese')">
-                                    <label class="btn btn-white btn-dim" for="radio-lang-2-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                                            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
-                                        </svg>
-                                        Japanese
-                                    </label>
-                                    <input type="radio" class="btn-check opt-lang-english" name="radio-lang-2" id="radio-lang-2-2" autocomplete="off" onchange="setLanguage('english')">
-                                    <label class="btn btn-white btn-dim ms-2" for="radio-lang-2-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                                            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
-                                        </svg>
-                                        English
-                                    </label>
+                                    <button type="button" class="btn btn-white me-0 p-0">
+                                        <div class="position-relative d-flex align-items-center bg-white h-100">
+                                            <div class="position-absolute" style="margin-left: 0.75rem; pointer-events: none;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                                                </svg>
+                                            </div>
+                                            <select class="select-lang form-select btn-white border-0 rounded-0 h-100" onchange="setLanguage(this.value);" style="padding-left: 2rem;">
+                                                <option value="japanese" selected>Japanese</option>
+                                                <option value="english">English</option>
+                                            </select>
+                                        </div>
+                                    </button>
                                 </div>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
@@ -2853,20 +2819,10 @@
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
                                         <span class="lang lang-japanese">
-                                            5. <span class="badge border border-white align-bottom">データを読込 (STEP 1)</span> を押します。
+                                            5. <span class="badge border border-white align-bottom">読込＆分析</span> を押します。
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            5. Press <span class="badge border border-white align-bottom">Load Your Data (STEP 1)</span>.
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mt-2">
-                                    <div class="m-2 px-1">
-                                        <span class="lang lang-japanese">
-                                            6. <span class="badge border border-white align-bottom">分析を実行 (STEP 2)</span> を押します。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            6. Press <span class="badge border border-white align-bottom">Start Analysis (STEP 2)</span>.
+                                            5. Press <span class="badge border border-white align-bottom">Load & Analyze</span>.
                                         </span>
                                     </div>
                                 </div>
@@ -3254,33 +3210,6 @@
                                 <span class="lang lang-japanese">譜面一覧へ移動</span>
                                 <span class="lang lang-english d-none">Go to Chart List</span>
                             </button>
-                            <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
-                                <span class="lang lang-japanese">閉じる</span>
-                                <span class="lang lang-english d-none">Close</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="does-not-work-modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content rounded-0 border-white bg-gray-800 modal-shadow-white">
-                        <div class="modal-header bg-gray-700 shadow border-0">
-                            <div class="modal-title h3 text-heading">
-                                <span class="lang lang-japanese">ヘルプ</span>
-                                <span class="lang lang-english d-none">Help</span>
-                            </div>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <span class="lang lang-japanese">
-                                <span class="badge border border-white align-bottom">データを読込</span> が動作しない場合、代わりにプレイデータ欄へクリップボードの内容を貼り付け、そのまま <span class="badge border border-white align-bottom">分析を実行</span> を押してください。
-                            </span>
-                            <span class="lang lang-english d-none">
-                                If nothing happens when you press <span class="badge border border-white align-bottom">Load Your Data</span>, paste the clipboard contents into the Play Data field instead, and then press <span class="badge border border-white align-bottom">Start Analysis</span>.
-                            </span>
-                        </div>
-                        <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white rounded-0 m-1" data-bs-dismiss="modal">
                                 <span class="lang lang-japanese">閉じる</span>
                                 <span class="lang lang-english d-none">Close</span>
@@ -3689,28 +3618,28 @@
                                             <tr>
                                                 <td>
                                                     <div class="badge bg-white text-dark">
-                                                        <span class="lang lang-japanese">データを読込</span>
-                                                        <span class="lang lang-english d-none">Load Your Data</span>
+                                                        <span class="lang lang-japanese">読込＆分析</span>
+                                                        <span class="lang lang-english d-none">Load & Analyze</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <span class="lang lang-japanese">マイページで収集したプレイ成績を読み込みます。</span>
-                                                        <span class="lang lang-english d-none">This will load your play results collected in My Page.</span>
+                                                        <span class="lang lang-japanese">マイページでブックマークレットが収集したプレイ成績を読み込み、分析を実行します。</span>
+                                                        <span class="lang lang-english d-none">This will load your playing scores collected by the bookmarklet on your My Page and start analyzing them.</span>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="badge bg-white text-dark">
-                                                        <span class="lang lang-japanese">分析を実行</span>
-                                                        <span class="lang lang-english d-none">Start Analysis</span>
+                                                        <span class="lang lang-japanese">分析(手動)</span>
+                                                        <span class="lang lang-english d-none">Analyze (manual)</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <span class="lang lang-japanese">読み込まれたプレイ成績を元に分析を開始します。</span>
-                                                        <span class="lang lang-english d-none">This will start the analysis based on your play results that are loaded.</span>
+                                                        <span class="lang lang-japanese">テキストエリアへ手動で貼り付けられたあなたのプレイ成績を元に、分析を実行します。</span>
+                                                        <span class="lang lang-english d-none">This will analyses are performed based on your playing results, which are manually pasted into the text area.</span>
                                                     </div>
                                                 </td>
                                             </tr>

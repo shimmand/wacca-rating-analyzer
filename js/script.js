@@ -216,6 +216,10 @@ function initialize() {
                     break
             }
 
+            addKeywordSearchOption()
+            quitKeywordSearch()
+            deleteLastKeyword()
+
             switchLoadingView(false)
         }
 
@@ -224,7 +228,6 @@ function initialize() {
         return
     }
 }
-
 
 function getLastUpdate() {
     return document.querySelector('html').dataset.update
@@ -2495,7 +2498,11 @@ function findMissingItems() {
     return items
 }
 
-function activateKeywordSearch(keyword, index) {
+function activateKeywordSearch(keyword = null, index = null) {
+    if ([keyword, index].indexOf(null) !== -1) {
+        return false
+    }
+
     const keywords = String(keyword).replaceAll('　',' ').toLowerCase().split(' ')
     const list = document.querySelectorAll('.chart-list')[index]
     const rows = list.querySelectorAll('tr.chart-list--item')
@@ -2517,7 +2524,63 @@ function activateKeywordSearch(keyword, index) {
         row.classList.remove('d-none')
         keywords.forEach(key => {
             if (key.indexOf(':') !== -1) {
-                if (row.dataset.searchText.indexOf(`${key} `) === -1) {
+                if (key.match(/level-(min|max):([0-9]{1,2}\+?)/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/level:([0-9]{1,2}\+?)/)[1].replace('+', '.7'))
+                    const limit = Number(key.match(/level-(min|max):([0-9]{1,2}\+?)/)[2].replace('+', '.7'))
+
+                    if (key.indexOf('level-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('level-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (key.match(/constant-(min|max):([0-9]{1,2}\.[0-9])/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/constant:([0-9]{1,2}\.[0-9])/)[1])
+                    const limit = Number(key.match(/constant-(min|max):([0-9]{1,2}\.[0-9])/)[2])
+
+                    if (key.indexOf('constant-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('constant-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (key.match(/score-(min|max):([0-9]{1,4}k)/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/score:([0-9]{1,7})/)[1])
+                    const limit = Number(key.match(/score-(min|max):([0-9]{1,4}k)/)[2].replace('k', '000'))
+
+                    if (key.indexOf('score-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('score-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (key.match(/score-(min|max):([0-9]{1,7})/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/score:([0-9]{1,7})/)[1])
+                    const limit = Number(key.match(/score-(min|max):([0-9]{1,7})/)[2])
+
+                    if (key.indexOf('score-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('score-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (row.dataset.searchText.indexOf(`${key} `) === -1) {
                     row.classList.add('d-none')
                 }
             } else {
@@ -2529,9 +2592,15 @@ function activateKeywordSearch(keyword, index) {
     })
 }
 
-function addKeywordSearchOption(option, index) {
+function addKeywordSearchOption(option = null, index = null) {
+    if ([option, index].indexOf(null) !== -1) {
+        return false
+    }
+
     const input = document.querySelectorAll('.input-keyword-search')[index]
+    input.value = String(input.value).replace('　', ' ')
     input.value += ` ${option}`
+    input.value = String(input.value).replaceAll(/\s+/g, ' ')
 
     const button = document.querySelectorAll('.button-quit-keyword-search')[index]
     button.classList.remove('d-none')
@@ -2539,12 +2608,41 @@ function addKeywordSearchOption(option, index) {
     input.focus()
 }
 
-function quitKeywordSearch(index) {
+function quitKeywordSearch(index = null) {
+    if (index === null) {
+        return false
+    }
+
     const input = document.querySelectorAll('.input-keyword-search')[index]
     input.value = ''
 
     const button = document.querySelectorAll('.button-quit-keyword-search')[index]
     button.classList.add('d-none')
+
+    refreshChartVisibility()
+    input.focus()
+}
+
+function deleteLastKeyword(index = null) {
+    if (index === null) {
+        return false
+    }
+
+    const input = document.querySelectorAll('.input-keyword-search')[index]
+    input.value = String(input.value).replace('　', ' ')
+
+    const lastIndex = input.value.lastIndexOf(' ')
+
+    if (lastIndex === -1) {
+        input.value = ''
+    } else {
+        input.value = String(input.value).substring(0, lastIndex)
+    }
+
+    if (input.value === '') {
+        const button = document.querySelectorAll('.button-quit-keyword-search')[index]
+        button.classList.add('d-none')
+    }
 
     refreshChartVisibility()
     input.focus()

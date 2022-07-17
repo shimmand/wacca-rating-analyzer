@@ -171,15 +171,18 @@ function initialize() {
             switch (localStorage.getItem('rating-analyzer-analyze-mode')) {
                 case 'true':
                     startAnalyze()
+                    document.querySelector('.complete-message-analysis').classList.remove('d-none')
                     break
 
                 case 'false':
                     restorePrevData()
+                    document.querySelector('.complete-message-restoration').classList.remove('d-none')
                     break
             
                 default:
                     findMissingItems()
                     analyze()
+                    document.querySelector('.complete-message-initialization').classList.remove('d-none')
                     document.querySelector('[data-bs-target="#modal-introduction"]').click()
                     break
             }
@@ -956,6 +959,11 @@ function analyze(){
         localStorage.setItem('rating-analyzer-prev-date', formattedDate)
     }
 
+    {
+        const timeStamps = document.querySelectorAll('.prev-date-timestamp')
+        timeStamps.forEach(stamp => stamp.textContent = localStorage.getItem('rating-analyzer-prev-date'))
+    }
+
     updateChartVisibilityByType()
     updateChartVisibilityByDifficulty()
     refreshChartVisibility()
@@ -1327,8 +1335,6 @@ function startAnalyze() {
         if (visibleFeedbacks.length !== 0) {
             return
         }
-
-        document.querySelector('#btn-analyzed-modal').click()
     }
 }
 

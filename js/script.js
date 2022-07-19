@@ -941,22 +941,24 @@ function analyze(){
 
     playdata.classList.add('is-valid')
 
-    if (localStorage.getItem('rating-analyzer-prev') != playdata.value) {
-        const date = new Date()
-        const formattedDate = [
-            date.getFullYear(),
-            '-',
-            ('0' + (date.getMonth() + 1)).slice(-2),
-            '-',
-            ('0' + date.getDate()).slice(-2),
-            ' ',
-            ('0' + date.getHours()).slice(-2),
-            ':',
-            ('0' + date.getMinutes()).slice(-2),
-        ].join('')
-    
+    if (localStorage.getItem('rating-analyzer-prev') !== playdata.value) {
         localStorage.setItem('rating-analyzer-prev', playdata.value)
-        localStorage.setItem('rating-analyzer-prev-date', formattedDate)
+
+        if (document.querySelectorAll('.missing-items-list > div').length === 0) {
+            const date = new Date()
+            const formattedDate = [
+                date.getFullYear(),
+                '-',
+                ('0' + (date.getMonth() + 1)).slice(-2),
+                '-',
+                ('0' + date.getDate()).slice(-2),
+                ' ',
+                ('0' + date.getHours()).slice(-2),
+                ':',
+                ('0' + date.getMinutes()).slice(-2),
+            ].join('')
+            localStorage.setItem('rating-analyzer-prev-date', formattedDate)
+        }
     }
 
     {

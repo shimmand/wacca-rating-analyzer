@@ -12,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
         <link href="css/style.css?date=2022-06-16" rel="stylesheet"/>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-07-17-1900"></script>
+        <script defer src="js/script.js?date=2022-07-19-1500"></script>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0 vh-100">
@@ -39,185 +39,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack">
-                                        <div class="badge bg-white align-bottom text-black me-2">#80</div>
-                                        <div class="badge border border-white align-bottom me-2">2022-07-17</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            キーワード検索に新しいオプションを追加
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Added new options for keyword searches
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            キーワード検索で使用できるオプションが増えました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            More options available for keyword searches!
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            これまでレベルや定数で検索する際には単一の値でしか指定できませんでしたが、上限値や下限値も指定できるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Previously, when searching by level or constant, only a single value could be used, but now upper and lower limits can also be used.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            また、スコアで検索することも可能となり、スコアでも上限値や下限値を使用できます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            It is also possible to search by score, and upper and lower limits can be used for scores as well.
-                                        </span>
-                                    </div>
-                                    <div class="accordion border border-white mt-2" id="accordion-news-item--80">
-                                        <div class="accordion-item border-0">
-                                            <div class="h2 accordion-header" id="accordion-news-item--80-1">
-                                                <button class="accordion-button collapsed bg-white text-black rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-news-item--80-1" aria-expanded="false" aria-controls="collapse-news-item--80-1">
-                                                    <span class="lang lang-japanese">続きを見る...</span>
-                                                    <span class="lang lang-english d-none">Read more...</span>
-                                                </button>
-                                            </div>
-                                            <div id="collapse-news-item--80-1" class="accordion-collapse collapse" aria-labelledby="accordion-news-item--80-1" data-bs-parent="#accordion-news-item--80">
-                                                <div class="accordion-body bg-gray-800 p-2">
-                                                    <div class="my-1">
-                                                        <table class="table text-white">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th scope="row">difficulty:</th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">難易度を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the difficulty.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">normal, hard, expert, inferno, n, h, e, i</span>
-                                                                            <span class="lang lang-english d-none">normal, hard, expert, inferno, n, h, e, i</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">level:</th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">レベルを設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the level.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">level-min:<span class="badge border">NEW</span></th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">レベルの下限値を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the lower limit of the level.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">level-max:<span class="badge border">NEW</span></th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">レベルの上限値を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the upper limit of the level.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">constant:</th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">定数を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the constant.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                                            <span class="lang lang-english d-none"> 1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">constant-min:<span class="badge border">NEW</span></th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">定数の下限値を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the lower limit of the constant.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                                            <span class="lang lang-english d-none">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">constant-max:<span class="badge border">NEW</span></th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">定数の上限値を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the upper limit of the constant.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                                            <span class="lang lang-english d-none">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">score-min:<span class="badge border">NEW</span></th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">スコアの下限値を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the lower limit of the score.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">(例) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
-                                                                            <span class="lang lang-english d-none">(e.g.) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">score-max:<span class="badge border">NEW</span></th>
-                                                                    <td>
-                                                                        <div>
-                                                                            <span class="lang lang-japanese">スコアの上限値を設定します。</span>
-                                                                            <span class="lang lang-english d-none">Sets the upper limit of the score.</span>
-                                                                        </div>
-                                                                        <div class="text-dimmed small">
-                                                                            <span class="lang lang-japanese">(例) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
-                                                                            <span class="lang lang-english d-none">(e.g.) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack">
@@ -250,21 +71,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#79 Update (2022-07-16)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>Scramble TANO*C</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 3</span>
-                                                <span class="badge border hard">HARD 9</span>
-                                                <span class="badge border expert">EXPERT 12+</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="accordion border border-white mt-2" id="accordion-news-item--52">
                                         <div class="accordion-item border-0">
                                             <div class="h2 accordion-header" id="accordion-news-item--52-1">
@@ -275,6 +81,21 @@
                                             </div>
                                             <div id="collapse-news-item--52-1" class="accordion-collapse collapse" aria-labelledby="accordion-news-item--52-1" data-bs-parent="#accordion-news-item--52">
                                                 <div class="accordion-body bg-gray-800 p-2">
+                                                    <div class="my-1">
+                                                        <div class="text-dimmed small mt-2">#79 Update (2022-07-16)</div>
+                                                        <div class="p-1 bg-gray-900">
+                                                            <div>Scramble TANO*C</div>
+                                                            <div>
+                                                                <span class="badge border normal">NORMAL 3</span>
+                                                                <span class="badge border hard">HARD 9</span>
+                                                                <span class="badge border expert">EXPERT 12+</span>
+                                                                <span class="badge border">
+                                                                    <span class="lang lang-japanese">新曲枠</span>
+                                                                    <span class="lang lang-english d-none">NEWER</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="my-1">
                                                         <div class="text-dimmed small mt-2">#78 Update (2022-07-15)</div>
                                                         <div class="p-1 bg-gray-900">
@@ -620,6 +441,185 @@
                                                                 </span>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack">
+                                        <div class="badge bg-white align-bottom text-black me-2">#80</div>
+                                        <div class="badge border border-white align-bottom me-2">2022-07-17</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            キーワード検索に新しいオプションを追加
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added new options for keyword searches
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            キーワード検索で使用できるオプションが増えました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            More options available for keyword searches!
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            これまでレベルや定数で検索する際には単一の値でしか指定できませんでしたが、上限値や下限値も指定できるようになりました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Previously, when searching by level or constant, only a single value could be used, but now upper and lower limits can also be used.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            また、スコアで検索することも可能となり、スコアでも上限値や下限値を使用できます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            It is also possible to search by score, and upper and lower limits can be used for scores as well.
+                                        </span>
+                                    </div>
+                                    <div class="accordion border border-white mt-2" id="accordion-news-item--80">
+                                        <div class="accordion-item border-0">
+                                            <div class="h2 accordion-header" id="accordion-news-item--80-1">
+                                                <button class="accordion-button collapsed bg-white text-black rounded-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-news-item--80-1" aria-expanded="false" aria-controls="collapse-news-item--80-1">
+                                                    <span class="lang lang-japanese">続きを見る...</span>
+                                                    <span class="lang lang-english d-none">Read more...</span>
+                                                </button>
+                                            </div>
+                                            <div id="collapse-news-item--80-1" class="accordion-collapse collapse" aria-labelledby="accordion-news-item--80-1" data-bs-parent="#accordion-news-item--80">
+                                                <div class="accordion-body bg-gray-800 p-2">
+                                                    <div class="my-1">
+                                                        <table class="table text-white">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">difficulty:</th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">難易度を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the difficulty.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">normal, hard, expert, inferno, n, h, e, i</span>
+                                                                            <span class="lang lang-english d-none">normal, hard, expert, inferno, n, h, e, i</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">level:</th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">レベルを設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the level.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
+                                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">level-min:<span class="badge border">NEW</span></th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">レベルの下限値を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the lower limit of the level.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
+                                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">level-max:<span class="badge border">NEW</span></th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">レベルの上限値を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the upper limit of the level.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
+                                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">constant:</th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">定数を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the constant.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
+                                                                            <span class="lang lang-english d-none"> 1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">constant-min:<span class="badge border">NEW</span></th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">定数の下限値を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the lower limit of the constant.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
+                                                                            <span class="lang lang-english d-none">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">constant-max:<span class="badge border">NEW</span></th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">定数の上限値を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the upper limit of the constant.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
+                                                                            <span class="lang lang-english d-none">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">score-min:<span class="badge border">NEW</span></th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">スコアの下限値を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the lower limit of the score.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">(例) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
+                                                                            <span class="lang lang-english d-none">(e.g.) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">score-max:<span class="badge border">NEW</span></th>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="lang lang-japanese">スコアの上限値を設定します。</span>
+                                                                            <span class="lang lang-english d-none">Sets the upper limit of the score.</span>
+                                                                        </div>
+                                                                        <div class="text-dimmed small">
+                                                                            <span class="lang lang-japanese">(例) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
+                                                                            <span class="lang lang-english d-none">(e.g.) 980000, 980k, 990000, 990k, 1000000, 1000k</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1067,6 +1067,36 @@
                         </div>
                     </div>
                     <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-denied">
+                        <div class="d-flex gap-1 align-items-center d-none">
+                            <div class="d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle svg-fs-4" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                </svg>
+                            </div>
+                            <div class="d-flex">
+                                <div class="fw-bold">
+                                    <span class="lang lang-japanese">
+                                        クリップボードへのアクセスが拒否されました。
+                                    </span>
+                                    <span class="lang lang-english d-none">
+                                        Clipboard access denied.
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="lang lang-japanese">
+                                        「読込＆分析」を押した後、表示されたメニューから「貼り付け」または「許可」を選択してください。
+                                        それでも動作しない場合、「クリア」を押してテキストエリアを消去した後、クリップボードの内容を手動で貼り付けて、「分析(手動)」を押してください。
+                                        読み込みを中止するには、ページを再読み込みしてください。
+                                    </span>
+                                    <span class="lang lang-english d-none">
+                                        After pressing "Load & Analyze", select "Paste" or "Allow" from the menu that appears.
+                                        If it still does not work, press "Clear" to clear the text area, then manually paste the clipboard contents and press "Analyze (manual)".
+                                        To cancel, please reload the page.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="bg-magenta text-white px-1">
                             <span class="lang lang-japanese">
                                 クリップボードへのアクセスが拒否されました。

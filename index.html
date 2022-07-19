@@ -1066,15 +1066,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-denied">
-                        <div class="d-flex gap-1 align-items-center d-none">
-                            <div class="d-flex">
+                    <div class="invalid-feedback text-white error-feedback-1 mt-2 d-none" id="warning-denied">
+                        <div class="d-flex gap-1 align-items-start">
+                            <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle svg-fs-4" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                                 </svg>
                             </div>
-                            <div class="d-flex">
+                            <div>
                                 <div class="fw-bold">
                                     <span class="lang lang-japanese">
                                         クリップボードへのアクセスが拒否されました。
@@ -1097,47 +1097,65 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-magenta text-white px-1">
-                            <span class="lang lang-japanese">
-                                クリップボードへのアクセスが拒否されました。
-                                「読込＆分析」を押した後、表示されたメニューから「貼り付け」または「許可」を選択してください。
-                                それでも動作しない場合、「クリア」を押してテキストエリアを消去した後、クリップボードの内容を手動で貼り付けて、「分析(手動)」を押してください。
-                                読み込みを中止するには、ページを再読み込みしてください。
-                            </span>
-                            <span class="lang lang-english d-none">
-                                Clipboard access denied.
-                                After pressing "Load & Analyze", select "Paste" or "Allow" from the menu that appears.
-                                If it still does not work, press "Clear" to clear the text area, then manually paste the clipboard contents and press "Analyze (manual)".
-                                To cancel, please reload the page.
-                            </span>
+                    </div>
+                    <div class="invalid-feedback text-white error-feedback-1 mt-2 d-none" id="warning-empty">
+                        <div class="d-flex gap-1 align-items-start">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle svg-fs-4" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="fw-bold">
+                                    <span class="lang lang-japanese">
+                                        テキストエリアが空です。
+                                    </span>
+                                    <span class="lang lang-english d-none">
+                                        Text area is empty.
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="lang lang-japanese">
+                                        マイページへ戻り、ブックマークレットを再度実行してください。
+                                        読み込みを中止するには、ページを再読み込みしてください。
+                                    </span>
+                                    <span class="lang lang-english d-none">
+                                        Please return to My Page and run the bookmarklet again.
+                                        To cancel, please reload the page.
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-empty">
-                        <div class="bg-magenta text-white px-1">
-                            <span class="lang lang-japanese">
-                                テキストエリアが空です。
-                                マイページへ戻り、ブックマークレットを再度実行してください。
-                                読み込みを中止するには、ページを再読み込みしてください。
-                            </span>
-                            <span class="lang lang-english d-none">
-                                Text area is empty.
-                                Please return to My Page and run the bookmarklet again.
-                                To cancel, please reload the page.
-                            </span>
-                        </div>
-                    </div>
-                    <div class="invalid-feedback error-feedback-1 mt-2 d-none" id="warning-invalid">
-                        <div class="bg-magenta text-white px-1">
-                            <span class="lang lang-japanese">
-                                入力されたデータの書式が不正です。
-                                マイページへ戻り、ブックマークレットを再度実行してください。
-                                読み込みを中止するには、ページを再読み込みしてください。
-                            </span>
-                            <span class="lang lang-english d-none">
-                                The format of the data you input is invalid.
-                                Please return to My Page and run the bookmarklet again.
-                                To cancel, please reload the page.
-                            </span>
+                    <div class="invalid-feedback text-white error-feedback-1 mt-2 d-none" id="warning-invalid">
+                        <div class="d-flex gap-1 align-items-start">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle svg-fs-4" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="fw-bold">
+                                    <span class="lang lang-japanese">
+                                        データの書式が不正です。
+                                    </span>
+                                    <span class="lang lang-english d-none">
+                                        Data format is invalid.
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="lang lang-japanese">
+                                        マイページへ戻り、ブックマークレットを再度実行してください。
+                                        読み込みを中止するには、ページを再読み込みしてください。
+                                    </span>
+                                    <span class="lang lang-english d-none">
+                                        Please return to My Page and run the bookmarklet again.
+                                        To cancel, please reload the page.
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

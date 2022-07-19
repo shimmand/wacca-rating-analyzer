@@ -545,11 +545,11 @@ a.multi-rate-selected {
 }
 
 .drop-shadow-black {
-    filter: drop-shadow(0 0 0.1rem #000000);
+    filter: drop-shadow(0 0 1px #000000) drop-shadow(0 0 1px #000000) drop-shadow(0 0 1px #000000);
 }
 
 .drop-shadow-white {
-    filter: drop-shadow(0 0 0.1rem #ffffff);
+    filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 1px #ffffff);
 }
 
 .skew-10 {

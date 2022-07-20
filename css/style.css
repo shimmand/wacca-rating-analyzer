@@ -135,7 +135,6 @@ html.fs-50 {
 .badge {
     padding: .2rem .4rem;
     font-size: .75rem;
-    border-radius: 0;
     vertical-align: middle;
 }
 
@@ -227,17 +226,15 @@ html.fs-50 {
     color: #ffffff;
 }
 
-.btn {
-    border-radius: 0;
-}
-
 .btn-white {
     color: var(--bs-dark);
-    background-color: #ffffff;
+    background-color: var(--bs-white);
 }
 
 .btn-white:hover {
-    box-shadow: 0 0 1rem #ffffff7f;
+    color: var(--bs-white);
+    background-color: var(--bs-dark);
+    box-shadow: 0 0 0 1px var(--bs-white);
 }
 
 .btn-close {
@@ -249,20 +246,22 @@ html.fs-50 {
 }
 
 .form-select:focus {
-    box-shadow: 0 0 1rem #ffffff7f;
+    box-shadow: none;
+    border: 0;
+}
+
+.form-select:hover {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
 }
 
 .form-select {
     background-size: 1rem 0.75rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,background-image .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .hover-text-magenta:hover {
     transition: color .15s;
     color: #d63384;
-}
-
-.btn-check:focus+.btn, .btn:focus {
-    box-shadow: none;
 }
 
 
@@ -544,6 +543,14 @@ a.multi-rate-selected {
     box-shadow: 2px 2px #ffffff7f;
 }
 
+.box-shadow-none {
+    box-shadow: none!important;
+}
+
+.box-shadow-hover {
+    box-shadow: 0 0 0 1px var(--bs-white);
+}
+
 .drop-shadow-black {
     filter: drop-shadow(0 0 1px #000000) drop-shadow(0 0 1px #000000) drop-shadow(0 0 1px #000000);
 }
@@ -724,8 +731,8 @@ svg.svg-fs-6 {
 }
 
 .hover-trans-opacity:hover {
-    opacity: .75;
-    transition: opacity .2s ease;
+    outline: 1px solid var(--bs-white);
+    outline-offset: -1px;
 }
 
 .vr {

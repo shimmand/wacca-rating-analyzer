@@ -407,7 +407,7 @@ function analyze(){
 
                 if ((chart[5] < multiplier) && ((chart[4] * multiplier) > varSingleRateLowers[listIndex])) {
                     return `
-                        <a class="badge rate-increase rounded-0 box-shadow-black" 
+                        <a class="badge rate-increase box-shadow-black" 
                         href="#" onclick="modifyCheckListItem(this); return false;" 
                         data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}" 
                         data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]} ${buttonIndex}" 
@@ -519,7 +519,7 @@ function analyze(){
                             </div>
                         </div>
                         <div class="list-item--graph-wrapper m-0 mt-1 px-1">
-                            <div class="progress rounded-0" style="height: 0.25rem;">
+                            <div class="progress" style="height: 0.25rem;">
                                 <div class="progress-bar bg-lt-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 940000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="940000" aria-valuemax="950000"></div>
                                 <div class="progress-bar bg-is-950${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 950000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="950000" aria-valuemax="960000"></div>
                                 <div class="progress-bar bg-is-960${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 960000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="960000" aria-valuemax="970000"></div>

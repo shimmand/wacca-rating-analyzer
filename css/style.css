@@ -250,13 +250,10 @@ html.fs-50 {
     border: 0;
 }
 
-.form-select:hover {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-}
-
 .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%237f7f7f' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
     background-size: 1rem 0.75rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,background-image .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .hover-text-magenta:hover {
@@ -446,10 +443,20 @@ a.rate-increase {
     text-decoration-line: none;
 }
 
+a.rate-increase:hover {
+    box-shadow: 0 0 0 2px var(--bs-pink);
+    transition: box-shadow .15s ease-in-out;
+}
+
 a.multi-rate-selected {
     color: #ffffff;
     background-color: #d63384;
     text-decoration-line: none;
+}
+
+a.multi-rate-selected:hover {
+    box-shadow: 0 0 0 2px var(--bs-white);
+    transition: box-shadow .15s ease-in-out;
 }
 
 .increase::before {

@@ -10,9 +10,17 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-07-21-rev1" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-07-23" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
         <script defer src="js/script.js?date=2022-07-21"></script>
+        <style>
+            .font-numeric {
+                font-family: 'Syne', sans-serif;
+            }
+        </style>
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0 vh-100">
@@ -885,7 +893,7 @@
             </div>
             <!-- news modal ends -->
 
-            <div id="box-title" class="bg-gray-800 p-2">
+            <div id="box-title" class="bg-gray-800 p-2 rounded-bottom">
                 <div class="d-flex">
                     <a class="small text-decoration-none" href="https://shimmand.github.io/waccaSupportTools/" target="_blank" rel="noopener noreferrer">
                         <span class="btn badge btn-white">
@@ -961,38 +969,49 @@
                         const diffMin  = String('0' + String(Math.floor(diffTime / 1000 / 60) % 60)).slice(-2)
                         const diffSec  = String('0' + String(Math.floor(diffTime / 1000) % 60)).slice(-2)
 
-                        document.querySelectorAll('.countdown-day').forEach((e, i) => e.textContent = diffDay[i])
-                        document.querySelectorAll('.countdown-hour').forEach((e, i) => e.textContent = diffHour[i])
-                        document.querySelectorAll('.countdown-min').forEach((e, i) => e.textContent = diffMin[i])
-                        document.querySelectorAll('.countdown-sec').forEach((e, i) => e.textContent = diffSec[i])
+                        document.querySelectorAll('.countdown-day > div').forEach((e, i) => e.textContent = diffDay[i])
+                        document.querySelectorAll('.countdown-hour > div').forEach((e, i) => e.textContent = diffHour[i])
+                        document.querySelectorAll('.countdown-min > div').forEach((e, i) => e.textContent = diffMin[i])
+                        document.querySelectorAll('.countdown-sec > div').forEach((e, i) => e.textContent = diffSec[i])
+
+                        const wrapper = document.querySelector('.countdown-timer-wrapper')
+                        wrapper.classList.remove('text-chromatic')
+                        window.requestAnimationFrame(function() {
+                            window.requestAnimationFrame(function() {
+                                wrapper.classList.add('text-chromatic')
+                            })
+                        })
 
                         if(diffTime < 0) clearInterval(countdown)
 
                     }, 1000)
+
                 </script>
                 <div class="d-flex">
-                    <div class="bg-gray-900 d-flex align-items-center countdown-wrapper font-monospace fs-3 p-1 rounded">
+                    <div class="bg-gray-900 d-flex align-items-center countdown-wrapper p-1 rounded">
                         <div class="d-flex px-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-clock svg-fs-5" viewBox="0 0 16 16">
                                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
                             </svg>
                         </div>
-                        <div class="d-flex countdown-day bg-black px-1">-</div>
-                        <div class="d-flex countdown-day bg-black px-1">-</div>
-                        <div class="d-flex countdown-symbol">:</div>
-                        <div class="d-flex countdown-hour bg-black px-1">-</div>
-                        <div class="d-flex countdown-hour bg-black px-1">-</div>
-                        <div class="d-flex countdown-symbol">:</div>
-                        <div class="d-flex countdown-min bg-black px-1">-</div>
-                        <div class="d-flex countdown-min bg-black px-1">-</div>
-                        <div class="d-flex countdown-symbol">:</div>
-                        <div class="d-flex countdown-sec bg-black px-1">-</div>
-                        <div class="d-flex countdown-sec bg-black px-1">-</div>
+                        <div class="d-flex skew-10 font-numeric fs-3 lh-1 countdown-timer-wrapper">
+                            <div class="d-flex countdown-day ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                            <div class="d-flex countdown-day pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                            <div class="d-flex countdown-symbol">:</div>
+                            <div class="d-flex countdown-hour ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                            <div class="d-flex countdown-hour pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                            <div class="d-flex countdown-symbol">:</div>
+                            <div class="d-flex countdown-min ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                            <div class="d-flex countdown-min pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                            <div class="d-flex countdown-symbol">:</div>
+                            <div class="d-flex countdown-sec ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                            <div class="d-flex countdown-sec pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="box-input" class="bg-gray-800 p-2 my-2">
+            <div id="box-input" class="bg-gray-800 p-2 my-2 rounded">
                 <div class="position-relative form-floating">
                     <textarea class="form-control playdata text-white border bg-dark" id="playdata" style="font-size: 16px;" oninput="document.querySelector('#btn-analyze').disabled = false;"></textarea>
                     <label for="playdata">
@@ -1158,7 +1177,7 @@
                     </div>
                 </div>
             </div>
-            <div id="box-control" class="bg-gray-800 p-2 my-2">
+            <div id="box-control" class="bg-gray-800 p-2 my-2 rounded">
                 <div class="btn-toolbar gap-1" role="toolbar">
                     <button type="button" class="btn btn-white " id="btn-paste" onclick="paste()">
                         <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
@@ -1195,7 +1214,7 @@
                                     <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                                 </svg>
                             </div>
-                            <select class="select-lang form-select btn-white box-shadow-none border-0 h-100" onchange="setLanguage(this.value);" style="padding-left: 2rem;">
+                            <select class="select-lang form-select btn-white box-shadow-none border-0 h-100 cursor-pointer" onchange="setLanguage(this.value);" style="padding-left: 2rem;">
                                 <option value="japanese" selected>Japanese</option>
                                 <option value="english">English</option>
                             </select>
@@ -1210,7 +1229,7 @@
                                     <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"></path>
                                 </svg>
                             </div>
-                            <select class="form-select btn-white box-shadow-none border-0 h-100" id="select-disp-scale" onchange="changeDisplayScale();" style="padding-left: 2rem;">
+                            <select class="form-select btn-white box-shadow-none border-0 h-100 cursor-pointer" id="select-disp-scale" onchange="changeDisplayScale();" style="padding-left: 2rem;">
                                 <option value="100" selected>100%</option>
                                 <option value="95">95%</option>
                                 <option value="90">90%</option>
@@ -1243,8 +1262,8 @@
                     </button>
                 </div>
             </div>
-            <div id="box-summary" class="bg-gray-800 my-2">
-                <div class="justify-content-between bg-gray-700 sticky-top p-2 shadow">
+            <div id="box-summary" class="bg-gray-800 my-2 rounded">
+                <div class="justify-content-between bg-gray-700 sticky-top p-2 rounded shadow">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="h3 text-heading">
                             <span class="lang lang-japanese">概要</span>
@@ -1345,7 +1364,7 @@
                     </div>
                 </div>
             </div>
-            <div id="box-newer" class="box-entry bg-gray-800 my-2">
+            <div id="box-newer" class="box-entry bg-gray-800 my-2 rounded">
                 <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
                     <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto hover-trans-opacity w-100" onclick="switchChartsEntry('older')">
                         <div class="d-flex flex-wrap align-items-end">
@@ -1426,7 +1445,7 @@
                         <div id="check-list--hidden-newer" class="check-list--control check-list--control-hidden d-flex align-items-center bg-gray-700 pt-0 shadow rounded-start">
                             <div class="d-flex align-items-center m-2">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(true, 'new')">
+                                    <div class="d-flex align-items-center hover-trans-opacity cursor-pointer py-1" onclick="toggleCheckListVisibility(true, 'new')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">表示</span>
                                             <span class="lang lang-english d-none">Show</span>
@@ -1452,7 +1471,7 @@
                         <div id="check-list--visible-newer" class="check-list--control check-list--control-visible d-flex align-items-center bg-gray-700 pt-0 shadow rounded-start">
                             <div class="d-flex align-items-center m-2 mt-0">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex d-xxs-none align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(false, 'new')">
+                                    <div class="d-flex d-xxs-none align-items-center hover-trans-opacity cursor-pointer py-1" onclick="toggleCheckListVisibility(false, 'new')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">非表示</span>
                                             <span class="lang lang-english d-none">Hide</span>
@@ -1726,7 +1745,7 @@
                                             <span class="lang lang-english d-none">Remaining score</span>
                                         </label>
                                         <div class="mx-1">
-                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
                                                 <option value="10000">10000</option>
                                                 <option value="9000">9000</option>
                                                 <option value="8000">8000</option>
@@ -2011,7 +2030,7 @@
                     </div>
                 </div>
             </div>
-            <div id="box-older" class="box-entry bg-gray-800 my-2 d-none">
+            <div id="box-older" class="box-entry bg-gray-800 my-2 rounded d-none">
                 <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
                     <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto w-100 hover-trans-opacity" onclick="switchChartsEntry('newer')">
                         <div class="d-flex flex-wrap align-items-end">
@@ -2092,7 +2111,7 @@
                         <div id="check-list--hidden-older" class="check-list--control check-list--control-hidden d-flex align-items-center bg-gray-700 pt-0 shadow rounded-start">
                             <div class="d-flex align-items-center m-2">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(true, 'old')">
+                                    <div class="d-flex align-items-center hover-trans-opacity cursor-pointer py-1" onclick="toggleCheckListVisibility(true, 'old')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">表示</span>
                                             <span class="lang lang-english d-none">Show</span>
@@ -2118,7 +2137,7 @@
                         <div id="check-list--visible-older" class="check-list--control check-list--control-visible d-flex align-items-center bg-gray-700 pt-0 shadow rounded-start">
                             <div class="d-flex align-items-center m-2 mt-0">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex d-xxs-none align-items-center hover-trans-opacity cursor-pointer" onclick="toggleCheckListVisibility(false, 'old')">
+                                    <div class="d-flex d-xxs-none align-items-center hover-trans-opacity cursor-pointer py-1" onclick="toggleCheckListVisibility(false, 'old')">
                                         <div class="d-flex small text-dimmed">
                                             <span class="lang lang-japanese">非表示</span>
                                             <span class="lang lang-english d-none">Hide</span>
@@ -2392,7 +2411,7 @@
                                             <span class="lang lang-english d-none">Remaining score</span>
                                         </label>
                                         <div class="mx-1">
-                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
                                                 <option value="10000">10000</option>
                                                 <option value="9000">9000</option>
                                                 <option value="8000">8000</option>
@@ -2677,7 +2696,7 @@
                     </div>
                 </div>
             </div>
-            <div id="box-footer" class="bg-gray-800 p-2">
+            <div id="box-footer" class="bg-gray-800 p-2 rounded-top">
                 <div class="d-flex justify-content-center text-break">
                     <div>
                         <span class="small">Dev. by shimmand</span>
@@ -2719,7 +2738,7 @@
                                                     <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                                                 </svg>
                                             </div>
-                                            <select class="select-lang form-select btn-white box-shadow-none border-0 h-100" onchange="setLanguage(this.value);" style="padding-left: 2rem;">
+                                            <select class="select-lang form-select btn-white box-shadow-none border-0 h-100 cursor-pointer" onchange="setLanguage(this.value);" style="padding-left: 2rem;">
                                                 <option value="japanese" selected>Japanese</option>
                                                 <option value="english">English</option>
                                             </select>
@@ -3145,11 +3164,11 @@
                                         <span class="lang lang-english d-none">Please select the type of data to be exported and press "Export" to start exporting.</span>
                                     </div>
                                     <div class="m-2 px-1">
-                                        <div class="form-check d-flex align-items-center ps-0 me-1">
+                                        <div class="form-check d-flex align-items-center p-1 me-1 rounded">
                                             <input class="form-check-input m-0" type="radio" value="" name="options-export" id="option-export-chart-list-as-csv" onclick="applyExportOption('.export-chart-list-as-csv');">
                                             <label class="form-check-label ms-1" for="option-export-chart-list-as-csv">
                                                 <div class="d-flex align-items-center">
-                                                    <div class="d-flex align-items-center border p-1 me-1">
+                                                    <div class="d-flex align-items-center bg-gray-900 border rounded p-1 me-2">
                                                         <div class="d-flex">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                                                                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -3175,11 +3194,11 @@
                                         </div>
                                     </div>
                                     <div class="m-2 px-1">
-                                        <div class="form-check d-flex align-items-center ps-0 me-1">
+                                        <div class="form-check d-flex align-items-center p-1 me-1 rounded">
                                             <input class="form-check-input m-0" type="radio" value="" name="options-export" id="option-export-rating-targets-as-image" onclick="applyExportOption('.export-rating-targets-as-image');">
                                             <label class="form-check-label ms-1" for="option-export-rating-targets-as-image">
                                                 <div class="d-flex align-items-center">
-                                                    <div class="d-flex align-items-center border p-1 me-1">
+                                                    <div class="d-flex align-items-center bg-gray-900 border rounded p-1 me-2">
                                                         <div class="d-flex">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -3207,11 +3226,11 @@
                                         </div>
                                     </div>
                                     <div class="m-2 px-1">
-                                        <div class="form-check d-flex align-items-center ps-0 me-1">
+                                        <div class="form-check d-flex align-items-center p-1 me-1 rounded">
                                             <input class="form-check-input m-0" type="radio" value="" name="options-export" id="option-export-check-lists-as-image" onclick="applyExportOption('.export-check-lists-as-image');">
                                             <label class="form-check-label ms-1" for="option-export-check-lists-as-image">
                                                 <div class="d-flex align-items-center">
-                                                    <div class="d-flex align-items-center border p-1 me-1">
+                                                    <div class="d-flex align-items-center bg-gray-900 border rounded p-1 me-2">
                                                         <div class="d-flex">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
                                                                 <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>

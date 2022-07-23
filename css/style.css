@@ -31,7 +31,13 @@ hr {
 }
 
 .text-chromatic {
-    text-shadow: #0dcaf0 -0.1rem -0.1rem, #d63384 +0.2rem +0.0rem;
+    text-shadow: #0dcaf0 -4px 0, #d63384 4px 0;
+    animation: animation_chromatic 1s ease 1;
+}
+
+@keyframes animation_chromatic {
+    from { text-shadow: #0dcaf0 -2px 0, #d63384 2px 0; }
+    to { text-shadow: #0dcaf0 0 0, #d63384 0 0; }
 }
 
 .text-shadow-black {
@@ -645,7 +651,7 @@ svg.svg-fs-6 {
 }
 
 .modal.fade .modal-dialog {
-    transition: transform .2s ease;
+    transition: transform .15s ease;
     transform-origin: 50% 0;
     transform: scale(1.1);
 }
@@ -655,7 +661,7 @@ svg.svg-fs-6 {
 }
 
 .collapsing {
-    transition: height .2s ease;
+    transition: height .15s ease;
 }
 
 
@@ -707,7 +713,7 @@ svg.svg-fs-6 {
 
 .opacity-trans-100 {
     opacity: 1;
-    transition: opacity .2s ease;
+    transition: opacity .15s ease;
 }
 
 .check-list--control {
@@ -722,7 +728,7 @@ svg.svg-fs-6 {
 
 .width-trans-100 {
     width: 100%;
-    transition: width .2s ease;
+    transition: width .15s ease;
 }
 
 .pointer-events-none {
@@ -737,9 +743,22 @@ svg.svg-fs-6 {
     transform: translate(-50%, 0);
 }
 
+.form-check:hover {
+    transition: box-shadow .15s ease;
+    box-shadow: inset 1px 1px var(--bs-white), inset -1px -1px var(--bs-white);
+}
+
+.hover-trans-opacity {
+    border-radius: .25rem!important;
+    transition: box-shadow .15s ease;
+}
+
 .hover-trans-opacity:hover {
-    outline: 1px solid var(--bs-white);
-    outline-offset: -1px;
+    box-shadow: inset 1px 1px var(--bs-white), inset -1px -1px var(--bs-white);
+}
+
+.shadow.hover-trans-opacity:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15), inset 1px 1px var(--bs-white), inset -1px -1px var(--bs-white)!important;
 }
 
 .vr {

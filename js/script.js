@@ -2215,6 +2215,13 @@ function switchChartsEntry(entryName) {
 
     entries.forEach(entry => entry.classList.add('d-none'))
     entry.classList.remove('d-none')
+
+    {
+        const input = document.querySelectorAll('.input-keyword-search')[entryIndex]
+        if (String(input.value).length > 0) {
+            activateKeywordSearch(input.value, entryIndex)
+        }
+    }
     
     window.scroll(0, scrollY)
     localStorage.setItem('rating-analyzer-charts-entry', entryName)
@@ -2560,6 +2567,8 @@ function activateKeywordSearch(keyword = null, index = null) {
     } else {
         button.classList.remove('d-none')
     }
+
+    refreshChartVisibility()
 
     rows.forEach(row => {
         row.classList.remove('d-none')

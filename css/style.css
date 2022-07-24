@@ -31,13 +31,7 @@ hr {
 }
 
 .text-chromatic {
-    text-shadow: #0dcaf0 -4px 0, #d63384 4px 0;
-    animation: animation_chromatic 1s ease 1;
-}
-
-@keyframes animation_chromatic {
-    from { text-shadow: #0dcaf0 -2px 0, #d63384 2px 0; }
-    to { text-shadow: #0dcaf0 0 0, #d63384 0 0; }
+    text-shadow: #0dcaf0 -2px 0, #d63384 2px 0;
 }
 
 .text-shadow-black {
@@ -651,9 +645,8 @@ svg.svg-fs-6 {
 }
 
 .modal.fade .modal-dialog {
-    transition: transform .15s ease;
-    transform-origin: 50% 0;
-    transform: scale(1.1);
+    transform: translate(0, 50px);
+    transition: transform .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .modal.show .modal-dialog {
@@ -741,11 +734,6 @@ svg.svg-fs-6 {
 
 .dropdown-menu {
     transform: translate(-50%, 0);
-}
-
-.form-check:hover {
-    transition: box-shadow .15s ease;
-    box-shadow: inset 1px 1px var(--bs-white), inset -1px -1px var(--bs-white);
 }
 
 .hover-trans-opacity {

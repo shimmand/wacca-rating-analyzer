@@ -464,7 +464,15 @@ function analyze(){
                             <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold mb-1">
+                                        <span ${isAvailableOnOffline(chart[0]) ? 'class="d-none"' : ''}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                            </svg>
+                                        </span>
+                                        ${chart[0]}
+                                    </div>
                                 </div>
                             </div>
                             <div class="list-item--badge-wrapper">
@@ -565,7 +573,15 @@ function analyze(){
                             <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold mb-1">
+                                        <span ${isAvailableOnOffline(chart[0]) ? 'class="d-none"' : ''}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                            </svg>
+                                        </span>
+                                        ${chart[0]}
+                                    </div>
                                 </div>
                                 <div class="list-item--badge-wrapper d-flex">
                                     <div class="list-item--badge-difficulty badge border m-0 ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
@@ -671,7 +687,9 @@ function analyze(){
                     level:${String(chart[2]).match(/[0-9+]+/g)[0]} 
                     score:${chart[3]} 
                     constant:${chart[4]} 
-                    rating:${chart[6]} `
+                    rating:${chart[6]} 
+                    offline:${isAvailableOnOffline(chart[0])} offline:${String(isAvailableOnOffline(chart[0]))[0]} 
+                    offline:${isAvailableOnOffline(chart[0]) ? 'yes' : 'no'} offline:${isAvailableOnOffline(chart[0]) ? 'y' : 'n'} `
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
                 
                 tableRow.setAttribute('data-search-text', searchText)
@@ -1451,21 +1469,22 @@ function getDatasetIndex() {
     const songs = getChartTable()
 
     return {
-        'title'             : songs[0].indexOf('@song-title'),
-        'title-english'     : songs[0].indexOf('@song-title-english'),
-        'genre'             : songs[0].indexOf('@genre'),
-        'normal-level'      : songs[0].indexOf('@normal-level'),
-        'normal-constant'   : songs[0].indexOf('@normal-constant'),
-        'normal-newer'      : songs[0].indexOf('@normal-newer'),
-        'hard-level'        : songs[0].indexOf('@hard-level'),
-        'hard-constant'     : songs[0].indexOf('@hard-constant'),
-        'hard-newer'        : songs[0].indexOf('@hard-newer'),
-        'expert-level'      : songs[0].indexOf('@expert-level'),
-        'expert-constant'   : songs[0].indexOf('@expert-constant'),
-        'expert-newer'      : songs[0].indexOf('@expert-newer'),
-        'inferno-level'     : songs[0].indexOf('@inferno-level'),
-        'inferno-constant'  : songs[0].indexOf('@inferno-constant'),
-        'inferno-newer'     : songs[0].indexOf('@inferno-newer')
+        'title':                songs[0].indexOf('@song-title'),
+        'title-english':        songs[0].indexOf('@song-title-english'),
+        'genre':                songs[0].indexOf('@genre'),
+        'available-on-offline':  songs[0].indexOf('@available-on-offline'),
+        'normal-level':         songs[0].indexOf('@normal-level'),
+        'normal-constant':      songs[0].indexOf('@normal-constant'),
+        'normal-newer':         songs[0].indexOf('@normal-newer'),
+        'hard-level':           songs[0].indexOf('@hard-level'),
+        'hard-constant':        songs[0].indexOf('@hard-constant'),
+        'hard-newer':           songs[0].indexOf('@hard-newer'),
+        'expert-level':         songs[0].indexOf('@expert-level'),
+        'expert-constant':      songs[0].indexOf('@expert-constant'),
+        'expert-newer':         songs[0].indexOf('@expert-newer'),
+        'inferno-level':        songs[0].indexOf('@inferno-level'),
+        'inferno-constant':     songs[0].indexOf('@inferno-constant'),
+        'inferno-newer':        songs[0].indexOf('@inferno-newer')
     }
 }
 
@@ -1609,6 +1628,20 @@ function getGenreElement(genre) {
     }
 
     return classes[genre]
+}
+
+// Check if the chart is available on online
+function isAvailableOnOffline(songTitle) {
+    const songs = getChartTable()
+    const indexes = getDatasetIndex()
+    
+    for (let i = 0; i < songs.length; i++) {
+        const song = songs[i]
+
+        if (song[indexes['title']] == songTitle) {
+            return song[indexes['available-on-offline']]
+        }
+    }
 }
 
 // Quit the Multi Select Mode

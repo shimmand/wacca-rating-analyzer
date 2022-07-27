@@ -143,15 +143,15 @@ function initialize() {
             {
                 switch (localStorage.getItem('rating-analyzer-charts-entry')) {
                     case 'newer':
-                        switchChartsEntry('newer')
+                        switchChartsEntry(0)
                         break
 
                     case 'older':
-                        switchChartsEntry('older')
+                        switchChartsEntry(1)
                         break
 
                     default:
-                        switchChartsEntry('newer')
+                        switchChartsEntry(0)
                         break
                 }
             }
@@ -465,7 +465,7 @@ function analyze(){
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold mb-1">
-                                        <span ${isAvailableOnOffline(chart[0]) ? 'class="d-none"' : ''}>
+                                        <span class="tooltip-lang ${isAvailableOnOffline(chart[0]) ? 'd-none' : ''}" data-bs-toggle="tooltip" data-bs-placement="top" title="Not available after Sept. 1" data-tooltip-japanese="9月1日以降は利用不可" data-tooltip-english="Not available after Sept. 1">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                                                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
@@ -574,7 +574,7 @@ function analyze(){
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold mb-1">
-                                        <span ${isAvailableOnOffline(chart[0]) ? 'class="d-none"' : ''}>
+                                    <span class="tooltip-lang ${isAvailableOnOffline(chart[0]) ? 'd-none' : ''}" data-bs-toggle="tooltip" data-bs-placement="top" title="Not available after Sept. 1" data-tooltip-japanese="9月1日以降は利用不可" data-tooltip-english="Not available after Sept. 1">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                                                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
@@ -1005,6 +1005,11 @@ function analyze(){
     {
         const buttons = document.querySelectorAll(['#btn-export'])
         buttons.forEach(button => button.disabled = false)
+    }
+
+    {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     }
 }
 
@@ -2094,19 +2099,40 @@ function setLanguage(language) {
         }
     })
 
-    const langInputs = document.querySelectorAll('.placeholder-lang')
+    {
+        const inputs = document.querySelectorAll('.placeholder-lang')
 
-    langInputs.forEach(input => {
-        const attr = input.getAttribute(`data-placeholder-${language}`)
-        if (attr !== null) {
-            input.setAttribute('placeholder', attr)
-        } else {
-            const engAttr = input.getAttribute('data-placeholder-english')
-            if (engAttr !== null) {
-                input.setAttribute('placeholder', engAttr)
+        inputs.forEach(input => {
+            const attr = input.getAttribute(`data-placeholder-${language}`)
+            if (attr !== null) {
+                input.setAttribute('placeholder', attr)
+            } else {
+                const engAttr = input.getAttribute('data-placeholder-english')
+                if (engAttr !== null) {
+                    input.setAttribute('placeholder', engAttr)
+                }
             }
-        }
-    })
+        })
+    }
+
+    {
+        const tooltips = document.querySelectorAll('.tooltip-lang')
+
+        tooltips.forEach(input => {
+            const attr = input.getAttribute(`data-tooltip-${language}`)
+            if (attr !== null) {
+                input.setAttribute('title', attr)
+            } else {
+                const engAttr = input.getAttribute('data-tooltip-english')
+                if (engAttr !== null) {
+                    input.setAttribute('title', engAttr)
+                }
+            }
+        })
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    }
 
     const langSelects = document.querySelectorAll(`.select-lang`)
 
@@ -2198,33 +2224,25 @@ function setDisplayNone(selector, isEnabled = true) {
 }
 
 /**
- * @param {String} entryName 
+ * @param {Number} index 
  * @returns {Boolean}
  */
-function switchChartsEntry(entryName) {
-    const entryNames = ['newer', 'older']
-    const entryIndex = entryNames.indexOf(entryName)
-
-    if (entryIndex === -1) {
+function switchChartsEntry(index = -1) {
+    if (index === -1) {
         return false
     }
 
     const entries = document.querySelectorAll('.box-entry')
-    const entry = entries[entryIndex]
+    const entry = entries[index]
     const scrollY = window.scrollY
 
     entries.forEach(entry => entry.classList.add('d-none'))
     entry.classList.remove('d-none')
-
-    {
-        const input = document.querySelectorAll('.input-keyword-search')[entryIndex]
-        if (String(input.value).length > 0) {
-            activateKeywordSearch(input.value, entryIndex)
-        }
-    }
     
     window.scroll(0, scrollY)
-    localStorage.setItem('rating-analyzer-charts-entry', entryName)
+
+    const entryNames = ['newer', 'older']
+    localStorage.setItem('rating-analyzer-charts-entry', entryNames[index])
 
     {
         const symbol = entry.querySelector('.charts-entry--rotate-symbol-wrapper > svg')
@@ -2566,6 +2584,9 @@ function activateKeywordSearch(keyword = null, index = null) {
         return
     } else {
         button.classList.remove('d-none')
+        if (String(keyword).length < 3) {
+            return
+        }
     }
 
     refreshChartVisibility()

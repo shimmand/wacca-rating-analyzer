@@ -480,15 +480,7 @@ function analyze(){
                             <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold mb-1">
-                                        <span class="tooltip-lang ${isAvailableOnOffline(chart[0]) ? 'd-none' : ''}" data-bs-toggle="tooltip" data-bs-placement="top" title="Not available after Sept. 1" data-tooltip-japanese="9月1日以降は利用不可" data-tooltip-english="Not available after Sept. 1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-                                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                                            </svg>
-                                        </span>
-                                        ${chart[0]}
-                                    </div>
+                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
                             </div>
                             <div class="list-item--badge-wrapper">
@@ -589,15 +581,7 @@ function analyze(){
                             <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold mb-1">
-                                    <span class="tooltip-lang ${isAvailableOnOffline(chart[0]) ? 'd-none' : ''}" data-bs-toggle="tooltip" data-bs-placement="top" title="Not available after Sept. 1" data-tooltip-japanese="9月1日以降は利用不可" data-tooltip-english="Not available after Sept. 1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-                                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                                            </svg>
-                                        </span>
-                                        ${chart[0]}
-                                    </div>
+                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
                                 <div class="list-item--badge-wrapper d-flex">
                                     <div class="list-item--badge-difficulty badge border m-0 ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>

@@ -186,6 +186,12 @@ function initialize() {
                     analyze()
                     document.querySelector('.complete-message-initialization').classList.remove('d-none')
                     document.querySelector('.complete-message-initialization').classList.add('text-blink')
+                    {
+                        if (screen.width <= 375) {
+                            document.querySelector('#select-disp-scale').value = '85'
+                            changeDisplayScale()
+                        }
+                    }
                     document.querySelector('[data-bs-target="#modal-introduction"]').click()
                     break
             }
@@ -1230,6 +1236,11 @@ function refreshChartVisibility() {
             })
         })
     }
+
+    {
+        setDisplayNone('.check-list-viewer-menu', true)
+        setDisplayNone('.check-list-viewer-menu-off', false)
+    }
 }
 
 // Show only charts that have been added to the checklist
@@ -1280,6 +1291,13 @@ function activateChecklistViewer() {
     }
 
     setDisplayNone('.chart-list-control--check-list-active', false)
+
+    {
+        setDisplayNone('.check-list-viewer-menu', true)
+        setDisplayNone('.check-list-viewer-menu-on', false)
+    }
+
+    scrollToActiveChartList()
 }
 
 // Toggle the display status of any column

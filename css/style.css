@@ -307,7 +307,7 @@ html.fs-50 {
 }
 
 .bg-heading {
-    background-image: linear-gradient(45deg, #0dcaf0, #ffffff, #d63384);
+    background-image: linear-gradient(75deg, #d63384 20%, #ffffff 30% 70%, #0dcaf0 80%);
 }
 
 .bg-older {
@@ -706,7 +706,7 @@ svg.svg-fs-6 {
 
 .opacity-trans-100 {
     opacity: 1;
-    transition: opacity .15s ease;
+    transition: opacity .25s ease;
 }
 
 .check-list--control {
@@ -738,7 +738,7 @@ svg.svg-fs-6 {
 
 .hover-trans-opacity {
     border-radius: .25rem!important;
-    transition: box-shadow .15s ease;
+    transition: box-shadow .25s ease;
 }
 
 .hover-trans-opacity:hover {
@@ -751,4 +751,13 @@ svg.svg-fs-6 {
 
 .vr {
     opacity: 1;
+}
+
+.text-blink {
+    animation: text-blink .5s ease .5s 2;
+}
+
+@keyframes text-blink {
+    50% { color: var(--bs-pink); }
+    100% { color: currentColor; }
 }

@@ -172,17 +172,20 @@ function initialize() {
                 case 'true':
                     startAnalyze()
                     document.querySelector('.complete-message-analysis').classList.remove('d-none')
+                    document.querySelector('.complete-message-analysis').classList.add('text-blink')
                     break
 
                 case 'false':
                     restorePrevData()
                     document.querySelector('.complete-message-restoration').classList.remove('d-none')
+                    document.querySelector('.complete-message-restoration').classList.add('text-blink')
                     break
             
                 default:
                     findMissingItems()
                     analyze()
                     document.querySelector('.complete-message-initialization').classList.remove('d-none')
+                    document.querySelector('.complete-message-initialization').classList.add('text-blink')
                     document.querySelector('[data-bs-target="#modal-introduction"]').click()
                     break
             }
@@ -222,6 +225,13 @@ function initialize() {
             addKeywordSearchOption()
             quitKeywordSearch()
             deleteLastKeyword()
+
+            {
+                const images = document.querySelectorAll('.image-delayed-loading')
+                images.forEach(image => {
+                    image.setAttribute('src', image.dataset.src)
+                })
+            }
 
             switchLoadingView(false)
         }
@@ -2585,6 +2595,9 @@ function activateKeywordSearch(keyword = null, index = null) {
     } else {
         button.classList.remove('d-none')
         if (String(keyword).length < 3) {
+            return
+        }
+        if (String(keyword).slice(-1) === ':') {
             return
         }
     }

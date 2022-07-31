@@ -10,12 +10,12 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-07-25" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-08-01" rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-07-27"></script>
+        <script defer src="js/script.js?date=2022-08-01"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -24,11 +24,11 @@
     </head>
     <body class="bg-gray-900" onload="initialize();">
         <div id="container-loading" class="container-xxl p-0 vh-100">
-            <div class="d-flex vstack justify-content-center align-items-center vh-100">
+            <div class="d-flex vstack gap-3 justify-content-center align-items-center vh-100">
                 <div class="spinner-border" style="width: 96px; height: 96px;" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
-                <div class="fs-5 text-dimmed mt-2">Loading...</div>
+                <div class="h4 font-numeric text-center bg-heading text-clip">WACCA RATING ANALYZER</div>
             </div>
         </div>
 
@@ -905,7 +905,7 @@
                     </a>
                 </div>
                 <hr class="my-2">
-                <div class="h3 font-numeric">WACCA RATING ANALYZER</div>
+                <div class="d-flex h3 font-numeric">WACCA RATING ANALYZER</div>
                 <div class="d-flex">
                     <div class="d-flex border border-white rounded">
                         <div class="badge bg-white text-dark rounded-0">DATASET</div>
@@ -1035,43 +1035,50 @@
                         </div>
                         <div class="vr mx-2"></div>
                         <div class="d-flex gap-1">
-                            <div class="d-flex gap-1 align-items-center complete-message-analysis d-none">
-                                <div class="d-flex">
+                            <div class="d-flex gap-1 align-items-start complete-message-analysis d-none">
+                                <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-lightning-charge svg-fs-4" viewBox="0 0 16 16">
                                         <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
                                     </svg>
                                 </div>
-                                <div class="d-flex">
-                                    <span class="lang lang-japanese">分析完了:</span>
-                                    <span class="lang lang-english d-none">Analysis Complete:</span>
-                                </div>
-                                <div class="d-flex">
-                                    <span class="prev-date-timestamp">0000-00-00 00:00</span>
+                                <div>
+                                    <div class="fw-bold">
+                                        <span class="lang lang-japanese">分析完了</span>
+                                        <span class="lang lang-english d-none">Analysis Complete</span>
+                                    </div>
+                                    <div>
+                                        <span class="prev-date-timestamp">0000-00-00 00:00</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="d-flex gap-1 align-items-center complete-message-restoration  d-none">
-                                <div class="d-flex">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-skip-backward svg-fs-4" viewBox="0 0 16 16">
-                                        <path d="M.5 3.5A.5.5 0 0 1 1 4v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v2.94l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L8.5 8.752v2.94c0 .653-.713.998-1.233.696L1 8.752V12a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm7 1.133L1.696 8 7.5 11.367V4.633zm7.5 0L9.196 8 15 11.367V4.633z"/>
+                            <div class="d-flex gap-1 align-items-start complete-message-restoration d-none">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rewind svg-fs-4" viewBox="0 0 16 16">
+                                        <path d="M9.196 8 15 4.633v6.734L9.196 8Zm-.792-.696a.802.802 0 0 0 0 1.392l6.363 3.692c.52.302 1.233-.043 1.233-.696V4.308c0-.653-.713-.998-1.233-.696L8.404 7.304Z"/>
+                                        <path d="M1.196 8 7 4.633v6.734L1.196 8Zm-.792-.696a.802.802 0 0 0 0 1.392l6.363 3.692c.52.302 1.233-.043 1.233-.696V4.308c0-.653-.713-.998-1.233-.696L.404 7.304Z"/>
                                     </svg>
                                 </div>
-                                <div class="d-flex">
-                                    <span class="lang lang-japanese">復元完了:</span>
-                                    <span class="lang lang-english d-none">Restoration Complete:</span>
-                                </div>
-                                <div class="d-flex">
-                                    <span class="prev-date-timestamp">0000-00-00 00:00</span>
+                                <div>
+                                    <div class="fw-bold">
+                                        <span class="lang lang-japanese">復元完了</span>
+                                        <span class="lang lang-english d-none">Restoration Complete</span>
+                                    </div>
+                                    <div>
+                                        <span class="prev-date-timestamp">0000-00-00 00:00</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="d-flex gap-1 align-items-center complete-message-initialization d-none">
-                                <div class="d-flex">
+                            <div class="d-flex gap-1 align-items-start complete-message-initialization d-none">
+                                <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star svg-fs-4" viewBox="0 0 16 16">
                                         <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
                                     </svg>
                                 </div>
-                                <div class="d-flex">
-                                    <span class="lang lang-japanese">初期化完了</span>
-                                    <span class="lang lang-english d-none">Initialization Complete</span>
+                                <div>
+                                    <div class="fw-bold">
+                                        <span class="lang lang-japanese">初期化完了</span>
+                                        <span class="lang lang-english d-none">Initialization Complete</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2761,9 +2768,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="d-flex justify-content-center align-items-center text-nowrap w-100">
-                                <div class="fs-3 text-clip bg-heading">WACCA RATING ANALYZER</div>
+                                <div class="h3 font-numeric">WACCA RATING ANALYZER</div>
                             </div>
-                            <div class="bg-heading" style="height: 1px; width: 100%;"></div>
                             <div class="mt-2">
                                 <div class="mt-2">
                                     <div class="m-2 px-1">
@@ -2771,6 +2777,27 @@
                                         <span class="lang lang-english d-none">The WACCA RATING ANALYZER provides you useful data for increasing your rating based on the data available on your WACCA My Page.</span>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="carouselExampleCaptions" class="carousel slide border rounded mt-2" data-bs-ride="carousel">
+                                <div class="carousel-inner rounded p-1">
+                                    <div class="carousel-item rounded active">
+                                        <img data-src="image/introduction-01.jpg" class="image-delayed-loading d-block w-100" alt="introduction-01">
+                                    </div>
+                                    <div class="carousel-item rounded">
+                                        <img data-src="image/introduction-02.jpg" class="image-delayed-loading d-block w-100" alt="introduction-02">
+                                    </div>
+                                    <div class="carousel-item rounded">
+                                        <img data-src="image/introduction-03.jpg" class="image-delayed-loading d-block w-100" alt="introduction-03">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                             <div class="mt-2">
                                 <div class="justify-content-between py-1">
@@ -3048,8 +3075,12 @@
                                     </div>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="m-2 px-1 border">
+                                    <div class="m-2 px-1">
                                         <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                            </svg>
                                             <span class="lang lang-japanese">完了！</span>
                                             <span class="lang lang-english d-none">Complete!</span>
                                         </div>
@@ -3130,8 +3161,12 @@
                                     </div>
                                 </div>
                                 <div class="mt-2">
-                                    <div class="m-2 px-1 border">
+                                    <div class="m-2 px-1">
                                         <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                            </svg>
                                             <span class="lang lang-japanese">完了！</span>
                                             <span class="lang lang-english d-none">Complete!</span>
                                         </div>
@@ -4175,9 +4210,6 @@
                                         <span class="lang lang-english d-none">
                                             The "Checklist" feature allows you to set the score borders you wish to be challenged with for each chart. As you add items to the checklist, you can see how much your rating would increase if you achieved them all.
                                         </span>
-                                    </div>
-                                    <div class="m-2 px-1 text-center">
-                                        <img src="https://user-images.githubusercontent.com/58391224/166832502-f0b65ad8-c626-45f9-8d2f-9350d802a1a6.GIF" class="img-fluid" style="max-height: 20rem;" alt="...">
                                     </div>
                                 </div>
                                 <div class="mt-2 px-2">

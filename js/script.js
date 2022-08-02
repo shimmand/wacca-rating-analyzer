@@ -2192,13 +2192,15 @@ function switchChartsEntry(index = -1) {
         return false
     }
 
+    quitKeywordSearch(Number(!index), false)
+
     const entries = document.querySelectorAll('.box-entry')
     const entry = entries[index]
     const scrollY = window.scrollY
 
     entries.forEach(entry => entry.classList.add('d-none'))
     entry.classList.remove('d-none')
-    
+
     window.scroll(0, scrollY)
 
     const entryNames = ['newer', 'older']

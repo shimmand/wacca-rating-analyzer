@@ -15,7 +15,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-08-02-rev1"></script>
+        <script defer src="js/script.js?date=2022-08-02-rev2"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -1884,8 +1884,16 @@
                                     <div class="form-check d-flex align-items-center border badge me-1">
                                         <input class="form-check-input m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-0" onchange="applyFilterOptions(0);">
                                         <label class="form-check-label" for="remaining-score-filter-toggle-0">
-                                            <span class="lang lang-japanese">残りスコア</span>
-                                            <span class="lang lang-english d-none">Remaining score</span>
+                                            <div class="d-flex vstack lh-1">
+                                                <div>
+                                                    <span class="lang lang-japanese">ボーダーまでの</span>
+                                                    <span class="lang lang-english d-none">Remaining Score</span>
+                                                </div>
+                                                <div>
+                                                    <span class="lang lang-japanese">残りスコア</span>
+                                                    <span class="lang lang-english d-none">to Next Border</span>
+                                                </div>
+                                            </div>
                                         </label>
                                         <div class="mx-1">
                                             <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-0" onchange="applyFilterOptions(0);" style="min-width: 6.25rem;">
@@ -2625,8 +2633,16 @@
                                     <div class="form-check d-flex align-items-center border badge me-1">
                                         <input class="form-check-input m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-1" onchange="applyFilterOptions(1);">
                                         <label class="form-check-label" for="remaining-score-filter-toggle-1">
-                                            <span class="lang lang-japanese">残りスコア</span>
-                                            <span class="lang lang-english d-none">Remaining score</span>
+                                            <div class="d-flex vstack lh-1">
+                                                <div>
+                                                    <span class="lang lang-japanese">ボーダーまでの</span>
+                                                    <span class="lang lang-english d-none">Remaining Score</span>
+                                                </div>
+                                                <div>
+                                                    <span class="lang lang-japanese">残りスコア</span>
+                                                    <span class="lang lang-english d-none">to Next Border</span>
+                                                </div>
+                                            </div>
                                         </label>
                                         <div class="mx-1">
                                             <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-1" onchange="applyFilterOptions(1);" style="min-width: 6.25rem;">

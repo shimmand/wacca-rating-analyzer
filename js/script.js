@@ -2679,6 +2679,9 @@ function refreshChartList() {
                 if (Number(item.dataset.remainingMin) > Number(remainingScore)) {
                     item.classList.add('d-none')
                 }
+                if (item.dataset.remainingMin === '') {
+                    item.classList.add('d-none')
+                }
             }
         }
 

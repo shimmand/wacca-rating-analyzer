@@ -261,6 +261,11 @@ html.fs-50 {
     color: #d63384;
 }
 
+.form-check-input-red:checked {
+    background-color: var(--bs-red);
+    border-color: var(--bs-red);
+}
+
 
 /* Rate class */
 

@@ -1879,7 +1879,35 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chart-list-control--score-filter" id="remaining-score-filter-1">
+                            <div class="chart-list-control--others-filter">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center badge border me-1">
+                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-0" onchange="applyFilterOptions(0);" checked>
+                                        <label class="form-check-label" for="offline-filter-toggle-yes-0">
+                                            <span class="lang lang-japanese">オフラインで利用可</span>
+                                            <span class="lang lang-english d-none">Available offline</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border me-1">
+                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-0" onchange="applyFilterOptions(0);" checked>
+                                        <label class="form-check-label" for="offline-filter-toggle-no-0">
+                                            <span class="lang lang-japanese">オフラインで利用不可</span>
+                                            <span class="lang lang-english d-none">Not available offline</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-0" style="margin-bottom: -1rem;">
+                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none" style="pointer-events: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                    </svg>
+                                </div>
+                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none" style="pointer-events: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                    </svg>
+                                </div>
                                 <div class="d-flex flex-nowrap overflow-scroll justify-content-start mt-1 pb-3">
                                     <div class="form-check d-flex align-items-center border badge me-1">
                                         <input class="form-check-input m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-0" onchange="applyFilterOptions(0);">
@@ -1972,24 +2000,6 @@
                                             <span class="lang lang-japanese">以下</span>
                                             <span class="lang lang-english d-none">or less</span>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chart-list-control--others-filter">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center badge border me-1">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-yes-0">
-                                            <span class="lang lang-japanese">オフラインで利用可</span>
-                                            <span class="lang lang-english d-none">Available offline</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border me-1">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-no-0">
-                                            <span class="lang lang-japanese">オフラインで利用不可</span>
-                                            <span class="lang lang-english d-none">Not available offline</span>
-                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -2628,7 +2638,35 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chart-list-control--score-filter" id="remaining-score-filter-1">
+                            <div class="chart-list-control--others-filter">
+                                <div class="d-flex flex-wrap justify-content-start mt-1">
+                                    <div class="form-check d-flex align-items-center badge border me-1">
+                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-1" onchange="applyFilterOptions(1);" checked>
+                                        <label class="form-check-label" for="offline-filter-toggle-yes-1">
+                                            <span class="lang lang-japanese">オフラインで利用可</span>
+                                            <span class="lang lang-english d-none">Available offline</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center badge border me-1">
+                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-1" onchange="applyFilterOptions(1);" checked>
+                                        <label class="form-check-label" for="offline-filter-toggle-no-1">
+                                            <span class="lang lang-japanese">オフラインで利用不可</span>
+                                            <span class="lang lang-english d-none">Not available offline</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-1"  style="margin-bottom: -1rem;">
+                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none" style="pointer-events: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                    </svg>
+                                </div>
+                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none" style="pointer-events: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                    </svg>
+                                </div>
                                 <div class="d-flex flex-nowrap overflow-scroll justify-content-start mt-1 pb-3">
                                     <div class="form-check d-flex align-items-center border badge me-1">
                                         <input class="form-check-input m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-1" onchange="applyFilterOptions(1);">
@@ -2721,24 +2759,6 @@
                                             <span class="lang lang-japanese">以下</span>
                                             <span class="lang lang-english d-none">or less</span>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chart-list-control--others-filter">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center badge border me-1">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-yes-1">
-                                            <span class="lang lang-japanese">オフラインで利用可</span>
-                                            <span class="lang lang-english d-none">Available offline</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border me-1">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-no-1">
-                                            <span class="lang lang-japanese">オフラインで利用不可</span>
-                                            <span class="lang lang-english d-none">Not available offline</span>
-                                        </label>
                                     </div>
                                 </div>
                             </div>

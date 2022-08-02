@@ -92,45 +92,137 @@ function initialize() {
             {
                 const types = ['targets', 'candidates', 'others']
 
-                types.forEach(type => {
-                    const toggles = document.querySelectorAll(`.rating-${type}-toggle`)
+                if (localStorage.getItem('rating-analyzer-type-filter') === null) {
+                    types.forEach(type => {
+                        const toggles = document.querySelectorAll(`.type-filter-toggle-${type}`)
 
-                    switch (localStorage.getItem(`rating-analyzer-filter-type-${type}`)) {
-                        case 'true':
-                            toggles.forEach(input => input.checked = true)
-                            break
+                        switch (localStorage.getItem(`rating-analyzer-filter-type-${type}`)) {
+                            case 'true':
+                                toggles.forEach(toggle => toggle.checked = true)
+                                break
 
-                        case 'false':
-                            toggles.forEach(input => input.checked = false)
-                            break
+                            case 'false':
+                                toggles.forEach(toggle => toggle.checked = false)
+                                break
 
-                        default:
-                            break
-                    }
-                })
+                            default:
+                                break
+                        }
+                    })
+                } else {
+                    const favorites = localStorage.getItem('rating-analyzer-type-filter').split(',')
+
+                    types.forEach(type => {
+                        const toggles = document.querySelectorAll(`.type-filter-toggle-${type}`)
+
+                        if (favorites.indexOf(type) === -1) {
+                            toggles.forEach(toggle => toggle.checked = false)
+                        }
+                    })
+                    
+                }
             }
 
             // Restore the selected state of the difficulty filter
             {
                 const difficulties = ['normal', 'hard', 'expert', 'inferno']
 
-                difficulties.forEach(difficulty => {
-                    const toggles = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
+                if (localStorage.getItem('rating-analyzer-difficulty-filter') === null) {
+                    difficulties.forEach(difficulty => {
+                        const toggles = document.querySelectorAll(`.type-filter-toggle-${difficulty}`)
 
-                    switch (localStorage.getItem(`rating-analyzer-filter-difficulty-${difficulty}`)) {
-                        case 'true':
-                            toggles.forEach(input => input.checked = true)
-                            break
+                        switch (localStorage.getItem(`rating-analyzer-filter-type-${difficulty}`)) {
+                            case 'true':
+                                toggles.forEach(toggle => toggle.checked = true)
+                                break
 
-                        case 'false':
-                            toggles.forEach(input => input.checked = false)
-                            break
+                            case 'false':
+                                toggles.forEach(toggle => toggle.checked = false)
+                                break
 
-                        default:
-                            break
-                    }
-                })
+                            default:
+                                break
+                        }
+                    })
+                } else {
+                    const favorites = localStorage.getItem('rating-analyzer-difficulty-filter').split(',')
+
+                    difficulties.forEach(difficulty => {
+                        const toggles = document.querySelectorAll(`.difficulty-filter-toggle-${difficulty}`)
+
+                        if (favorites.indexOf(difficulty) === -1) {
+                            toggles.forEach(toggle => toggle.checked = false)
+                        }
+                    })
+                    
+                }
             }
+
+            // Restore the selected state of the level filter
+            {
+                const levels = ['15', '14', '13+', '13', '12+', '12', '11+', '11', '10+', '10', 'lower']
+
+                if (localStorage.getItem('rating-analyzer-level-filter') === null) {
+                    localStorage.setItem('rating-analyzer-level-filter', levels.join(','))
+                } else {
+                    const favorites = localStorage.getItem('rating-analyzer-level-filter').split(',')
+
+                    levels.forEach(level => {
+                        const toggles = document.querySelectorAll(`.level-filter-toggle-${String(level).replace('+', 'plus')}`)
+
+                        if (favorites.indexOf(level) === -1) {
+                            toggles.forEach(toggle => toggle.checked = false)
+                        }
+                    })
+                    
+                }
+            }
+
+            {
+                if (localStorage.getItem('rating-analyzer-score-filter') === null) {
+                    localStorage.setItem('rating-analyzer-score-filter', 'false,0,false,0,false,0')
+                } else {
+                    const favorites = localStorage.getItem('rating-analyzer-score-filter').split(',')
+
+                    const minScoreToggle = document.querySelectorAll('.score-filter-min-toggle')
+                    minScoreToggle.forEach(toggle => toggle.checked = (favorites[0] === 'true'))
+
+                    const minScoreSelect = document.querySelectorAll('.score-filter-min-select')
+                    minScoreSelect.forEach(toggle => toggle.value = favorites[1])
+
+                    const maxScoreToggle = document.querySelectorAll('.score-filter-max-toggle')
+                    maxScoreToggle.forEach(toggle => toggle.checked = (favorites[2] === 'true'))
+
+                    const maxScoreSelect = document.querySelectorAll('.score-filter-max-select')
+                    maxScoreSelect.forEach(toggle => toggle.value = favorites[3])
+
+                    const remainingScoreToggle = document.querySelectorAll('.remaining-score-filter-toggle')
+                    remainingScoreToggle.forEach(toggle => toggle.checked = (favorites[4] === 'true'))
+
+                    const remainingScoreSelect = document.querySelectorAll('.remaining-score-filter-select')
+                    remainingScoreSelect.forEach(toggle => toggle.value = favorites[5])
+                }
+            }
+
+            {
+                const ables = ['yes', 'no']
+
+                if (localStorage.getItem('rating-analyzer-offline-filter') === null) {
+                    localStorage.setItem('rating-analyzer-offline-filter', ables.join(','))
+                } else {
+                    const favorites = localStorage.getItem('rating-analyzer-offline-filter').split(',')
+
+                    ables.forEach(able => {
+                        const toggles = document.querySelectorAll(`.offline-filter-toggle-${able}`)
+
+                        if (favorites.indexOf(able) === -1) {
+                            toggles.forEach(toggle => toggle.checked = false)
+                        }
+                    })
+                }
+            }
+
+            saveFilterOptions(0)
 
             // Restore the page display scale
             {
@@ -228,9 +320,7 @@ function initialize() {
                     break
             }
 
-            addKeywordSearchOption()
             quitKeywordSearch()
-            deleteLastKeyword()
 
             {
                 const images = document.querySelectorAll('.image-delayed-loading')
@@ -654,9 +744,17 @@ function analyze(){
             tableRow.innerHTML = code
             tableRow.setAttribute('data-list-index', listIndex)
             tableRow.setAttribute('data-index', index + 1)
-            tableRow.setAttribute('data-const', chart[4])
-            tableRow.setAttribute('data-rate', chart[6])
+            tableRow.setAttribute('data-is-targets', tableRow.classList.contains('table-targets') ? 'true' : 'false')
+            tableRow.setAttribute('data-is-candidates', tableRow.classList.contains('table-candidates') ? 'true' : 'false')
+            tableRow.setAttribute('data-title', chart[0])
+            tableRow.setAttribute('data-alt-title', getEnglishTitle(chart[0]))
+            tableRow.setAttribute('data-difficulty', chart[1])
+            tableRow.setAttribute('data-level', String(chart[2]).match(/[0-9+]+/g)[0])
+            tableRow.setAttribute('data-score', chart[3])
+            tableRow.setAttribute('data-constant', chart[4])
+            tableRow.setAttribute('data-rating', chart[6])
             tableRow.setAttribute('data-remaining-min', '')
+            tableRow.setAttribute('data-offline', isAvailableOnOffline(chart[0]) ? 'yes' : 'no')
 
             const chartType = (listIndex == 0) ? 'Newer' : 'Older'
             const maxRate = Number(4 * chart[4]).toFixed(3)
@@ -984,9 +1082,7 @@ function analyze(){
         timeStamps.forEach(stamp => stamp.textContent = localStorage.getItem('rating-analyzer-prev-date'))
     }
 
-    updateChartVisibilityByType()
-    updateChartVisibilityByDifficulty()
-    refreshChartVisibility()
+    refreshChartList()
 
     switch (localStorage.getItem('rating-analyzer-lang')) {
         case 'japanese':
@@ -1013,161 +1109,6 @@ function analyze(){
     }
 }
 
-// Set filters based on changes in type options
-function toggleChartVisibilityByType(type, checked) {
-    const types = ['targets', 'candidates', 'others']
-
-    if (types.includes(type) === false) {
-        return false
-    }
-
-    {
-        const toggles = document.querySelectorAll(`.rating-${type}-toggle`)
-        toggles.forEach(input => input.checked = checked)
-    }
-
-    localStorage.setItem(`rating-analyzer-filter-type-${type}`, checked)
-    updateChartVisibilityByType()
-    refreshChartVisibility()
-}
-
-// Set filters based on the current type options
-function updateChartVisibilityByType() {
-    const rows = document.querySelectorAll('tr.chart-list--item')
-    rows.forEach(row => {
-        row.classList.remove('type-hidden')
-        {
-            const key = 'rating-analyzer-filter-type-targets'
-            if (
-                (localStorage.getItem(key) === 'false') &&
-                (row.classList.contains('table-targets')) &&
-                (row.classList.contains('table-candidates') === false)
-            ) {
-                row.classList.add('type-hidden')
-            }
-        }
-        {
-            const key = 'rating-analyzer-filter-type-candidates'
-            if (
-                (localStorage.getItem(key) === 'false') &&
-                (row.classList.contains('table-candidates'))
-            ) {
-                row.classList.add('type-hidden')
-            }
-        }
-        {
-            const key1 = 'rating-analyzer-filter-type-targets'
-            const key2 = 'rating-analyzer-filter-type-candidates'
-            if (
-                (localStorage.getItem(key1) !== 'false') &&
-                (localStorage.getItem(key2) === 'false') &&
-                (row.classList.contains('table-targets'))
-            ) {
-                row.classList.remove('type-hidden')
-            }
-        }
-        {
-            const key = 'rating-analyzer-filter-type-others'
-            if (
-                (localStorage.getItem(key) === 'false') &&
-                (row.classList.contains('table-targets') === false) &&
-                (row.classList.contains('table-candidates') === false)
-            ) {
-                row.classList.add('type-hidden')
-            }
-        }
-    })
-}
-
-// Set filters based on changes in difficulty options
-function toggleChartVisibilityByDifficulty(difficulty, checked) {
-    const difficulties = ['normal', 'hard', 'expert', 'inferno']
-
-    if (difficulties.includes(difficulty) === false) {
-        return false
-    }
-
-    {
-        const toggles = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
-        toggles.forEach(input => input.checked = checked)
-    }
-
-    localStorage.setItem(`rating-analyzer-filter-difficulty-${difficulty}`, checked)
-
-    {
-        const targetRows = document.querySelectorAll(`.difficulty-${difficulty}`)
-
-        targetRows.forEach(row => {
-            if (checked) {
-                row.classList.remove('difficulty-hidden')
-            } else {
-                row.classList.add('difficulty-hidden')
-            }
-        })
-    }
-
-    refreshChartVisibility()
-}
-
-// Set filters based on the current difficulty options
-function updateChartVisibilityByDifficulty() {
-    const difficulties = ['normal', 'hard', 'expert', 'inferno']
-
-    difficulties.forEach(difficulty => {
-        const checkboxes = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
-        const checked = checkboxes[0].checked
-        const targetRows = document.querySelectorAll(`.difficulty-${difficulty}`)
-
-        targetRows.forEach(row => {
-            if (checked) {
-                row.classList.remove('difficulty-hidden')
-            } else {
-                row.classList.add('difficulty-hidden')
-            }
-        })
-    })
-}
-
-function filterByRemainingScore(difference, checked) {
-    if (String(difference).match(/[0-9]+/g)[0] !== String(difference)) {
-        return false
-    }
-
-    {
-        const selects = document.querySelectorAll('.remaining-score-filter-select')
-        selects.forEach(div => div.value = difference)
-    }
-
-    {
-        const targetRows = document.querySelectorAll('.scoresTable > tr')
-
-        targetRows.forEach(row => {
-            if (checked) {
-                if (row.dataset.remainingMin !== '' && Number(row.dataset.remainingMin) <= Number(difference)) {
-                    row.classList.remove('remaining-hidden')
-                } else {
-                    row.classList.add('remaining-hidden')
-                }
-            } else {
-                row.classList.remove('remaining-hidden')
-            }
-        })
-    }
-
-    refreshChartVisibility()
-}
-
-function toggleRemainingScoreFilter(checked) {
-    document.querySelector('#btn-remaining-score-filter').click()
-    setDisplayNone('.icon-remaining-score-filter', !checked)
-
-    if (checked === false) {
-        toggleDisplayState('remaining-score-filter', false)
-        const select = document.querySelector('#remaining-score-filter-select-1')
-        filterByRemainingScore(select.value, false)
-    }
-}
-
 // Apply a filter to the table
 function refreshChartVisibility() {
     const rows = document.querySelectorAll('tr.chart-list--item')
@@ -1188,7 +1129,7 @@ function refreshChartVisibility() {
         }
     })
 
-    setDisplayNone('.chart-list-control--check-list-active', true)
+    setDisplayNone(['.chart-list-control--check-list-active', 'chart-list-control--title-search-active'], true)
 
     {
         const entries = document.querySelectorAll('.box-entry')
@@ -1235,6 +1176,12 @@ function activateChecklistViewer() {
         return
     }
 
+    if (localStorage.getItem('rating-analyzer-charts-entry') === 'newer') {
+        quitKeywordSearch(0, false)
+    } else {
+        quitKeywordSearch(1, false)
+    }
+
     rows.forEach(row => {
         if (row.querySelectorAll('.list-item--small a.multi-rate-selected').length === 0) {
             row.classList.add('d-none')
@@ -1274,6 +1221,7 @@ function activateChecklistViewer() {
         })
     }
 
+    setDisplayNone('.chart-list-control--title-search-active', true)
     setDisplayNone('.chart-list-control--check-list-active', false)
 
     {
@@ -1792,7 +1740,7 @@ function clearCheckList() {
     const chartLists = document.querySelectorAll('.scoresTable')
     const anchors = chartLists[index].querySelectorAll('a.multi-rate-selected')
     anchors.forEach(anchor => anchor.classList.remove('multi-rate-selected'))
-    refreshChartVisibility()
+    refreshChartList()
     saveCheckList()
     applyCheckList()
 }
@@ -2591,110 +2539,29 @@ function activateKeywordSearch(keyword = null, index = null) {
     }
 
     if (String(keyword).length === 0) {
-        refreshChartVisibility()
+        refreshChartList()
         button.classList.add('d-none')
         return
     } else {
         button.classList.remove('d-none')
-        if (String(keyword).length < 3) {
-            return
-        }
-        if (String(keyword).slice(-1) === ':') {
-            return
-        }
     }
 
-    refreshChartVisibility()
+    refreshChartList()
 
     rows.forEach(row => {
         row.classList.remove('d-none')
         keywords.forEach(key => {
-            if (key.indexOf(':') !== -1) {
-                if (key.match(/level-(min|max):([0-9]{1,2}\+?)/) !== null) {
-                    const value = Number(row.dataset.searchText.match(/level:([0-9]{1,2}\+?)/)[1].replace('+', '.7'))
-                    const limit = Number(key.match(/level-(min|max):([0-9]{1,2}\+?)/)[2].replace('+', '.7'))
-
-                    if (key.indexOf('level-min:') !== -1) {
-                        if (value < limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                    if (key.indexOf('level-max:') !== -1) {
-                        if (value > limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                } else if (key.match(/constant-(min|max):([0-9]{1,2}\.[0-9])/) !== null) {
-                    const value = Number(row.dataset.searchText.match(/constant:([0-9]{1,2}\.[0-9])/)[1])
-                    const limit = Number(key.match(/constant-(min|max):([0-9]{1,2}\.[0-9])/)[2])
-
-                    if (key.indexOf('constant-min:') !== -1) {
-                        if (value < limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                    if (key.indexOf('constant-max:') !== -1) {
-                        if (value > limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                } else if (key.match(/score-(min|max):([0-9]{1,4}k)/) !== null) {
-                    const value = Number(row.dataset.searchText.match(/score:([0-9]{1,7})/)[1])
-                    const limit = Number(key.match(/score-(min|max):([0-9]{1,4}k)/)[2].replace('k', '000'))
-
-                    if (key.indexOf('score-min:') !== -1) {
-                        if (value < limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                    if (key.indexOf('score-max:') !== -1) {
-                        if (value > limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                } else if (key.match(/score-(min|max):([0-9]{1,7})/) !== null) {
-                    const value = Number(row.dataset.searchText.match(/score:([0-9]{1,7})/)[1])
-                    const limit = Number(key.match(/score-(min|max):([0-9]{1,7})/)[2])
-
-                    if (key.indexOf('score-min:') !== -1) {
-                        if (value < limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                    if (key.indexOf('score-max:') !== -1) {
-                        if (value > limit) {
-                            row.classList.add('d-none')
-                        }
-                    }
-                } else if (row.dataset.searchText.indexOf(`${key} `) === -1) {
-                    row.classList.add('d-none')
-                }
-            } else {
-                if (row.dataset.searchText.indexOf(key) === -1) {
-                    row.classList.add('d-none')
-                }
+            if (row.dataset.searchText.indexOf(key) === -1) {
+                row.classList.add('d-none')
             }
         })
     })
+
+    setDisplayNone('.chart-list-control--check-list-active', true)
+    setDisplayNone('.chart-list-control--title-search-active', false)
 }
 
-function addKeywordSearchOption(option = null, index = null) {
-    if ([option, index].indexOf(null) !== -1) {
-        return false
-    }
-
-    const input = document.querySelectorAll('.input-keyword-search')[index]
-    input.value = String(input.value).replace('　', ' ')
-    input.value += ` ${option}`
-    input.value = String(input.value).replaceAll(/\s+/g, ' ')
-
-    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
-    button.classList.remove('d-none')
-
-    input.focus()
-}
-
-function quitKeywordSearch(index = null) {
+function quitKeywordSearch(index = null, focus = true) {
     if (index === null) {
         return false
     }
@@ -2705,31 +2572,278 @@ function quitKeywordSearch(index = null) {
     const button = document.querySelectorAll('.button-quit-keyword-search')[index]
     button.classList.add('d-none')
 
-    refreshChartVisibility()
-    input.focus()
+    setDisplayNone('.chart-list-control--title-search-active', true)
+
+    refreshChartList()
+
+    if (focus === true) {
+        input.focus()
+    }
 }
 
-function deleteLastKeyword(index = null) {
-    if (index === null) {
-        return false
+function refreshChartList() {
+    const items = document.querySelectorAll('tr.chart-list--item')
+    items.forEach(item => {
+        item.classList.remove('d-none')
+    })
+
+    items.forEach(item => {
+        {
+            const favorite = String(localStorage.getItem('rating-analyzer-type-filter'))
+            const isTargets = String(item.dataset.isTargets)
+            const isCandidates = String(item.dataset.isCandidates)
+
+            if (favorite.indexOf('targets') === -1) {
+                if (favorite.indexOf('candidates') !== -1) {
+                    if ((isTargets === 'true') &&
+                        (isCandidates === 'false')) {
+                        item.classList.add('d-none')
+                    }
+                } else {
+                    if (isTargets === 'true') {
+                        item.classList.add('d-none')
+                    }
+                }
+            }
+
+            if (favorite.indexOf('candidates') === -1) {
+                if (isCandidates === 'true') {
+                    item.classList.add('d-none')
+                }
+            }
+
+            if (favorite.indexOf('others') === -1) {
+                if ((isTargets === 'false') &&
+                    (isCandidates === 'false')) {
+                    item.classList.add('d-none')
+                }
+            }
+        }
+
+        {
+            const favorite = String(localStorage.getItem('rating-analyzer-difficulty-filter'))
+            const difficulties = ['normal', 'hard', 'expert', 'inferno']
+            
+            difficulties.forEach(difficulty => {
+                if (favorite.indexOf(difficulty) === -1) {
+                    if (String(item.dataset.difficulty).toLowerCase().indexOf(difficulty) !== -1) {
+                        item.classList.add('d-none')
+                    }
+                }
+            })
+            
+        }
+
+        {
+            const favorite = String(localStorage.getItem('rating-analyzer-level-filter'))
+            const levels = ['15', '14', '13+', '13', '12+', '12', '11+', '11', '10+', '10', 'lower']
+            
+            levels.forEach(level => {
+                if (favorite.split(',').indexOf(level) === -1) {
+                    if (level === 'lower') {
+                        if (Number(item.dataset.constant) < 10) {
+                            item.classList.add('d-none')
+                        }
+                    } else {
+                        if (String(item.dataset.level) === level) {
+                            item.classList.add('d-none')
+                        }
+                    }
+                }
+            })
+        }
+
+        {
+            const favoriteOpts = String(localStorage.getItem('rating-analyzer-score-filter')).split(',')
+            const minScoreEnabled = favoriteOpts[0]
+            const minScore = favoriteOpts[1]
+            const maxScoreEnabled = favoriteOpts[2]
+            const maxScore = favoriteOpts[3]
+            const remainingScoreEnabled = favoriteOpts[4]
+            const remainingScore = favoriteOpts[5]
+
+            
+            if (minScoreEnabled === 'true') {
+                if (Number(item.dataset.score) < Number(minScore)) {
+                    item.classList.add('d-none')
+                }
+            }
+
+            if (maxScoreEnabled === 'true') {
+                if (Number(item.dataset.score) > Number(maxScore)) {
+                    item.classList.add('d-none')
+                }
+            }
+
+            if (remainingScoreEnabled === 'true') {
+                if (Number(item.dataset.remainingMin) > Number(remainingScore)) {
+                    item.classList.add('d-none')
+                }
+            }
+        }
+
+        {
+            const favorite = String(localStorage.getItem('rating-analyzer-offline-filter'))
+            const ables = ['yes', 'no']
+            
+            ables.forEach(able => {
+                if (favorite.split(',').indexOf(able) === -1) {
+                    if (String(item.dataset.offline) === able) {
+                        item.classList.add('d-none')
+                    }
+                }
+            })
+        }
+    })
+
+    setDisplayNone(['.chart-list-control--check-list-active', 'chart-list-control--title-search-active'], true)
+
+    {
+        const entries = document.querySelectorAll('.box-entry')
+        entries.forEach(entry => {
+            entry.querySelectorAll('.scoresTable tr.chart-list--alert').forEach(alert => alert.classList.add('d-none'))
+            const rows = entry.querySelectorAll('.scoresTable tr.chart-list--item:not(.d-none)')
+            const alert = entry.querySelector('.scoresTable tr.chart-list--alert-filter')
+            if (rows.length === 0) {
+                alert.classList.remove('d-none')
+                entry.querySelector('.chart-list').scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                })
+            } else {
+                alert.classList.add('d-none')
+            }
+        })
     }
 
-    const input = document.querySelectorAll('.input-keyword-search')[index]
-    input.value = String(input.value).replace('　', ' ')
-
-    const lastIndex = input.value.lastIndexOf(' ')
-
-    if (lastIndex === -1) {
-        input.value = ''
-    } else {
-        input.value = String(input.value).substring(0, lastIndex)
+    {
+        const lists = document.querySelectorAll('.chart-list')
+        lists.forEach(list => {
+            list.classList.remove('opacity-trans-100')
+            window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function() {
+                    list.classList.add('opacity-trans-100')
+                })
+            })
+        })
     }
 
-    if (input.value === '') {
-        const button = document.querySelectorAll('.button-quit-keyword-search')[index]
-        button.classList.add('d-none')
+    {
+        setDisplayNone('.check-list-viewer-menu', true)
+        setDisplayNone('.check-list-viewer-menu-off', false)
+    }
+}
+
+function applyFilterOptions(index) {
+    saveFilterOptions(index)
+    refreshChartList()
+}
+
+function switchChildrenToggles(index, parentsSelector, childrenSelector) {
+    const parents = document.querySelectorAll(parentsSelector)
+    const children = document.querySelectorAll(childrenSelector)
+
+    if (parents[index].checked === true) {
+        children.forEach(child => child.checked = true)
     }
 
-    refreshChartVisibility()
-    input.focus()
+    if (parents[index].checked === false) {
+        children.forEach(child => child.checked = false)
+    }
+
+    applyFilterOptions(index)
+}
+
+function saveFilterOptions(index) {
+    {
+        const types = ['targets', 'candidates', 'others']
+        const favorites = types.filter(type => {
+            const toggles = document.querySelectorAll(`.type-filter-toggle-${type}`)
+            toggles[Number(!index)].checked = toggles[index].checked
+            return (toggles[index].checked === true)
+        })
+        localStorage.setItem('rating-analyzer-type-filter', favorites.join(','))
+    }
+
+    {
+        const difficulties = ['normal', 'hard', 'expert', 'inferno']
+        const favorites = difficulties.filter(difficulty => {
+            const toggles = document.querySelectorAll(`.difficulty-filter-toggle-${difficulty}`)
+            toggles[Number(!index)].checked = toggles[index].checked
+            return (toggles[index].checked === true)
+        })
+        localStorage.setItem('rating-analyzer-difficulty-filter', favorites.join(','))
+    }
+
+    {
+        const levels = ['15', '14', '13+', '13', '12+', '12', '11+', '11', '10+', '10', 'lower']
+        const favorites = levels.filter(level => {
+            const toggles = document.querySelectorAll(`.level-filter-toggle-${String(level).replace('+', 'plus')}`)
+            toggles[Number(!index)].checked = toggles[index].checked
+            return (toggles[index].checked === true)
+        })
+        localStorage.setItem('rating-analyzer-level-filter', favorites.join(','))
+
+        const allToggles = document.querySelectorAll('.level-filter-toggle-all')
+
+        if (levels.join(',') === favorites.join(',')) {
+            allToggles.forEach(toggle => {
+                toggle.indeterminate = false
+                toggle.checked = true
+            })
+        }
+
+        if (levels.join(',') !== favorites.join(',') && favorites.join(',') !== '') {
+            allToggles.forEach(toggle => {
+                toggle.indeterminate = true
+                toggle.checked = true
+            })
+        }
+
+        if (favorites.join(',') === '') {
+            allToggles.forEach(toggle => {
+                toggle.indeterminate = false
+                toggle.checked = false
+            })
+        }
+    }
+
+    {
+        const minScoreToggle = document.querySelectorAll('.score-filter-min-toggle')
+        const minScoreSelect = document.querySelectorAll('.score-filter-min-select')
+        const maxScoreToggle = document.querySelectorAll('.score-filter-max-toggle')
+        const maxScoreSelect = document.querySelectorAll('.score-filter-max-select')
+        const remainingScoreToggle = document.querySelectorAll('.remaining-score-filter-toggle')
+        const remainingScoreSelect = document.querySelectorAll('.remaining-score-filter-select')
+
+        minScoreToggle[Number(!index)].checked = minScoreToggle[index].checked
+        minScoreSelect[Number(!index)].value = minScoreSelect[index].value
+        maxScoreToggle[Number(!index)].checked = maxScoreToggle[index].checked
+        maxScoreSelect[Number(!index)].value = maxScoreSelect[index].value
+        remainingScoreToggle[Number(!index)].checked = remainingScoreToggle[index].checked
+        remainingScoreSelect[Number(!index)].value = remainingScoreSelect[index].value
+
+        const favorite = [
+            minScoreToggle[index].checked,
+            minScoreSelect[index].value,
+            maxScoreToggle[index].checked,
+            maxScoreSelect[index].value,
+            remainingScoreToggle[index].checked,
+            remainingScoreSelect[index].value
+        ].join(',')
+
+        localStorage.setItem('rating-analyzer-score-filter', favorite)
+    }
+
+    {
+        const ables = ['yes', 'no']
+        const favorites = ables.filter(able => {
+            const toggles = document.querySelectorAll(`.offline-filter-toggle-${able}`)
+            toggles[Number(!index)].checked = toggles[index].checked
+            return (toggles[index].checked === true)
+        })
+
+        localStorage.setItem('rating-analyzer-offline-filter', favorites.join(','))
+    }
 }

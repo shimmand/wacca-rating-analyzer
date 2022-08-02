@@ -2192,8 +2192,6 @@ function switchChartsEntry(index = -1) {
         return false
     }
 
-    quitKeywordSearch(Number(!index), false)
-
     const entries = document.querySelectorAll('.box-entry')
     const entry = entries[index]
     const scrollY = window.scrollY

@@ -559,11 +559,14 @@ function analyze(){
 
             tableRow.classList.add('border-3', 'border-top-0', 'border-end-0', 'border-start-0')
 
-            const code = `
+            let code = `
             <td>
                 <div class="list-item--small row d-xl-none d-xxl-none">
-                    <div class="list-item--index-wrapper col-2 d-flex">
-                        <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
+                    <div class="list-item--index-wrapper col-2">
+                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
+                            <div class="list-item--index-number">${index + 1}</div>
+                            <!-- rating target indicator -->
+                        </div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
                         <div class="list-item--top-wrapper p-0">
@@ -663,8 +666,11 @@ function analyze(){
                     </div>
                 </div>
                 <div class="list-item--large row d-none d-xl-flex d-xxl-flex${(index < targetsLength[listIndex]) ? ' bg-target-striped' : ''}">
-                    <div class="list-item--index-wrapper col-1 d-flex">
-                        <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
+                    <div class="list-item--index-wrapper col-1">
+                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
+                            <div class="list-item--index-number">${index + 1}</div>
+                            <!-- rating target indicator -->
+                        </div>
                     </div>
                     <div class="list-item--content-wrapper col-11 row mb-1">
                         <div class="list-item--heading-wrapper col row sticky-column">
@@ -741,6 +747,24 @@ function analyze(){
             </td>`
             .replaceAll(/(^ {12}|^\n)/gm, '')
 
+            {
+                const target = '<!-- rating target indicator -->'
+                const replace = `
+                    <div class="filter-targets rounded-pill m-1">
+                        <div class="d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                            </svg>
+                        </div>
+                    </div>`
+                .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
+
+                if (tableRow.classList.contains('table-targets')) {
+                    code = code.replaceAll(target, replace)
+                }
+            }
+
             tableRow.innerHTML = code
             tableRow.setAttribute('data-list-index', listIndex)
             tableRow.setAttribute('data-index', index + 1)
@@ -779,15 +803,8 @@ function analyze(){
 
             {
                 const searchText = `
-                    ${String(chart[0]).toLowerCase()} 
-                    ${String(getEnglishTitle(chart[0])).toLowerCase()} 
-                    difficulty:${chart[1]} difficulty:${String(chart[1])[0]} 
-                    level:${String(chart[2]).match(/[0-9+]+/g)[0]} 
-                    score:${chart[3]} 
-                    constant:${chart[4]} 
-                    rating:${chart[6]} 
-                    offline:${isAvailableOnOffline(chart[0])} offline:${String(isAvailableOnOffline(chart[0]))[0]} 
-                    offline:${isAvailableOnOffline(chart[0]) ? 'yes' : 'no'} offline:${isAvailableOnOffline(chart[0]) ? 'y' : 'n'} `
+                    ${String(katakanaToHiragana(chart[0]).toLowerCase())} 
+                    ${String(getEnglishTitle(chart[0])).toLowerCase()} `
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
                 
                 tableRow.setAttribute('data-search-text', searchText)
@@ -805,63 +822,63 @@ function analyze(){
 
                 localStorage.setItem('rating-analyzer-image-data-date', dateValue)
             }
-
-            {
-                const tempRow = document.createElement('tr')
-                const tableRow = scoresTables[listIndex].appendChild(tempRow)
-                const alert = `
-                <td>
-                    <div class="list-item--alert d-flex justify-content-start align-items-center">
-                        <div class="svg-wrapper d-flex mx-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
-                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-                            </svg>
-                        </div>
-                        <div class="d-flex vstack mx-1">
-                            <div class="d-flex small">
-                                <span class="lang lang-japanese">表示できる譜面がありません。</span>
-                                <span class="lang lang-english d-none">There are no charts to display.</span>
-                            </div>
-                            <div class="d-flex small">
-                                <span class="lang lang-japanese">フィルターの選択内容を変更してください。</span>
-                                <span class="lang lang-english d-none">Please change the filter selections.</span>
-                            </div>
-                        </div>
-                    </div>
-                </td>`
-                .replaceAll(/(^ {16}|^\n)/gm, '')
-
-                tableRow.innerHTML = alert
-                tableRow.classList.add('chart-list--alert', 'chart-list--alert-filter', 'd-none')
-            }
-
-            {
-                const tempRow = document.createElement('tr')
-                const tableRow = scoresTables[listIndex].appendChild(tempRow)
-                const alert = `
-                <td>
-                    <div class="list-item--alert d-flex justify-content-start align-items-center">
-                        <div class="svg-wrapper d-flex mx-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
-                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-                            </svg>
-                        </div>
-                        <div class="d-flex vstack mx-1">
-                            <div class="d-flex small">
-                                <span class="lang lang-japanese">チェックリストが空です。</span>
-                                <span class="lang lang-english d-none">No items added to checklist.</span>
-                            </div>
-                        </div>
-                    </div>
-                </td>`
-                .replaceAll(/(^ {16}|^\n)/gm, '')
-
-                tableRow.innerHTML = alert
-                tableRow.classList.add('chart-list--alert', 'chart-list--alert-check', 'd-none')
-            }
         })
+
+        {
+            const tempRow = document.createElement('tr')
+            const tableRow = scoresTables[listIndex].appendChild(tempRow)
+            const alert = `
+            <td>
+                <div class="list-item--alert d-flex justify-content-start align-items-center">
+                    <div class="svg-wrapper d-flex mx-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                        </svg>
+                    </div>
+                    <div class="d-flex vstack mx-1">
+                        <div class="d-flex small">
+                            <span class="lang lang-japanese">表示できる譜面がありません。</span>
+                            <span class="lang lang-english d-none">There are no charts to display.</span>
+                        </div>
+                        <div class="d-flex small">
+                            <span class="lang lang-japanese">フィルターの選択内容を変更してください。</span>
+                            <span class="lang lang-english d-none">Please change the filter selections.</span>
+                        </div>
+                    </div>
+                </div>
+            </td>`
+            .replaceAll(/(^ {16}|^\n)/gm, '')
+
+            tableRow.innerHTML = alert
+            tableRow.classList.add('chart-list--alert', 'chart-list--alert-filter', 'd-none')
+        }
+
+        {
+            const tempRow = document.createElement('tr')
+            const tableRow = scoresTables[listIndex].appendChild(tempRow)
+            const alert = `
+            <td>
+                <div class="list-item--alert d-flex justify-content-start align-items-center">
+                    <div class="svg-wrapper d-flex mx-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                        </svg>
+                    </div>
+                    <div class="d-flex vstack mx-1">
+                        <div class="d-flex small">
+                            <span class="lang lang-japanese">チェックリストが空です。</span>
+                            <span class="lang lang-english d-none">No items added to checklist.</span>
+                        </div>
+                    </div>
+                </div>
+            </td>`
+            .replaceAll(/(^ {16}|^\n)/gm, '')
+
+            tableRow.innerHTML = alert
+            tableRow.classList.add('chart-list--alert', 'chart-list--alert-check', 'd-none')
+        }
 
         {
             const remainingScores = document.querySelectorAll('.list-item--remaining-score')
@@ -1129,7 +1146,14 @@ function refreshChartVisibility() {
         }
     })
 
-    setDisplayNone(['.chart-list-control--check-list-active', 'chart-list-control--title-search-active'], true)
+    setDisplayNone(['.chart-list-control--check-list-active', '.chart-list-control--title-search-active'], false)
+
+    {
+        const filters = document.querySelectorAll('.chart-list-control--score-filter')
+        filters.forEach(filter => {
+            filter.classList.remove('pe-none', 'opacity-25')
+        })
+    }
 
     {
         const entries = document.querySelectorAll('.box-entry')
@@ -1223,6 +1247,13 @@ function activateChecklistViewer() {
 
     setDisplayNone('.chart-list-control--title-search-active', true)
     setDisplayNone('.chart-list-control--check-list-active', false)
+
+    {
+        const filters = document.querySelectorAll('.chart-list-control--score-filter')
+        filters.forEach(filter => {
+            filter.classList.add('pe-none', 'opacity-25')
+        })
+    }
 
     {
         setDisplayNone('.check-list-viewer-menu', true)
@@ -2215,6 +2246,12 @@ function switchChartsEntry(index = -1) {
             })
         })
     }
+
+    {
+        const inputs = document.querySelectorAll('.input-keyword-search')
+        inputs[index].value = inputs[Number(!index)].value
+        activateKeywordSearch(inputs[index].value, index)
+    }
 }
 
 function scrollToActiveChartList() {
@@ -2529,7 +2566,7 @@ function activateKeywordSearch(keyword = null, index = null) {
         return false
     }
 
-    const keywords = String(keyword).replaceAll('　',' ').toLowerCase().split(' ')
+    const keywords = katakanaToHiragana(String(keyword).replaceAll('　',' ').toLowerCase()).split(' ')
     const list = document.querySelectorAll('.chart-list')[index]
     const rows = list.querySelectorAll('tr.chart-list--item')
     const button = document.querySelectorAll('.button-quit-keyword-search')[index]
@@ -2539,8 +2576,7 @@ function activateKeywordSearch(keyword = null, index = null) {
     }
 
     if (String(keyword).length === 0) {
-        refreshChartList()
-        button.classList.add('d-none')
+        quitKeywordSearch(index, false)
         return
     } else {
         button.classList.remove('d-none')
@@ -2559,6 +2595,13 @@ function activateKeywordSearch(keyword = null, index = null) {
 
     setDisplayNone('.chart-list-control--check-list-active', true)
     setDisplayNone('.chart-list-control--title-search-active', false)
+
+    {
+        const filters = document.querySelectorAll('.chart-list-control--score-filter')
+        filters.forEach(filter => {
+            filter.classList.add('pe-none', 'opacity-25')
+        })
+    }
 }
 
 function quitKeywordSearch(index = null, focus = true) {
@@ -2700,6 +2743,13 @@ function refreshChartList() {
     })
 
     setDisplayNone(['.chart-list-control--check-list-active', 'chart-list-control--title-search-active'], true)
+
+    {
+        const filters = document.querySelectorAll('.chart-list-control--score-filter')
+        filters.forEach(filter => {
+            filter.classList.remove('pe-none', 'opacity-25')
+        })
+    }
 
     {
         const entries = document.querySelectorAll('.box-entry')
@@ -2849,4 +2899,11 @@ function saveFilterOptions(index) {
 
         localStorage.setItem('rating-analyzer-offline-filter', favorites.join(','))
     }
+}
+
+function katakanaToHiragana(value) {
+    return value.replace(/[\u30a1-\u30f6]/g, match => {
+        const char = match.charCodeAt(0) - 0x60
+        return String.fromCharCode(char)
+    })
 }

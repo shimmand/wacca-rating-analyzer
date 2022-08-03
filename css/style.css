@@ -169,19 +169,19 @@ html.fs-50 {
     border-color: var(--bs-danger)!important;
 }
 
-.badge.badge-max {
+.badge-max {
     text-shadow: #000000 0 0.1rem, #000000 0 0.1rem 0.15rem;
 }
 
-.badge.filter-targets {
+.filter-targets {
     background-color: #055160;
 }
 
-.badge.filter-candidates {
+.filter-candidates {
     background-color: #561435;
 }
 
-.badge.filter-others {
+.filter-others {
     background-color: #212529;
 }
 

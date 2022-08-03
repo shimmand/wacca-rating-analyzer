@@ -2250,7 +2250,10 @@ function switchChartsEntry(index = -1) {
     {
         const inputs = document.querySelectorAll('.input-keyword-search')
         inputs[index].value = inputs[Number(!index)].value
-        activateKeywordSearch(inputs[index].value, index)
+
+        if (String(inputs[index].value).length !== 0) {
+            activateKeywordSearch(inputs[index].value, index)
+        }
     }
 }
 

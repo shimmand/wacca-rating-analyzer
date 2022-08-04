@@ -70,7 +70,7 @@ function initialize() {
 
             // Restore the display state of English song titles
             {
-                const toggles = document.querySelectorAll('#alt-title-toggle')
+                const toggles = document.querySelectorAll('.alt-title-toggle')
 
                 switch (localStorage.getItem('rating-analyzer-alt-title')) {
                     case 'true':
@@ -81,6 +81,26 @@ function initialize() {
                     case 'false':
                         toggles.forEach(input => input.checked = false)
                         toggleDisplayState('alt-title', false)
+                        break
+
+                    default:
+                        break
+                }
+            }
+
+            // Restore the display state of English song titles
+            {
+                const toggles = document.querySelectorAll('.artist-name-toggle')
+
+                switch (localStorage.getItem('rating-analyzer-artist-name')) {
+                    case 'true':
+                        toggles.forEach(input => input.checked = true)
+                        toggleDisplayState('artist-name', true)
+                        break
+
+                    case 'false':
+                        toggles.forEach(input => input.checked = false)
+                        toggleDisplayState('artist-name', false)
                         break
 
                     default:
@@ -573,14 +593,15 @@ function analyze(){
                             <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold">${chart[0]}</div>
                                 </div>
                             </div>
-                            <div class="list-item--badge-wrapper">
-                                <div class="list-item--badge-stack d-flex">
-                                    <div class="list-item--badge-difficulty badge border m-0 ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
-                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
-                                </div>
+                            <div class="list-item--artist-wrapper d-flex">
+                                <div class="list-item--artist-name d-inline-block small">${getArtistName(chart[0])}</div>
+                            </div>
+                            <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
+                                <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
+                                <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                             </div>
                         </div>
                         <div class="list-item--middle-wrapper d-flex row m-0 mt-1">
@@ -677,11 +698,14 @@ function analyze(){
                             <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold">${chart[0]}</div>
                                 </div>
-                                <div class="list-item--badge-wrapper d-flex">
-                                    <div class="list-item--badge-difficulty badge border m-0 ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
-                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
+                                <div class="list-item--artist-wrapper d-flex">
+                                    <div class="list-item--artist-name d-inline-block small">${getArtistName(chart[0])}</div>
+                                </div>
+                                <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
+                                    <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
+                                    <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                                 </div>
                             </div>
                         </div>
@@ -804,7 +828,8 @@ function analyze(){
             {
                 const searchText = `
                     ${String(katakanaToHiragana(chart[0]).toLowerCase())} 
-                    ${String(getEnglishTitle(chart[0])).toLowerCase()} `
+                    ${String(getEnglishTitle(chart[0])).toLowerCase()} 
+                    ${String(getArtistName(chart[0]).toLowerCase())} `
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
                 
                 tableRow.setAttribute('data-search-text', searchText)
@@ -859,17 +884,27 @@ function analyze(){
             const tableRow = scoresTables[listIndex].appendChild(tempRow)
             const alert = `
             <td>
-                <div class="list-item--alert d-flex justify-content-start align-items-center">
-                    <div class="svg-wrapper d-flex mx-1">
+                <div class="list-item--alert d-flex justify-content-start align-items-start gap-1 m-1">
+                    <div class="svg-wrapper d-flex">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
                             <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                             <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                         </svg>
                     </div>
-                    <div class="d-flex vstack mx-1">
+                    <div class="d-flex vstack gap-1">
                         <div class="d-flex small">
                             <span class="lang lang-japanese">チェックリストが空です。</span>
                             <span class="lang lang-english d-none">No items added to checklist.</span>
+                        </div>
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-sm btn-white me-0" onclick="refreshChartList();">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
+                                </svg>
+                                <span class="lang lang-japanese d-none">終了</span>
+                                <span class="lang lang-english">Exit</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -927,6 +962,10 @@ function analyze(){
 
         if (localStorage.getItem('rating-analyzer-alt-title') !== 'true') {
             setDisplayNone('.list-item--alt-title', true)
+        }
+
+        if (localStorage.getItem('rating-analyzer-artist-name') !== 'true') {
+            setDisplayNone('.list-item--artist-name', true)
         }
 
         {
@@ -1288,7 +1327,7 @@ function toggleColumnVisibility(columnName, checked) {
 // Toggle display state of any elements
 function toggleDisplayState(className, checked) {
     {
-        const toggles = document.querySelectorAll(`#${className}-toggle`)
+        const toggles = document.querySelectorAll(`.${className}-toggle`)
         toggles.forEach(input => input.checked = checked)
     }
 
@@ -1467,8 +1506,10 @@ function getDatasetIndex() {
     return {
         'title':                songs[0].indexOf('@song-title'),
         'title-english':        songs[0].indexOf('@song-title-english'),
+        'artist':               songs[0].indexOf('@artist-name'),
+        'artist-english':       songs[0].indexOf('@artist-name-english'),
         'genre':                songs[0].indexOf('@genre'),
-        'available-on-offline':  songs[0].indexOf('@available-on-offline'),
+        'available-on-offline': songs[0].indexOf('@available-on-offline'),
         'normal-level':         songs[0].indexOf('@normal-level'),
         'normal-constant':      songs[0].indexOf('@normal-constant'),
         'normal-newer':         songs[0].indexOf('@normal-newer'),
@@ -1592,6 +1633,34 @@ function getEnglishTitle(songTitle) {
 
         if (song[indexes['title']] == songTitle) {
             return song[indexes['title-english']]
+        }
+    }
+}
+
+// Get the artist name from the original song title
+function getArtistName(songTitle) {
+    const songs = getChartTable()
+    const indexes = getDatasetIndex()
+    
+    for (let i = 0; i < songs.length; i++) {
+        const song = songs[i]
+
+        if (song[indexes['title']] == songTitle) {
+            return song[indexes['artist']]
+        }
+    }
+}
+
+// Get the artist name in English from the original song title
+function getEnglishArtistName(songTitle) {
+    const songs = getChartTable()
+    const indexes = getDatasetIndex()
+    
+    for (let i = 0; i < songs.length; i++) {
+        const song = songs[i]
+
+        if (song[indexes['title']] == songTitle) {
+            return song[indexes['artist-english']]
         }
     }
 }
@@ -2572,7 +2641,6 @@ function activateKeywordSearch(keyword = null, index = null) {
     const keywords = katakanaToHiragana(String(keyword).replaceAll('　',' ').toLowerCase()).split(' ')
     const list = document.querySelectorAll('.chart-list')[index]
     const rows = list.querySelectorAll('tr.chart-list--item')
-    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
 
     if (rows.length === 0) {
         return
@@ -2581,8 +2649,6 @@ function activateKeywordSearch(keyword = null, index = null) {
     if (String(keyword).length === 0) {
         quitKeywordSearch(index, false)
         return
-    } else {
-        button.classList.remove('d-none')
     }
 
     refreshChartList()
@@ -2614,9 +2680,6 @@ function quitKeywordSearch(index = null, focus = true) {
 
     const input = document.querySelectorAll('.input-keyword-search')[index]
     input.value = ''
-
-    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
-    button.classList.add('d-none')
 
     setDisplayNone('.chart-list-control--title-search-active', true)
 

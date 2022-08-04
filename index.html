@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-08-01" data-dataset="2022-07-18-rev2" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-08-01" data-dataset="2022-07-18-rev3" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -10,12 +10,12 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-08-04" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-08-05" rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-08-04-rev1"></script>
+        <script defer src="js/script.js?date=2022-08-05"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -881,48 +881,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack border rounded me-2">
-                                        <div class="badge bg-white align-bottom text-black rounded-0">#53</div>
-                                        <div class="badge border-white align-bottom">2022-06-24</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            譜面追加時の動作を変更
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Change behavior when new charts are added
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            このプログラムが新しい譜面に対応した際に、ブックマークレットを使用しなくても、それらが譜面一覧に表示されるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            When the program supports new charts, they will now appear in the Chart List without the need to use the bookmarklet.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            具体的には、「復元」を押すとプレイデータとデータセットの内容を毎回比較し、もしプレイデータに不足している譜面がある場合には、自動的にスコア0としてデータを追加するようになります。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Specifically, when you press "Restore" it will compare the play data to the contents of the data set, and if there are missing charts in the play data, it will automatically add data with a score of 0.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            この変更により、このプログラムが新しい譜面に対応次第、すぐにスコア編集機能を用いてスコアを登録できるようになります。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            This change will allow you to register scores using the "Score Edit" feature as soon as this program supports the new chart.
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white m-1" data-bs-dismiss="modal">
@@ -1779,121 +1737,139 @@
                                     <span class="lang lang-english d-none">Reducing the number of items to be displayed will reduce loading time.</span>
                                 </div>
                             </div>
-                            <div class="chart-list-control--type-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
-                                        <input class="form-check-input m-0 me-1 type-filter-toggle-targets" type="checkbox" value="" id="type-filter-toggle-targets-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="type-filter-toggle-targets-0">
-                                            <span class="lang lang-japanese">レーティング対象</span>
-                                            <span class="lang lang-english d-none">Rating Targets</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black">
-                                        <input class="form-check-input m-0 me-1 type-filter-toggle-candidates" type="checkbox" value="" id="type-filter-toggle-candidates-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="type-filter-toggle-candidates-0">
-                                            <span class="lang lang-japanese">レーティング候補</span>
-                                            <span class="lang lang-english d-none">Rating Candidates</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black">
-                                        <input class="form-check-input m-0 me-1 type-filter-toggle-others" type="checkbox" value="" id="type-filter-toggle-others-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="type-filter-toggle-others-0">
-                                            <span class="lang lang-japanese">その他</span>
-                                            <span class="lang lang-english d-none">Others</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chart-list-control--difficulty-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border normal">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-normal" type="checkbox" value="" id="difficulty-filter-toggle-normal-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-normal-0">NORMAL</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border hard">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-hard" type="checkbox" value="" id="difficulty-filter-toggle-hard-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-hard-0">HARD</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border expert">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-expert" type="checkbox" value="" id="difficulty-filter-toggle-expert-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-expert-0">EXPERT</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border inferno">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-inferno" type="checkbox" value="" id="difficulty-filter-toggle-inferno-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-inferno-0">INFERNO</label>
+                            <div class="chart-list-control--filter-wrapper d-flex vstack gap-1 mt-1">
+                                <div class="chart-list-control--type-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">種類</span>
+                                            <span class="lang lang-english">Type</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-targets" type="checkbox" value="" id="type-filter-toggle-targets-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-targets-0">
+                                                <span class="lang lang-japanese">レーティング対象</span>
+                                                <span class="lang lang-english d-none">Rating Targets</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-candidates" type="checkbox" value="" id="type-filter-toggle-candidates-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-candidates-0">
+                                                <span class="lang lang-japanese">レーティング候補</span>
+                                                <span class="lang lang-english d-none">Rating Candidates</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-others" type="checkbox" value="" id="type-filter-toggle-others-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-others-0">
+                                                <span class="lang lang-japanese">その他</span>
+                                                <span class="lang lang-english d-none">Others</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="chart-list-control--level-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle-all" type="checkbox" value="" id="level-filter-toggle-all-0" onchange="switchChildrenToggles(0, '.level-filter-toggle-all', '.level-filter-toggle');" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-all-0">
-                                            <span class="lang lang-japanese">全選択</span>
-                                            <span class="lang lang-english d-none">Select All</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-15" type="checkbox" value="" id="level-filter-toggle-15-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-15-0">15</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-14" type="checkbox" value="" id="level-filter-toggle-14-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-14-0">14</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13plus" type="checkbox" value="" id="level-filter-toggle-13plus-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-13plus-0">13+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13" type="checkbox" value="" id="level-filter-toggle-13-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-13-0">13</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12plus" type="checkbox" value="" id="level-filter-toggle-12plus-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-12plus-0">12+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12" type="checkbox" value="" id="level-filter-toggle-12-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-12-0">12</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11plus" type="checkbox" value="" id="level-filter-toggle-11plus-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-11plus-0">11+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11" type="checkbox" value="" id="level-filter-toggle-11-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-11-0">11</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10plus" type="checkbox" value="" id="level-filter-toggle-10plus-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-10plus-0">10+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10" type="checkbox" value="" id="level-filter-toggle-10-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-10-0">10</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-lower" type="checkbox" value="" id="level-filter-toggle-lower-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-lower-0">&lt;10</label>
+                                <div class="chart-list-control--difficulty-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">難易度</span>
+                                            <span class="lang lang-english">Difficulty</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border normal">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-normal" type="checkbox" value="" id="difficulty-filter-toggle-normal-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-normal-0">NORMAL</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border hard">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-hard" type="checkbox" value="" id="difficulty-filter-toggle-hard-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-hard-0">HARD</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border expert">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-expert" type="checkbox" value="" id="difficulty-filter-toggle-expert-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-expert-0">EXPERT</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border inferno">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-inferno" type="checkbox" value="" id="difficulty-filter-toggle-inferno-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-inferno-0">INFERNO</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="chart-list-control--others-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-yes-0">
-                                            <span class="lang lang-japanese">オフラインで利用可</span>
-                                            <span class="lang lang-english d-none">Available offline</span>
-                                        </label>
+                                <div class="chart-list-control--level-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">レベル</span>
+                                            <span class="lang lang-english">Level</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle-all" type="checkbox" value="" id="level-filter-toggle-all-0" onchange="switchChildrenToggles(0, '.level-filter-toggle-all', '.level-filter-toggle');" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-all-0">
+                                                <span class="lang lang-japanese">全選択</span>
+                                                <span class="lang lang-english d-none">Select All</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-15" type="checkbox" value="" id="level-filter-toggle-15-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-15-0">15</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-14" type="checkbox" value="" id="level-filter-toggle-14-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-14-0">14</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13plus" type="checkbox" value="" id="level-filter-toggle-13plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13plus-0">13+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13" type="checkbox" value="" id="level-filter-toggle-13-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13-0">13</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12plus" type="checkbox" value="" id="level-filter-toggle-12plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12plus-0">12+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12" type="checkbox" value="" id="level-filter-toggle-12-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12-0">12</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11plus" type="checkbox" value="" id="level-filter-toggle-11plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11plus-0">11+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11" type="checkbox" value="" id="level-filter-toggle-11-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11-0">11</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10plus" type="checkbox" value="" id="level-filter-toggle-10plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10plus-0">10+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10" type="checkbox" value="" id="level-filter-toggle-10-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10-0">10</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-lower" type="checkbox" value="" id="level-filter-toggle-lower-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-lower-0">&lt;10</label>
+                                        </div>
                                     </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-0" onchange="applyFilterOptions(0);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-no-0">
-                                            <span class="lang lang-japanese">オフラインで利用不可</span>
-                                            <span class="lang lang-english d-none">Not available offline</span>
-                                        </label>
+                                </div>
+                                <div class="chart-list-control--others-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">その他</span>
+                                            <span class="lang lang-english">Other</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-yes-0">
+                                                <span class="lang lang-japanese">オフラインで利用可</span>
+                                                <span class="lang lang-english d-none">Available offline</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-no-0">
+                                                <span class="lang lang-japanese">オフラインで利用不可</span>
+                                                <span class="lang lang-english d-none">Not available offline</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2007,23 +1983,23 @@
                         <div class="chart-list-control--keyword-search-wrapper position-relative mx-2 p-2">
                             <div class="chart-list-control--label">
                                 <div class="h6 small">
-                                    <span class="lang lang-japanese">曲名検索</span>
-                                    <span class="lang lang-english d-none">Search by Title</span>
+                                    <span class="lang lang-japanese">楽曲検索</span>
+                                    <span class="lang lang-english d-none">Song Search</span>
                                 </div>
                                 <div class="text-dimmed small">
                                     <span class="lang lang-japanese">曲名は英語表記でも入力できます。</span>
                                     <span class="lang lang-english d-none">You can enter song titles in English as well.</span>
                                 </div>
                                 <div class="text-dimmed small">
-                                    <span class="lang lang-japanese">「曲名検索」の使用中は、「フィルター」が一時的に無効になります。</span>
-                                    <span class="lang lang-english d-none">While using "Search by Title" feature, "Filter" will be temporarily disabled.</span>
+                                    <span class="lang lang-japanese">「楽曲検索」の使用中は、「フィルター」が一時的に無効になります。</span>
+                                    <span class="lang lang-english d-none">While using "Song Search", "Filter" will be temporarily disabled.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--keyword-search-input">
                                 <div class="d-flex flex-wrap justify-content-start mt-1">
                                     <div class="position-relative w-100" style="max-width: 40rem;">
-                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search" placeholder="Enter song title..." data-placeholder-japanese="曲名を入力..." data-placeholder-english="Enter song title..." value="" oninput="activateKeywordSearch(this.value, 0)" style="font-size: 16px;">
-                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black d-none">
+                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search"  placeholder="Enter song title or artist name..." data-placeholder-japanese="曲名またはアーティスト名を入力..." data-placeholder-english="Enter song title or artist name..." value="" oninput="activateKeywordSearch(this.value, 0)" style="font-size: 16px;">
+                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black">
                                             <div class="d-flex px-3 py-3" onclick="quitKeywordSearch(0);">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
@@ -2040,18 +2016,25 @@
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
                             <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                <div class="form-check d-flex align-items-center badge border">
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="large-table-toggle" onchange="switchLargeTable(this.checked)">
                                     <label class="form-check-label" for="large-table-toggle">
                                         <span class="lang lang-japanese">常にフルサイズの表を使用</span>
                                         <span class="lang lang-english d-none">Use fullsize table only</span>
                                     </label>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
-                                    <label class="form-check-label" for="alt-title-toggle">
-                                        <span class="lang lang-japanese">英語の曲名も表示</span>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 alt-title-toggle" type="checkbox" value="" id="alt-title-toggle-0" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle-0">
+                                        <span class="lang lang-japanese">英語の曲名を表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 artist-name-toggle" type="checkbox" value="" id="artist-name-toggle-0" onchange="toggleDisplayState('artist-name', this.checked)">
+                                    <label class="form-check-label" for="artist-name-toggle-0">
+                                        <span class="lang lang-japanese">アーティスト名を表示</span>
+                                        <span class="lang lang-english d-none">Show artist name</span>
                                     </label>
                                 </div>
                             </div>
@@ -2538,121 +2521,139 @@
                                     <span class="lang lang-english d-none">Reducing the number of items to be displayed will reduce loading time.</span>
                                 </div>
                             </div>
-                            <div class="chart-list-control--type-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
-                                        <input class="form-check-input m-0 me-1 type-filter-toggle-targets" type="checkbox" value="" id="type-filter-toggle-targets-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="type-filter-toggle-targets-1">
-                                            <span class="lang lang-japanese">レーティング対象</span>
-                                            <span class="lang lang-english d-none">Rating Targets</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black">
-                                        <input class="form-check-input m-0 me-1 type-filter-toggle-candidates" type="checkbox" value="" id="type-filter-toggle-candidates-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="type-filter-toggle-candidates-1">
-                                            <span class="lang lang-japanese">レーティング候補</span>
-                                            <span class="lang lang-english d-none">Rating Candidates</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black">
-                                        <input class="form-check-input m-0 me-1 type-filter-toggle-others" type="checkbox" value="" id="type-filter-toggle-others-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="type-filter-toggle-others-1">
-                                            <span class="lang lang-japanese">その他</span>
-                                            <span class="lang lang-english d-none">Others</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chart-list-control--difficulty-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border normal">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-normal" type="checkbox" value="" id="difficulty-filter-toggle-normal-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-normal-1">NORMAL</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border hard">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-hard" type="checkbox" value="" id="difficulty-filter-toggle-hard-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-hard-1">HARD</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border expert">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-expert" type="checkbox" value="" id="difficulty-filter-toggle-expert-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-expert-1">EXPERT</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border inferno">
-                                        <input class="form-check-input m-0 me-1 difficulty-filter-toggle-inferno" type="checkbox" value="" id="difficulty-filter-toggle-inferno-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="difficulty-filter-toggle-inferno-1">INFERNO</label>
+                            <div class="chart-list-control--filter-wrapper d-flex vstack gap-1 mt-1">
+                                <div class="chart-list-control--type-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">種類</span>
+                                            <span class="lang lang-english">Type</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-targets" type="checkbox" value="" id="type-filter-toggle-targets-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-targets-1">
+                                                <span class="lang lang-japanese">レーティング対象</span>
+                                                <span class="lang lang-english d-none">Rating Targets</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-candidates" type="checkbox" value="" id="type-filter-toggle-candidates-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-candidates-1">
+                                                <span class="lang lang-japanese">レーティング候補</span>
+                                                <span class="lang lang-english d-none">Rating Candidates</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-others" type="checkbox" value="" id="type-filter-toggle-others-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-others-1">
+                                                <span class="lang lang-japanese">その他</span>
+                                                <span class="lang lang-english d-none">Others</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="chart-list-control--level-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle-all" type="checkbox" value="" id="level-filter-toggle-all-1" onchange="switchChildrenToggles(1, '.level-filter-toggle-all', '.level-filter-toggle');" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-all-1">
-                                            <span class="lang lang-japanese">全選択</span>
-                                            <span class="lang lang-english d-none">Select All</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-15" type="checkbox" value="" id="level-filter-toggle-15-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-15-1">15</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-14" type="checkbox" value="" id="level-filter-toggle-14-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-14-1">14</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13plus" type="checkbox" value="" id="level-filter-toggle-13plus-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-13plus-1">13+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13" type="checkbox" value="" id="level-filter-toggle-13-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-13-1">13</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12plus" type="checkbox" value="" id="level-filter-toggle-12plus-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-12plus-1">12+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12" type="checkbox" value="" id="level-filter-toggle-12-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-12-1">12</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11plus" type="checkbox" value="" id="level-filter-toggle-11plus-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-11plus-1">11+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11" type="checkbox" value="" id="level-filter-toggle-11-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-11-1">11</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10plus" type="checkbox" value="" id="level-filter-toggle-10plus-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-10plus-1">10+</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10" type="checkbox" value="" id="level-filter-toggle-10-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-10-1">10</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-lower" type="checkbox" value="" id="level-filter-toggle-lower-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="level-filter-toggle-lower-1">&lt;10</label>
+                                <div class="chart-list-control--difficulty-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">難易度</span>
+                                            <span class="lang lang-english">Difficulty</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border normal">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-normal" type="checkbox" value="" id="difficulty-filter-toggle-normal-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-normal-1">NORMAL</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border hard">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-hard" type="checkbox" value="" id="difficulty-filter-toggle-hard-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-hard-1">HARD</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border expert">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-expert" type="checkbox" value="" id="difficulty-filter-toggle-expert-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-expert-1">EXPERT</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border inferno">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-inferno" type="checkbox" value="" id="difficulty-filter-toggle-inferno-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-inferno-1">INFERNO</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="chart-list-control--others-filter">
-                                <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-yes-1">
-                                            <span class="lang lang-japanese">オフラインで利用可</span>
-                                            <span class="lang lang-english d-none">Available offline</span>
-                                        </label>
+                                <div class="chart-list-control--level-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">レベル</span>
+                                            <span class="lang lang-english">Level</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle-all" type="checkbox" value="" id="level-filter-toggle-all-1" onchange="switchChildrenToggles(1, '.level-filter-toggle-all', '.level-filter-toggle');" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-all-1">
+                                                <span class="lang lang-japanese">全選択</span>
+                                                <span class="lang lang-english d-none">Select All</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-15" type="checkbox" value="" id="level-filter-toggle-15-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-15-1">15</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-14" type="checkbox" value="" id="level-filter-toggle-14-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-14-1">14</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13plus" type="checkbox" value="" id="level-filter-toggle-13plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13plus-1">13+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13" type="checkbox" value="" id="level-filter-toggle-13-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13-1">13</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12plus" type="checkbox" value="" id="level-filter-toggle-12plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12plus-1">12+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12" type="checkbox" value="" id="level-filter-toggle-12-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12-1">12</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11plus" type="checkbox" value="" id="level-filter-toggle-11plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11plus-1">11+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11" type="checkbox" value="" id="level-filter-toggle-11-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11-1">11</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10plus" type="checkbox" value="" id="level-filter-toggle-10plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10plus-1">10+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10" type="checkbox" value="" id="level-filter-toggle-10-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10-1">10</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-lower" type="checkbox" value="" id="level-filter-toggle-lower-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-lower-1">&lt;10</label>
+                                        </div>
                                     </div>
-                                    <div class="form-check d-flex align-items-center badge border">
-                                        <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-1" onchange="applyFilterOptions(1);" checked>
-                                        <label class="form-check-label" for="offline-filter-toggle-no-1">
-                                            <span class="lang lang-japanese">オフラインで利用不可</span>
-                                            <span class="lang lang-english d-none">Not available offline</span>
-                                        </label>
+                                </div>
+                                <div class="chart-list-control--others-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">その他</span>
+                                            <span class="lang lang-english">Other</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-yes-1">
+                                                <span class="lang lang-japanese">オフラインで利用可</span>
+                                                <span class="lang lang-english d-none">Available offline</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-no-1">
+                                                <span class="lang lang-japanese">オフラインで利用不可</span>
+                                                <span class="lang lang-english d-none">Not available offline</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2766,23 +2767,23 @@
                         <div class="chart-list-control--keyword-search-wrapper position-relative mx-2 p-2">
                             <div class="chart-list-control--label">
                                 <div class="h6 small">
-                                    <span class="lang lang-japanese">曲名検索</span>
-                                    <span class="lang lang-english d-none">Search by Title</span>
+                                    <span class="lang lang-japanese">楽曲検索</span>
+                                    <span class="lang lang-english d-none">Song Search</span>
                                 </div>
                                 <div class="text-dimmed small">
                                     <span class="lang lang-japanese">曲名は英語表記でも入力できます。</span>
                                     <span class="lang lang-english d-none">You can enter song titles in English as well.</span>
                                 </div>
                                 <div class="text-dimmed small">
-                                    <span class="lang lang-japanese">「曲名検索」の使用中は、「フィルター」が一時的に無効になります。</span>
-                                    <span class="lang lang-english d-none">While using "Search by Title" feature, "Filter" will be temporarily disabled.</span>
+                                    <span class="lang lang-japanese">「楽曲検索」の使用中は、「フィルター」が一時的に無効になります。</span>
+                                    <span class="lang lang-english d-none">While using "Song Search", "Filter" will be temporarily disabled.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--keyword-search-input">
                                 <div class="d-flex flex-wrap justify-content-start mt-1">
                                     <div class="position-relative w-100" style="max-width: 40rem;">
-                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search" placeholder="Enter song title..." data-placeholder-japanese="曲名を入力..." data-placeholder-english="Enter song title..." value="" oninput="activateKeywordSearch(this.value, 1)" style="font-size: 16px;">
-                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black d-none">
+                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search" placeholder="Enter song title or artist name..." data-placeholder-japanese="曲名またはアーティスト名を入力..." data-placeholder-english="Enter song title or artist name..." value="" oninput="activateKeywordSearch(this.value, 1)" style="font-size: 16px;">
+                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black">
                                             <div class="d-flex px-3 py-3" onclick="quitKeywordSearch(1);">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
@@ -2799,18 +2800,25 @@
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
                             <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
-                                <div class="form-check d-flex align-items-center badge border">
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="large-table-toggle" onchange="switchLargeTable(this.checked)">
                                     <label class="form-check-label" for="large-table-toggle">
                                         <span class="lang lang-japanese">常にフルサイズの表を使用</span>
                                         <span class="lang lang-english d-none">Use fullsize table only</span>
                                     </label>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
-                                    <label class="form-check-label" for="alt-title-toggle">
-                                        <span class="lang lang-japanese">英語の曲名も表示</span>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 alt-title-toggle" type="checkbox" value="" id="alt-title-toggle-1" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle-1">
+                                        <span class="lang lang-japanese">英語の曲名を表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 artist-name-toggle" type="checkbox" value="" id="artist-name-toggle-1" onchange="toggleDisplayState('artist-name', this.checked)">
+                                    <label class="form-check-label" for="artist-name-toggle-1">
+                                        <span class="lang lang-japanese">アーティスト名を表示</span>
+                                        <span class="lang lang-english d-none">Show artist name</span>
                                     </label>
                                 </div>
                             </div>
@@ -3535,19 +3543,19 @@
                                     <span class="lang lang-japanese">キャンセル</span>
                                     <span class="lang lang-english d-none">Cancel</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 export-button" data-bs-dismiss="modal" disabled>
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 rounded-end export-button" data-bs-dismiss="modal" disabled>
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none export-button export-chart-list-as-csv" onclick="saveTableData();" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none rounded-end export-button export-chart-list-as-csv" onclick="saveTableData();" data-bs-dismiss="modal">
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none export-button export-rating-targets-as-image" onclick="generateImageData();" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none rounded-end export-button export-rating-targets-as-image" onclick="generateImageData();" data-bs-dismiss="modal">
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none export-button export-check-lists-as-image" onclick="generateChecklistImageData();" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none rounded-end export-button export-check-lists-as-image" onclick="generateChecklistImageData();" data-bs-dismiss="modal">
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>

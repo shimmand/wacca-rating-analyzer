@@ -266,6 +266,10 @@ html.fs-50 {
     border-color: var(--bs-red);
 }
 
+.form-check {
+    margin-bottom: 0;
+}
+
 
 /* Rate class */
 

@@ -2999,6 +2999,7 @@ function katakanaToHiragana(value) {
         })
     } catch (error) {
         console.log(`ERROR: '${value}' cannot be converted to hiragana`)
+        return ''
     }
 }
 

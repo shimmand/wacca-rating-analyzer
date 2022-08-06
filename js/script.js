@@ -597,7 +597,16 @@ function analyze(){
                                 </div>
                             </div>
                             <div class="list-item--artist-wrapper d-flex">
-                                <div class="list-item--artist-name d-inline-block small">${getArtistName(chart[0])}</div>
+                                <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${getArtistName(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
+                                    <div class="d-flex">
+                                        ${getArtistName(chart[0])}
+                                    </div>
+                                    <div class="d-flex text-dimmed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bi-badge" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                             <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
                                 <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
@@ -701,7 +710,16 @@ function analyze(){
                                     <div class="list-item--title fw-bold">${chart[0]}</div>
                                 </div>
                                 <div class="list-item--artist-wrapper d-flex">
-                                    <div class="list-item--artist-name d-inline-block small">${getArtistName(chart[0])}</div>
+                                    <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${getArtistName(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
+                                        <div class="d-flex">
+                                            ${getArtistName(chart[0])}
+                                        </div>
+                                        <div class="d-flex text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bi-badge" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
                                     <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
@@ -829,7 +847,7 @@ function analyze(){
                 const searchText = `
                     ${String(katakanaToHiragana(chart[0]).toLowerCase())} 
                     ${String(getEnglishTitle(chart[0])).toLowerCase()} 
-                    ${String(getArtistName(chart[0]).toLowerCase())} `
+                    ${String(katakanaToHiragana(getArtistName(chart[0])).toLowerCase())} `
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
                 
                 tableRow.setAttribute('data-search-text', searchText)
@@ -2328,6 +2346,7 @@ function switchChartsEntry(index = -1) {
 
 function scrollToActiveChartList() {
     const scrollTargets = document.querySelectorAll('.chart-list-control--display-options-wrapper')
+    const header = document.querySelectorAll('.charts-entry--header')
 
     switch (localStorage.getItem('rating-analyzer-charts-entry')) {
         case 'newer':
@@ -2633,7 +2652,7 @@ function findMissingItems() {
     return items
 }
 
-function activateKeywordSearch(keyword = null, index = null) {
+function activateKeywordSearch(keyword = null, index = null, scroll = false) {
     if ([keyword, index].indexOf(null) !== -1) {
         return false
     }
@@ -2670,6 +2689,11 @@ function activateKeywordSearch(keyword = null, index = null) {
         filters.forEach(filter => {
             filter.classList.add('pe-none', 'opacity-25')
         })
+    }
+
+    if (scroll === true) {
+        const wrapper = document.querySelectorAll('.chart-list-control--keyword-search-wrapper')
+        wrapper[index].scrollIntoView()
     }
 }
 
@@ -2972,4 +2996,17 @@ function katakanaToHiragana(value) {
         const char = match.charCodeAt(0) - 0x60
         return String.fromCharCode(char)
     })
+}
+
+function fillKeywordSearchInput(keyword = null, index = null, focus = true) {
+    if (index === null || keyword === null) {
+        return false
+    }
+
+    const input = document.querySelectorAll('.input-keyword-search')[index]
+    input.value = String(keyword)
+
+    if (focus === true) {
+        input.focus()
+    }
 }

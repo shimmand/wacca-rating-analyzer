@@ -2992,14 +2992,14 @@ function saveFilterOptions(index) {
 }
 
 function katakanaToHiragana(value) {
-    if (value === null || value === '') {
-        return ''
+    try {
+        return value.replace(/[\u30a1-\u30f6]/g, match => {
+            const char = match.charCodeAt(0) - 0x60
+            return String.fromCharCode(char)
+        })
+    } catch (error) {
+        console.log(`ERROR: '${value}' cannot be converted to hiragana`)
     }
-
-    return value.replace(/[\u30a1-\u30f6]/g, match => {
-        const char = match.charCodeAt(0) - 0x60
-        return String.fromCharCode(char)
-    })
 }
 
 function fillKeywordSearchInput(keyword = null, index = null, focus = true) {

@@ -70,7 +70,7 @@ function initialize() {
 
             // Restore the display state of English song titles
             {
-                const toggles = document.querySelectorAll('.alt-title-toggle')
+                const toggles = document.querySelectorAll('#alt-title-toggle')
 
                 switch (localStorage.getItem('rating-analyzer-alt-title')) {
                     case 'true':
@@ -88,161 +88,49 @@ function initialize() {
                 }
             }
 
-            // Restore the display state of English song titles
-            {
-                const toggles = document.querySelectorAll('.artist-name-toggle')
-
-                switch (localStorage.getItem('rating-analyzer-artist-name')) {
-                    case 'true':
-                        toggles.forEach(input => input.checked = true)
-                        toggleDisplayState('artist-name', true)
-                        break
-
-                    case 'false':
-                        toggles.forEach(input => input.checked = false)
-                        toggleDisplayState('artist-name', false)
-                        break
-
-                    default:
-                        break
-                }
-            }
-
             // Restore the selected state of the type filter
             {
                 const types = ['targets', 'candidates', 'others']
 
-                if (localStorage.getItem('rating-analyzer-type-filter') === null) {
-                    types.forEach(type => {
-                        const toggles = document.querySelectorAll(`.type-filter-toggle-${type}`)
+                types.forEach(type => {
+                    const toggles = document.querySelectorAll(`.rating-${type}-toggle`)
 
-                        switch (localStorage.getItem(`rating-analyzer-filter-type-${type}`)) {
-                            case 'true':
-                                toggles.forEach(toggle => toggle.checked = true)
-                                break
+                    switch (localStorage.getItem(`rating-analyzer-filter-type-${type}`)) {
+                        case 'true':
+                            toggles.forEach(input => input.checked = true)
+                            break
 
-                            case 'false':
-                                toggles.forEach(toggle => toggle.checked = false)
-                                break
+                        case 'false':
+                            toggles.forEach(input => input.checked = false)
+                            break
 
-                            default:
-                                break
-                        }
-                    })
-                } else {
-                    const favorites = localStorage.getItem('rating-analyzer-type-filter').split(',')
-
-                    types.forEach(type => {
-                        const toggles = document.querySelectorAll(`.type-filter-toggle-${type}`)
-
-                        if (favorites.indexOf(type) === -1) {
-                            toggles.forEach(toggle => toggle.checked = false)
-                        }
-                    })
-                    
-                }
+                        default:
+                            break
+                    }
+                })
             }
 
             // Restore the selected state of the difficulty filter
             {
                 const difficulties = ['normal', 'hard', 'expert', 'inferno']
 
-                if (localStorage.getItem('rating-analyzer-difficulty-filter') === null) {
-                    difficulties.forEach(difficulty => {
-                        const toggles = document.querySelectorAll(`.type-filter-toggle-${difficulty}`)
+                difficulties.forEach(difficulty => {
+                    const toggles = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
 
-                        switch (localStorage.getItem(`rating-analyzer-filter-type-${difficulty}`)) {
-                            case 'true':
-                                toggles.forEach(toggle => toggle.checked = true)
-                                break
+                    switch (localStorage.getItem(`rating-analyzer-filter-difficulty-${difficulty}`)) {
+                        case 'true':
+                            toggles.forEach(input => input.checked = true)
+                            break
 
-                            case 'false':
-                                toggles.forEach(toggle => toggle.checked = false)
-                                break
+                        case 'false':
+                            toggles.forEach(input => input.checked = false)
+                            break
 
-                            default:
-                                break
-                        }
-                    })
-                } else {
-                    const favorites = localStorage.getItem('rating-analyzer-difficulty-filter').split(',')
-
-                    difficulties.forEach(difficulty => {
-                        const toggles = document.querySelectorAll(`.difficulty-filter-toggle-${difficulty}`)
-
-                        if (favorites.indexOf(difficulty) === -1) {
-                            toggles.forEach(toggle => toggle.checked = false)
-                        }
-                    })
-                    
-                }
+                        default:
+                            break
+                    }
+                })
             }
-
-            // Restore the selected state of the level filter
-            {
-                const levels = ['15', '14', '13+', '13', '12+', '12', '11+', '11', '10+', '10', 'lower']
-
-                if (localStorage.getItem('rating-analyzer-level-filter') === null) {
-                    localStorage.setItem('rating-analyzer-level-filter', levels.join(','))
-                } else {
-                    const favorites = localStorage.getItem('rating-analyzer-level-filter').split(',')
-
-                    levels.forEach(level => {
-                        const toggles = document.querySelectorAll(`.level-filter-toggle-${String(level).replace('+', 'plus')}`)
-
-                        if (favorites.indexOf(level) === -1) {
-                            toggles.forEach(toggle => toggle.checked = false)
-                        }
-                    })
-                    
-                }
-            }
-
-            {
-                if (localStorage.getItem('rating-analyzer-score-filter') === null) {
-                    localStorage.setItem('rating-analyzer-score-filter', 'false,0,false,0,false,0')
-                } else {
-                    const favorites = localStorage.getItem('rating-analyzer-score-filter').split(',')
-
-                    const minScoreToggle = document.querySelectorAll('.score-filter-min-toggle')
-                    minScoreToggle.forEach(toggle => toggle.checked = (favorites[0] === 'true'))
-
-                    const minScoreSelect = document.querySelectorAll('.score-filter-min-select')
-                    minScoreSelect.forEach(toggle => toggle.value = favorites[1])
-
-                    const maxScoreToggle = document.querySelectorAll('.score-filter-max-toggle')
-                    maxScoreToggle.forEach(toggle => toggle.checked = (favorites[2] === 'true'))
-
-                    const maxScoreSelect = document.querySelectorAll('.score-filter-max-select')
-                    maxScoreSelect.forEach(toggle => toggle.value = favorites[3])
-
-                    const remainingScoreToggle = document.querySelectorAll('.remaining-score-filter-toggle')
-                    remainingScoreToggle.forEach(toggle => toggle.checked = (favorites[4] === 'true'))
-
-                    const remainingScoreSelect = document.querySelectorAll('.remaining-score-filter-select')
-                    remainingScoreSelect.forEach(toggle => toggle.value = favorites[5])
-                }
-            }
-
-            {
-                const ables = ['yes', 'no']
-
-                if (localStorage.getItem('rating-analyzer-offline-filter') === null) {
-                    localStorage.setItem('rating-analyzer-offline-filter', ables.join(','))
-                } else {
-                    const favorites = localStorage.getItem('rating-analyzer-offline-filter').split(',')
-
-                    ables.forEach(able => {
-                        const toggles = document.querySelectorAll(`.offline-filter-toggle-${able}`)
-
-                        if (favorites.indexOf(able) === -1) {
-                            toggles.forEach(toggle => toggle.checked = false)
-                        }
-                    })
-                }
-            }
-
-            saveFilterOptions(0)
 
             // Restore the page display scale
             {
@@ -340,7 +228,9 @@ function initialize() {
                     break
             }
 
+            addKeywordSearchOption()
             quitKeywordSearch()
+            deleteLastKeyword()
 
             {
                 const images = document.querySelectorAll('.image-delayed-loading')
@@ -579,38 +469,25 @@ function analyze(){
 
             tableRow.classList.add('border-3', 'border-top-0', 'border-end-0', 'border-start-0')
 
-            let code = `
+            const code = `
             <td>
                 <div class="list-item--small row d-xl-none d-xxl-none">
-                    <div class="list-item--index-wrapper col-2">
-                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
-                            <div class="list-item--index-number">${index + 1}</div>
-                            <!-- rating target indicator -->
-                        </div>
+                    <div class="list-item--index-wrapper col-2 d-flex">
+                        <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
                         <div class="list-item--top-wrapper p-0">
                             <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
                             </div>
-                            <div class="list-item--artist-wrapper d-flex">
-                                <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${getArtistName(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
-                                    <div class="d-flex">
-                                        ${getArtistName(chart[0])}
-                                    </div>
-                                    <div class="d-flex text-dimmed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bi-badge" viewBox="0 0 16 16">
-                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                        </svg>
-                                    </div>
+                            <div class="list-item--badge-wrapper">
+                                <div class="list-item--badge-stack d-flex">
+                                    <div class="list-item--badge-difficulty badge border m-0 ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
+                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                                 </div>
-                            </div>
-                            <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
-                                <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
-                                <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                             </div>
                         </div>
                         <div class="list-item--middle-wrapper d-flex row m-0 mt-1">
@@ -696,34 +573,19 @@ function analyze(){
                     </div>
                 </div>
                 <div class="list-item--large row d-none d-xl-flex d-xxl-flex${(index < targetsLength[listIndex]) ? ' bg-target-striped' : ''}">
-                    <div class="list-item--index-wrapper col-1">
-                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
-                            <div class="list-item--index-number">${index + 1}</div>
-                            <!-- rating target indicator -->
-                        </div>
+                    <div class="list-item--index-wrapper col-1 d-flex">
+                        <div class="list-item--index fs-3 lh-sm">${index + 1}</div>
                     </div>
                     <div class="list-item--content-wrapper col-11 row mb-1">
                         <div class="list-item--heading-wrapper col row sticky-column">
                             <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold mb-1">${chart[0]}</div>
                                 </div>
-                                <div class="list-item--artist-wrapper d-flex">
-                                    <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${getArtistName(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
-                                        <div class="d-flex">
-                                            ${getArtistName(chart[0])}
-                                        </div>
-                                        <div class="d-flex text-dimmed">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bi-badge" viewBox="0 0 16 16">
-                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
-                                    <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
-                                    <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
+                                <div class="list-item--badge-wrapper d-flex">
+                                    <div class="list-item--badge-difficulty badge border m-0 ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
+                                    <div class="list-item--badge-genre border-start ms-2 ps-2 small text-nowrap text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                                 </div>
                             </div>
                         </div>
@@ -789,38 +651,12 @@ function analyze(){
             </td>`
             .replaceAll(/(^ {12}|^\n)/gm, '')
 
-            {
-                const target = '<!-- rating target indicator -->'
-                const replace = `
-                    <div class="filter-targets rounded-pill m-1">
-                        <div class="d-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                            </svg>
-                        </div>
-                    </div>`
-                .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
-
-                if (tableRow.classList.contains('table-targets')) {
-                    code = code.replaceAll(target, replace)
-                }
-            }
-
             tableRow.innerHTML = code
             tableRow.setAttribute('data-list-index', listIndex)
             tableRow.setAttribute('data-index', index + 1)
-            tableRow.setAttribute('data-is-targets', tableRow.classList.contains('table-targets') ? 'true' : 'false')
-            tableRow.setAttribute('data-is-candidates', tableRow.classList.contains('table-candidates') ? 'true' : 'false')
-            tableRow.setAttribute('data-title', chart[0])
-            tableRow.setAttribute('data-alt-title', getEnglishTitle(chart[0]))
-            tableRow.setAttribute('data-difficulty', chart[1])
-            tableRow.setAttribute('data-level', String(chart[2]).match(/[0-9+]+/g)[0])
-            tableRow.setAttribute('data-score', chart[3])
-            tableRow.setAttribute('data-constant', chart[4])
-            tableRow.setAttribute('data-rating', chart[6])
+            tableRow.setAttribute('data-const', chart[4])
+            tableRow.setAttribute('data-rate', chart[6])
             tableRow.setAttribute('data-remaining-min', '')
-            tableRow.setAttribute('data-offline', isAvailableOnOffline(chart[0]) ? 'yes' : 'no')
 
             const chartType = (listIndex == 0) ? 'Newer' : 'Older'
             const maxRate = Number(4 * chart[4]).toFixed(3)
@@ -845,9 +681,15 @@ function analyze(){
 
             {
                 const searchText = `
-                    ${String(katakanaToHiragana(chart[0]).toLowerCase())} 
+                    ${String(chart[0]).toLowerCase()} 
                     ${String(getEnglishTitle(chart[0])).toLowerCase()} 
-                    ${String(katakanaToHiragana(getArtistName(chart[0])).toLowerCase())} `
+                    difficulty:${chart[1]} difficulty:${String(chart[1])[0]} 
+                    level:${String(chart[2]).match(/[0-9+]+/g)[0]} 
+                    score:${chart[3]} 
+                    constant:${chart[4]} 
+                    rating:${chart[6]} 
+                    offline:${isAvailableOnOffline(chart[0])} offline:${String(isAvailableOnOffline(chart[0]))[0]} 
+                    offline:${isAvailableOnOffline(chart[0]) ? 'yes' : 'no'} offline:${isAvailableOnOffline(chart[0]) ? 'y' : 'n'} `
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
                 
                 tableRow.setAttribute('data-search-text', searchText)
@@ -865,73 +707,63 @@ function analyze(){
 
                 localStorage.setItem('rating-analyzer-image-data-date', dateValue)
             }
+
+            {
+                const tempRow = document.createElement('tr')
+                const tableRow = scoresTables[listIndex].appendChild(tempRow)
+                const alert = `
+                <td>
+                    <div class="list-item--alert d-flex justify-content-start align-items-center">
+                        <div class="svg-wrapper d-flex mx-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                            </svg>
+                        </div>
+                        <div class="d-flex vstack mx-1">
+                            <div class="d-flex small">
+                                <span class="lang lang-japanese">表示できる譜面がありません。</span>
+                                <span class="lang lang-english d-none">There are no charts to display.</span>
+                            </div>
+                            <div class="d-flex small">
+                                <span class="lang lang-japanese">フィルターの選択内容を変更してください。</span>
+                                <span class="lang lang-english d-none">Please change the filter selections.</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>`
+                .replaceAll(/(^ {16}|^\n)/gm, '')
+
+                tableRow.innerHTML = alert
+                tableRow.classList.add('chart-list--alert', 'chart-list--alert-filter', 'd-none')
+            }
+
+            {
+                const tempRow = document.createElement('tr')
+                const tableRow = scoresTables[listIndex].appendChild(tempRow)
+                const alert = `
+                <td>
+                    <div class="list-item--alert d-flex justify-content-start align-items-center">
+                        <div class="svg-wrapper d-flex mx-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
+                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                            </svg>
+                        </div>
+                        <div class="d-flex vstack mx-1">
+                            <div class="d-flex small">
+                                <span class="lang lang-japanese">チェックリストが空です。</span>
+                                <span class="lang lang-english d-none">No items added to checklist.</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>`
+                .replaceAll(/(^ {16}|^\n)/gm, '')
+
+                tableRow.innerHTML = alert
+                tableRow.classList.add('chart-list--alert', 'chart-list--alert-check', 'd-none')
+            }
         })
-
-        {
-            const tempRow = document.createElement('tr')
-            const tableRow = scoresTables[listIndex].appendChild(tempRow)
-            const alert = `
-            <td>
-                <div class="list-item--alert d-flex justify-content-start align-items-center">
-                    <div class="svg-wrapper d-flex mx-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
-                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-                        </svg>
-                    </div>
-                    <div class="d-flex vstack mx-1">
-                        <div class="d-flex small">
-                            <span class="lang lang-japanese">表示できる譜面がありません。</span>
-                            <span class="lang lang-english d-none">There are no charts to display.</span>
-                        </div>
-                        <div class="d-flex small">
-                            <span class="lang lang-japanese">フィルターの選択内容を変更してください。</span>
-                            <span class="lang lang-english d-none">Please change the filter selections.</span>
-                        </div>
-                    </div>
-                </div>
-            </td>`
-            .replaceAll(/(^ {16}|^\n)/gm, '')
-
-            tableRow.innerHTML = alert
-            tableRow.classList.add('chart-list--alert', 'chart-list--alert-filter', 'd-none')
-        }
-
-        {
-            const tempRow = document.createElement('tr')
-            const tableRow = scoresTables[listIndex].appendChild(tempRow)
-            const alert = `
-            <td>
-                <div class="list-item--alert d-flex justify-content-start align-items-start gap-1 m-1">
-                    <div class="svg-wrapper d-flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle svg-fs-3" viewBox="0 0 16 16">
-                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-                        </svg>
-                    </div>
-                    <div class="d-flex vstack gap-1">
-                        <div class="d-flex small">
-                            <span class="lang lang-japanese">チェックリストが空です。</span>
-                            <span class="lang lang-english d-none">No items added to checklist.</span>
-                        </div>
-                        <div class="d-flex">
-                            <button type="button" class="btn btn-sm btn-white me-0" onclick="refreshChartList();">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
-                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
-                                </svg>
-                                <span class="lang lang-japanese d-none">終了</span>
-                                <span class="lang lang-english">Exit</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </td>`
-            .replaceAll(/(^ {16}|^\n)/gm, '')
-
-            tableRow.innerHTML = alert
-            tableRow.classList.add('chart-list--alert', 'chart-list--alert-check', 'd-none')
-        }
 
         {
             const remainingScores = document.querySelectorAll('.list-item--remaining-score')
@@ -980,10 +812,6 @@ function analyze(){
 
         if (localStorage.getItem('rating-analyzer-alt-title') !== 'true') {
             setDisplayNone('.list-item--alt-title', true)
-        }
-
-        if (localStorage.getItem('rating-analyzer-artist-name') !== 'true') {
-            setDisplayNone('.list-item--artist-name', true)
         }
 
         {
@@ -1156,7 +984,9 @@ function analyze(){
         timeStamps.forEach(stamp => stamp.textContent = localStorage.getItem('rating-analyzer-prev-date'))
     }
 
-    refreshChartList()
+    updateChartVisibilityByType()
+    updateChartVisibilityByDifficulty()
+    refreshChartVisibility()
 
     switch (localStorage.getItem('rating-analyzer-lang')) {
         case 'japanese':
@@ -1183,6 +1013,161 @@ function analyze(){
     }
 }
 
+// Set filters based on changes in type options
+function toggleChartVisibilityByType(type, checked) {
+    const types = ['targets', 'candidates', 'others']
+
+    if (types.includes(type) === false) {
+        return false
+    }
+
+    {
+        const toggles = document.querySelectorAll(`.rating-${type}-toggle`)
+        toggles.forEach(input => input.checked = checked)
+    }
+
+    localStorage.setItem(`rating-analyzer-filter-type-${type}`, checked)
+    updateChartVisibilityByType()
+    refreshChartVisibility()
+}
+
+// Set filters based on the current type options
+function updateChartVisibilityByType() {
+    const rows = document.querySelectorAll('tr.chart-list--item')
+    rows.forEach(row => {
+        row.classList.remove('type-hidden')
+        {
+            const key = 'rating-analyzer-filter-type-targets'
+            if (
+                (localStorage.getItem(key) === 'false') &&
+                (row.classList.contains('table-targets')) &&
+                (row.classList.contains('table-candidates') === false)
+            ) {
+                row.classList.add('type-hidden')
+            }
+        }
+        {
+            const key = 'rating-analyzer-filter-type-candidates'
+            if (
+                (localStorage.getItem(key) === 'false') &&
+                (row.classList.contains('table-candidates'))
+            ) {
+                row.classList.add('type-hidden')
+            }
+        }
+        {
+            const key1 = 'rating-analyzer-filter-type-targets'
+            const key2 = 'rating-analyzer-filter-type-candidates'
+            if (
+                (localStorage.getItem(key1) !== 'false') &&
+                (localStorage.getItem(key2) === 'false') &&
+                (row.classList.contains('table-targets'))
+            ) {
+                row.classList.remove('type-hidden')
+            }
+        }
+        {
+            const key = 'rating-analyzer-filter-type-others'
+            if (
+                (localStorage.getItem(key) === 'false') &&
+                (row.classList.contains('table-targets') === false) &&
+                (row.classList.contains('table-candidates') === false)
+            ) {
+                row.classList.add('type-hidden')
+            }
+        }
+    })
+}
+
+// Set filters based on changes in difficulty options
+function toggleChartVisibilityByDifficulty(difficulty, checked) {
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
+
+    if (difficulties.includes(difficulty) === false) {
+        return false
+    }
+
+    {
+        const toggles = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
+        toggles.forEach(input => input.checked = checked)
+    }
+
+    localStorage.setItem(`rating-analyzer-filter-difficulty-${difficulty}`, checked)
+
+    {
+        const targetRows = document.querySelectorAll(`.difficulty-${difficulty}`)
+
+        targetRows.forEach(row => {
+            if (checked) {
+                row.classList.remove('difficulty-hidden')
+            } else {
+                row.classList.add('difficulty-hidden')
+            }
+        })
+    }
+
+    refreshChartVisibility()
+}
+
+// Set filters based on the current difficulty options
+function updateChartVisibilityByDifficulty() {
+    const difficulties = ['normal', 'hard', 'expert', 'inferno']
+
+    difficulties.forEach(difficulty => {
+        const checkboxes = document.querySelectorAll(`.difficulty-${difficulty}-toggle`)
+        const checked = checkboxes[0].checked
+        const targetRows = document.querySelectorAll(`.difficulty-${difficulty}`)
+
+        targetRows.forEach(row => {
+            if (checked) {
+                row.classList.remove('difficulty-hidden')
+            } else {
+                row.classList.add('difficulty-hidden')
+            }
+        })
+    })
+}
+
+function filterByRemainingScore(difference, checked) {
+    if (String(difference).match(/[0-9]+/g)[0] !== String(difference)) {
+        return false
+    }
+
+    {
+        const selects = document.querySelectorAll('.remaining-score-filter-select')
+        selects.forEach(div => div.value = difference)
+    }
+
+    {
+        const targetRows = document.querySelectorAll('.scoresTable > tr')
+
+        targetRows.forEach(row => {
+            if (checked) {
+                if (row.dataset.remainingMin !== '' && Number(row.dataset.remainingMin) <= Number(difference)) {
+                    row.classList.remove('remaining-hidden')
+                } else {
+                    row.classList.add('remaining-hidden')
+                }
+            } else {
+                row.classList.remove('remaining-hidden')
+            }
+        })
+    }
+
+    refreshChartVisibility()
+}
+
+function toggleRemainingScoreFilter(checked) {
+    document.querySelector('#btn-remaining-score-filter').click()
+    setDisplayNone('.icon-remaining-score-filter', !checked)
+
+    if (checked === false) {
+        toggleDisplayState('remaining-score-filter', false)
+        const select = document.querySelector('#remaining-score-filter-select-1')
+        filterByRemainingScore(select.value, false)
+    }
+}
+
 // Apply a filter to the table
 function refreshChartVisibility() {
     const rows = document.querySelectorAll('tr.chart-list--item')
@@ -1203,14 +1188,7 @@ function refreshChartVisibility() {
         }
     })
 
-    setDisplayNone(['.chart-list-control--check-list-active', '.chart-list-control--title-search-active'], false)
-
-    {
-        const filters = document.querySelectorAll('.chart-list-control--score-filter')
-        filters.forEach(filter => {
-            filter.classList.remove('pe-none', 'opacity-25')
-        })
-    }
+    setDisplayNone('.chart-list-control--check-list-active', true)
 
     {
         const entries = document.querySelectorAll('.box-entry')
@@ -1257,12 +1235,6 @@ function activateChecklistViewer() {
         return
     }
 
-    if (localStorage.getItem('rating-analyzer-charts-entry') === 'newer') {
-        quitKeywordSearch(0, false)
-    } else {
-        quitKeywordSearch(1, false)
-    }
-
     rows.forEach(row => {
         if (row.querySelectorAll('.list-item--small a.multi-rate-selected').length === 0) {
             row.classList.add('d-none')
@@ -1302,15 +1274,7 @@ function activateChecklistViewer() {
         })
     }
 
-    setDisplayNone('.chart-list-control--title-search-active', true)
     setDisplayNone('.chart-list-control--check-list-active', false)
-
-    {
-        const filters = document.querySelectorAll('.chart-list-control--score-filter')
-        filters.forEach(filter => {
-            filter.classList.add('pe-none', 'opacity-25')
-        })
-    }
 
     {
         setDisplayNone('.check-list-viewer-menu', true)
@@ -1345,7 +1309,7 @@ function toggleColumnVisibility(columnName, checked) {
 // Toggle display state of any elements
 function toggleDisplayState(className, checked) {
     {
-        const toggles = document.querySelectorAll(`.${className}-toggle`)
+        const toggles = document.querySelectorAll(`#${className}-toggle`)
         toggles.forEach(input => input.checked = checked)
     }
 
@@ -1524,10 +1488,8 @@ function getDatasetIndex() {
     return {
         'title':                songs[0].indexOf('@song-title'),
         'title-english':        songs[0].indexOf('@song-title-english'),
-        'artist':               songs[0].indexOf('@artist-name'),
-        'artist-english':       songs[0].indexOf('@artist-name-english'),
         'genre':                songs[0].indexOf('@genre'),
-        'available-on-offline': songs[0].indexOf('@available-on-offline'),
+        'available-on-offline':  songs[0].indexOf('@available-on-offline'),
         'normal-level':         songs[0].indexOf('@normal-level'),
         'normal-constant':      songs[0].indexOf('@normal-constant'),
         'normal-newer':         songs[0].indexOf('@normal-newer'),
@@ -1651,34 +1613,6 @@ function getEnglishTitle(songTitle) {
 
         if (song[indexes['title']] == songTitle) {
             return song[indexes['title-english']]
-        }
-    }
-}
-
-// Get the artist name from the original song title
-function getArtistName(songTitle) {
-    const songs = getChartTable()
-    const indexes = getDatasetIndex()
-    
-    for (let i = 0; i < songs.length; i++) {
-        const song = songs[i]
-
-        if (song[indexes['title']] == songTitle) {
-            return song[indexes['artist']]
-        }
-    }
-}
-
-// Get the artist name in English from the original song title
-function getEnglishArtistName(songTitle) {
-    const songs = getChartTable()
-    const indexes = getDatasetIndex()
-    
-    for (let i = 0; i < songs.length; i++) {
-        const song = songs[i]
-
-        if (song[indexes['title']] == songTitle) {
-            return song[indexes['artist-english']]
         }
     }
 }
@@ -1858,7 +1792,7 @@ function clearCheckList() {
     const chartLists = document.querySelectorAll('.scoresTable')
     const anchors = chartLists[index].querySelectorAll('a.multi-rate-selected')
     anchors.forEach(anchor => anchor.classList.remove('multi-rate-selected'))
-    refreshChartList()
+    refreshChartVisibility()
     saveCheckList()
     applyCheckList()
 }
@@ -2316,7 +2250,7 @@ function switchChartsEntry(index = -1) {
 
     entries.forEach(entry => entry.classList.add('d-none'))
     entry.classList.remove('d-none')
-
+    
     window.scroll(0, scrollY)
 
     const entryNames = ['newer', 'older']
@@ -2333,20 +2267,10 @@ function switchChartsEntry(index = -1) {
             })
         })
     }
-
-    {
-        const inputs = document.querySelectorAll('.input-keyword-search')
-        inputs[index].value = inputs[Number(!index)].value
-
-        if (String(inputs[index].value).length !== 0) {
-            activateKeywordSearch(inputs[index].value, index)
-        }
-    }
 }
 
 function scrollToActiveChartList() {
     const scrollTargets = document.querySelectorAll('.chart-list-control--display-options-wrapper')
-    const header = document.querySelectorAll('.charts-entry--header')
 
     switch (localStorage.getItem('rating-analyzer-charts-entry')) {
         case 'newer':
@@ -2652,52 +2576,125 @@ function findMissingItems() {
     return items
 }
 
-function activateKeywordSearch(keyword = null, index = null, scroll = false) {
+function activateKeywordSearch(keyword = null, index = null) {
     if ([keyword, index].indexOf(null) !== -1) {
         return false
     }
 
-    const keywords = katakanaToHiragana(String(keyword).replaceAll('　',' ').toLowerCase()).split(' ')
+    const keywords = String(keyword).replaceAll('　',' ').toLowerCase().split(' ')
     const list = document.querySelectorAll('.chart-list')[index]
     const rows = list.querySelectorAll('tr.chart-list--item')
+    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
 
     if (rows.length === 0) {
         return
     }
 
     if (String(keyword).length === 0) {
-        quitKeywordSearch(index, false)
+        refreshChartVisibility()
+        button.classList.add('d-none')
         return
+    } else {
+        button.classList.remove('d-none')
+        if (String(keyword).length < 3) {
+            return
+        }
+        if (String(keyword).slice(-1) === ':') {
+            return
+        }
     }
 
-    refreshChartList()
+    refreshChartVisibility()
 
     rows.forEach(row => {
         row.classList.remove('d-none')
         keywords.forEach(key => {
-            if (row.dataset.searchText.indexOf(key) === -1) {
-                row.classList.add('d-none')
+            if (key.indexOf(':') !== -1) {
+                if (key.match(/level-(min|max):([0-9]{1,2}\+?)/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/level:([0-9]{1,2}\+?)/)[1].replace('+', '.7'))
+                    const limit = Number(key.match(/level-(min|max):([0-9]{1,2}\+?)/)[2].replace('+', '.7'))
+
+                    if (key.indexOf('level-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('level-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (key.match(/constant-(min|max):([0-9]{1,2}\.[0-9])/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/constant:([0-9]{1,2}\.[0-9])/)[1])
+                    const limit = Number(key.match(/constant-(min|max):([0-9]{1,2}\.[0-9])/)[2])
+
+                    if (key.indexOf('constant-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('constant-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (key.match(/score-(min|max):([0-9]{1,4}k)/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/score:([0-9]{1,7})/)[1])
+                    const limit = Number(key.match(/score-(min|max):([0-9]{1,4}k)/)[2].replace('k', '000'))
+
+                    if (key.indexOf('score-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('score-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (key.match(/score-(min|max):([0-9]{1,7})/) !== null) {
+                    const value = Number(row.dataset.searchText.match(/score:([0-9]{1,7})/)[1])
+                    const limit = Number(key.match(/score-(min|max):([0-9]{1,7})/)[2])
+
+                    if (key.indexOf('score-min:') !== -1) {
+                        if (value < limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                    if (key.indexOf('score-max:') !== -1) {
+                        if (value > limit) {
+                            row.classList.add('d-none')
+                        }
+                    }
+                } else if (row.dataset.searchText.indexOf(`${key} `) === -1) {
+                    row.classList.add('d-none')
+                }
+            } else {
+                if (row.dataset.searchText.indexOf(key) === -1) {
+                    row.classList.add('d-none')
+                }
             }
         })
     })
-
-    setDisplayNone('.chart-list-control--check-list-active', true)
-    setDisplayNone('.chart-list-control--title-search-active', false)
-
-    {
-        const filters = document.querySelectorAll('.chart-list-control--score-filter')
-        filters.forEach(filter => {
-            filter.classList.add('pe-none', 'opacity-25')
-        })
-    }
-
-    if (scroll === true) {
-        const wrapper = document.querySelectorAll('.chart-list-control--keyword-search-wrapper')
-        wrapper[index].scrollIntoView()
-    }
 }
 
-function quitKeywordSearch(index = null, focus = true) {
+function addKeywordSearchOption(option = null, index = null) {
+    if ([option, index].indexOf(null) !== -1) {
+        return false
+    }
+
+    const input = document.querySelectorAll('.input-keyword-search')[index]
+    input.value = String(input.value).replace('　', ' ')
+    input.value += ` ${option}`
+    input.value = String(input.value).replaceAll(/\s+/g, ' ')
+
+    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
+    button.classList.remove('d-none')
+
+    input.focus()
+}
+
+function quitKeywordSearch(index = null) {
     if (index === null) {
         return false
     }
@@ -2705,313 +2702,34 @@ function quitKeywordSearch(index = null, focus = true) {
     const input = document.querySelectorAll('.input-keyword-search')[index]
     input.value = ''
 
-    setDisplayNone('.chart-list-control--title-search-active', true)
+    const button = document.querySelectorAll('.button-quit-keyword-search')[index]
+    button.classList.add('d-none')
 
-    refreshChartList()
-
-    if (focus === true) {
-        input.focus()
-    }
+    refreshChartVisibility()
+    input.focus()
 }
 
-function refreshChartList() {
-    const items = document.querySelectorAll('tr.chart-list--item')
-    items.forEach(item => {
-        item.classList.remove('d-none')
-    })
-
-    items.forEach(item => {
-        {
-            const favorite = String(localStorage.getItem('rating-analyzer-type-filter'))
-            const isTargets = String(item.dataset.isTargets)
-            const isCandidates = String(item.dataset.isCandidates)
-
-            if (favorite.indexOf('targets') === -1) {
-                if (favorite.indexOf('candidates') !== -1) {
-                    if ((isTargets === 'true') &&
-                        (isCandidates === 'false')) {
-                        item.classList.add('d-none')
-                    }
-                } else {
-                    if (isTargets === 'true') {
-                        item.classList.add('d-none')
-                    }
-                }
-            }
-
-            if (favorite.indexOf('candidates') === -1) {
-                if (isCandidates === 'true') {
-                    item.classList.add('d-none')
-                }
-            }
-
-            if (favorite.indexOf('others') === -1) {
-                if ((isTargets === 'false') &&
-                    (isCandidates === 'false')) {
-                    item.classList.add('d-none')
-                }
-            }
-        }
-
-        {
-            const favorite = String(localStorage.getItem('rating-analyzer-difficulty-filter'))
-            const difficulties = ['normal', 'hard', 'expert', 'inferno']
-            
-            difficulties.forEach(difficulty => {
-                if (favorite.indexOf(difficulty) === -1) {
-                    if (String(item.dataset.difficulty).toLowerCase().indexOf(difficulty) !== -1) {
-                        item.classList.add('d-none')
-                    }
-                }
-            })
-            
-        }
-
-        {
-            const favorite = String(localStorage.getItem('rating-analyzer-level-filter'))
-            const levels = ['15', '14', '13+', '13', '12+', '12', '11+', '11', '10+', '10', 'lower']
-            
-            levels.forEach(level => {
-                if (favorite.split(',').indexOf(level) === -1) {
-                    if (level === 'lower') {
-                        if (Number(item.dataset.constant) < 10) {
-                            item.classList.add('d-none')
-                        }
-                    } else {
-                        if (String(item.dataset.level) === level) {
-                            item.classList.add('d-none')
-                        }
-                    }
-                }
-            })
-        }
-
-        {
-            const favoriteOpts = String(localStorage.getItem('rating-analyzer-score-filter')).split(',')
-            const minScoreEnabled = favoriteOpts[0]
-            const minScore = favoriteOpts[1]
-            const maxScoreEnabled = favoriteOpts[2]
-            const maxScore = favoriteOpts[3]
-            const remainingScoreEnabled = favoriteOpts[4]
-            const remainingScore = favoriteOpts[5]
-
-            
-            if (minScoreEnabled === 'true') {
-                if (Number(item.dataset.score) < Number(minScore)) {
-                    item.classList.add('d-none')
-                }
-            }
-
-            if (maxScoreEnabled === 'true') {
-                if (Number(item.dataset.score) > Number(maxScore)) {
-                    item.classList.add('d-none')
-                }
-            }
-
-            if (remainingScoreEnabled === 'true') {
-                if (Number(item.dataset.remainingMin) > Number(remainingScore)) {
-                    item.classList.add('d-none')
-                }
-                if (item.dataset.remainingMin === '') {
-                    item.classList.add('d-none')
-                }
-            }
-        }
-
-        {
-            const favorite = String(localStorage.getItem('rating-analyzer-offline-filter'))
-            const ables = ['yes', 'no']
-            
-            ables.forEach(able => {
-                if (favorite.split(',').indexOf(able) === -1) {
-                    if (String(item.dataset.offline) === able) {
-                        item.classList.add('d-none')
-                    }
-                }
-            })
-        }
-    })
-
-    setDisplayNone(['.chart-list-control--check-list-active', 'chart-list-control--title-search-active'], true)
-
-    {
-        const filters = document.querySelectorAll('.chart-list-control--score-filter')
-        filters.forEach(filter => {
-            filter.classList.remove('pe-none', 'opacity-25')
-        })
-    }
-
-    {
-        const entries = document.querySelectorAll('.box-entry')
-        entries.forEach(entry => {
-            entry.querySelectorAll('.scoresTable tr.chart-list--alert').forEach(alert => alert.classList.add('d-none'))
-            const rows = entry.querySelectorAll('.scoresTable tr.chart-list--item:not(.d-none)')
-            const alert = entry.querySelector('.scoresTable tr.chart-list--alert-filter')
-            if (rows.length === 0) {
-                alert.classList.remove('d-none')
-                entry.querySelector('.chart-list').scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: 'smooth'
-                })
-            } else {
-                alert.classList.add('d-none')
-            }
-        })
-    }
-
-    {
-        const lists = document.querySelectorAll('.chart-list')
-        lists.forEach(list => {
-            list.classList.remove('opacity-trans-100')
-            window.requestAnimationFrame(function() {
-                window.requestAnimationFrame(function() {
-                    list.classList.add('opacity-trans-100')
-                })
-            })
-        })
-    }
-
-    {
-        setDisplayNone('.check-list-viewer-menu', true)
-        setDisplayNone('.check-list-viewer-menu-off', false)
-    }
-}
-
-function applyFilterOptions(index) {
-    saveFilterOptions(index)
-    refreshChartList()
-}
-
-function switchChildrenToggles(index, parentsSelector, childrenSelector) {
-    const parents = document.querySelectorAll(parentsSelector)
-    const children = document.querySelectorAll(childrenSelector)
-
-    if (parents[index].checked === true) {
-        children.forEach(child => child.checked = true)
-    }
-
-    if (parents[index].checked === false) {
-        children.forEach(child => child.checked = false)
-    }
-
-    applyFilterOptions(index)
-}
-
-function saveFilterOptions(index) {
-    {
-        const types = ['targets', 'candidates', 'others']
-        const favorites = types.filter(type => {
-            const toggles = document.querySelectorAll(`.type-filter-toggle-${type}`)
-            toggles[Number(!index)].checked = toggles[index].checked
-            return (toggles[index].checked === true)
-        })
-        localStorage.setItem('rating-analyzer-type-filter', favorites.join(','))
-    }
-
-    {
-        const difficulties = ['normal', 'hard', 'expert', 'inferno']
-        const favorites = difficulties.filter(difficulty => {
-            const toggles = document.querySelectorAll(`.difficulty-filter-toggle-${difficulty}`)
-            toggles[Number(!index)].checked = toggles[index].checked
-            return (toggles[index].checked === true)
-        })
-        localStorage.setItem('rating-analyzer-difficulty-filter', favorites.join(','))
-    }
-
-    {
-        const levels = ['15', '14', '13+', '13', '12+', '12', '11+', '11', '10+', '10', 'lower']
-        const favorites = levels.filter(level => {
-            const toggles = document.querySelectorAll(`.level-filter-toggle-${String(level).replace('+', 'plus')}`)
-            toggles[Number(!index)].checked = toggles[index].checked
-            return (toggles[index].checked === true)
-        })
-        localStorage.setItem('rating-analyzer-level-filter', favorites.join(','))
-
-        const allToggles = document.querySelectorAll('.level-filter-toggle-all')
-
-        if (levels.join(',') === favorites.join(',')) {
-            allToggles.forEach(toggle => {
-                toggle.indeterminate = false
-                toggle.checked = true
-            })
-        }
-
-        if (levels.join(',') !== favorites.join(',') && favorites.join(',') !== '') {
-            allToggles.forEach(toggle => {
-                toggle.indeterminate = true
-                toggle.checked = true
-            })
-        }
-
-        if (favorites.join(',') === '') {
-            allToggles.forEach(toggle => {
-                toggle.indeterminate = false
-                toggle.checked = false
-            })
-        }
-    }
-
-    {
-        const minScoreToggle = document.querySelectorAll('.score-filter-min-toggle')
-        const minScoreSelect = document.querySelectorAll('.score-filter-min-select')
-        const maxScoreToggle = document.querySelectorAll('.score-filter-max-toggle')
-        const maxScoreSelect = document.querySelectorAll('.score-filter-max-select')
-        const remainingScoreToggle = document.querySelectorAll('.remaining-score-filter-toggle')
-        const remainingScoreSelect = document.querySelectorAll('.remaining-score-filter-select')
-
-        minScoreToggle[Number(!index)].checked = minScoreToggle[index].checked
-        minScoreSelect[Number(!index)].value = minScoreSelect[index].value
-        maxScoreToggle[Number(!index)].checked = maxScoreToggle[index].checked
-        maxScoreSelect[Number(!index)].value = maxScoreSelect[index].value
-        remainingScoreToggle[Number(!index)].checked = remainingScoreToggle[index].checked
-        remainingScoreSelect[Number(!index)].value = remainingScoreSelect[index].value
-
-        const favorite = [
-            minScoreToggle[index].checked,
-            minScoreSelect[index].value,
-            maxScoreToggle[index].checked,
-            maxScoreSelect[index].value,
-            remainingScoreToggle[index].checked,
-            remainingScoreSelect[index].value
-        ].join(',')
-
-        localStorage.setItem('rating-analyzer-score-filter', favorite)
-    }
-
-    {
-        const ables = ['yes', 'no']
-        const favorites = ables.filter(able => {
-            const toggles = document.querySelectorAll(`.offline-filter-toggle-${able}`)
-            toggles[Number(!index)].checked = toggles[index].checked
-            return (toggles[index].checked === true)
-        })
-
-        localStorage.setItem('rating-analyzer-offline-filter', favorites.join(','))
-    }
-}
-
-function katakanaToHiragana(value) {
-    try {
-        return value.replace(/[\u30a1-\u30f6]/g, match => {
-            const char = match.charCodeAt(0) - 0x60
-            return String.fromCharCode(char)
-        })
-    } catch (error) {
-        console.log(`ERROR: '${value}' cannot be converted to hiragana`)
-        return ''
-    }
-}
-
-function fillKeywordSearchInput(keyword = null, index = null, focus = true) {
-    if (index === null || keyword === null) {
+function deleteLastKeyword(index = null) {
+    if (index === null) {
         return false
     }
 
     const input = document.querySelectorAll('.input-keyword-search')[index]
-    input.value = String(keyword)
+    input.value = String(input.value).replace('　', ' ')
 
-    if (focus === true) {
-        input.focus()
+    const lastIndex = input.value.lastIndexOf(' ')
+
+    if (lastIndex === -1) {
+        input.value = ''
+    } else {
+        input.value = String(input.value).substring(0, lastIndex)
     }
+
+    if (input.value === '') {
+        const button = document.querySelectorAll('.button-quit-keyword-search')[index]
+        button.classList.add('d-none')
+    }
+
+    refreshChartVisibility()
+    input.focus()
 }

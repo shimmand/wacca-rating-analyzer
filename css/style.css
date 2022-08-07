@@ -169,19 +169,19 @@ html.fs-50 {
     border-color: var(--bs-danger)!important;
 }
 
-.badge-max {
+.badge.badge-max {
     text-shadow: #000000 0 0.1rem, #000000 0 0.1rem 0.15rem;
 }
 
-.filter-targets {
+.badge.filter-targets {
     background-color: #055160;
 }
 
-.filter-candidates {
+.badge.filter-candidates {
     background-color: #561435;
 }
 
-.filter-others {
+.badge.filter-others {
     background-color: #212529;
 }
 
@@ -259,15 +259,6 @@ html.fs-50 {
 .hover-text-magenta:hover {
     transition: color .15s;
     color: #d63384;
-}
-
-.form-check-input-red:checked {
-    background-color: var(--bs-red);
-    border-color: var(--bs-red);
-}
-
-.form-check {
-    margin-bottom: 0;
 }
 
 

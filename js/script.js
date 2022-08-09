@@ -2,10 +2,13 @@
  * Initialize with user settings
  * @returns 
  */
- function initialize() {
+function initialize() {
     try {
         const datasetParam = document.querySelector('html').dataset.dataset
         const xhr = new XMLHttpRequest()
+
+        // [DEBUG] FOR DEBUGGING USE ONLY
+        // xhr.open('get', `https://shimmand.github.io/labs/dataset.csv?date=${datasetParam}`, true)
 
         xhr.open('get', `https://shimmand.github.io/wacca-rating-analyzer/assets/dataset-beta.csv?date=${datasetParam}`, true)
         xhr.send(null)
@@ -849,7 +852,8 @@ function analyze(){
                 const searchText = `
                     ${String(katakanaToHiragana(chart[0]).toLowerCase())} 
                     ${String(getEnglishTitle(chart[0])).toLowerCase()} 
-                    ${String(katakanaToHiragana(getArtistName(chart[0])).toLowerCase())} `
+                    ${String(katakanaToHiragana(getArtistName(chart[0])).toLowerCase())} 
+                    ${String(getEnglishArtistName(chart[0]).toLowerCase())} `
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
                 
                 tableRow.setAttribute('data-search-text', searchText)
@@ -1390,7 +1394,10 @@ function activateAnalyzeMode() {
     localStorage.setItem('rating-analyzer-temp', playdata.value)
     localStorage.setItem('rating-analyzer-analyze-mode', 'true')
     playdata.value = ''
+
+    // [DEBUG] FOR DEBUGGING USE ONLY
     // location.reload()
+
     location.href = 'https://bit.ly/3tiGGDb'
 }
 
@@ -2700,7 +2707,7 @@ function activateKeywordSearch(keyword = null, index = null, scroll = false) {
     }
 
     if (scroll === true) {
-        const wrapper = document.querySelectorAll('.chart-list-control--keyword-search-wrapper')
+        const wrapper = document.querySelectorAll('.chart-list-control--others-filter')
         wrapper[index].scrollIntoView()
     }
 }

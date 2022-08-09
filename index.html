@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-08-07" data-dataset="2022-07-18-rev2" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-08-10" data-dataset="2022-07-18-rev5" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -10,12 +10,12 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-08-07-rev4" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-08-10" rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-08-07-rev4"></script>
+        <script defer src="js/script.js?date=2022-08-10"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -29,18 +29,6 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
                 <div class="h4 font-numeric text-center bg-heading text-clip">WACCA RATING ANALYZER</div>
-                <a class="small text-decoration-none" href="https://twitter.com/shimmand" target="_blank" rel="noopener noreferrer">
-                    <div class="ms-0">
-                        <span class="text-dimmed">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                            </svg>
-                            <span class="text-decoration-underline">
-                                @shimmand
-                            </span>
-                        </span>
-                    </div>
-                </a>
             </div>
         </div>
 
@@ -59,7 +47,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="my-1 p-2">
+                            <div class="my-1 p-2 opacity-50 text-decoration-line-through">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack border rounded me-2">
                                         <div class="badge bg-white align-bottom text-black rounded-0">#83</div>
@@ -81,6 +69,90 @@
                                         </span>
                                         <span class="lang lang-english d-none">
                                             Some users did not seem to have this program working correctly, so we have reverted to an older version that seemed to be working as expected.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack border rounded me-2">
+                                        <div class="badge bg-white align-bottom text-black rounded-0">#82</div>
+                                        <div class="badge border-white align-bottom">2022-08-01</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            スコア編集機能の不具合を修正
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Fixed a bug with the 'Score Edit' feature
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            「スコア編集」機能を使用しても、新しいスコアが反映されない不具合がありました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            There was a problem with the "Score Edit" feature not reflecting new scores.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            現在ではこの不具合は修正されております。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            This problem has now been fixed.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            ご報告ありがとうございます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Thanks for the report.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack border rounded me-2">
+                                        <div class="badge bg-white align-bottom text-black rounded-0">#82</div>
+                                        <div class="badge border-white align-bottom">2022-08-01</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            スコア編集機能の不具合を修正
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Fixed a bug with the 'Score Edit' feature
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            「スコア編集」機能を使用しても、新しいスコアが反映されない不具合がありました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            There was a problem with the "Score Edit" feature not reflecting new scores.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            現在ではこの不具合は修正されております。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            This problem has now been fixed.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            ご報告ありがとうございます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Thanks for the report.
                                         </span>
                                     </div>
                                 </div>
@@ -494,7 +566,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="my-1 p-2">
+                            <div class="my-1 p-2 opacity-50 text-decoration-line-through">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack border rounded me-2">
                                         <div class="badge bg-white align-bottom text-black rounded-0">#80</div>
@@ -877,48 +949,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack border rounded me-2">
-                                        <div class="badge bg-white align-bottom text-black rounded-0">#53</div>
-                                        <div class="badge border-white align-bottom">2022-06-24</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            譜面追加時の動作を変更
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Change behavior when new charts are added
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            このプログラムが新しい譜面に対応した際に、ブックマークレットを使用しなくても、それらが譜面一覧に表示されるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            When the program supports new charts, they will now appear in the Chart List without the need to use the bookmarklet.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            具体的には、「復元」を押すとプレイデータとデータセットの内容を毎回比較し、もしプレイデータに不足している譜面がある場合には、自動的にスコア0としてデータを追加するようになります。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Specifically, when you press "Restore" it will compare the play data to the contents of the data set, and if there are missing charts in the play data, it will automatically add data with a score of 0.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            この変更により、このプログラムが新しい譜面に対応次第、すぐにスコア編集機能を用いてスコアを登録できるようになります。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            This change will allow you to register scores using the "Score Edit" feature as soon as this program supports the new chart.
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="modal-footer border-0 bg-gray-900">
                             <button type="button" class="btn btn-white m-1" data-bs-dismiss="modal">
@@ -1247,7 +1277,7 @@
                     </button>
                     <button type="button" class="btn btn-white p-0">
                         <div class="position-relative d-flex align-items-center bg-white h-100 rounded-3">
-                            <div class="position-absolute" style="margin-left: 0.75rem; pointer-events: none;">
+                            <div class="position-absolute pe-none" style="margin-left: 0.75rem;">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
                                     <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                                 </svg>
@@ -1260,7 +1290,7 @@
                     </button>
                     <button type="button" class="btn btn-white p-0">
                         <div class="position-relative d-flex align-items-center bg-white h-100 rounded-3">
-                            <div class="position-absolute" style="margin-left: 0.75rem; pointer-events: none;">
+                            <div class="position-absolute pe-none" style="margin-left: 0.75rem;">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
                                     <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"></path>
@@ -1325,7 +1355,7 @@
                 <div class="p-2">
                     <div class="rate-graph mt-2">
                         <div class="position-relative graph-bar border mx-2 my-3 rounded">
-                            <div class="progress rounded-0">
+                            <div class="progress rounded-0 rounded-top">
                                 <div class="progress-bar graph-bar-rate-2 fw-bold text-shadow-black bg-older" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                                     <span class="lang lang-japanese">旧曲枠</span>
                                     <span class="lang lang-english d-none">Older</span>
@@ -1335,7 +1365,7 @@
                                     <span class="lang lang-english d-none">Newer</span>
                                 </div>
                             </div>
-                            <div class="progress rounded-0">
+                            <div class="progress rounded-0 rounded-bottom">
                                 <div class="progress-bar graph-bar-rate bg-plain" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 <div class="progress-bar graph-bar-rate bg-navy" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 <div class="progress-bar graph-bar-rate bg-yellow" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -1403,8 +1433,8 @@
                 </div>
             </div>
             <div id="box-newer" class="box-entry bg-gray-800 my-2 rounded">
-                <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
-                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto hover-trans-opacity w-100" onclick="switchChartsEntry(1)">
+                <div class="sticky-top d-flex vstack align-items-end pe-none">
+                    <div class="charts-entry--header d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pe-auto hover-trans-opacity w-100" onclick="switchChartsEntry(1)">
                         <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">新曲枠</span>
@@ -1437,7 +1467,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="check-list--new" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative pointer-events-auto">
+                    <div id="check-list--new" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative pe-auto">
                         <div class="position-absolute top-100 start-50 translate-middle">
                             <ul class="dropdown-menu dropdown-menu-dark shadow" aria-labelledby="dropdownMenuButton1">
                                 <li>
@@ -1460,7 +1490,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item small check-list-viewer-menu check-list-viewer-menu-on d-none" onclick="toggleDropdownMenu(false); refreshChartVisibility();">
+                                    <a class="dropdown-item small check-list-viewer-menu check-list-viewer-menu-on d-none" onclick="toggleDropdownMenu(false); refreshChartList();">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square me-1" viewBox="0 0 16 16">
                                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -1470,7 +1500,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item small text-magenta" onclick="toggleDropdownMenu(false); clearCheckListLauncher(0);">
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false); clearCheckListLauncher(0);">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-trash me-1" viewBox="0 0 16 16">
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -1733,7 +1763,27 @@
                                             </button>
                                         </div>
                                         <div class="mx-1">
-                                            <button type="button" class="btn btn-white me-0" onclick="refreshChartVisibility();">
+                                            <button type="button" class="btn btn-white me-0" onclick="refreshChartList();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">終了</span>
+                                                <span class="lang lang-english d-none">Exit</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--title-search-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
+                                <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
+                                    <div class="m-1">
+                                        <span class="lang lang-japanese">曲名検索の結果を表示中</span>
+                                        <span class="lang lang-english d-none">Displaying results of "Search by Title"</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center m-1">
+                                        <div class="mx-1">
+                                            <button type="button" class="btn btn-white me-0" onclick="quitKeywordSearch(0, false);">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
                                                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -1755,61 +1805,170 @@
                                     <span class="lang lang-english d-none">Reducing the number of items to be displayed will reduce loading time.</span>
                                 </div>
                             </div>
-                            <div class="chart-list-control--type-filter">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black me-1">
-                                        <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-newer" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
-                                        <label class="form-check-label" for="rating-targets-toggle-newer">
-                                            <span class="lang lang-japanese">レーティング対象</span>
-                                            <span class="lang lang-english d-none">Rating Targets</span>
-                                        </label>
+                            <div class="chart-list-control--filter-wrapper d-flex vstack gap-1 mt-1">
+                                <div class="chart-list-control--type-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">種類</span>
+                                            <span class="lang lang-english">Type</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-targets" type="checkbox" value="" id="type-filter-toggle-targets-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-targets-0">
+                                                <span class="lang lang-japanese">レーティング対象</span>
+                                                <span class="lang lang-english d-none">Rating Targets</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-candidates" type="checkbox" value="" id="type-filter-toggle-candidates-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-candidates-0">
+                                                <span class="lang lang-japanese">レーティング候補</span>
+                                                <span class="lang lang-english d-none">Rating Candidates</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-others" type="checkbox" value="" id="type-filter-toggle-others-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-others-0">
+                                                <span class="lang lang-japanese">その他</span>
+                                                <span class="lang lang-english d-none">Others</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black me-1">
-                                        <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-newer" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
-                                        <label class="form-check-label" for="rating-candidates-toggle-newer">
-                                            <span class="lang lang-japanese">レーティング候補</span>
-                                            <span class="lang lang-english d-none">Rating Candidates</span>
-                                        </label>
+                                </div>
+                                <div class="chart-list-control--difficulty-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">難易度</span>
+                                            <span class="lang lang-english">Difficulty</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border normal">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-normal" type="checkbox" value="" id="difficulty-filter-toggle-normal-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-normal-0">NORMAL</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border hard">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-hard" type="checkbox" value="" id="difficulty-filter-toggle-hard-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-hard-0">HARD</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border expert">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-expert" type="checkbox" value="" id="difficulty-filter-toggle-expert-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-expert-0">EXPERT</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border inferno">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-inferno" type="checkbox" value="" id="difficulty-filter-toggle-inferno-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-inferno-0">INFERNO</label>
+                                        </div>
                                     </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black me-0">
-                                        <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-newer" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
-                                        <label class="form-check-label" for="rating-others-toggle-newer">
-                                            <span class="lang lang-japanese">その他</span>
-                                            <span class="lang lang-english d-none">Others</span>
-                                        </label>
+                                </div>
+                                <div class="chart-list-control--level-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">レベル</span>
+                                            <span class="lang lang-english">Level</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle-all" type="checkbox" value="" id="level-filter-toggle-all-0" onchange="switchChildrenToggles(0, '.level-filter-toggle-all', '.level-filter-toggle');" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-all-0">
+                                                <span class="lang lang-japanese">全選択</span>
+                                                <span class="lang lang-english d-none">Select All</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-15" type="checkbox" value="" id="level-filter-toggle-15-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-15-0">15</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-14" type="checkbox" value="" id="level-filter-toggle-14-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-14-0">14</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13plus" type="checkbox" value="" id="level-filter-toggle-13plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13plus-0">13+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13" type="checkbox" value="" id="level-filter-toggle-13-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13-0">13</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12plus" type="checkbox" value="" id="level-filter-toggle-12plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12plus-0">12+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12" type="checkbox" value="" id="level-filter-toggle-12-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12-0">12</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11plus" type="checkbox" value="" id="level-filter-toggle-11plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11plus-0">11+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11" type="checkbox" value="" id="level-filter-toggle-11-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11-0">11</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10plus" type="checkbox" value="" id="level-filter-toggle-10plus-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10plus-0">10+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10" type="checkbox" value="" id="level-filter-toggle-10-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10-0">10</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-lower" type="checkbox" value="" id="level-filter-toggle-lower-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-lower-0">&lt;10</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chart-list-control--others-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">その他</span>
+                                            <span class="lang lang-english">Other</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-yes-0">
+                                                <span class="lang lang-japanese">オフラインで利用可</span>
+                                                <span class="lang lang-english d-none">Available offline</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-0" onchange="applyFilterOptions(0);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-no-0">
+                                                <span class="lang lang-japanese">オフラインで利用不可</span>
+                                                <span class="lang lang-english d-none">Not available offline</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="chart-list-control--difficulty-filter">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center badge border normal me-1">
-                                        <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-newer" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-normal-toggle-newer">NORMAL</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border hard me-1">
-                                        <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-newer" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-hard-toggle-newer">HARD</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border expert me-1">
-                                        <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-newer" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-expert-toggle-newer">EXPERT</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border inferno me-0">
-                                        <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-newer" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-inferno-toggle-newer">INFERNO</label>
-                                    </div>
+                            <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-0" style="margin-bottom: -1rem;">
+                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none pe-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                    </svg>
                                 </div>
-                            </div>
-                            <div class="remaining-score-filter-options" id="remaining-score-filter-1">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center border badge me-1">
-                                        <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-filter-toggle" onchange="toggleDisplayState('remaining-score-filter', this.checked); filterByRemainingScore(document.querySelector('#remaining-score-filter-select-1').value,this.checked)">
-                                        <label class="form-check-label" for="remaining-score-filter-toggle">
-                                            <span class="lang lang-japanese">残りスコア</span>
-                                            <span class="lang lang-english d-none">Remaining score</span>
+                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none pe-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                    </svg>
+                                </div>
+                                <div class="d-flex flex-nowrap overflow-scroll justify-content-start my-1 pb-3 gap-1">
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-0" onchange="applyFilterOptions(0);">
+                                        <label class="form-check-label" for="remaining-score-filter-toggle-0">
+                                            <div class="d-flex vstack lh-1">
+                                                <div>
+                                                    <span class="lang lang-japanese">ボーダーまでの</span>
+                                                    <span class="lang lang-english d-none">Remaining Score</span>
+                                                </div>
+                                                <div>
+                                                    <span class="lang lang-japanese">残りスコア</span>
+                                                    <span class="lang lang-english d-none">to Next Border</span>
+                                                </div>
+                                            </div>
                                         </label>
                                         <div class="mx-1">
-                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-0" onchange="applyFilterOptions(0);" style="min-width: 6.25rem;">
                                                 <option value="10000">10000</option>
                                                 <option value="9000">9000</option>
                                                 <option value="8000">8000</option>
@@ -1832,34 +1991,83 @@
                                             <span class="lang lang-english d-none">or less</span>
                                         </div>
                                     </div>
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 score-filter-min-toggle" type="checkbox" value="" id="score-filter-min-toggle-0" onchange="applyFilterOptions(0);">
+                                        <label class="form-check-label" for="score-filter-min-toggle-0">
+                                            <span class="lang lang-japanese">下限スコア</span>
+                                            <span class="lang lang-english d-none">Min Score</span>
+                                        </label>
+                                        <div class="mx-1">
+                                            <select class="score-filter-min-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-min-select-0" onchange="applyFilterOptions(0);" style="min-width: 6.25rem;">
+                                                <option value="1000000">1000k</option>
+                                                <option value="995000">995k</option>
+                                                <option value="990000">990k</option>
+                                                <option value="985000">985k</option>
+                                                <option value="980000">980k</option>
+                                                <option value="975000">975k</option>
+                                                <option value="970000">970k</option>
+                                                <option value="965000">965k</option>
+                                                <option value="960000">960k</option>
+                                                <option value="955000">955k</option>
+                                                <option value="950000">950k</option>
+                                                <option value="0" selected>0</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span class="lang lang-japanese">以上</span>
+                                            <span class="lang lang-english d-none">or more</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 score-filter-max-toggle" type="checkbox" value="" id="score-filter-max-toggle-0" onchange="applyFilterOptions(0);">
+                                        <label class="form-check-label" for="score-filter-max-toggle-0">
+                                            <span class="lang lang-japanese">上限スコア</span>
+                                            <span class="lang lang-english d-none">Max Score</span>
+                                        </label>
+                                        <div class="mx-1">
+                                            <select class="score-filter-max-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-max-select-0" onchange="applyFilterOptions(0);" style="min-width: 6.25rem;">
+                                                <option value="1000000">1000k</option>
+                                                <option value="995000">995k</option>
+                                                <option value="990000">990k</option>
+                                                <option value="985000">985k</option>
+                                                <option value="980000">980k</option>
+                                                <option value="975000">975k</option>
+                                                <option value="970000">970k</option>
+                                                <option value="965000">965k</option>
+                                                <option value="960000">960k</option>
+                                                <option value="955000">955k</option>
+                                                <option value="950000">950k</option>
+                                                <option value="0" selected>0</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span class="lang lang-japanese">以下</span>
+                                            <span class="lang lang-english d-none">or less</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="chart-list-control--keyword-search-wrapper position-relative mx-2 p-2">
                             <div class="chart-list-control--label">
                                 <div class="h6 small">
-                                    <span class="lang lang-japanese">キーワード検索</span>
-                                    <span class="lang lang-english d-none">Keyword Search</span>
+                                    <span class="lang lang-japanese">楽曲検索</span>
+                                    <span class="lang lang-english d-none">Song Search</span>
                                 </div>
                                 <div class="text-dimmed small">
                                     <span class="lang lang-japanese">曲名は英語表記でも入力できます。</span>
                                     <span class="lang lang-english d-none">You can enter song titles in English as well.</span>
                                 </div>
                                 <div class="text-dimmed small">
-                                    <span class="lang lang-japanese">「キーワード検索」の使用中は、「フィルター」が一時的に無効になります。</span>
-                                    <span class="lang lang-english d-none">While using "Keyword Search" feature, "Filter" will be temporarily disabled.</span>
+                                    <span class="lang lang-japanese">「楽曲検索」の使用中は、「フィルター」が一時的に無効になります。</span>
+                                    <span class="lang lang-english d-none">While using "Song Search", "Filter" will be temporarily disabled.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--keyword-search-input">
                                 <div class="d-flex flex-wrap justify-content-start mt-1">
                                     <div class="position-relative w-100" style="max-width: 40rem;">
-                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search" placeholder="Enter song title or options..." data-placeholder-japanese="曲名またはオプションを入力..." data-placeholder-english="Enter song title or options..." value="" oninput="activateKeywordSearch(this.value, 0)" style="font-size: 16px;">
-                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black d-none">
-                                            <div class="d-flex px-2 py-3" onclick="deleteLastKeyword(0);">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
-                                                    <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
-                                                </svg>
-                                            </div>
+                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search"  placeholder="Enter song title or artist name..." data-placeholder-japanese="曲名またはアーティスト名を入力..." data-placeholder-english="Enter song title or artist name..." value="" oninput="activateKeywordSearch(this.value, 0)" style="font-size: 16px;">
+                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black">
                                             <div class="d-flex px-3 py-3" onclick="quitKeywordSearch(0);">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
@@ -1869,127 +2077,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chart-list-control--label d-flex overflow-scroll text-nowrap gap-1 mt-2 pt-1 px-1 pb-3" style="margin-bottom: -1rem!important;">
-                                <div class="d-flex align-items-center">
-                                    <button type="button" class="btn btn-sm btn-white" data-bs-toggle="modal" data-bs-target="#help-keyword-search-modal">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                                        </svg>
-                                        <span class="lang lang-japanese">ヘルプ</span>
-                                        <span class="lang lang-english d-none">Help</span>
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('offline:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        offline:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('difficulty:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        difficulty:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        level:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level-min:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        level-min:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level-max:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        level-max:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        constant:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant-min:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        constant-min:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant-max:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        constant-max:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('score-min:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        score-min:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('score-max:', 0)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        score-max:
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="chart-list-control--display-options-wrapper mx-2 p-2">
                             <div class="h6 small">
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
-                                <div class="form-check d-flex align-items-center badge border me-1">
+                            <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="large-table-toggle" onchange="switchLargeTable(this.checked)">
                                     <label class="form-check-label" for="large-table-toggle">
                                         <span class="lang lang-japanese">常にフルサイズの表を使用</span>
                                         <span class="lang lang-english d-none">Use fullsize table only</span>
                                     </label>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
-                                    <label class="form-check-label" for="alt-title-toggle">
-                                        <span class="lang lang-japanese">英語の曲名も表示</span>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 alt-title-toggle" type="checkbox" value="" id="alt-title-toggle-0" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle-0">
+                                        <span class="lang lang-japanese">英語の曲名を表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 artist-name-toggle" type="checkbox" value="" id="artist-name-toggle-0" onchange="toggleDisplayState('artist-name', this.checked)" checked>
+                                    <label class="form-check-label" for="artist-name-toggle-0">
+                                        <span class="lang lang-japanese">アーティスト名を表示</span>
+                                        <span class="lang lang-english d-none">Show artist name</span>
                                     </label>
                                 </div>
                             </div>
@@ -2104,8 +2217,8 @@
                 </div>
             </div>
             <div id="box-older" class="box-entry bg-gray-800 my-2 rounded d-none">
-                <div class="sticky-top d-flex vstack align-items-end pointer-events-none">
-                    <div class="d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pointer-events-auto w-100 hover-trans-opacity" onclick="switchChartsEntry(0)">
+                <div class="sticky-top d-flex vstack align-items-end pe-none">
+                    <div class="charts-entry--header d-flex justify-content-between align-items-center bg-gray-700 p-2 shadow cursor-pointer pe-auto w-100 hover-trans-opacity " onclick="switchChartsEntry(0)">
                         <div class="d-flex flex-wrap align-items-end">
                             <div class="h3 text-heading text-nowrap me-1">
                                 <span class="lang lang-japanese">旧曲枠</span>
@@ -2138,7 +2251,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="check-list--old" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative pointer-events-auto">
+                    <div id="check-list--old" class="check-list--wrapper d-flex justify-content-end align-items-center position-relative pe-auto">
                         <div class="position-absolute top-100 start-50 translate-middle">
                             <ul class="dropdown-menu dropdown-menu-dark shadow" aria-labelledby="dropdownMenuButton1">
                                 <li>
@@ -2161,7 +2274,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item small check-list-viewer-menu check-list-viewer-menu-on d-none" onclick="toggleDropdownMenu(false); refreshChartVisibility();">
+                                    <a class="dropdown-item small check-list-viewer-menu check-list-viewer-menu-on d-none" onclick="toggleDropdownMenu(false); refreshChartList();">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square me-1" viewBox="0 0 16 16">
                                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -2171,7 +2284,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item small text-magenta" onclick="toggleDropdownMenu(false); clearCheckListLauncher(1);">
+                                    <a class="dropdown-item small" onclick="toggleDropdownMenu(false); clearCheckListLauncher(1);">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-trash me-1" viewBox="0 0 16 16">
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -2419,7 +2532,7 @@
                             <div class="chart-list-control--check-list-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
                                 <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
                                     <div class="m-1">
-                                        <span class="lang lang-japanese">チェックリストを一覧表示中</span>
+                                        <span class="lang lang-japanese">表示中</span>
                                         <span class="lang lang-english d-none">Checklist viewer is active</span>
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center m-1">
@@ -2434,7 +2547,27 @@
                                             </button>
                                         </div>
                                         <div class="mx-1">
-                                            <button type="button" class="btn btn-white me-0" onclick="refreshChartVisibility();">
+                                            <button type="button" class="btn btn-white me-0" onclick="refreshChartList();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">終了</span>
+                                                <span class="lang lang-english d-none">Exit</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-list-control--title-search-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
+                                <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
+                                    <div class="m-1">
+                                        <span class="lang lang-japanese">曲名検索の結果を表示中</span>
+                                        <span class="lang lang-english d-none">Displaying results of "Search by Title"</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center m-1">
+                                        <div class="mx-1">
+                                            <button type="button" class="btn btn-white me-0" onclick="quitKeywordSearch(1, false);">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
                                                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -2456,61 +2589,170 @@
                                     <span class="lang lang-english d-none">Reducing the number of items to be displayed will reduce loading time.</span>
                                 </div>
                             </div>
-                            <div class="chart-list-control--type-filter">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black me-1">
-                                        <input class="form-check-input m-0 me-1 rating-targets-toggle" type="checkbox" value="" id="rating-targets-toggle-older" onchange="toggleChartVisibilityByType('targets', this.checked);" checked>
-                                        <label class="form-check-label" for="rating-targets-toggle-older">
-                                            <span class="lang lang-japanese">レーティング対象</span>
-                                            <span class="lang lang-english d-none">Rating Targets</span>
-                                        </label>
+                            <div class="chart-list-control--filter-wrapper d-flex vstack gap-1 mt-1">
+                                <div class="chart-list-control--type-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">種類</span>
+                                            <span class="lang lang-english">Type</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-targets text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-targets" type="checkbox" value="" id="type-filter-toggle-targets-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-targets-1">
+                                                <span class="lang lang-japanese">レーティング対象</span>
+                                                <span class="lang lang-english d-none">Rating Targets</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-candidates" type="checkbox" value="" id="type-filter-toggle-candidates-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-candidates-1">
+                                                <span class="lang lang-japanese">レーティング候補</span>
+                                                <span class="lang lang-english d-none">Rating Candidates</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black">
+                                            <input class="form-check-input m-0 me-1 type-filter-toggle-others" type="checkbox" value="" id="type-filter-toggle-others-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="type-filter-toggle-others-1">
+                                                <span class="lang lang-japanese">その他</span>
+                                                <span class="lang lang-english d-none">Others</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-candidates text-shadow-black me-1">
-                                        <input class="form-check-input m-0 me-1 rating-candidates-toggle" type="checkbox" value="" id="rating-candidates-toggle-older" onchange="toggleChartVisibilityByType('candidates', this.checked);" checked>
-                                        <label class="form-check-label" for="rating-candidates-toggle-older">
-                                            <span class="lang lang-japanese">レーティング候補</span>
-                                            <span class="lang lang-english d-none">Rating Candidates</span>
-                                        </label>
+                                </div>
+                                <div class="chart-list-control--difficulty-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">難易度</span>
+                                            <span class="lang lang-english">Difficulty</span>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border normal">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-normal" type="checkbox" value="" id="difficulty-filter-toggle-normal-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-normal-1">NORMAL</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border hard">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-hard" type="checkbox" value="" id="difficulty-filter-toggle-hard-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-hard-1">HARD</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border expert">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-expert" type="checkbox" value="" id="difficulty-filter-toggle-expert-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-expert-1">EXPERT</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center badge border inferno">
+                                            <input class="form-check-input m-0 me-1 difficulty-filter-toggle-inferno" type="checkbox" value="" id="difficulty-filter-toggle-inferno-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="difficulty-filter-toggle-inferno-1">INFERNO</label>
+                                        </div>
                                     </div>
-                                    <div class="form-check d-flex align-items-center badge border filter-others text-shadow-black me-0">
-                                        <input class="form-check-input m-0 me-1 rating-others-toggle" type="checkbox" value="" id="rating-others-toggle-older" onchange="toggleChartVisibilityByType('others', this.checked);" checked>
-                                        <label class="form-check-label" for="rating-others-toggle-older">
-                                            <span class="lang lang-japanese">その他</span>
-                                            <span class="lang lang-english d-none">Others</span>
-                                        </label>
+                                </div>
+                                <div class="chart-list-control--level-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">レベル</span>
+                                            <span class="lang lang-english">Level</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle-all" type="checkbox" value="" id="level-filter-toggle-all-1" onchange="switchChildrenToggles(1, '.level-filter-toggle-all', '.level-filter-toggle');" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-all-1">
+                                                <span class="lang lang-japanese">全選択</span>
+                                                <span class="lang lang-english d-none">Select All</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-15" type="checkbox" value="" id="level-filter-toggle-15-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-15-1">15</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-14" type="checkbox" value="" id="level-filter-toggle-14-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-14-1">14</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13plus" type="checkbox" value="" id="level-filter-toggle-13plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13plus-1">13+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-13" type="checkbox" value="" id="level-filter-toggle-13-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-13-1">13</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12plus" type="checkbox" value="" id="level-filter-toggle-12plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12plus-1">12+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-12" type="checkbox" value="" id="level-filter-toggle-12-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-12-1">12</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11plus" type="checkbox" value="" id="level-filter-toggle-11plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11plus-1">11+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-11" type="checkbox" value="" id="level-filter-toggle-11-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-11-1">11</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10plus" type="checkbox" value="" id="level-filter-toggle-10plus-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10plus-1">10+</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-10" type="checkbox" value="" id="level-filter-toggle-10-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-10-1">10</label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 level-filter-toggle level-filter-toggle-lower" type="checkbox" value="" id="level-filter-toggle-lower-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="level-filter-toggle-lower-1">&lt;10</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chart-list-control--others-filter">
+                                    <div class="d-inline-flex flex-wrap justify-content-start gap-1 p-1 rounded border">
+                                        <div class="d-flex align-items-center badge">
+                                            <span class="lang lang-japanese d-none">その他</span>
+                                            <span class="lang lang-english">Other</span>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-yes-1">
+                                                <span class="lang lang-japanese">オフラインで利用可</span>
+                                                <span class="lang lang-english d-none">Available offline</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-1" onchange="applyFilterOptions(1);" checked>
+                                            <label class="form-check-label" for="offline-filter-toggle-no-1">
+                                                <span class="lang lang-japanese">オフラインで利用不可</span>
+                                                <span class="lang lang-english d-none">Not available offline</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="chart-list-control--difficulty-filter">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center badge border normal me-1">
-                                        <input class="form-check-input m-0 me-1 difficulty-normal-toggle" type="checkbox" value="" id="difficulty-normal-toggle-older" onchange="toggleChartVisibilityByDifficulty('normal', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-normal-toggle-older">NORMAL</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border hard me-1">
-                                        <input class="form-check-input m-0 me-1 difficulty-hard-toggle" type="checkbox" value="" id="difficulty-hard-toggle-older" onchange="toggleChartVisibilityByDifficulty('hard', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-hard-toggle-older">HARD</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border expert me-1">
-                                        <input class="form-check-input m-0 me-1 difficulty-expert-toggle" type="checkbox" value="" id="difficulty-expert-toggle-older" onchange="toggleChartVisibilityByDifficulty('expert', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-expert-toggle-older">EXPERT</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center badge border inferno me-0">
-                                        <input class="form-check-input m-0 me-1 difficulty-inferno-toggle" type="checkbox" value="" id="difficulty-inferno-toggle-older" onchange="toggleChartVisibilityByDifficulty('inferno', this.checked);" checked>
-                                        <label class="form-check-label" for="difficulty-inferno-toggle-older">INFERNO</label>
-                                    </div>
+                            <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-1"  style="margin-bottom: -1rem;">
+                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none pe-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                    </svg>
                                 </div>
-                            </div>
-                            <div class="remaining-score-filter-options" id="remaining-score-filter-1">
-                                <div class="d-flex flex-wrap justify-content-start mt-1">
-                                    <div class="form-check d-flex align-items-center border badge me-1">
-                                        <input class="form-check-input m-0 me-1" type="checkbox" value="" id="remaining-score-filter-toggle" onchange="toggleDisplayState('remaining-score-filter', this.checked); filterByRemainingScore(document.querySelector('#remaining-score-filter-select-1').value,this.checked)">
-                                        <label class="form-check-label" for="remaining-score-filter-toggle">
-                                            <span class="lang lang-japanese">残りスコア</span>
-                                            <span class="lang lang-english d-none">Remaining score</span>
+                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none pe-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                    </svg>
+                                </div>
+                                <div class="d-flex flex-nowrap overflow-scroll justify-content-start my-1 pb-3 gap-1">
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-1" onchange="applyFilterOptions(1);">
+                                        <label class="form-check-label" for="remaining-score-filter-toggle-1">
+                                            <div class="d-flex vstack lh-1">
+                                                <div>
+                                                    <span class="lang lang-japanese">ボーダーまでの</span>
+                                                    <span class="lang lang-english d-none">Remaining Score</span>
+                                                </div>
+                                                <div>
+                                                    <span class="lang lang-japanese">残りスコア</span>
+                                                    <span class="lang lang-english d-none">to Next Border</span>
+                                                </div>
+                                            </div>
                                         </label>
                                         <div class="mx-1">
-                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-1" onchange="filterByRemainingScore(this.value, document.querySelector('#remaining-score-filter-toggle').checked);">
+                                            <select class="remaining-score-filter-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="remaining-score-filter-select-1" onchange="applyFilterOptions(1);" style="min-width: 6.25rem;">
                                                 <option value="10000">10000</option>
                                                 <option value="9000">9000</option>
                                                 <option value="8000">8000</option>
@@ -2533,34 +2775,83 @@
                                             <span class="lang lang-english d-none">or less</span>
                                         </div>
                                     </div>
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 score-filter-min-toggle" type="checkbox" value="" id="score-filter-min-toggle-1" onchange="applyFilterOptions(1);">
+                                        <label class="form-check-label" for="score-filter-min-toggle-1">
+                                            <span class="lang lang-japanese">下限スコア</span>
+                                            <span class="lang lang-english d-none">Min Score</span>
+                                        </label>
+                                        <div class="mx-1">
+                                            <select class="score-filter-min-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-min-select-1" onchange="applyFilterOptions(1);" style="min-width: 6.25rem;">
+                                                <option value="1000000">1000k</option>
+                                                <option value="995000">995k</option>
+                                                <option value="990000">990k</option>
+                                                <option value="985000">985k</option>
+                                                <option value="980000">980k</option>
+                                                <option value="975000">975k</option>
+                                                <option value="970000">970k</option>
+                                                <option value="965000">965k</option>
+                                                <option value="960000">960k</option>
+                                                <option value="955000">955k</option>
+                                                <option value="950000">950k</option>
+                                                <option value="0" selected>0</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span class="lang lang-japanese">以上</span>
+                                            <span class="lang lang-english d-none">or more</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 score-filter-max-toggle" type="checkbox" value="" id="score-filter-max-toggle-1" onchange="applyFilterOptions(1);">
+                                        <label class="form-check-label" for="score-filter-max-toggle-1">
+                                            <span class="lang lang-japanese">上限スコア</span>
+                                            <span class="lang lang-english d-none">Max Score</span>
+                                        </label>
+                                        <div class="mx-1">
+                                            <select class="score-filter-max-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-max-select-1" onchange="applyFilterOptions(1);" style="min-width: 6.25rem;">
+                                                <option value="1000000">1000k</option>
+                                                <option value="995000">995k</option>
+                                                <option value="990000">990k</option>
+                                                <option value="985000">985k</option>
+                                                <option value="980000">980k</option>
+                                                <option value="975000">975k</option>
+                                                <option value="970000">970k</option>
+                                                <option value="965000">965k</option>
+                                                <option value="960000">960k</option>
+                                                <option value="955000">955k</option>
+                                                <option value="950000">950k</option>
+                                                <option value="0" selected>0</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span class="lang lang-japanese">以下</span>
+                                            <span class="lang lang-english d-none">or less</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="chart-list-control--keyword-search-wrapper position-relative mx-2 p-2">
                             <div class="chart-list-control--label">
                                 <div class="h6 small">
-                                    <span class="lang lang-japanese">キーワード検索</span>
-                                    <span class="lang lang-english d-none">Keyword Search</span>
+                                    <span class="lang lang-japanese">楽曲検索</span>
+                                    <span class="lang lang-english d-none">Song Search</span>
                                 </div>
                                 <div class="text-dimmed small">
                                     <span class="lang lang-japanese">曲名は英語表記でも入力できます。</span>
                                     <span class="lang lang-english d-none">You can enter song titles in English as well.</span>
                                 </div>
                                 <div class="text-dimmed small">
-                                    <span class="lang lang-japanese">「キーワード検索」の使用中は、「フィルター」が一時的に無効になります。</span>
-                                    <span class="lang lang-english d-none">While using "Keyword Search" feature, "Filter" will be temporarily disabled.</span>
+                                    <span class="lang lang-japanese">「楽曲検索」の使用中は、「フィルター」が一時的に無効になります。</span>
+                                    <span class="lang lang-english d-none">While using "Song Search", "Filter" will be temporarily disabled.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--keyword-search-input">
                                 <div class="d-flex flex-wrap justify-content-start mt-1">
                                     <div class="position-relative w-100" style="max-width: 40rem;">
-                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search" placeholder="Enter song title or options..." data-placeholder-japanese="曲名またはオプションを入力..." data-placeholder-english="Enter song title or options..." value="" oninput="activateKeywordSearch(this.value, 1)" style="font-size: 16px;">
-                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black d-none">
-                                            <div class="d-flex px-2 py-3" onclick="deleteLastKeyword(1);">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
-                                                    <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
-                                                </svg>
-                                            </div>
+                                        <input type="text" class="form-control bg-dark text-white border-white placeholder-lang input-keyword-search" placeholder="Enter song title or artist name..." data-placeholder-japanese="曲名またはアーティスト名を入力..." data-placeholder-english="Enter song title or artist name..." value="" oninput="activateKeywordSearch(this.value, 1)" style="font-size: 16px;">
+                                        <div class="position-absolute top-50 end-0 translate-middle-y d-flex button-quit-keyword-search drop-shadow-black">
                                             <div class="d-flex px-3 py-3" onclick="quitKeywordSearch(1);">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
@@ -2570,127 +2861,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chart-list-control--label d-flex overflow-scroll text-nowrap gap-1 mt-2 pt-1 px-1 pb-3" style="margin-bottom: -1rem!important;">
-                                <div class="d-flex align-items-center">
-                                    <button type="button" class="btn btn-sm btn-white" data-bs-toggle="modal" data-bs-target="#help-keyword-search-modal">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                                        </svg>
-                                        <span class="lang lang-japanese">ヘルプ</span>
-                                        <span class="lang lang-english d-none">Help</span>
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('offline:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        offline:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('difficulty:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        difficulty:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        level:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level-min:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        level-min:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('level-max:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        level-max:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        constant:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant-min:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        constant-min:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('constant-max:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        constant-max:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('score-min:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        score-min:
-                                    </button>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-white" type="button" onclick="addKeywordSearchOption('score-max:', 1)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                        </svg>
-                                        score-max:
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="chart-list-control--display-options-wrapper mx-2 p-2">
                             <div class="h6 small">
                                 <span class="lang lang-japanese">表示オプション</span>
                                 <span class="lang lang-english d-none">Display Options</span>
                             </div>
-                            <div class="d-flex flex-wrap justify-content-start mt-1">
-                                <div class="form-check d-flex align-items-center badge border me-1">
+                            <div class="d-flex flex-wrap justify-content-start my-1 gap-1">
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
                                     <input class="form-check-input m-0 me-1" type="checkbox" value="" id="large-table-toggle" onchange="switchLargeTable(this.checked)">
                                     <label class="form-check-label" for="large-table-toggle">
                                         <span class="lang lang-japanese">常にフルサイズの表を使用</span>
                                         <span class="lang lang-english d-none">Use fullsize table only</span>
                                     </label>
                                 </div>
-                                <div class="form-check d-flex align-items-center badge border me-1">
-                                    <input class="form-check-input m-0 me-1" type="checkbox" value="" id="alt-title-toggle" onchange="toggleDisplayState('alt-title', this.checked)">
-                                    <label class="form-check-label" for="alt-title-toggle">
-                                        <span class="lang lang-japanese">英語の曲名も表示</span>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 alt-title-toggle" type="checkbox" value="" id="alt-title-toggle-1" onchange="toggleDisplayState('alt-title', this.checked)">
+                                    <label class="form-check-label" for="alt-title-toggle-1">
+                                        <span class="lang lang-japanese">英語の曲名を表示</span>
                                         <span class="lang lang-english d-none">Show English song title</span>
+                                    </label>
+                                </div>
+                                <div class="form-check bg-dark d-flex align-items-center badge border">
+                                    <input class="form-check-input m-0 me-1 artist-name-toggle" type="checkbox" value="" id="artist-name-toggle-1" onchange="toggleDisplayState('artist-name', this.checked)" checked>
+                                    <label class="form-check-label" for="artist-name-toggle-1">
+                                        <span class="lang lang-japanese">アーティスト名を表示</span>
+                                        <span class="lang lang-english d-none">Show artist name</span>
                                     </label>
                                 </div>
                             </div>
@@ -2841,7 +3037,7 @@
                                 <div class="btn-group me-2" role="group">
                                     <button type="button" class="btn btn-white me-0 p-0">
                                         <div class="position-relative d-flex align-items-center bg-white h-100 rounded-3">
-                                            <div class="position-absolute" style="margin-left: 0.75rem; pointer-events: none;">
+                                            <div class="position-absolute pe-none" style="margin-left: 0.75rem;">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
                                                     <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                                                 </svg>
@@ -3415,19 +3611,19 @@
                                     <span class="lang lang-japanese">キャンセル</span>
                                     <span class="lang lang-english d-none">Cancel</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 export-button" data-bs-dismiss="modal" disabled>
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 rounded-end export-button" data-bs-dismiss="modal" disabled>
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none export-button export-chart-list-as-csv" onclick="saveTableData();" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none rounded-end export-button export-chart-list-as-csv" onclick="saveTableData();" data-bs-dismiss="modal">
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none export-button export-rating-targets-as-image" onclick="generateImageData();" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none rounded-end export-button export-rating-targets-as-image" onclick="generateImageData();" data-bs-dismiss="modal">
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>
-                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none export-button export-check-lists-as-image" onclick="generateChecklistImageData();" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta ms-2 d-none rounded-end export-button export-check-lists-as-image" onclick="generateChecklistImageData();" data-bs-dismiss="modal">
                                     <span class="lang lang-japanese">出力</span>
                                     <span class="lang lang-english d-none">Export</span>
                                 </button>
@@ -4327,183 +4523,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer border-0 bg-gray-900">
-                            <button type="button" class="btn btn-white m-1" data-bs-dismiss="modal">
-                                <span class="lang lang-japanese">閉じる</span>
-                                <span class="lang lang-english d-none">Close</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="help-keyword-search-modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content border-white bg-gray-800 modal-shadow-white">
-                        <div class="modal-header bg-gray-700 shadow border-0">
-                            <div class="modal-title h3" id="">
-                                <div class="modal-title h3 text-heading">
-                                    <span class="lang lang-japanese">ヘルプ</span>
-                                    <span class="lang lang-english d-none">Help</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mt-2">
-                                <div class="justify-content-between py-1">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="h5 mb-0 ps-2">
-                                            <span class="lang lang-japanese">キーワード検索</span>
-                                            <span class="lang lang-english d-none">Keyword Search</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-2 p-2">
-                                    <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                        <span class="lang lang-japanese">オプション</span>
-                                        <span class="lang lang-english d-none">Options</span>
-                                    </div>
-                                    <div>
-                                        <table class="table text-white">
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">offline:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">オフライン時に利用可能かどうかを設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets if available on offline.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">true ( t | yes | y ), false ( f | no | n )</span>
-                                                            <span class="lang lang-english d-none">true ( t | yes | y ), false ( f | no | n )</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">difficulty:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">難易度を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the difficulty.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">normal (n), hard (h), expert (e), inferno (i)</span>
-                                                            <span class="lang lang-english d-none">normal (n), hard (h), expert (e), inferno (i)</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">level:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">レベルを設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the level.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">level-min:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">レベルの下限値を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the lower limit of the level.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">level-max:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">レベルの上限値を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the upper limit of the level.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                            <span class="lang lang-english d-none">1, 2, 3, 4, ..., 13, 13+, 14, 15</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">constant:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">定数を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the constant.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                            <span class="lang lang-english d-none"> 1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">constant-min:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">定数の下限値を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the lower limit of the constant.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                            <span class="lang lang-english d-none">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">constant-max:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">定数の上限値を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the upper limit of the constant.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                            <span class="lang lang-english d-none">1.0, 2.0, 3.0, 4.0, ..., 14.0, 14.1, 14.2, 15.0</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">score-min:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">スコアの下限値を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the lower limit of the score.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">例 980000 (980k), 990000 (990k), 1000000 (1000k)</span>
-                                                            <span class="lang lang-english d-none">e.g. 980000 (980k), 990000 (990k), 1000000 (1000k)</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">score-max:</th>
-                                                    <td>
-                                                        <div>
-                                                            <span class="lang lang-japanese">スコアの上限値を設定します。</span>
-                                                            <span class="lang lang-english d-none">Sets the upper limit of the score.</span>
-                                                        </div>
-                                                        <div class="text-dimmed small">
-                                                            <span class="lang lang-japanese">例 980000 (980k), 990000 (990k), 1000000 (1000k)</span>
-                                                            <span class="lang lang-english d-none">e.g. 980000 (980k), 990000 (990k), 1000000 (1000k)</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>

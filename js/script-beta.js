@@ -7,7 +7,7 @@ function initialize() {
         const datasetParam = document.querySelector('html').dataset.dataset
         const xhr = new XMLHttpRequest()
 
-        xhr.open('get', `https://shimmand.github.io/labs/dataset.csv?date=${datasetParam}`, true)
+        xhr.open('get', `https://shimmand.github.io/wacca-rating-analyzer/assets/dataset-beta.csv?date=${datasetParam}`, true)
         xhr.send(null)
 
         xhr.onload = () => {
@@ -104,6 +104,8 @@ function initialize() {
                         break
 
                     default:
+                        toggles.forEach(input => input.checked = true)
+                        toggleDisplayState('artist-name', true)
                         break
                 }
             }
@@ -1388,6 +1390,7 @@ function activateAnalyzeMode() {
     localStorage.setItem('rating-analyzer-temp', playdata.value)
     localStorage.setItem('rating-analyzer-analyze-mode', 'true')
     playdata.value = ''
+    // location.reload()
     location.href = 'https://bit.ly/3tiGGDb'
 }
 
@@ -1520,8 +1523,7 @@ function getMultiplierTable() {
 
 function getDatasetIndex() {
     const songs = getChartTable()
-
-    return {
+    const indexes = {
         'title':                songs[0].indexOf('@song-title'),
         'title-english':        songs[0].indexOf('@song-title-english'),
         'artist':               songs[0].indexOf('@artist-name'),
@@ -1541,6 +1543,12 @@ function getDatasetIndex() {
         'inferno-constant':     songs[0].indexOf('@inferno-constant'),
         'inferno-newer':        songs[0].indexOf('@inferno-newer')
     }
+
+    if (Object.values(indexes).includes(-1)) {
+        window.alert('ERROR: There is missing data in the dataset.')
+    }
+
+    return indexes
 }
 
 // Get chart constants

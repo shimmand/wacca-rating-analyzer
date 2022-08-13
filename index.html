@@ -15,7 +15,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-08-10-rev1"></script>
+        <script defer src="js/script.js?date=2022-08-13"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -2094,12 +2094,12 @@
                             </div>
                             <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-0" style="margin-bottom: -1rem;">
                                 <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none pe-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                                     </svg>
                                 </div>
                                 <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none pe-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                     </svg>
                                 </div>
@@ -2148,7 +2148,7 @@
                                             <span class="lang lang-japanese">下限スコア</span>
                                             <span class="lang lang-english d-none">Min Score</span>
                                         </label>
-                                        <div class="mx-1">
+                                        <div class="ms-1">
                                             <select class="score-filter-min-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-min-select-0" onchange="applyFilterOptions(0);" style="min-width: 6.25rem;">
                                                 <option value="1000000">1000k</option>
                                                 <option value="995000">995k</option>
@@ -2164,10 +2164,6 @@
                                                 <option value="0" selected>0</option>
                                             </select>
                                         </div>
-                                        <div>
-                                            <span class="lang lang-japanese">以上</span>
-                                            <span class="lang lang-english d-none">or more</span>
-                                        </div>
                                     </div>
                                     <div class="form-check d-flex align-items-center border badge">
                                         <input class="form-check-input form-check-input-red m-0 me-1 score-filter-max-toggle" type="checkbox" value="" id="score-filter-max-toggle-0" onchange="applyFilterOptions(0);">
@@ -2175,7 +2171,7 @@
                                             <span class="lang lang-japanese">上限スコア</span>
                                             <span class="lang lang-english d-none">Max Score</span>
                                         </label>
-                                        <div class="mx-1">
+                                        <div class="ms-1">
                                             <select class="score-filter-max-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-max-select-0" onchange="applyFilterOptions(0);" style="min-width: 6.25rem;">
                                                 <option value="1000000">1000k</option>
                                                 <option value="995000">995k</option>
@@ -2190,10 +2186,6 @@
                                                 <option value="950000">950k</option>
                                                 <option value="0" selected>0</option>
                                             </select>
-                                        </div>
-                                        <div>
-                                            <span class="lang lang-japanese">以下</span>
-                                            <span class="lang lang-english d-none">or less</span>
                                         </div>
                                     </div>
                                 </div>
@@ -2878,12 +2870,12 @@
                             </div>
                             <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-1"  style="margin-bottom: -1rem;">
                                 <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none pe-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                                     </svg>
                                 </div>
                                 <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none pe-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                     </svg>
                                 </div>
@@ -2932,7 +2924,7 @@
                                             <span class="lang lang-japanese">下限スコア</span>
                                             <span class="lang lang-english d-none">Min Score</span>
                                         </label>
-                                        <div class="mx-1">
+                                        <div class="ms-1">
                                             <select class="score-filter-min-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-min-select-1" onchange="applyFilterOptions(1);" style="min-width: 6.25rem;">
                                                 <option value="1000000">1000k</option>
                                                 <option value="995000">995k</option>
@@ -2948,10 +2940,6 @@
                                                 <option value="0" selected>0</option>
                                             </select>
                                         </div>
-                                        <div>
-                                            <span class="lang lang-japanese">以上</span>
-                                            <span class="lang lang-english d-none">or more</span>
-                                        </div>
                                     </div>
                                     <div class="form-check d-flex align-items-center border badge">
                                         <input class="form-check-input form-check-input-red m-0 me-1 score-filter-max-toggle" type="checkbox" value="" id="score-filter-max-toggle-1" onchange="applyFilterOptions(1);">
@@ -2959,7 +2947,7 @@
                                             <span class="lang lang-japanese">上限スコア</span>
                                             <span class="lang lang-english d-none">Max Score</span>
                                         </label>
-                                        <div class="mx-1">
+                                        <div class="ms-1">
                                             <select class="score-filter-max-select form-select form-select-light btn-white text-white bg-dark border h-100 fw-bold py-0 cursor-pointer" id="score-filter-max-select-1" onchange="applyFilterOptions(1);" style="min-width: 6.25rem;">
                                                 <option value="1000000">1000k</option>
                                                 <option value="995000">995k</option>
@@ -2974,10 +2962,6 @@
                                                 <option value="950000">950k</option>
                                                 <option value="0" selected>0</option>
                                             </select>
-                                        </div>
-                                        <div>
-                                            <span class="lang lang-japanese">以下</span>
-                                            <span class="lang lang-english d-none">or less</span>
                                         </div>
                                     </div>
                                 </div>

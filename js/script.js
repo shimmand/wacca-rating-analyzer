@@ -602,7 +602,7 @@ function analyze(){
                                 </div>
                             </div>
                             <div class="list-item--artist-wrapper d-flex">
-                                <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${getArtistName(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
+                                <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${replaceHTMLCharEntities(getArtistName(chart[0]))}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
                                     <div class="d-flex">
                                         ${getArtistName(chart[0])}
                                     </div>
@@ -715,7 +715,7 @@ function analyze(){
                                     <div class="list-item--title fw-bold">${chart[0]}</div>
                                 </div>
                                 <div class="list-item--artist-wrapper d-flex">
-                                    <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${getArtistName(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
+                                    <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${replaceHTMLCharEntities(getArtistName(chart[0]))}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
                                         <div class="d-flex">
                                             ${getArtistName(chart[0])}
                                         </div>
@@ -3076,4 +3076,20 @@ function fillKeywordSearchInput(keyword = null, index = null, focus = true) {
     if (focus === true) {
         input.focus()
     }
+}
+
+function replaceHTMLCharEntities(value){
+    if (typeof value !== 'string') {
+        return value
+    }
+
+    return value.replace(/[&'`"<>]/g, match => {
+        return {
+            '<': '&lt;',
+            '>': '&gt;',
+            '&': '&amp;',
+            '"': '&quot;',
+            "'": '&apos;'
+        }[match]
+    })
 }

@@ -598,15 +598,18 @@ function analyze(){
                             <div class="list-item--song-wrapper">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
+                                        <div class="d-inline-flex">${chart[0]}</div>
+                                        <!-- not available message -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="list-item--artist-wrapper d-flex">
                                 <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${replaceHTMLCharEntities(getArtistName(chart[0]))}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
-                                    <div class="d-flex">
+                                    <div class="d-inline-flex">
                                         ${getArtistName(chart[0])}
                                     </div>
-                                    <div class="d-flex text-dimmed">
+                                    <div class="d-inline-flex text-dimmed">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bi-badge" viewBox="0 0 16 16">
                                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                         </svg>
@@ -614,7 +617,7 @@ function analyze(){
                                 </div>
                             </div>
                             <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
-                                <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
+                                <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}" data-difficulty="${replaceHTMLCharEntities(chart[2])}">${chart[2]}</div>
                                 <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                             </div>
                         </div>
@@ -631,7 +634,7 @@ function analyze(){
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="list-item--score">${chart[3]}</div>
+                                <div class="list-item--score" data-score="${chart[3]}">${chart[3]}</div>
                             </div>
                             <div class="list-item--constant-wrapper col p-0">
                                 <div class="list-item--score-label text-dimmed small">
@@ -712,14 +715,17 @@ function analyze(){
                             <div class="list-item--song-wrapper p-0">
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
-                                    <div class="list-item--title fw-bold">${chart[0]}</div>
+                                    <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
+                                        <div class="d-inline-flex">${chart[0]}</div>
+                                        <!-- not available message -->
+                                    </div>
                                 </div>
                                 <div class="list-item--artist-wrapper d-flex">
                                     <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${replaceHTMLCharEntities(getArtistName(chart[0]))}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
-                                        <div class="d-flex">
+                                        <div class="d-inline-flex">
                                             ${getArtistName(chart[0])}
                                         </div>
-                                        <div class="d-flex text-dimmed">
+                                        <div class="d-inline-flex text-dimmed">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bi-badge" viewBox="0 0 16 16">
                                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                             </svg>
@@ -727,7 +733,7 @@ function analyze(){
                                     </div>
                                 </div>
                                 <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
-                                    <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}">${chart[2]}</div>
+                                    <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}" data-difficulty="${replaceHTMLCharEntities(chart[2])}">${chart[2]}</div>
                                     <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
                                 </div>
                             </div>
@@ -735,7 +741,7 @@ function analyze(){
                         <div class="list-item--main-wrapper col">
                             <div class="list-item--result-wrapper row m-0">
                                 <div class="list-item--score-wrapper hover-trans-opacity cursor-pointer col px-0" data-list-index="${listIndex}" data-index="${index + 1}" onclick="modifyScoreModalLauncher(this); return false;">
-                                    <div class="list-item--score">${chart[3]}</div>
+                                    <div class="list-item--score" data-score="${chart[3]}">${chart[3]}</div>
                                     <div class="d-flex align-items-center text-dimmed small">
                                         <div class="d-flex ms-0">
                                             <span class="lang lang-japanese">編集</span>
@@ -812,6 +818,28 @@ function analyze(){
                 }
             }
 
+            {
+                const target = '<!-- not available message -->'
+                const replace = `
+                    <div class="d-inline-flex align-items-center gap-1 text-dimmed small">
+                        <div class="d-inline-flex">—</div>
+                        <div class="d-inline-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                        </div>
+                        <div class="d-inline-flex">
+                            <span class="lang lang-japanese">まもなく削除</span>
+                            <span class="lang lang-english d-none">Not Available Soon</span>
+                        </div>
+                    </div>`
+                .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
+
+                if (isAvailableOnOffline(chart[0]) === false) {
+                    code = code.replaceAll(target, replace)
+                }
+            }
+
             tableRow.innerHTML = code
             tableRow.setAttribute('data-list-index', listIndex)
             tableRow.setAttribute('data-index', index + 1)
@@ -850,10 +878,10 @@ function analyze(){
 
             {
                 const searchText = `
-                    ${String(katakanaToHiragana(chart[0]).toLowerCase())} 
+                    ${String(katakanaToHiragana(chart[0])).toLowerCase()} 
                     ${String(getEnglishTitle(chart[0])).toLowerCase()} 
-                    ${String(katakanaToHiragana(getArtistName(chart[0])).toLowerCase())} 
-                    ${String(getEnglishArtistName(chart[0]).toLowerCase())} `
+                    ${String(katakanaToHiragana(getArtistName(chart[0]))).toLowerCase()} 
+                    ${String(getEnglishArtistName(chart[0])).toLowerCase()} `
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
                 
                 tableRow.setAttribute('data-search-text', searchText)
@@ -2483,9 +2511,9 @@ function switchLargeTable(isEnabled) {
 
 function modifyScoreModalLauncher(source) {
     const sourceItem = document.querySelector(`tr[data-list-index="${source.dataset.listIndex}"][data-index="${source.dataset.index}"]`)
-    const sourceTitle = sourceItem.querySelector('.list-item--title').innerHTML
-    const sourceDifficulty = sourceItem.querySelector('.list-item--badge-difficulty').innerHTML
-    const sourceScore = sourceItem.querySelector('.list-item--score').innerHTML
+    const sourceTitle = sourceItem.querySelector('.list-item--title').dataset.title
+    const sourceDifficulty = sourceItem.querySelector('.list-item--badge-difficulty').dataset.difficulty
+    const sourceScore = sourceItem.querySelector('.list-item--score').dataset.score
     const control = document.querySelector('.modify-score--main')
 
     const titleElm = control.querySelector('.modify-score--title')

@@ -525,7 +525,7 @@ function analyze(){
             
             tableRow.classList.add('chart-list--item')
 
-            if (index < targetsLength[listIndex]) {
+            if ((index < targetsLength[listIndex]) && (Number(chart[3]) > 0)) {
                 tableRow.classList.add('table-targets', 'top-single-rate')
                 varSingleRateLowers[listIndex] = Number(chart[6])
                 varSummedRateCurrents[listIndex] += Number(chart[6])
@@ -599,7 +599,7 @@ function analyze(){
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
-                                        <div class="d-inline-flex">${chart[0]}</div>
+                                        ${chart[0]}
                                         <!-- not available message -->
                                     </div>
                                 </div>
@@ -716,7 +716,7 @@ function analyze(){
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
-                                        <div class="d-inline-flex">${chart[0]}</div>
+                                        ${chart[0]}
                                         <!-- not available message -->
                                     </div>
                                 </div>
@@ -819,6 +819,12 @@ function analyze(){
             }
 
             {
+                const diffTime = new Date('2022-09-01T00:00:00+0900') - new Date()
+                const message = [
+                    {japanese: 'まもなく削除', english: 'Not Available Soon'},
+                    {japanese: 'プレイ不可', english: 'Not Available'}
+                ][Number(diffTime < 0)]
+
                 const target = '<!-- not available message -->'
                 const replace = `
                     <div class="d-inline-flex align-items-center gap-1 text-dimmed small">
@@ -829,8 +835,8 @@ function analyze(){
                             </svg>
                         </div>
                         <div class="d-inline-flex">
-                            <span class="lang lang-japanese">まもなく削除</span>
-                            <span class="lang lang-english d-none">Not Available Soon</span>
+                            <span class="lang lang-japanese">${message.japanese}</span>
+                            <span class="lang lang-english d-none">${message.english}/span>
                         </div>
                     </div>`
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
@@ -882,8 +888,8 @@ function analyze(){
                     ${String(getEnglishTitle(chart[0])).toLowerCase()} 
                     ${String(katakanaToHiragana(getArtistName(chart[0]))).toLowerCase()} 
                     ${String(getEnglishArtistName(chart[0])).toLowerCase()} `
-                .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
-                
+                .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '').replaceAll(/([^\s.])-([^\s.])/g, '$1$2')
+
                 tableRow.setAttribute('data-search-text', searchText)
             }
 
@@ -945,8 +951,12 @@ function analyze(){
                     </div>
                     <div class="d-flex vstack gap-1">
                         <div class="d-flex small">
-                            <span class="lang lang-japanese">チェックリストが空です。</span>
-                            <span class="lang lang-english d-none">No items added to checklist.</span>
+                            <span class="lang lang-japanese">${['「新曲枠」', '「旧曲枠」'][listIndex]}のチェックリストに項目がありません。</span>
+                            <span class="lang lang-english d-none">No items added to ${['"Newer Charts"', '"Older Charts"'][listIndex]} checklist.</span>
+                        </div>
+                        <div class="d-flex small">
+                            <span class="lang lang-japanese">項目を追加するには、挑戦したいスコアボーダーに表示されている<span class="badge bg-white align-bottom text-black mx-1">+0.000</span>を押します。</span>
+                            <span class="lang lang-english d-none">To add an item to the checklist, press <span class="badge bg-white align-bottom text-black mx-1">+0.000</span> indicated on any score border you wish to challenge.</span>
                         </div>
                         <div class="d-flex">
                             <button type="button" class="btn btn-sm btn-white me-0" onclick="refreshChartList();">
@@ -985,8 +995,8 @@ function analyze(){
                             <span class="lang lang-english d-none">There are no songs matching the keyword(s).</span>
                         </div>
                         <div class="d-flex small">
-                            <span class="lang lang-japanese">枠を切り替えるか、他のキーワードを入力してください。</span>
-                            <span class="lang lang-english d-none">Please switch chart entries or type other keyword(s).</span>
+                            <span class="lang lang-japanese">他のキーワードを入力するか、枠を切り替えてみてください。</span>
+                            <span class="lang lang-english d-none">Please type other keyword(s) or switch chart entries.</span>
                         </div>
                         <div class="d-flex">
                             <button type="button" class="btn btn-sm btn-white me-0" onclick="quitKeywordSearch(${listIndex});">
@@ -2578,7 +2588,7 @@ function modifyScoreModal(abort = false) {
         const confirm = document.querySelector('.modify-score-confirm--score-new-value')
         confirm.innerHTML = newScore
         const alert = document.querySelector('#btn-modify-score-confirm-modal')
-        alert.click();
+        alert.click()
         return
     }
 
@@ -2740,7 +2750,7 @@ function activateKeywordSearch(keyword = null, index = null, scroll = false) {
         return false
     }
 
-    const keywords = katakanaToHiragana(String(keyword).replaceAll('　',' ').toLowerCase()).split(' ')
+    const keywords = katakanaToHiragana(String(keyword).replaceAll(/\s/g, ' ').toLowerCase()).split(' ')
     const list = document.querySelectorAll('.chart-list')[index]
     const rows = list.querySelectorAll('tr.chart-list--item')
 
@@ -2821,26 +2831,25 @@ function refreshChartList() {
             const isTargets = String(item.dataset.isTargets)
             const isCandidates = String(item.dataset.isCandidates)
 
-            if (favorite.indexOf('targets') === -1) {
-                if (favorite.indexOf('candidates') !== -1) {
-                    if ((isTargets === 'true') &&
-                        (isCandidates === 'false')) {
-                        item.classList.add('d-none')
-                    }
-                } else {
+            if ((favorite.includes('targets')) && (favorite.includes('candidates') === false)) {
+                if (isTargets === 'false') {
+                    item.classList.add('d-none')
+                }
+            } else {
+                if (favorite.includes('targets') === false) {
                     if (isTargets === 'true') {
                         item.classList.add('d-none')
                     }
                 }
-            }
 
-            if (favorite.indexOf('candidates') === -1) {
-                if (isCandidates === 'true') {
-                    item.classList.add('d-none')
+                if (favorite.includes('candidates') === false) {
+                    if (isCandidates === 'true') {
+                        item.classList.add('d-none')
+                    }
                 }
             }
 
-            if (favorite.indexOf('others') === -1) {
+            if (favorite.includes('others') === false) {
                 if ((isTargets === 'false') &&
                     (isCandidates === 'false')) {
                     item.classList.add('d-none')

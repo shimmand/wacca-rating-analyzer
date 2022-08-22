@@ -836,7 +836,7 @@ function analyze(){
                         </div>
                         <div class="d-inline-flex">
                             <span class="lang lang-japanese">${message.japanese}</span>
-                            <span class="lang lang-english d-none">${message.english}/span>
+                            <span class="lang lang-english d-none">${message.english}</span>
                         </div>
                     </div>`
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')

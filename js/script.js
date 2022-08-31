@@ -534,19 +534,21 @@ function analyze(){
             tableRow.classList.add(`difficulty-${chart[1]}`)
 
             const increases = targetMultipliers.map((multiplier, buttonIndex) => {
-                const targetsName = ['new', 'old']
-
-                if ((chart[5] < multiplier) && ((chart[4] * multiplier) > varSingleRateLowers[listIndex])) {
-                    return `
-                        <a class="badge rate-increase box-shadow-black" 
-                        href="#" onclick="modifyCheckListItem(this); return false;" 
-                        data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}" 
-                        data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]} ${buttonIndex}" 
-                        data-query-class="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}"
-                        data-list-index="${listIndex}" data-index="${index + 1}" data-button-index="${buttonIndex}">
-                        <span class="rate-counter">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
-                        </a>
-                        `.replaceAll(/(^ {24}|^\n)/gm, '').replaceAll('\n', '')
+                if (isAvailableOnOffline(chart[0])) {
+                    if ((chart[5] < multiplier) && ((chart[4] * multiplier) > varSingleRateLowers[listIndex])) {
+                        return `
+                            <a class="badge rate-increase box-shadow-black" 
+                            href="#" onclick="modifyCheckListItem(this); return false;" 
+                            data-rating="${(chart[4] * multiplier).toFixed(3)}" data-now="${chart[6]}" 
+                            data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]} ${buttonIndex}" 
+                            data-query-class="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}"
+                            data-list-index="${listIndex}" data-index="${index + 1}" data-button-index="${buttonIndex}">
+                            <span class="rate-counter">+${((chart[4] * multiplier) - varSingleRateLowers[listIndex]).toFixed(3)}</span>
+                            </a>
+                            `.replaceAll(/(^ {28}|^\n)/gm, '').replaceAll('\n', '')
+                    } else {
+                        return '-'
+                    }
                 } else {
                     return '-'
                 }
@@ -674,7 +676,7 @@ function analyze(){
                                 <div class="progress-bar bg-is-980${(chart[3] >= 990000) ? 'bg-ge-990' : ''}" role="progressbar" style="width: ${(chart[3] - 980000) / 10000 / 0.05}%; max-width: ${1 / 0.05}%;" aria-valuenow="${chart[3]}" aria-valuemin="980000" aria-valuemax="990000"></div>
                             </div>
                         </div>
-                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 m-0 mt-1 px-1">
+                        <div class="list-item--bottom-wrapper row bg-black bg-opacity-25 m-0 mt-1 px-1 rounded">
                             <div class="col p-0">
                                 <div class="list-item--increase-label text-dimmed small">950k</div>
                                 <div class="list-item--increase" data-parent="list-item--small" data-index="${index + 1}">${increases[0]}</div>
@@ -1474,9 +1476,9 @@ function activateAnalyzeMode() {
     playdata.value = ''
 
     // [DEBUG] FOR DEBUGGING USE ONLY
-    // location.reload()
+    location.reload()
 
-    location.href = 'https://bit.ly/3tiGGDb'
+    // location.href = 'https://bit.ly/3tiGGDb'
 }
 
 // Run the analyze

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-08-10-rev1" data-dataset="2022-07-18-rev6" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-09-01" data-dataset="2022-07-18-rev6" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -15,7 +15,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-08-23"></script>
+        <script defer src="js/script.js?date=2022-09-01"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -206,611 +206,60 @@
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack border rounded me-2">
-                                        <div class="badge bg-white align-bottom text-black rounded-0">#84</div>
-                                        <div class="badge border-white align-bottom">2022-08-10</div>
+                                        <div class="badge bg-white align-bottom text-black rounded-0">#85</div>
+                                        <div class="badge border-white align-bottom">2022-09-01</div>
                                     </div>
                                     <div class="w-100">
                                         <span class="lang lang-japanese">
-                                            フィルターおよび検索機能を改善
+                                            オフラインでプレイできない曲について
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            Improve 'Filters' and 'Search' feature
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="fs-5">1.</span>
-                                        <span class="lang lang-japanese">
-                                            「キーワード検索」の一部機能をフィルターに移植し、より簡単に譜面を絞り込めるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Some functions of 'Keyword Search' have been moved to filters, allowing you to easily filter charts.
-                                        </span>
-                                    </div>
-                                    <div class="my-1 p-1 bg-gray-900">
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                「レベルフィルター」 — レベルごとに表示と非表示を切り替えられます。（レベル1〜9+は一括）
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                'Level Filter' — You can toggle show/hide for each level. (Level 1 to 9+ are not separate)
-                                            </span>
-                                        </div>
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                「その他」 — オフラインでも利用可能か否かで、表示と非表示を切り替えられます。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                'Other' — You can toggle show/hide by whether it is available offline or not.
-                                            </span>
-                                        </div>
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                「下限スコア」 — 任意のスコアよりも高い譜面のみを表示することができます。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                'Min Score' — You can display only charts that are higher than your chosen score by using this.
-                                            </span>
-                                        </div>
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                「上限スコア」 — 任意のスコアよりも低い譜面のみを表示することができます。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                'Max Score' — You can display only charts that are lower than your chosen score by using this.
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="fs-5">2.</span>
-                                        <span class="lang lang-japanese">
-                                            「キーワード検索」の名前を「楽曲検索」に変更し、曲名およびアーティスト名で楽曲を検索できるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            'Keyword Search' has been renamed 'Song Search' and now allows you to search for songs by song title or artist name.
-                                        </span>
-                                    </div>
-                                    <div class="my-1 p-1 bg-gray-900">
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                アーティスト名で検索する際、別名義は考慮されません。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                When searching by artist name, another names are not included.
-                                            </span>
-                                        </div>
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                「かめりあ」氏の全ての曲を探すには、英語表記の「Camellia」を入力してください。「かめりあ」と入力すると、アーティスト名が「Camellia」である曲は結果に表示されません。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                To find all songs by "かめりあ (eng: Camellia)", enter "Camellia" in English. If you enter "かめりあ", songs whose artist name is "Camellia" will not be displayed in the results.
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="fs-5">3.</span>
-                                        <span class="lang lang-japanese">
-                                            譜面一覧においてアーティスト名が表示されるようになり、これらをクリックすることで、そのアーティスト名で楽曲を検索できるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            In the Chart List, artist names are now displayed, and by clicking on them, you can search for songs by artist name.
-                                        </span>
-                                    </div>
-                                    <div class="my-1 p-1 bg-gray-900">
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                アーティスト名は表示オプションで非表示にできます。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                You can hide the artist name in the display options.
-                                            </span>
-                                        </div>
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                アーティスト名を非表示にしても、「楽曲検索」で引き続きアーティスト名で検索できます。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                Even if you hide the artist name, you can still search by artist name in the "Song Search".
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="fs-5">4.</span>
-                                        <span class="lang lang-japanese">
-                                            全てのフィルターの選択内容が記憶されるようになりました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            All filter selections are now remembered.
-                                        </span>
-                                    </div>
-                                    <div class="my-1 p-1 bg-gray-900">
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                「楽曲検索」は記憶されません。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                'Song Search' will not be remembered.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2 opacity-50 text-decoration-line-through">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack border rounded me-2">
-                                        <div class="badge bg-white align-bottom text-black rounded-0">#83</div>
-                                        <div class="badge border-white align-bottom">2022-08-07</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            プログラムを以前のバージョンへ復元
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Restore the program to a older version
+                                            About songs not available offline
                                         </span>
                                     </div>
                                 </div>
                                 <div class="mx-2 my-1">
                                     <div class="my-1">
                                         <span class="lang lang-japanese">
-                                            一部のユーザーでプログラムが正常に動作していないようなので、正常に動作していたとみられる以前のバージョンへ復元しました。
+                                            WACCAでオンラインサービスが終了し、一部の曲がプレイできなくなりました。ここでは、その影響についてご説明します。
                                         </span>
                                         <span class="lang lang-english d-none">
-                                            Some users did not seem to have this program working correctly, so we have reverted to an older version that seemed to be working as expected.
+                                            The online service has been closed at WACCA and some songs are no longer available for play, how this affects you.
                                         </span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack border rounded me-2">
-                                        <div class="badge bg-white align-bottom text-black rounded-0">#82</div>
-                                        <div class="badge border-white align-bottom">2022-08-01</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            スコア編集機能の不具合を修正
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Fixed a bug with the 'Score Edit' feature
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            「スコア編集」機能を使用しても、新しいスコアが反映されない不具合がありました。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            There was a problem with the "Score Edit" feature not reflecting new scores.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            現在ではこの不具合は修正されております。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            This problem has now been fixed.
-                                        </span>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            ご報告ありがとうございます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Thanks for the report.
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="my-1 p-2">
-                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
-                                    <div class="vstack border rounded me-2">
-                                        <div class="badge bg-white align-bottom text-black rounded-0">#81</div>
-                                        <div class="badge border-white align-bottom">2022-07-18</div>
-                                    </div>
-                                    <div class="w-100">
-                                        <span class="lang lang-japanese">
-                                            新しい譜面へ対応 [カーテンコール]
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            New charts are supported [Curtain Call]
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mx-2 my-1">
-                                    <div class="my-1">
-                                        <div class="text-dimmed small mt-2">#81 Update (2022-07-18)</div>
-                                        <div class="p-1 bg-gray-900">
-                                            <div>DIVE With Ü</div>
-                                            <div>
-                                                <span class="badge border normal">NORMAL 3</span>
-                                                <span class="badge border hard">HARD 9</span>
-                                                <span class="badge border expert">EXPERT 13</span>
-                                                <span class="badge border inferno">INFERNO 12</span>
-                                                <span class="badge border">
-                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                </span>
-                                            </div>
+                                    <div class="my-1 p-1 bg-gray-900">
+                                        <div class="my-1">
+                                            <span class="lang lang-japanese">
+                                                「プレイ不可」と表示されます。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                These will indicate "Not Available".
+                                            </span>
+                                        </div>
+                                        <div class="my-1">
+                                            <span class="lang lang-japanese">
+                                                「レーティング候補」として扱われなくなります。（つまり「レーティング対象」以外は全て「その他」に変わります。）
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                These will no longer be listed as "Rating Candidates". (This means that everything except "Rating Targets" will change to "Others".)
+                                            </span>
+                                        </div>
+                                        <div class="my-1">
+                                            <span class="lang lang-japanese">
+                                                「チェックリスト」に追加できなくなります。
+                                            </span>
+                                            <span class="lang lang-english d-none">
+                                                These will not be able to be added to "Checklist".
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="accordion border border-white rounded mt-2" id="accordion-news-item--52">
-                                        <div class="accordion-item border-0">
-                                            <div class="h2 accordion-header" id="accordion-news-item--52-1">
-                                                <button class="accordion-button collapsed bg-white text-black p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-news-item--52-1" aria-expanded="false" aria-controls="collapse-news-item--52-1">
-                                                    <span class="lang lang-japanese">続きを見る...</span>
-                                                    <span class="lang lang-english d-none">Read more...</span>
-                                                </button>
-                                            </div>
-                                            <div id="collapse-news-item--52-1" class="accordion-collapse collapse" aria-labelledby="accordion-news-item--52-1" data-bs-parent="#accordion-news-item--52">
-                                                <div class="accordion-body bg-gray-800 p-2">
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#79 Update (2022-07-16)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Scramble TANO*C</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 3</span>
-                                                                <span class="badge border hard">HARD 9</span>
-                                                                <span class="badge border expert">EXPERT 12+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#78 Update (2022-07-15)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Everybody Say HARDCORE TANO*C</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 9</span>
-                                                                <span class="badge border expert">EXPERT 13</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#77 Update (2022-07-14)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Crush Out</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10</span>
-                                                                <span class="badge border expert">EXPERT 12</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#76 Update (2022-07-13)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Keep on Groovin' feat. mow*2</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 9+</span>
-                                                                <span class="badge border expert">EXPERT 12</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#74 Update (2022-07-12)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>To the sky -wacca edit- feat.motoko</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 3</span>
-                                                                <span class="badge border hard">HARD 8+</span>
-                                                                <span class="badge border expert">EXPERT 12</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#73 Update (2022-07-11)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>We are the Massive New Krew (2020Edit)</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 3</span>
-                                                                <span class="badge border hard">HARD 8</span>
-                                                                <span class="badge border expert">EXPERT 13</span>
-                                                                <span class="badge border inferno">INFERNO 14</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#71 Update (2022-07-10)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>最先端坊将軍３</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 5</span>
-                                                                <span class="badge border hard">HARD 10+</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#70 Update (2022-07-09)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>BPM=RT</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 5</span>
-                                                                <span class="badge border hard">HARD 10+</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#69 Update (2022-07-08)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>1BPM</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#67 Update (2022-07-07)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Viyella's Nightmare</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 11</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#66 Update (2022-07-06)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Odin</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10+</span>
-                                                                <span class="badge border expert">EXPERT 13</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#65 Update (2022-07-05)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>EXTRA HARD</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 11</span>
-                                                                <span class="badge border expert">EXPERT 14</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#64 Update (2022-07-04)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Obtain An Unused Whale In The Abstract Sea</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 2</span>
-                                                                <span class="badge border hard">HARD 6</span>
-                                                                <span class="badge border expert">EXPERT 13</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#63 Update (2022-07-03)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Middle</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 3</span>
-                                                                <span class="badge border hard">HARD 7</span>
-                                                                <span class="badge border expert">EXPERT 12+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#62 Update (2022-07-02)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Avenue</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 3</span>
-                                                                <span class="badge border hard">HARD 7+</span>
-                                                                <span class="badge border expert">EXPERT 12+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#61 Update (2022-07-01)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>えくすとりーむ↑↑おんがくスクール feat. ななひら</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10+</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#60 Update (2022-06-30)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>T+ VS SHARK</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10+</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#59 Update (2022-06-29)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Brand New World feat. Yukacco</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 3</span>
-                                                                <span class="badge border hard">HARD 7</span>
-                                                                <span class="badge border expert">EXPERT 11+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#58 Update (2022-06-28)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>SUPER EMULATOR</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 11</span>
-                                                                <span class="badge border expert">EXPERT 14</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#57 Update (2022-06-27)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>GAKKY</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10+</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#56 Update (2022-06-26)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>NIGHTWAVE FRAGMENTS</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10</span>
-                                                                <span class="badge border expert">EXPERT 13+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#55 Update (2022-06-25)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>N3XTAGE</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 4</span>
-                                                                <span class="badge border hard">HARD 10</span>
-                                                                <span class="badge border expert">EXPERT 12+</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#54 Update (2022-06-24)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Big Daddy</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 5</span>
-                                                                <span class="badge border hard">HARD 8+</span>
-                                                                <span class="badge border expert">EXPERT 13</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="my-1">
-                                                        <div class="text-dimmed small mt-2">#52 Update (2022-06-23)</div>
-                                                        <div class="p-1 bg-gray-900">
-                                                            <div>Ready Go feat. Yukacco</div>
-                                                            <div>
-                                                                <span class="badge border normal">NORMAL 3</span>
-                                                                <span class="badge border hard">HARD 8</span>
-                                                                <span class="badge border expert">EXPERT 12</span>
-                                                                <span class="badge border">
-                                                                    <span class="lang lang-japanese">新曲枠</span>
-                                                                    <span class="lang lang-english d-none">NEWER</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            注意: 既に「レーティング対象」であるものは、引き続き「レーティング対象」として扱われ、レーティングに加算されます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Note: These that are already "Rating Targets" are still listed as "Rating Targets" and will be added to the rating.
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -883,58 +332,6 @@
                             <div class="position-absolute top-0 start-50 translate-middle badge bg-white box-shadow-black text-black">DEV. BY</div>
                         </button>
                     </a>
-                </div>
-                <hr class="my-2">
-                <div class="d-flex">
-                    <span class="lang lang-japanese">WACCAがオフラインへ移行するまで</span>
-                    <span class="lang lang-english d-none">Remaining time until WACCA goes offline:</span>
-                </div>
-                <script>
-                    let countdown = setInterval(function(){
-                        const now = new Date()
-                        const target = new Date('2022-09-01T00:00:00+0900')
-                        const diffTime = target - now
-
-                        if(diffTime < 0) return false 
-
-                        const diffDay  = String('0' + String(Math.floor(diffTime / 1000 / 60 / 60 / 24))).slice(-2)
-                        const diffHour = String('0' + String(Math.floor(diffTime / 1000 / 60 / 60 ) % 24)).slice(-2)
-                        const diffMin  = String('0' + String(Math.floor(diffTime / 1000 / 60) % 60)).slice(-2)
-                        const diffSec  = String('0' + String(Math.floor(diffTime / 1000) % 60)).slice(-2)
-
-                        document.querySelectorAll('.countdown-day > div').forEach((e, i) => e.textContent = diffDay[i])
-                        document.querySelectorAll('.countdown-hour > div').forEach((e, i) => e.textContent = diffHour[i])
-                        document.querySelectorAll('.countdown-min > div').forEach((e, i) => e.textContent = diffMin[i])
-                        document.querySelectorAll('.countdown-sec > div').forEach((e, i) => e.textContent = diffSec[i])
-
-
-                        if(diffTime < 0) clearInterval(countdown)
-
-                    }, 1000)
-
-                </script>
-                <div class="d-flex">
-                    <div class="bg-gray-900 d-flex align-items-center countdown-wrapper p-1 rounded">
-                        <div class="d-flex px-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-clock svg-fs-5" viewBox="0 0 16 16">
-                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                            </svg>
-                        </div>
-                        <div class="d-flex skew-10 font-numeric fs-3 lh-1 countdown-timer-wrapper">
-                            <div class="d-flex countdown-day ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                            <div class="d-flex countdown-day pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                            <div class="d-flex countdown-symbol">:</div>
-                            <div class="d-flex countdown-hour ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                            <div class="d-flex countdown-hour pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                            <div class="d-flex countdown-symbol">:</div>
-                            <div class="d-flex countdown-min ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                            <div class="d-flex countdown-min pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                            <div class="d-flex countdown-symbol">:</div>
-                            <div class="d-flex countdown-sec ps-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                            <div class="d-flex countdown-sec pe-1 justify-content-center" style="width: 1.5rem;"><div class="d-flex">-</div></div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div id="box-input" class="bg-gray-800 p-2 my-2 rounded">

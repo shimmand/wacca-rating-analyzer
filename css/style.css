@@ -631,18 +631,8 @@ svg.svg-fs-6 {
 }
 
 .bi {
-    width: 1rem;
-    height: 1rem;
-}
-
-.bi-lg {
-    width: 4rem!important;
-    height: 4rem!important;
-}
-
-.bi-badge {
-    width: .75rem!important;
-    height: .75rem!important;
+    width: 1em;
+    height: 1em;
 }
 
 .modal-shadow-white {

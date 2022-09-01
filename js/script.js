@@ -3109,7 +3109,7 @@ function fillKeywordSearchInput(keyword = null, index = null, focus = true) {
     }
 
     const input = document.querySelectorAll('.input-keyword-search')[index]
-    input.value = String(keyword)
+    input.value = String(keyword).replaceAll(/「.+」より/g, '').trim()
 
     if (focus === true) {
         input.focus()

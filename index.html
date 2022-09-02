@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-09-01-rev1" data-dataset="2022-07-18-rev8" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-09-03" data-dataset="2022-07-18-rev8" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -10,12 +10,12 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-09-02" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-09-03" rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-09-02-rev2"></script>
+        <script defer src="js/script.js?date=2022-09-03"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -206,6 +206,86 @@
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack border rounded me-2">
+                                        <div class="badge bg-white align-bottom text-black rounded-0">#86</div>
+                                        <div class="badge border-white align-bottom">2022-09-03</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            「バックアップ」機能を追加
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added "Backup" feature
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            このプログラムのデータをバックアップしたり他のデバイスに引き継げる、「バックアップ」機能を追加しました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added "Backup" feature that allows you to backup or carry over the data of this program to other devices.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            あらかじめバックアップファイルを保存しておき、復元したい時にそれを読み込むだけの簡単な仕組みです。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            It is a simple mechanism to save a backup file in advance and load it when you want to restore.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            この機能は「設定」から利用できます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            This feature is available on the "Settings".
+                                        </span>
+                                    </div>
+                                    <div class="my-1 p-1 bg-gray-900 rounded">
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    バックアップファイルは、クラウドストレージに保存することをおすすめします。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    It is recommended that backup files be stored in cloud storage.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    現時点ではスコア情報のみがバックアップに含まれます。チェックリストやフィルター設定は含まれません。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    Currently, only score data is included in backup. Checklists and filter settings are not included.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack border rounded me-2">
                                         <div class="badge bg-white align-bottom text-black rounded-0">#85</div>
                                         <div class="badge border-white align-bottom">2022-09-01</div>
                                     </div>
@@ -227,39 +307,79 @@
                                             The online service has been closed at WACCA and some songs are no longer available for play, how this affects you.
                                         </span>
                                     </div>
-                                    <div class="my-1 p-1 bg-gray-900">
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                これらの曲では「プレイ不可」と表示されます。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                These will indicate "Not Available".
-                                            </span>
+                                    <div class="my-1 p-1 bg-gray-900 rounded">
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    これらの曲では「プレイ不可」と表示されます。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    These will indicate "Not Available".
+                                                </span>
+                                            </div>
                                         </div>
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                これらの曲は「レーティング候補」として扱われなくなります。（「レーティング対象」以外は全て「その他」に変わります。）
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                These will no longer be listed as "Rating Candidates". (This means that everything except "Rating Targets" will change to "Others".)
-                                            </span>
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    これらの曲は「レーティング候補」として扱われなくなります。（「レーティング対象」以外は全て「その他」に変わります。）
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    These will no longer be listed as "Rating Candidates". (This means that everything except "Rating Targets" will change to "Others".)
+                                                </span>
+                                            </div>
                                         </div>
-                                        <div class="my-1">
-                                            <span class="lang lang-japanese">
-                                                これらの曲は「チェックリスト」に追加できなくなります。
-                                            </span>
-                                            <span class="lang lang-english d-none">
-                                                These will not be able to be added to "Checklist".
-                                            </span>
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    これらの曲は「チェックリスト」に追加できなくなります。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    These will not be able to be added to "Checklist".
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="my-1">
-                                        <span class="lang lang-japanese">
-                                            注意: 既に「レーティング対象」であるものは、引き続き「レーティング対象」として扱われ、レーティングに加算されます。
-                                        </span>
-                                        <span class="lang lang-english d-none">
-                                            Note: These that are already "Rating Targets" are still listed as "Rating Targets" and will be added to the rating.
-                                        </span>
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-targets rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    既に「レーティング対象」であるものは、引き続き「レーティング対象」として扱われ、レーティングに加算されます。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    These that are already "Rating Targets" are still listed as "Rating Targets" and will be added to the rating.
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2748,18 +2868,18 @@
                         <div class="modal-body">
                             <div class="d-flex align-items-start mt-0">
                                 <div class="mt-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle svg-modal-icon" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
                                     </svg>
                                 </div>
                                 <div class="mt-0">
                                     <div class="m-2 px-1">
-                                        <span class="lang lang-japanese">データを出力します。</span>
-                                        <span class="lang lang-english d-none">Your data is ready for export.</span>
-                                    </div>
-                                    <div class="m-2 px-1">
-                                        <span class="lang lang-japanese">開始するには、出力するデータの種類を選択して、「出力」を押してください。</span>
+                                        <span class="lang lang-japanese">出力するデータの種類を選択して、「出力」を押してください。</span>
                                         <span class="lang lang-english d-none">Please select the type of data to be exported and press "Export" to start exporting.</span>
+                                    </div>
+                                    <div class="m-2 px-1 small text-dimmed">
+                                        <span class="lang lang-japanese">データをバックアップする場合は、「設定」を開いてください。</span>
+                                        <span class="lang lang-english d-none">If you need to backup your data, please open "Settings".</span>
                                     </div>
                                     <div class="m-2 px-1">
                                         <div class="form-check d-flex align-items-center p-1 me-1 rounded">
@@ -2914,7 +3034,7 @@
                         <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
                                 <div class="mt-3 text-magenta">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle svg-modal-icon" viewBox="0 0 16 16">
                                         <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                                         <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                                     </svg>
@@ -2954,7 +3074,7 @@
                         <div class="modal-body">
                             <div class="d-flex align-items-start mt-0">
                                 <div class="mt-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle svg-modal-icon" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
                                     </svg>
@@ -2994,7 +3114,7 @@
                         <div class="modal-body">
                             <div class="d-flex align-items-start mt-0">
                                 <div class="mt-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle svg-modal-icon" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
                                     </svg>
@@ -3047,12 +3167,58 @@
                             </div>
                             <div class="mt-2">
                                 <div class="h6 border-bottom border-white m-2 px-1 pb-1">
-                                    <span class="lang lang-japanese">Cookie</span>
-                                    <span class="lang lang-english d-none">Cookie</span>
+                                    <span class="lang lang-japanese">バックアップを保存</span>
+                                    <span class="lang lang-english d-none">Save Backup<span>
+                                </div>
+                                <div class="m-2 px-1 text-dimmed small">
+                                    <span class="lang lang-japanese">スコア情報のみが含まれます。チェックリストやフィルター設定は含まれません。</span>
+                                    <span class="lang lang-english d-none">Only score data is included. Checklists and filter settings are not included.<span>
                                 </div>
                                 <div class="m-2 px-1">
-                                    <span class="lang lang-japanese">使用していません。</span>
-                                    <span class="lang lang-english d-none">Not used.</span>
+                                    <button type="button" class="btn btn-white" data-bs-toggle="modal" onclick="exportPlayData();">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                                        </svg>
+                                        <span class="lang lang-japanese">保存</span>
+                                        <span class="lang lang-english d-none">Save<span>
+                                    </button>
+                                </div>
+                                <div class="m-2 px-1 d-flex align-items-start small bg-gray-900 rounded">
+                                    <div class="d-flex">
+                                        <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <span class="lang lang-japanese">バックアップファイルは、クラウドストレージに保存することをおすすめします。</span>
+                                        <span class="lang lang-english d-none">It is recommended that backup files be stored in cloud storage.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <div class="h6 border-bottom border-white m-2 px-1 pb-1">
+                                    <span class="lang lang-japanese">バックアップから復元</span>
+                                    <span class="lang lang-english d-none">Restore from Backup<span>
+                                </div>
+                                <div class="m-2 px-1 text-dimmed small">
+                                    <span class="lang lang-japanese">「バックアップを保存」で保存したファイルを選択し、「復元」をクリックしてください。</span>
+                                    <span class="lang lang-english d-none">Select the saved file in the "Save Backup" section and click "Restore".<span>
+                                </div>
+                                <div class="m-2 px-1">
+                                    <input type="file" class="form-control" id="import-playdata-0" accept="text/csv">
+                                </div>
+                                <div class="m-2 px-1">
+                                    <button class="btn btn-white border-5 border-0 border-start border-magenta" type="button" onclick="importPlayData();">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bootstrap-restore" viewBox="0 0 16 16">
+                                            <path transform="scale(-1,1) translate(-16,0)" d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z"/>
+                                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                        </svg>
+                                        <span class="lang lang-japanese">復元</span>
+                                        <span class="lang lang-english d-none">Restore<span>
+                                    </button>
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -3060,13 +3226,9 @@
                                     <span class="lang lang-japanese">LocalStorage</span>
                                     <span class="lang lang-english d-none">LocalStorage</span>
                                 </div>
-                                <div class="m-2 px-1">
-                                    <span class="lang lang-japanese">このプログラムでは、プレイ成績を一時的に保存するために、LocalStorageを使用しています。</span>
-                                    <span class="lang lang-english d-none">This program uses LocalStorage to temporarily keep your playing results.</span>
-                                </div>
-                                <div class="m-2 px-1">
-                                    <span class="lang lang-japanese">LocalStorageは、ブラウザーを閉じたり再び開いたりしてもデータを保持する、ブラウザーに搭載されている仕組みです。</span>
-                                    <span class="lang lang-english d-none">LocalStorage is a built-in feature of the browser that keeps the data even when the browser is closed and reopened.</span>
+                                <div class="m-2 px-1 text-dimmed small">
+                                    <span class="lang lang-japanese">このプログラムは、ブラウザーの機能である「LocalStorage」を使用して、デバイス内にデータを保存しています。ここでは、保存されている内容の確認や消去が可能です。</span>
+                                    <span class="lang lang-english d-none">This program uses "LocalStorage", a built-in feature of your browser, to store data in your device. In this section, you can check and erase the stored contents.</span>
                                 </div>
                                 <div class="m-2 px-1">
                                     <div class="btn-group" role="group">
@@ -3088,7 +3250,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="table-responsive border border-white m-2 px-1">
+                                <div class="table-responsive border border-white m-2 px-1 rounded">
                                     <table class="table table-dark table-sm">
                                         <thead>
                                             <tr>
@@ -3131,7 +3293,7 @@
                         <div class="modal-body">
                             <div class="d-flex align-items-start mt-0">
                                 <div class="mt-3 text-magenta">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle svg-modal-icon" viewBox="0 0 16 16">
                                         <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                                         <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                                     </svg>
@@ -3202,7 +3364,7 @@
                         <div class="modal-body">
                             <div class="d-flex align-items-center mt-0">
                                 <div class="mt-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle svg-modal-icon" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
                                     </svg>
@@ -3249,7 +3411,7 @@
                         <div class="modal-body">
                             <div class="d-flex justify-content-between align-items-start mt-0">
                                 <div class="mt-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square svg-modal-icon" viewBox="0 0 16 16">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                     </svg>
@@ -3344,7 +3506,7 @@
                         <div class="modal-body">
                             <div class="d-flex justify-content-between align-items-start mt-0">
                                 <div class="mt-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle fs-1" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle svg-modal-icon" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
                                     </svg>
@@ -3541,10 +3703,6 @@
                                                     <div>
                                                         <span class="lang lang-japanese">言語を変更します。</span>
                                                         <span class="lang lang-english d-none">This will change the language.</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="lang lang-japanese">ページ上だけでなく、「CSVで保存」の一部も変更されます。</span>
-                                                        <span class="lang lang-english d-none">Not only on the page, but also part of the "Save as CSV" will be changed.</span>
                                                     </div>
                                                 </td>
                                             </tr>

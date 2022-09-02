@@ -589,6 +589,11 @@ a.multi-rate-selected:hover {
 
 /* SVGs */
 
+svg.svg-modal-icon {
+    width: 4rem!important;
+    height: 4rem!important;
+}
+
 svg.svg-fs-1 {
     width: calc(1.375rem + 1.5vw)!important;
     height: calc(1.375rem + 1.5vw)!important;

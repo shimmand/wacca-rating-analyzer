@@ -805,13 +805,11 @@ function analyze(){
             {
                 const target = '<!-- rating target indicator -->'
                 const replace = `
-                    <div class="filter-targets rounded-pill m-1">
-                        <div class="d-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle fs-6" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                            </svg>
-                        </div>
+                    <div class="d-inline-flex filter-targets rounded-pill m-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle fs-6" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                        </svg>
                     </div>`
                 .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
 
@@ -2242,14 +2240,10 @@ function saveTableData() {
     const blob = new Blob([bom, dataTableText], {'type' : 'text/csv'})
     const date = new Date()
     const filename = [
-        'wacca-',
+        'wacca-chartlist-',
         date.getFullYear(),
         ('0' + (date.getMonth() + 1)).slice(-2),
-        ('0' + date.getDate()).slice(-2),
-        '-',
-        ('0' + date.getHours()).slice(-2),
-        ('0' + date.getMinutes()).slice(-2),
-        ('0' + date.getSeconds()).slice(-2),
+        ('0' + date.getDate()).slice(-2)
     ].join('')
 
     let downloadLink = document.createElement('a')
@@ -2563,9 +2557,9 @@ function modifyScoreModalLauncher(source) {
  */
 function modifyScoreModal(abort = false) {
     const control = document.querySelector('.modify-score--main')
-    const title = control.querySelector('.modify-score--title').innerHTML.replace(',', '__')
-    const difficulty = control.querySelector('.modify-score--badge-difficulty').innerHTML
-    const oldScore = control.querySelector('.modify-score--score-current-value').innerHTML
+    const title = control.querySelector('.modify-score--title').innerText.replace(',', '__')
+    const difficulty = control.querySelector('.modify-score--badge-difficulty').innerText
+    const oldScore = control.querySelector('.modify-score--score-current-value').innerText
     const newScore = control.querySelector('.modify-score--score-new-value').value
     const alertElm = control.querySelector('.modify-score--alert-wrapper')
     const button = document.querySelector('#btn-modify-score-modal')
@@ -3130,4 +3124,65 @@ function replaceHTMLCharEntities(value){
             "'": '&apos;'
         }[match]
     })
+}
+
+function exportPlayData() {
+    const prev = localStorage.getItem('rating-analyzer-prev')
+    const bom = new Uint8Array([0xEF, 0xBB, 0xBF])
+    const blob = new Blob([bom, prev], {'type' : 'text/csv'})
+    const date = new Date()
+    const filename = [
+        'wacca-backup-',
+        date.getFullYear(),
+        ('0' + (date.getMonth() + 1)).slice(-2),
+        ('0' + date.getDate()).slice(-2),
+    ].join('')
+
+    let downloadLink = document.createElement('a')
+    downloadLink.download = filename
+    downloadLink.href = URL.createObjectURL(blob)
+    downloadLink.dataset.downloadurl = ['text/plain', downloadLink.download, downloadLink.href].join(':')
+    downloadLink.click()
+}
+
+function importPlayData() {
+    const input = document.querySelector('#import-playdata-0')
+    const files = input.files
+    const reader = new FileReader()
+
+    if (files.length === 0) {
+        return
+    }
+
+    reader.readAsText(files[0])
+    reader.onload = () => {
+        const searchPattern = /[^,]+,(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+?,[0-9]{1,7}/g
+        const testResult = reader.result.split('\n').map(line => {
+            if (line.match(searchPattern) !== null) {
+                return (line.match(searchPattern)[0] === line)
+            } else {
+                return false
+            }
+        })
+
+        if (testResult.indexOf(false) === -1) {
+            const date = new Date()
+            const formattedDate = [
+                date.getFullYear(),
+                '-',
+                ('0' + (date.getMonth() + 1)).slice(-2),
+                '-',
+                ('0' + date.getDate()).slice(-2),
+                ' ',
+                ('0' + date.getHours()).slice(-2),
+                ':',
+                ('0' + date.getMinutes()).slice(-2),
+            ].join('')
+
+            localStorage.setItem('rating-analyzer-prev-date', formattedDate)
+            localStorage.setItem('rating-analyzer-prev', reader.result)
+            localStorage.setItem('rating-analyzer-analyze-mode', 'false')
+            location.reload()
+        }
+    }
 }

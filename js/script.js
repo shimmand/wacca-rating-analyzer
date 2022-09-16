@@ -4,6 +4,7 @@
  */
 function initialize() {
     try {
+        const variants = document.querySelector('#variants')
         const datasetParam = document.querySelector('html').dataset.dataset
         const xhr = new XMLHttpRequest()
 
@@ -204,6 +205,24 @@ function initialize() {
             }
 
             {
+                if (localStorage.getItem('rating-analyzer-favorite-filter') === null) {
+                    localStorage.setItem('rating-analyzer-favorite-filter', 'false')
+                } else {
+                    const toggles = document.querySelectorAll('.favorite-toggle')
+                    switch (localStorage.getItem('rating-analyzer-favorite-filter')) {
+                        case 'true':
+                            toggles.forEach(toggle => toggle.checked = true)
+                            break
+                        case 'false':
+                            toggles.forEach(toggle => toggle.checked = false)
+                            break
+                        default:
+                            break
+                    }
+                }
+            }
+
+            {
                 if (localStorage.getItem('rating-analyzer-score-filter') === null) {
                     localStorage.setItem('rating-analyzer-score-filter', 'false,0,false,0,false,0')
                 } else {
@@ -214,18 +233,21 @@ function initialize() {
 
                     const minScoreSelect = document.querySelectorAll('.score-filter-min-select')
                     minScoreSelect.forEach(toggle => toggle.value = favorites[1])
+                    variants.dataset.scoreFilterMin = favorites[1]
 
                     const maxScoreToggle = document.querySelectorAll('.score-filter-max-toggle')
                     maxScoreToggle.forEach(toggle => toggle.checked = (favorites[2] === 'true'))
 
                     const maxScoreSelect = document.querySelectorAll('.score-filter-max-select')
                     maxScoreSelect.forEach(toggle => toggle.value = favorites[3])
+                    variants.dataset.scoreFilterMax = favorites[3]
 
                     const remainingScoreToggle = document.querySelectorAll('.remaining-score-filter-toggle')
                     remainingScoreToggle.forEach(toggle => toggle.checked = (favorites[4] === 'true'))
 
                     const remainingScoreSelect = document.querySelectorAll('.remaining-score-filter-select')
                     remainingScoreSelect.forEach(toggle => toggle.value = favorites[5])
+                    variants.dataset.remainingScoreFilter = favorites[5]
                 }
             }
 
@@ -329,6 +351,7 @@ function initialize() {
             if (document.querySelector('tr.chart-list--item')) {
                 restoreCheckList()
                 applyCheckList()
+                restoreFavorites()
             }
 
             switch (localStorage.getItem('rating-analyzer-check-list-visible')) {
@@ -442,14 +465,14 @@ function analyze(){
         const data = chart.split(',')
 
         // Restore escaped commas here when getting scores.
-        const title = data[0].replace('__', ',')
+        const title = data[0].replaceAll('__', ',')
 
         const level = data[1]
         const score = data[2]
 
-        const rating = getChartConstants(title, level)
+        const constant = getChartConstants(title, level)
 
-        if ((level !== 'INFERNO 0') && (rating !== null)) {
+        if ((level !== 'INFERNO 0') && (constant !== null)) {
             const pattern = /(NORMAL|HARD|EXPERT|INFERNO)/g
 
             if (!level.match(pattern)[0]) {
@@ -470,9 +493,9 @@ function analyze(){
             }
 
             const maxBadgeCode = '<div class="badge badge-max border bg-secondary">MAX</div>'
-            const adjustedRating = (multiplier * rating).toFixed(3)
-            const upperRating = (multiplier < 4 ? (4 * rating).toFixed(3) : maxBadgeCode)
-            const chartData = [title, difficulty, level, score, rating, multiplier, adjustedRating, upperRating]
+            const rating = (multiplier * constant).toFixed(3)
+            const maxRating = (multiplier < 4 ? (4 * constant).toFixed(3) : maxBadgeCode)
+            const chartData = [title, difficulty, level, score, constant, multiplier, rating, maxRating]
 
             if (isThisChartNewer(title, level)) {
                 chartsListNew.push(chartData)
@@ -590,9 +613,23 @@ function analyze(){
             <td>
                 <div class="list-item--small row d-xl-none d-xxl-none">
                     <div class="list-item--index-wrapper col-2">
-                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
-                            <div class="list-item--index-number">${index + 1}</div>
-                            <!-- rating target indicator -->
+                        <div class="list-item--favorite hover-trans-opacity cursor-pointer" data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}" onclick="modifyFavoriteItem(this); return false;">
+                            <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
+                                <div class="list-item--index-number">${index + 1}</div>
+                                <!-- rating target indicator -->
+                            </div>
+                            <div class="list-item--favorite-wrapper d-flex align-items-center gap-1">
+                                <div class="list-item--favorite-fill d-flex text-transparent position-relative my-1">
+                                    <div class="list-item--favorite-line d-flex position-absolute top-50 start-50 translate-middle text-dimmed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                        </svg>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill fs-6" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="list-item--content-wrapper col-10">
@@ -707,9 +744,23 @@ function analyze(){
                 </div>
                 <div class="list-item--large row d-none d-xl-flex d-xxl-flex${(index < targetsLength[listIndex]) ? ' bg-target-striped' : ''}">
                     <div class="list-item--index-wrapper col-1">
-                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
-                            <div class="list-item--index-number">${index + 1}</div>
-                            <!-- rating target indicator -->
+                        <div class="list-item--favorite hover-trans-opacity cursor-pointer" data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}" onclick="modifyFavoriteItem(this); return false;">
+                            <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
+                                <div class="list-item--index-number">${index + 1}</div>
+                                <!-- rating target indicator -->
+                            </div>
+                            <div class="list-item--favorite-wrapper d-flex align-items-center gap-1">
+                                <div class="list-item--favorite-fill d-flex text-transparent position-relative my-1">
+                                    <div class="list-item--favorite-line d-flex position-absolute top-50 start-50 translate-middle text-dimmed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                        </svg>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill fs-6" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="list-item--content-wrapper col-11 row mb-1">
@@ -806,7 +857,7 @@ function analyze(){
                 const target = '<!-- rating target indicator -->'
                 const replace = `
                     <div class="d-inline-flex filter-targets rounded-pill m-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-circle fs-6" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle fs-6" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
                         </svg>
@@ -2557,7 +2608,7 @@ function modifyScoreModalLauncher(source) {
  */
 function modifyScoreModal(abort = false) {
     const control = document.querySelector('.modify-score--main')
-    const title = control.querySelector('.modify-score--title').innerText.replace(',', '__')
+    const title = control.querySelector('.modify-score--title').innerText.replaceAll(',', '__')
     const difficulty = control.querySelector('.modify-score--badge-difficulty').innerText
     const oldScore = control.querySelector('.modify-score--score-current-value').innerText
     const newScore = control.querySelector('.modify-score--score-new-value').value
@@ -2692,7 +2743,7 @@ function findMissingItems() {
         }
 
         const song = songs[i]
-        const fixedTitle = String(song[indexes['title']]).replace(',', '__')
+        const fixedTitle = String(song[indexes['title']]).replaceAll(',', '__')
         
         if (String(playdata).includes(fixedTitle) === false) {
             items.push(song[indexes['title']])
@@ -2886,6 +2937,15 @@ function refreshChartList() {
         }
 
         {
+            const favorite = String(localStorage.getItem('rating-analyzer-favorite-filter'))
+            if (favorite === 'true') {
+                if (item.querySelector('.list-item--favorite.favorited') === null) {
+                    item.classList.add('d-none')
+                }
+            }
+        }
+
+        {
             const favoriteOpts = String(localStorage.getItem('rating-analyzer-score-filter')).split(',')
             const minScoreEnabled = favoriteOpts[0]
             const minScore = favoriteOpts[1]
@@ -3052,12 +3112,35 @@ function saveFilterOptions(index) {
     }
 
     {
+        const favoriteToggles = document.querySelectorAll('.favorite-toggle')
+        favoriteToggles[Number(!index)].checked = favoriteToggles[index].checked
+        localStorage.setItem('rating-analyzer-favorite-filter', favoriteToggles[index].checked)
+    }
+
+    {
         const minScoreToggle = document.querySelectorAll('.score-filter-min-toggle')
         const minScoreSelect = document.querySelectorAll('.score-filter-min-select')
         const maxScoreToggle = document.querySelectorAll('.score-filter-max-toggle')
         const maxScoreSelect = document.querySelectorAll('.score-filter-max-select')
         const remainingScoreToggle = document.querySelectorAll('.remaining-score-filter-toggle')
         const remainingScoreSelect = document.querySelectorAll('.remaining-score-filter-select')
+
+        const variants = document.querySelector('#variants')
+
+        if (Number(variants.dataset.scoreFilterMin) !== Number(minScoreSelect[index].value)) {
+            variants.dataset.scoreFilterMin = minScoreSelect[index].value
+            minScoreToggle[index].checked = true
+        }
+
+        if (Number(variants.dataset.scoreFilterMax) !== Number(maxScoreSelect[index].value)) {
+            variants.dataset.scoreFilterMax = maxScoreSelect[index].value
+            maxScoreToggle[index].checked = true
+        }
+
+        if (Number(variants.dataset.remainingScoreFilter) !== Number(remainingScoreSelect[index].value)) {
+            variants.dataset.remainingScoreFilter = remainingScoreSelect[index].value
+            remainingScoreToggle[index].checked = true
+        }
 
         minScoreToggle[Number(!index)].checked = minScoreToggle[index].checked
         minScoreSelect[Number(!index)].value = minScoreSelect[index].value
@@ -3127,9 +3210,41 @@ function replaceHTMLCharEntities(value){
 }
 
 function exportPlayData() {
-    const prev = localStorage.getItem('rating-analyzer-prev')
+    const raw = localStorage.getItem('rating-analyzer-prev')
+    const checklist = (localStorage.getItem('rating-analyzer-check-list') || '')
+    const favorite = (localStorage.getItem('rating-analyzer-favorite-list') || '')
+
+    const playdata = raw.split('\n').map(chart => {
+        let returnValue = `${chart}`
+
+        const values = chart.split(',')
+        const title = values[0].replaceAll('__', ',').replaceAll(/\'|\"|\(|\)/g, '_')
+        const difficulty = values[1].match(/(NORMAL|HARD|EXPERT|INFERNO)/)[0].toLowerCase()
+
+        returnValue += ','
+
+        Array.from(Array(5).keys()).some(index => {
+            if (checklist.includes(`${title} ${difficulty} ${index}`)) {
+                returnValue += `checklist=${index}`
+                return true
+            }
+        })
+
+        returnValue += ','
+
+        if (favorite.includes(`${title} ${difficulty}`)) {
+            returnValue += 'favorite=yes'
+        }
+
+        if (returnValue === `${chart},,`) {
+            returnValue = chart
+        }
+
+        return returnValue
+    }).join('\n')
+
     const bom = new Uint8Array([0xEF, 0xBB, 0xBF])
-    const blob = new Blob([bom, prev], {'type' : 'text/csv'})
+    const blob = new Blob([bom, playdata], {'type' : 'text/csv'})
     const date = new Date()
     const filename = [
         'wacca-backup-',
@@ -3156,33 +3271,115 @@ function importPlayData() {
 
     reader.readAsText(files[0])
     reader.onload = () => {
-        const searchPattern = /[^,]+,(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+?,[0-9]{1,7}/g
+        let checklist = (localStorage.getItem('rating-analyzer-check-list') || '')
+        let favorite = (localStorage.getItem('rating-analyzer-favorite-list') || '')
+
+        const searchPattern = /^([^,]+),(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+?,[0-9]{1,7}/
         const testResult = reader.result.split('\n').map(line => {
-            if (line.match(searchPattern) !== null) {
-                return (line.match(searchPattern)[0] === line)
-            } else {
-                return false
+            const matches = line.match(searchPattern)
+            const isMatched = (matches !== null)
+            const mainPart = (isMatched) ? matches[0] : null
+            const title = (isMatched) ? matches[1] : null
+            const difficulty = (isMatched) ? matches[2] : null
+
+            if (isMatched) {
+                if (mainPart !== line) {
+                    const optionPart = line.replace(mainPart, '')
+
+                    if (optionPart.match(/checklist=[0-4]/g) !== null) {
+                        const index = optionPart.match(/checklist=([0-4])/)[1]
+                        if (String(checklist).length > 0) {
+                            checklist += '\n'
+                        }
+                        checklist += `${title.replaceAll(/\'|\"|\(|\)/g, '_')} ${difficulty.toLowerCase()} ${index}`
+                    }
+
+                    if (optionPart.match(/favorite=yes/g) !== null) {
+                        if (String(favorite).length > 0) {
+                            favorite += '\n'
+                        }
+                        favorite += `${title.replaceAll(/\'|\"|\(|\)/g, '_')} ${difficulty.toLowerCase()}`
+                    }
+                }
             }
+
+            return mainPart
         })
 
-        if (testResult.indexOf(false) === -1) {
-            const date = new Date()
-            const formattedDate = [
-                date.getFullYear(),
-                '-',
-                ('0' + (date.getMonth() + 1)).slice(-2),
-                '-',
-                ('0' + date.getDate()).slice(-2),
-                ' ',
-                ('0' + date.getHours()).slice(-2),
-                ':',
-                ('0' + date.getMinutes()).slice(-2),
-            ].join('')
-
-            localStorage.setItem('rating-analyzer-prev-date', formattedDate)
-            localStorage.setItem('rating-analyzer-prev', reader.result)
-            localStorage.setItem('rating-analyzer-analyze-mode', 'false')
-            location.reload()
+        if (Array(testResult).includes(null)) {
+            alert('ERROR: File contains invalid data.\nエラー: ファイル内に不正なデータがあります。')
+            return
         }
+
+        { // Update the date if there is any difference with the stored data
+            if (localStorage.getItem('rating-analyzer-prev') !== testResult.join('\n')) {
+                const date = new Date()
+                const formattedDate = [
+                    date.getFullYear(),
+                    '-',
+                    ('0' + (date.getMonth() + 1)).slice(-2),
+                    '-',
+                    ('0' + date.getDate()).slice(-2),
+                    ' ',
+                    ('0' + date.getHours()).slice(-2),
+                    ':',
+                    ('0' + date.getMinutes()).slice(-2),
+                ].join('')
+                localStorage.setItem('rating-analyzer-prev-date', formattedDate)
+            } else {
+                alert('WARNING: Already registered the same data as this file.\n警告: 既にこのファイルと同じデータが登録されています。')
+            }
+        } //
+
+        localStorage.setItem('rating-analyzer-check-list', checklist)
+        localStorage.setItem('rating-analyzer-favorite-list', favorite)
+
+        localStorage.setItem('rating-analyzer-prev', testResult.join('\n'))
+        localStorage.setItem('rating-analyzer-analyze-mode', 'false')
+
+        document.querySelector('#modal-settings [data-bs-dismiss="modal"]').click()
+
+        location.reload()
     }
+}
+
+/**
+ * @param {*} element - If empty, only update LocalStorage
+ */
+function modifyFavoriteItem(element = null) {
+    { // Change appearance of clicked "Favorites" toggles
+        if (element !== null) {
+            const query = element.dataset.query
+            const checked = (element.classList.contains('favorited') === false)
+            const targets = document.querySelectorAll(`.list-item--favorite[data-query="${query}"]`)
+            targets.forEach(target => {
+                if (checked) {
+                    target.classList.add('favorited')
+                } else {
+                    target.classList.remove('favorited')
+                }
+            })
+        }
+    } //
+
+    { // Save "Favorites" selection in LocalStorage
+        const favorites = document.querySelectorAll('.list-item--small .list-item--favorite.favorited')
+        const setValue = Array.from(favorites).map(favorite => favorite.dataset.query).join('\n')
+        localStorage.setItem('rating-analyzer-favorite-list', setValue)
+    } //
+}
+
+function restoreFavorites() {
+    { // Restore from data stored in LocalStorage
+        const favorites = (localStorage.getItem('rating-analyzer-favorite-list') || null)
+        if (favorites === null) {
+            return
+        }
+        favorites.split('\n').forEach(query => {
+            const targets = document.querySelectorAll(`.list-item--favorite[data-query="${query}"]`)
+            targets.forEach(target => {
+                target.classList.add('favorited')
+            })
+        })
+    } //
 }

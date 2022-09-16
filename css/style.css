@@ -746,7 +746,7 @@ svg.svg-fs-6 {
 }
 
 .hover-trans-opacity:hover {
-    box-shadow: inset 1px 1px var(--bs-white), inset -1px -1px var(--bs-white);
+    box-shadow: inset 1px 1px var(--bs-white), inset 1px -1px var(--bs-white), inset -1px 1px var(--bs-white), inset -1px -1px var(--bs-white);
 }
 
 .shadow.hover-trans-opacity:hover {
@@ -764,4 +764,16 @@ svg.svg-fs-6 {
 @keyframes text-blink {
     50% { color: var(--bs-pink); }
     100% { color: currentColor; }
+}
+
+.text-transparent {
+    color: transparent;
+}
+
+.list-item--favorite.favorited .list-item--favorite-fill {
+    color: #0d6efd!important;
+}
+
+.list-item--favorite.favorited .list-item--favorite-fill .list-item--favorite-line {
+    color: #ffffff!important;
 }

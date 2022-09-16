@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-09-03" data-dataset="2022-07-18-rev8" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-09-16" data-dataset="2022-07-18-rev8" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -10,12 +10,12 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-09-03" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-09-16" rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-09-03"></script>
+        <script defer src="js/script.js?date=2022-09-16"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -33,6 +33,12 @@
         </div>
 
         <div id="container-main" class="container-xxl p-0 d-none">
+
+            <div id="variants" class="d-none"
+                data-remaining-score-filter="5000"
+                data-score-filter-min="0"
+                data-score-filter-max="0">
+            </div>
 
             <!-- news modal begins -->
             <button id="btn-news-modal" type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#news-modal"></button>
@@ -206,15 +212,75 @@
                             <div class="my-1 p-2">
                                 <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
                                     <div class="vstack border rounded me-2">
+                                        <div class="badge bg-white align-bottom text-black rounded-0">#87</div>
+                                        <div class="badge border-white align-bottom">2022-09-16</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            「お気に入り」機能を追加
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added "Favorites" feature
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            譜面を「お気に入り」登録できる機能を追加しました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added the feature that allows charts to be added to "Favorites".
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            「お気に入り」に追加した譜面は、
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill text-primary fs-6" viewBox="0 0 16 16">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                            </svg>
+                                            アイコンが表示されるほか、フィルターで「お気に入り」だけに絞り込むこともできます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            The chart you have added to your "Favorites" will not only be displayed as
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill text-primary fs-6" viewBox="0 0 16 16">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                            </svg>
+                                            , but also can be filtered to only your favorites.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            「お気に入り」の追加と削除は、行番号の下に表示されている
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                            </svg>
+                                            アイコンをクリックすることで切り替えられます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            You can switch between adding and removing "favorites" by clicking on
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                            </svg>
+                                            displayed below the line number.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack border rounded me-2">
                                         <div class="badge bg-white align-bottom text-black rounded-0">#86</div>
                                         <div class="badge border-white align-bottom">2022-09-03</div>
                                     </div>
                                     <div class="w-100">
                                         <span class="lang lang-japanese">
                                             「バックアップ」機能を追加
+                                            <div class="badge" style="background-color: #801f4f;">9月16日更新</div>
                                         </span>
                                         <span class="lang lang-english d-none">
                                             Added "Backup" feature
+                                            <div class="badge" style="background-color: #801f4f;">Updated Sept. 16</div>
                                         </span>
                                     </div>
                                 </div>
@@ -271,13 +337,31 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <div class="d-flex">
-                                                <span class="lang lang-japanese">
-                                                    現時点ではスコア情報のみがバックアップに含まれます。チェックリストやフィルター設定は含まれません。
-                                                </span>
-                                                <span class="lang lang-english d-none">
-                                                    Currently, only score data is included in backup. Checklists and filter settings are not included.
-                                                </span>
+                                            <div class="d-flex vstack gap-1">
+                                                <div class="d-flex text-decoration-line-through text-dimmed">
+                                                    <span class="lang lang-japanese">
+                                                        現時点ではスコア情報のみがバックアップに含まれます。チェックリストやフィルター設定は含まれません。
+                                                    </span>
+                                                    <span class="lang lang-english d-none">
+                                                        Currently, only score data is included in backup. Checklists and filter settings are not included.
+                                                    </span>
+                                                </div>
+                                                <div class="d-flex rounded px-1" style="background-color: #801f4f;">
+                                                    <span class="lang lang-japanese">
+                                                        スコア情報だけでなく、「チェックリスト」と「お気に入り」もバックアップに含まれるように改善しました。
+                                                    </span>
+                                                    <span class="lang lang-english d-none">
+                                                        Improved to include not only score data but also "Checklist" and "Favorites" in the backup.
+                                                    </span>
+                                                </div>
+                                                <div class="d-flex rounded px-1" style="background-color: #801f4f;">
+                                                    <span class="lang lang-japanese">
+                                                        9月16日よりも以前に作成したバックアップを使用して復元することはできますが、復元できるのはスコアに限られます。
+                                                    </span>
+                                                    <span class="lang lang-english d-none">
+                                                        You can restore using backups made before Sept. 16, but only scores can be restored.
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1309,32 +1393,42 @@
                                         <div class="form-check bg-dark d-flex align-items-center badge border">
                                             <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-0" onchange="applyFilterOptions(0);" checked>
                                             <label class="form-check-label" for="offline-filter-toggle-yes-0">
-                                                <span class="lang lang-japanese">オフラインで利用可</span>
-                                                <span class="lang lang-english d-none">Available offline</span>
+                                                <span class="lang lang-japanese">プレイ可</span>
+                                                <span class="lang lang-english d-none">Available</span>
                                             </label>
                                         </div>
                                         <div class="form-check bg-dark d-flex align-items-center badge border">
                                             <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-0" onchange="applyFilterOptions(0);" checked>
                                             <label class="form-check-label" for="offline-filter-toggle-no-0">
-                                                <span class="lang lang-japanese">オフラインで利用不可</span>
-                                                <span class="lang lang-english d-none">Not available offline</span>
+                                                <span class="lang lang-japanese">プレイ不可</span>
+                                                <span class="lang lang-english d-none">Not available</span>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-0" style="margin-bottom: -1rem;">
-                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none pe-none">
+                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-lg-none pe-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                                     </svg>
                                 </div>
-                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none pe-none">
+                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-lg-none pe-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                     </svg>
                                 </div>
                                 <div class="d-flex flex-nowrap overflow-scroll justify-content-start my-1 pb-3 gap-1">
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 favorite-toggle" type="checkbox" value="" id="favorite-toggle-0" onchange="applyFilterOptions(0);">
+                                        <label class="form-check-label" for="favorite-toggle-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                            </svg>
+                                            <span class="lang lang-japanese">お気に入り</span>
+                                            <span class="lang lang-english d-none">Favorites</span>
+                                        </label>
+                                    </div>
                                     <div class="form-check d-flex align-items-center border badge">
                                         <input class="form-check-input form-check-input-red m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-0" onchange="applyFilterOptions(0);">
                                         <label class="form-check-label d-flex align-items-center gap-1" for="remaining-score-filter-toggle-0">
@@ -2096,32 +2190,42 @@
                                         <div class="form-check bg-dark d-flex align-items-center badge border">
                                             <input class="form-check-input m-0 me-1 offline-filter-toggle-yes" type="checkbox" value="" id="offline-filter-toggle-yes-1" onchange="applyFilterOptions(1);" checked>
                                             <label class="form-check-label" for="offline-filter-toggle-yes-1">
-                                                <span class="lang lang-japanese">オフラインで利用可</span>
-                                                <span class="lang lang-english d-none">Available offline</span>
+                                                <span class="lang lang-japanese">プレイ可</span>
+                                                <span class="lang lang-english d-none">Available</span>
                                             </label>
                                         </div>
                                         <div class="form-check bg-dark d-flex align-items-center badge border">
                                             <input class="form-check-input m-0 me-1 offline-filter-toggle-no" type="checkbox" value="" id="offline-filter-toggle-no-1" onchange="applyFilterOptions(1);" checked>
                                             <label class="form-check-label" for="offline-filter-toggle-no-1">
-                                                <span class="lang lang-japanese">オフラインで利用不可</span>
-                                                <span class="lang lang-english d-none">Not available offline</span>
+                                                <span class="lang lang-japanese">プレイ不可</span>
+                                                <span class="lang lang-english d-none">Not available</span>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="chart-list-control--score-filter position-relative" id="remaining-score-filter-1"  style="margin-bottom: -1rem;">
-                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-md-none pe-none">
+                                <div class="position-absolute top-50 start-0 translate-middle pb-4 pe-3 d-lg-none pe-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                                     </svg>
                                 </div>
-                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-md-none pe-none">
+                                <div class="position-absolute top-50 start-100 translate-middle pb-4 ps-3 d-lg-none pe-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill mt-1" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                     </svg>
                                 </div>
                                 <div class="d-flex flex-nowrap overflow-scroll justify-content-start my-1 pb-3 gap-1">
+                                    <div class="form-check d-flex align-items-center border badge">
+                                        <input class="form-check-input form-check-input-red m-0 me-1 favorite-toggle" type="checkbox" value="" id="favorite-toggle-1" onchange="applyFilterOptions(1);">
+                                        <label class="form-check-label" for="favorite-toggle-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                            </svg>
+                                            <span class="lang lang-japanese">お気に入り</span>
+                                            <span class="lang lang-english d-none">Favorites</span>
+                                        </label>
+                                    </div>
                                     <div class="form-check d-flex align-items-center border badge">
                                         <input class="form-check-input form-check-input-red m-0 me-1 remaining-score-filter-toggle" type="checkbox" value="" id="remaining-score-filter-toggle-1" onchange="applyFilterOptions(1);">
                                         <label class="form-check-label d-flex align-items-center gap-1" for="remaining-score-filter-toggle-1">
@@ -3171,11 +3275,11 @@
                                     <span class="lang lang-english d-none">Save Backup<span>
                                 </div>
                                 <div class="m-2 px-1 text-dimmed small">
-                                    <span class="lang lang-japanese">スコア情報のみが含まれます。チェックリストやフィルター設定は含まれません。</span>
-                                    <span class="lang lang-english d-none">Only score data is included. Checklists and filter settings are not included.<span>
+                                    <span class="lang lang-japanese">バックアップには、スコア情報とチェックリスト、お気に入りが含まれます。</span>
+                                    <span class="lang lang-english d-none">Backups include score data, checklists and favorites.<span>
                                 </div>
                                 <div class="m-2 px-1">
-                                    <button type="button" class="btn btn-white" data-bs-toggle="modal" onclick="exportPlayData();">
+                                    <button type="button" class="btn btn-white" onclick="exportPlayData();">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
                                         </svg>

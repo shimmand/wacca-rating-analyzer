@@ -1571,9 +1571,9 @@ function activateAnalyzeMode() {
     playdata.value = ''
 
     // [DEBUG] FOR DEBUGGING USE ONLY
-    location.reload()
+    // location.reload()
 
-    // location.href = 'https://bit.ly/3tiGGDb'
+    location.href = 'https://bit.ly/3tiGGDb'
 }
 
 // Run the analyze

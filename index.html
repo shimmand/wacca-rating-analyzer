@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="fs-100" data-update="2022-09-16" data-dataset="2022-07-18-rev8" style="--bs-body-color: #ffffff">
+<html lang="ja" class="fs-100" data-update="2022-09-18" data-dataset="2022-07-18-rev8" style="--bs-body-color: #ffffff">
     <head>
         <title>WACCA RATING ANALYZER</title>
         <meta charset="utf-8"/>
@@ -10,12 +10,13 @@
         <meta name="description" content="WACCAのマイページで確認できる情報を元に、レーティングを上昇させる上で便利なデータを確認できるプログラムです。"/>
         <meta name="google-site-verification" content="eF3CYkl3SJFzXe-kVfgpNgN-pQmoOkpTFJgWDAfCXy0"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
-        <link href="css/style.css?date=2022-09-16" rel="stylesheet"/>
+        <link href="css/style.css?date=2022-09-18" rel="stylesheet"/>
+        <link class="no-transition" href="" data-href="css/style-no-trans.css?date=2022-09-16" rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script defer src="js/script.js?date=2022-09-16"></script>
+        <script defer src="js/script.js?date=2022-09-18"></script>
         <style>
             .font-numeric {
                 font-family: 'Syne', sans-serif;
@@ -206,6 +207,106 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-1 p-2">
+                                <div class="d-flex align-items-center h6 px-1 pb-1 border-bottom">
+                                    <div class="vstack border rounded me-2">
+                                        <div class="badge bg-white align-bottom text-black rounded-0">#88</div>
+                                        <div class="badge border-white align-bottom">2022-09-18</div>
+                                    </div>
+                                    <div class="w-100">
+                                        <span class="lang lang-japanese">
+                                            「軽量化モード」を追加
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added "Light Mode"
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mx-2 my-1">
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            設定に「軽量化モード」のオプションを追加しました。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            Added "Light Mode" option to the Settings.
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        <span class="lang lang-japanese">
+                                            このモードは、NORMALおよびHARDの譜面を無効にするもので、分析やフィルターの処理にかかる時間を軽減し、パフォーマンスの向上を期待できます。
+                                        </span>
+                                        <span class="lang lang-english d-none">
+                                            This mode disables NORMAL and HARD charts and improves performance by reducing the time to analyze and process filters.
+                                        </span>
+                                    </div>
+                                    <div class="my-1 p-1 bg-gray-900 rounded">
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    無効にした難易度の譜面は、譜面一覧に表示されなくなります。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    Disabled difficulties will not be displayed in the Chart List.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    無効にした難易度の譜面に「レーティング対象」であるものが含まれていた場合、レーティングが減少します。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    If the disabled difficulty chart contains anything that is a "Rating Target", your rating will be lowered.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="my-1 d-flex align-items-start">
+                                            <div class="d-flex">
+                                                <div class="d-inline-flex filter-targets rounded-pill m-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="lang lang-japanese">
+                                                    軽量化モードがオンでも、表示されている譜面の曲名をクリックすることで、その曲の全ての譜面が一時的に表示されます。
+                                                </span>
+                                                <span class="lang lang-english d-none">
+                                                    Even if Light Mode is on, clicking on a song title in the displayed chart will temporarily display all charts for that song.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="my-1">
+                                        <button type="button" class="btn btn-white" onclick="document.querySelector('#btn-settings').click();">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                                            </svg>
+                                            <span class="lang lang-japanese">「設定」を開く</span>
+                                            <span class="lang lang-english d-none">Open "Settings"</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1244,8 +1345,8 @@
                             <div class="chart-list-control--title-search-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
                                 <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
                                     <div class="m-1">
-                                        <span class="lang lang-japanese">曲名検索の結果を表示中</span>
-                                        <span class="lang lang-english d-none">Displaying results of "Search by Title"</span>
+                                        <span class="lang lang-japanese">楽曲検索の結果を表示中</span>
+                                        <span class="lang lang-english d-none">Displaying results of "Song Search"</span>
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center m-1">
                                         <div class="mx-1">
@@ -1267,8 +1368,8 @@
                                     <span class="lang lang-english d-none">Filters</span>
                                 </div>
                                 <div class="text-dimmed small">
-                                    <span class="lang lang-japanese">表示数を減らすことで、読み込み時間が短くなります。</span>
-                                    <span class="lang lang-english d-none">Reducing the number of items to be displayed will reduce loading time.</span>
+                                    <span class="lang lang-japanese">ページが重たく感じる場合は、設定で「ライトモード」をオンにすると改善されることがあります。</span>
+                                    <span class="lang lang-english d-none">If you feel this page is too heavy, try turning on "Light Mode" in the settings.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--filter-wrapper d-flex vstack gap-1 mt-1">
@@ -2041,8 +2142,8 @@
                             <div class="chart-list-control--title-search-active position-absolute top-50 start-50 translate-middle bg-black bg-opacity-75 w-100 h-100 d-none">
                                 <div class="d-flex vstack justify-content-center align-items-center w-100 h-100">
                                     <div class="m-1">
-                                        <span class="lang lang-japanese">曲名検索の結果を表示中</span>
-                                        <span class="lang lang-english d-none">Displaying results of "Search by Title"</span>
+                                        <span class="lang lang-japanese">楽曲検索の結果を表示中</span>
+                                        <span class="lang lang-english d-none">Displaying results of "Song Search"</span>
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center m-1">
                                         <div class="mx-1">
@@ -2064,8 +2165,8 @@
                                     <span class="lang lang-english d-none">Filters</span>
                                 </div>
                                 <div class="text-dimmed small">
-                                    <span class="lang lang-japanese">表示数を減らすことで、読み込み時間が短くなります。</span>
-                                    <span class="lang lang-english d-none">Reducing the number of items to be displayed will reduce loading time.</span>
+                                    <span class="lang lang-japanese">ページが重たく感じる場合は、設定で「ライトモード」をオンにすると改善されることがあります。</span>
+                                    <span class="lang lang-english d-none">If you feel this page is too heavy, try turning on "Light Mode" in the settings.</span>
                                 </div>
                             </div>
                             <div class="chart-list-control--filter-wrapper d-flex vstack gap-1 mt-1">
@@ -3261,6 +3362,110 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <div class="justify-content-between py-1">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="h5 mb-0 ps-2">
+                                        <span class="lang lang-japanese">一般</span>
+                                        <span class="lang lang-english d-none">General</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <div class="h6 border-bottom border-white m-2 px-1 pb-1">
+                                    <span class="lang lang-japanese">軽量化モード</span>
+                                    <span class="lang lang-english d-none">Light Mode<span>
+                                </div>
+                                <div class="m-2 px-1 text-dimmed small">
+                                    <span class="lang lang-japanese">このモードで一部難易度の譜面を処理から除外することで、パフォーマンスが向上する場合があります。</span>
+                                    <span class="lang lang-english d-none">By excluding charts of some difficulties from processing in this mode, performance may be improved.<span>
+                                </div>
+                                <div class="m-2 px-1">
+                                    <div class="d-flex flex-wrap justify-content-start gap-1">
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 disable-difficulty-toggle" type="checkbox" value="" id="disable-normal-toggle" data-difficulty="normal" onchange="switchDifficultyEnabled(this);">
+                                            <label class="form-check-label" for="disable-normal-toggle">
+                                                <span class="lang lang-japanese">NORMALを無効</span>
+                                                <span class="lang lang-english d-none">Disable NORMAL</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check bg-dark d-flex align-items-center badge border">
+                                            <input class="form-check-input m-0 me-1 disable-difficulty-toggle" type="checkbox" value="" id="disable-hard-toggle" data-difficulty="hard" onchange="switchDifficultyEnabled(this);">
+                                            <label class="form-check-label" for="disable-hard-toggle">
+                                                <span class="lang lang-japanese">HARDを無効</span>
+                                                <span class="lang lang-english d-none">Disable HARD</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-2 px-1 d-flex align-items-start small bg-gray-900 rounded disable-difficulty-alert d-none">
+                                    <div class="d-flex">
+                                        <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex vstack gap-1">
+                                        <div class="d-flex">
+                                            <span class="lang lang-japanese">変更を適用するにはページの再読み込みが必要です。</span>
+                                            <span class="lang lang-english d-none">Please reload the page to apply the change.</span>
+                                        </div>
+                                        <div class="d-flex">
+                                            <button type="button" class="btn btn-white border-5 border-0 border-start border-magenta" onclick="location.reload();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                                                </svg>
+                                                <span class="lang lang-japanese">再読み込み</span>
+                                                <span class="lang lang-english d-none">Reload<span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-2 px-1 d-flex align-items-start small bg-gray-900 rounded">
+                                    <div class="d-flex">
+                                        <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <span class="lang lang-japanese">無効にした難易度の譜面は、譜面一覧に表示されなくなります。</span>
+                                        <span class="lang lang-english d-none">Disabled difficulties will not be displayed in the Chart List.</span>
+                                    </div>
+                                </div>
+                                <div class="m-2 px-1 d-flex align-items-start small bg-gray-900 rounded">
+                                    <div class="d-flex">
+                                        <div class="d-inline-flex filter-candidates rounded-pill m-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <span class="lang lang-japanese">無効にした難易度の譜面に「レーティング対象」であるものが含まれていた場合、レーティングが減少します。</span>
+                                        <span class="lang lang-english d-none">If the disabled difficulty chart contains anything that is a "Rating Target", your rating will be lowered.</span>
+                                    </div>
+                                </div>
+                                <div class="m-2 px-1 d-flex align-items-start small bg-gray-900 rounded">
+                                    <div class="d-flex">
+                                        <div class="d-inline-flex filter-targets rounded-pill m-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <span class="lang lang-japanese">軽量化モードがオンでも、表示されている譜面の曲名をクリックすることで、その曲の全ての譜面が一時的に表示されます。</span>
+                                        <span class="lang lang-english d-none">Even if Light Mode is on, clicking on a song title in the displayed chart will temporarily display all charts for that song.</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="justify-content-between py-1">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="h5 mb-0 ps-2">

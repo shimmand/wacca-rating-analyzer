@@ -1,0 +1,39 @@
+.form-select {
+    transition: none;
+}
+
+.hover-text-magenta:hover {
+    transition: none;
+}
+
+a.rate-increase:hover {
+    transition: none;
+}
+
+a.multi-rate-selected:hover {
+    transition: none;
+}
+
+.modal.fade .modal-dialog {
+    transition: none;
+}
+
+.collapsing {
+    transition: none;
+}
+
+.rotate-turn {
+    transition: none;
+}
+
+.opacity-trans-100 {
+    transition: none;
+}
+
+.width-trans-100 {
+    transition: none;
+}
+
+.hover-trans-opacity {
+    transition: none;
+}

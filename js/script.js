@@ -149,6 +149,24 @@ function initialize() {
                 }
             }
 
+            {
+                const difficulties = ['normal', 'hard']
+
+                if (localStorage.getItem('raring-analyzer-disable-difficulty') === null) {
+                    localStorage.setItem('raring-analyzer-disable-difficulty', '')
+                } else {
+                    const favorites = localStorage.getItem('raring-analyzer-disable-difficulty').split(',')
+
+                    difficulties.forEach(difficulty => {
+                        const toggle = document.querySelector(`#disable-${difficulty}-toggle`)
+
+                        if (favorites.indexOf(difficulty) !== -1) {
+                            toggle.checked = true
+                        }
+                    })
+                }
+            }
+
             // Restore the selected state of the difficulty filter
             {
                 const difficulties = ['normal', 'hard', 'expert', 'inferno']
@@ -180,7 +198,6 @@ function initialize() {
                             toggles.forEach(toggle => toggle.checked = false)
                         }
                     })
-                    
                 }
             }
 
@@ -449,6 +466,7 @@ function analyze(){
     }
 
     const scoresTables = document.querySelectorAll('.scoresTable')
+    const disables = localStorage.getItem('raring-analyzer-disable-difficulty')
 
     scoresTables.forEach(table => table.innerHTML = '')
     playdata.classList.remove('is-invalid')
@@ -476,6 +494,14 @@ function analyze(){
             const pattern = /(NORMAL|HARD|EXPERT|INFERNO)/g
 
             if (!level.match(pattern)[0]) {
+                return
+            }
+
+            if (disables.includes('normal') && level.includes('NORMAL')) {
+                return
+            }
+
+            if (disables.includes('hard') && level.includes('HARD')) {
                 return
             }
 
@@ -545,7 +571,7 @@ function analyze(){
         chartsList.forEach((chart, index) => {
             const tempRow = document.createElement('tr')
             const tableRow = scoresTables[listIndex].appendChild(tempRow)
-            
+
             tableRow.classList.add('chart-list--item')
 
             if ((index < targetsLength[listIndex]) && (Number(chart[3]) > 0)) {
@@ -638,8 +664,17 @@ function analyze(){
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
-                                        ${chart[0]}
-                                        <!-- not available message -->
+                                        <div class="list-item--song-title d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-title="${replaceHTMLCharEntities(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.title, ${listIndex}, false); activateKeywordSearch(this.dataset.title, ${listIndex}, true); insertDisabledRows(this.dataset.title, ${listIndex}); return false;">
+                                            <div class="d-inline-flex flex-wrap gap-1">
+                                                ${chart[0]}
+                                                <!-- not available message -->
+                                            </div>
+                                            <div class="d-inline-flex text-dimmed">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search small" viewBox="0 0 16 16">
+                                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -742,7 +777,7 @@ function analyze(){
                         </div>
                     </div>
                 </div>
-                <div class="list-item--large row d-none d-xl-flex d-xxl-flex${(index < targetsLength[listIndex]) ? ' bg-target-striped' : ''}">
+                <div class="list-item--large row d-none d-xl-flex d-xxl-flex">
                     <div class="list-item--index-wrapper col-1">
                         <div class="list-item--favorite hover-trans-opacity cursor-pointer" data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}" onclick="modifyFavoriteItem(this); return false;">
                             <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
@@ -769,8 +804,17 @@ function analyze(){
                                 <div class="list-item--title-wrapper">
                                     <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
                                     <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
-                                        ${chart[0]}
-                                        <!-- not available message -->
+                                        <div class="list-item--song-title d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-title="${replaceHTMLCharEntities(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.title, ${listIndex}, false); activateKeywordSearch(this.dataset.title, ${listIndex}, true); insertDisabledRows(this.dataset.title, ${listIndex}); return false;">
+                                            <div class="d-inline-flex flex-wrap gap-1">
+                                                ${chart[0]}
+                                                <!-- not available message -->
+                                            </div>
+                                            <div class="d-inline-flex text-dimmed">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search small" viewBox="0 0 16 16">
+                                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="list-item--artist-wrapper d-flex">
@@ -878,7 +922,7 @@ function analyze(){
 
                 const target = '<!-- not available message -->'
                 const replace = `
-                    <div class="badge pb-1 text-dimmed d-inline-flex gap-1">
+                    <div class="badge d-flex align-items-center text-dimmed d-inline-flex gap-1 px-0">
                         <div class="d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
                                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
@@ -1391,6 +1435,9 @@ function activateChecklistViewer() {
         return
     }
 
+    const tempRows = document.querySelectorAll('.chart-list--item-temp')
+    tempRows.forEach(row => row.remove())
+
     if (localStorage.getItem('rating-analyzer-charts-entry') === 'newer') {
         quitKeywordSearch(0, false)
     } else {
@@ -1524,9 +1571,9 @@ function activateAnalyzeMode() {
     playdata.value = ''
 
     // [DEBUG] FOR DEBUGGING USE ONLY
-    // location.reload()
+    location.reload()
 
-    location.href = 'https://bit.ly/3tiGGDb'
+    // location.href = 'https://bit.ly/3tiGGDb'
 }
 
 // Run the analyze
@@ -2866,6 +2913,9 @@ function quitKeywordSearch(index = null, focus = true) {
 }
 
 function refreshChartList() {
+    const tempRows = document.querySelectorAll('.chart-list--item-temp')
+    tempRows.forEach(row => row.remove())
+
     const items = document.querySelectorAll('tr.chart-list--item')
     items.forEach(item => {
         item.classList.remove('d-none')
@@ -3382,4 +3432,349 @@ function restoreFavorites() {
             })
         })
     } //
+}
+
+function switchDifficultyEnabled() {
+    const toggles = document.querySelectorAll('.disable-difficulty-toggle')
+    const setValue = Array.from(toggles).map(toggle => {
+        if (toggle.checked) {
+            return toggle.dataset.difficulty
+        } else {
+            return ''
+        }
+    }).join(',')
+
+    localStorage.setItem('raring-analyzer-disable-difficulty', setValue)
+    document.querySelectorAll('.disable-difficulty-alert')[0].classList.remove('d-none')
+}
+
+function insertDisabledRows(songTitle, listIndex) {
+    const tempRows = document.querySelectorAll('.chart-list--item-temp')
+    tempRows.forEach(row => row.remove())
+
+    const difficulties = ['normal', 'hard'].reverse()
+    const favorites = localStorage.getItem('raring-analyzer-disable-difficulty').split(',')
+    const scoresTables = document.querySelectorAll('.scoresTable')
+
+    difficulties.forEach((difficulty, index) => {
+        if (favorites.includes(difficulty) === false) {
+            return
+        }
+
+        const tempRow = document.createElement('tr')
+        const tableRow = scoresTables[listIndex].appendChild(tempRow)
+
+        const playdata = localStorage.getItem('rating-analyzer-prev')
+        let level, score
+
+        playdata.split('\n').some(chart => {
+            const datas = chart.split(',')
+            if (datas[0] === String(songTitle).replaceAll(',', '__')) {
+                if (datas[1].includes(difficulty.toUpperCase())) {
+                    level = datas[1]
+                    score = datas[2]
+                    return true
+                }
+            }
+        })
+
+        const constant = getChartConstants(songTitle, level)
+        const multipliers = getMultiplierTable()
+        let multiplier = 0
+
+        for (let i = 0; i < multipliers.length; i++) {
+            if (multiplier === 0) {
+                if (multipliers[i][0] <= Number(score)) {
+                    multiplier = multipliers[i][1]
+                }
+            }
+        }
+
+        const maxBadgeCode = '<div class="badge badge-max border bg-secondary">MAX</div>'
+        const rating = (multiplier * constant).toFixed(3)
+        const maxRating = (multiplier < 4 ? (4 * constant).toFixed(3) : maxBadgeCode)
+
+        const chart = [
+            songTitle,
+            difficulty,
+            level,
+            score,
+            constant,
+            multiplier,
+            rating,
+            maxRating
+        ]
+
+        let code = `
+        <td>
+            <div class="list-item--small row d-xl-none d-xxl-none">
+                <div class="list-item--index-wrapper col-2">
+                    <div class="list-item--favorite hover-trans-opacity cursor-pointer" data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}" onclick="modifyFavoriteItem(this); return false;">
+                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
+                            <div class="list-item--index-number">-</div>
+                        </div>
+                        <div class="list-item--favorite-wrapper d-flex align-items-center gap-1">
+                            <div class="list-item--favorite-fill d-flex text-transparent position-relative my-1">
+                                <div class="list-item--favorite-line d-flex position-absolute top-50 start-50 translate-middle text-dimmed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                    </svg>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill fs-6" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item--content-wrapper col-10">
+                    <div class="list-item--top-wrapper p-0">
+                        <div class="list-item--song-wrapper">
+                            <div class="list-item--title-wrapper">
+                                <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
+                                <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
+                                    <div class="list-item--song-title d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-title="${replaceHTMLCharEntities(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.title, ${listIndex}, false); activateKeywordSearch(this.dataset.title, ${listIndex}, true); insertDisabledRows(this.dataset.title, ${listIndex}); return false;">
+                                        <div class="d-inline-flex flex-wrap gap-1">
+                                            ${chart[0]}
+                                            <!-- not available message -->
+                                        </div>
+                                        <div class="d-inline-flex text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search small" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-item--artist-wrapper d-flex">
+                            <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${replaceHTMLCharEntities(getArtistName(chart[0]))}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
+                                <div class="d-inline-flex">
+                                    ${getArtistName(chart[0])}
+                                </div>
+                                <div class="d-inline-flex text-dimmed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search small" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
+                            <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}" data-difficulty="${replaceHTMLCharEntities(chart[2])}">${chart[2]}</div>
+                            <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
+                        </div>
+                    </div>
+                    <div class="list-item--middle-wrapper d-flex row m-0 mt-1">
+                        <div class="list-item--score-wrapper hover-trans-opacity cursor-pointer col p-0" data-list-index="${listIndex}" data-index="${index + 10000}" onclick="modifyScoreModalLauncher(this); return false;">
+                            <div class="list-item--score-label d-flex align-items-center text-dimmed small">
+                                <div class="d-flex ms-0">
+                                    <span class="lang lang-japanese">スコア</span>
+                                    <span class="lang lang-english d-none">Score</span>
+                                </div>
+                                <div class="d-flex ms-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-fill small" viewBox="0 0 16 16">
+                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="list-item--score" data-score="${chart[3]}">${chart[3]}</div>
+                        </div>
+                        <div class="list-item--constant-wrapper col p-0">
+                            <div class="list-item--score-label text-dimmed small">
+                                <span class="lang lang-japanese">定数</span>
+                                <span class="lang lang-english d-none">Constant</span>
+                            </div>
+                            <div class="list-item--constant">${chart[4]}</div>
+                        </div>
+                        <div class="list-item--modifier-wrapper col p-0">
+                            <div class="list-item--score-label text-dimmed small">
+                                <span class="lang lang-japanese">係数</span>
+                                <span class="lang lang-english d-none">Modifier</span>
+                            </div>
+                            <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
+                        </div>
+                        <div class="list-item--rating-now-wrapper col p-0">
+                            <div class="list-item--score-label text-dimmed small">
+                                <span class="lang lang-japanese">レート</span>
+                                <span class="lang lang-english d-none">Rating</span>
+                            </div>
+                            <div class="list-item--rating-now">${chart[6]}</div>
+                        </div>
+                        <div class="list-item--rating-max-wrapper col p-0 d-xxs-none d-xs-none">
+                            <div class="list-item--score-label text-dimmed small">
+                                <span class="lang lang-japanese">上限</span>
+                                <span class="lang lang-english d-none">Max</span>
+                            </div>
+                            <div class="list-item--rating-max">${chart[7]}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-item--large row d-none d-xl-flex d-xxl-flex">
+                <div class="list-item--index-wrapper col-1">
+                    <div class="list-item--favorite hover-trans-opacity cursor-pointer" data-query="${chart[0].replaceAll(/\'|\"|\(|\)/g, '_')} ${chart[1]}" onclick="modifyFavoriteItem(this); return false;">
+                        <div class="list-item--index fs-4 lh-sm d-flex align-items-center">
+                            <div class="list-item--index-number">-</div>
+                        </div>
+                        <div class="list-item--favorite-wrapper d-flex align-items-center gap-1">
+                            <div class="list-item--favorite-fill d-flex text-transparent position-relative my-1">
+                                <div class="list-item--favorite-line d-flex position-absolute top-50 start-50 translate-middle text-dimmed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star fs-6" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                    </svg>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill fs-6" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item--content-wrapper col-11 row mb-1">
+                    <div class="list-item--heading-wrapper col row sticky-column">
+                        <div class="list-item--song-wrapper p-0">
+                            <div class="list-item--title-wrapper">
+                                <div class="list-item--alt-title text-dimmed small">${getEnglishTitle(chart[0])}</div>
+                                <div class="list-item--title fw-bold" data-title="${replaceHTMLCharEntities(chart[0])}">
+                                    <div class="list-item--song-title d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-title="${replaceHTMLCharEntities(chart[0])}" onclick="fillKeywordSearchInput(this.dataset.title, ${listIndex}, false); activateKeywordSearch(this.dataset.title, ${listIndex}, true); insertDisabledRows(this.dataset.title, ${listIndex}); return false;">
+                                        <div class="d-inline-flex flex-wrap gap-1">
+                                            ${chart[0]}
+                                            <!-- not available message -->
+                                        </div>
+                                        <div class="d-inline-flex text-dimmed">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search small" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-item--artist-wrapper d-flex">
+                                <div class="list-item--artist-name d-inline-flex gap-1 align-items-center small hover-trans-opacity cursor-pointer" data-artist="${replaceHTMLCharEntities(getArtistName(chart[0]))}" onclick="fillKeywordSearchInput(this.dataset.artist, ${listIndex}, false); activateKeywordSearch(this.dataset.artist, ${listIndex}, true); return false;">
+                                    <div class="d-inline-flex">
+                                        ${getArtistName(chart[0])}
+                                    </div>
+                                    <div class="d-inline-flex text-dimmed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search small" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-item--badge-wrapper d-flex gap-1 mt-1">
+                                <div class="list-item--badge-difficulty badge border ${chart[1]} ${chart[2] === 'INFERNO 15' ? 'inferno-15' : ''}" data-difficulty="${replaceHTMLCharEntities(chart[2])}">${chart[2]}</div>
+                                <div class="list-item--genre badge border text-truncate">${getGenreElement(getGenre(chart[0]))}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item--main-wrapper col">
+                        <div class="list-item--result-wrapper row m-0">
+                            <div class="list-item--score-wrapper hover-trans-opacity cursor-pointer col px-0" data-list-index="${listIndex}" data-index="${index + 10000}" onclick="modifyScoreModalLauncher(this); return false;">
+                                <div class="list-item--score" data-score="${chart[3]}">${chart[3]}</div>
+                                <div class="d-flex align-items-center text-dimmed small">
+                                    <div class="d-flex ms-0">
+                                        <span class="lang lang-japanese">編集</span>
+                                        <span class="lang lang-english d-none">Edit</span>
+                                    </div>
+                                    <div class="d-flex ms-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-fill small" viewBox="0 0 16 16">
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-item--constant-wrapper col d-flex justify-content-between px-0">
+                                <div class="list-item--constant">${chart[4]}</div>
+                                <div class="list-item--constant-label text-dimmed w-100 text-center mx-2">&times;</div>
+                            </div>
+                            <div class="list-item--modifier-wrapper col d-flex justify-content-between px-0">
+                                <div class="list-item--modifier">${chart[5].toFixed(2)}</div>
+                                <div class="list-item--modifier-label text-dimmed w-100 text-center mx-2">=</div>
+                            </div>
+                            <div class="list-item--rating-wrapper col d-flex justify-content-between px-0">
+                                <div class="list-item--rating-now">${chart[6]}</div>
+                                <div class="list-item--rating-max-label text-dimmed w-100 text-center mx-2">/</div>
+                            </div>
+                            <div class="list-item--rating-max-wrapper col d-flex px-0">
+                                <div class="list-item--rating-max text-dimmed">${chart[7]}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item--sub-wrapper col">
+                        <div class="list-item--increase-wrapper row">
+                            <div class="col px-0">-</div>
+                            <div class="col px-0">-</div>
+                            <div class="col px-0"></div>
+                            <div class="col px-0">-</div>
+                            <div class="col px-0">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>`
+        .replaceAll(/(^ {8}|^\n)/gm, '')
+
+        {
+            const diffTime = new Date('2022-09-01T00:00:00+0900') - new Date()
+            const message = [
+                {japanese: 'まもなく削除', english: 'Not Available Soon'},
+                {japanese: 'プレイ不可', english: 'Not Available'}
+            ][Number(diffTime < 0)]
+
+            const target = '<!-- not available message -->'
+            const replace = `
+                <div class="badge d-flex align-items-center text-dimmed d-inline-flex gap-1 px-0">
+                    <div class="d-flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                        </svg>
+                    </div>
+                    <div class="d-flex">
+                        <span class="lang lang-japanese">${message.japanese}</span>
+                        <span class="lang lang-english d-none">${message.english}</span>
+                    </div>
+                </div>`
+            .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '')
+
+            if (isAvailableOnOffline(chart[0]) === false) {
+                code = code.replaceAll(target, replace)
+            }
+        }
+
+        tableRow.classList.add('chart-list--item', 'chart-list--item-temp', `difficulty-${chart[1]}`, 'all-clear', 'border-3', 'border-top-0', 'border-end-0', 'border-start-0')
+        tableRow.innerHTML = code
+        tableRow.setAttribute('data-list-index', listIndex)
+        tableRow.setAttribute('data-index', index + 10000)
+        tableRow.setAttribute('data-is-targets', tableRow.classList.contains('table-targets') ? 'true' : 'false')
+        tableRow.setAttribute('data-is-candidates', tableRow.classList.contains('table-candidates') ? 'true' : 'false')
+        tableRow.setAttribute('data-title', chart[0])
+        tableRow.setAttribute('data-alt-title', getEnglishTitle(chart[0]))
+        tableRow.setAttribute('data-difficulty', chart[1])
+        tableRow.setAttribute('data-level', String(chart[2]).match(/[0-9+]+/g)[0])
+        tableRow.setAttribute('data-score', chart[3])
+        tableRow.setAttribute('data-constant', chart[4])
+        tableRow.setAttribute('data-rating', chart[6])
+        tableRow.setAttribute('data-remaining-min', '')
+        tableRow.setAttribute('data-offline', isAvailableOnOffline(chart[0]) ? 'yes' : 'no')
+
+        {
+            const searchText = `
+                ${String(katakanaToHiragana(chart[0])).toLowerCase()} 
+                ${String(getEnglishTitle(chart[0])).toLowerCase()} 
+                ${String(katakanaToHiragana(getArtistName(chart[0]))).toLowerCase()} 
+                ${String(getEnglishArtistName(chart[0])).toLowerCase()} `
+            .replaceAll(/(^ {20}|^\n)/gm, '').replaceAll('\n', '').replaceAll(/([^\s.])-([^\s.])/g, '$1$2')
+
+            tableRow.setAttribute('data-search-text', searchText)
+        }
+
+    })
+
+    if (localStorage.getItem('rating-analyzer-alt-title') !== 'true') {
+        setDisplayNone('.list-item--alt-title', true)
+    }
+
+    if (localStorage.getItem('rating-analyzer-artist-name') !== 'true') {
+        setDisplayNone('.list-item--artist-name', true)
+    }
 }

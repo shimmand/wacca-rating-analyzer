@@ -4,6 +4,20 @@
  */
 function initialize() {
     try {
+        {
+            if (localStorage.getItem('raring-analyzer-disable-transition') === null) {
+                localStorage.setItem('raring-analyzer-disable-transition', 'false')
+            } else {
+                const toggle = document.querySelector('#disable-transition-toggle')
+
+                if (localStorage.getItem('raring-analyzer-disable-transition') === 'true') {
+                    toggle.checked = true
+                    const stylesheet = document.querySelector('#no-transition')
+                    stylesheet.href = stylesheet.dataset.href
+                }
+            }
+        }
+
         const variants = document.querySelector('#variants')
         const datasetParam = document.querySelector('html').dataset.dataset
         const xhr = new XMLHttpRequest()
@@ -2846,6 +2860,7 @@ function activateKeywordSearch(keyword = null, index = null, scroll = false) {
     const keywords = katakanaToHiragana(String(keyword).replaceAll(/\s/g, ' ').toLowerCase()).split(' ')
     const list = document.querySelectorAll('.chart-list')[index]
     const rows = list.querySelectorAll('tr.chart-list--item')
+    const minLength = 4
 
     if (rows.length === 0) {
         return
@@ -2854,6 +2869,12 @@ function activateKeywordSearch(keyword = null, index = null, scroll = false) {
     if (String(keyword).length === 0) {
         quitKeywordSearch(index, false)
         return
+    }
+
+    if (String(keyword).length < minLength) {
+        if (getShorterSongTitles().map(item => String(item).toLowerCase()).includes(String(keyword).toLowerCase()) === false) {
+            return
+        }
     }
 
     refreshChartList()
@@ -3704,7 +3725,7 @@ function insertDisabledRows(songTitle, listIndex) {
                         <div class="list-item--increase-wrapper row">
                             <div class="col px-0">-</div>
                             <div class="col px-0">-</div>
-                            <div class="col px-0"></div>
+                            <div class="col px-0">-</div>
                             <div class="col px-0">-</div>
                             <div class="col px-0">-</div>
                         </div>
@@ -3777,4 +3798,30 @@ function insertDisabledRows(songTitle, listIndex) {
     if (localStorage.getItem('rating-analyzer-artist-name') !== 'true') {
         setDisplayNone('.list-item--artist-name', true)
     }
+
+    {
+        switch (localStorage.getItem('rating-analyzer-large-table')) {
+            case 'true':
+                switchLargeTable(true)
+                break
+
+            case 'false':
+                switchLargeTable(false)
+                break
+
+            default:
+                break
+        }
+    }
+}
+
+function getShorterSongTitles() {
+    const minLength = 4
+    return Array.from(getChartTable()).filter(item => item[0].length < minLength).map(item => item[0])
+}
+
+function switchTransitionEnabled() {
+    const toggle = document.querySelector('#disable-transition-toggle')
+    localStorage.setItem('raring-analyzer-disable-transition', (toggle.checked ? 'true' : 'false'))
+    document.querySelectorAll('.disable-difficulty-alert')[0].classList.remove('d-none')
 }

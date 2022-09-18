@@ -37,3 +37,11 @@ a.multi-rate-selected:hover {
 .hover-trans-opacity {
     transition: none;
 }
+
+.text-blink {
+    animation: none;
+}
+
+.fade {
+    transition: none;
+}

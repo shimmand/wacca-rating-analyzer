@@ -649,8 +649,9 @@ svg.svg-fs-6 {
 }
 
 .modal.fade .modal-dialog {
-    transform: translate(0, 50px);
-    transition: transform .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1.1);
+    transform-origin: 50% 0;
+    transition: transform .2s ease;
 }
 
 .modal.show .modal-dialog {

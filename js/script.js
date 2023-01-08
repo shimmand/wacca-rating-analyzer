@@ -2806,7 +2806,7 @@ function findMissingItems() {
         const song = songs[i]
         const fixedTitle = String(song[indexes['title']]).replaceAll(',', '__')
         
-        if (String(playdata).includes(fixedTitle) === false) {
+        if (String(playdata).includes(fixedTitle + ',') === false) {
             items.push(song[indexes['title']])
             
             const insertLines = `

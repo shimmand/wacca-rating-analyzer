@@ -1574,6 +1574,7 @@ function toggleDisplayState(className, checked) {
 // Clear the text area
 function clearPlaydata() {
     document.querySelector('#playdata').value = ''
+    document.querySelector('#btn-analyze').disabled = false
 }
 
 // Enable data analyze mode
@@ -2805,10 +2806,18 @@ function findMissingItems() {
 
         const song = songs[i]
         const fixedTitle = String(song[indexes['title']]).replaceAll(',', '__')
-        
-        if (String(playdata).includes(fixedTitle + ',') === false) {
+
+        if ((i === 1) && (String(playdata).includes(fixedTitle + ','))) {
+            continue
+        }
+
+        if ((i > 1) && (String(playdata).includes('\n' + fixedTitle + ','))) {
+            continue
+        }
+
+        {
             items.push(song[indexes['title']])
-            
+
             const insertLines = `
                 ${fixedTitle},${song[indexes['normal-level']]},0
                 ${fixedTitle},${song[indexes['hard-level']]},0

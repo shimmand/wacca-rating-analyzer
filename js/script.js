@@ -1586,9 +1586,9 @@ function activateAnalyzeMode() {
     playdata.value = ''
 
     // [DEBUG] FOR DEBUGGING USE ONLY
-    // location.reload()
+    location.reload()
 
-    location.href = 'https://bit.ly/3tiGGDb'
+    // location.href = 'https://bit.ly/3tiGGDb'
 }
 
 // Run the analyze
@@ -2796,6 +2796,26 @@ function findMissingItems() {
     let items = []
     const input = document.querySelector('#playdata')
     let playdata  = input.value
+
+    {
+        // Remove duplicate lines
+        let temp = String(playdata).split('\n')
+        const checkData = 
+            temp.map(line => {
+                const matches = String(line).match(/(^[^,]+?,(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+?,)[0-9]{1,7}/)
+                return (matches.length > 0) ? matches[1] : ''
+            }).filter(line => (line !== ''))
+
+        for (let index = (checkData.length - 1); index > 0; index--) {
+            const line = String(checkData[index])
+            if (checkData.indexOf(line) !== checkData.lastIndexOf(line, index)) {
+                temp[index] = ''
+            }
+        }
+
+        playdata = temp.filter(line => (line !== '')).join('\n')
+    }
+
     const songs = getChartTable()
     const indexes = getDatasetIndex()
 

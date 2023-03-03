@@ -1574,7 +1574,6 @@ function toggleDisplayState(className, checked) {
 // Clear the text area
 function clearPlaydata() {
     document.querySelector('#playdata').value = ''
-    document.querySelector('#btn-analyze').disabled = false
 }
 
 // Enable data analyze mode
@@ -2796,26 +2795,6 @@ function findMissingItems() {
     let items = []
     const input = document.querySelector('#playdata')
     let playdata  = input.value
-
-    {
-        // Remove duplicate lines
-        let temp = String(playdata).split('\n')
-        const checkData = 
-            temp.map(line => {
-                const matches = String(line).match(/(^[^,]+?,(NORMAL|HARD|EXPERT|INFERNO) [0-9]{1,2}\+?,)[0-9]{1,7}/)
-                return (matches.length > 0) ? matches[1] : ''
-            }).filter(line => (line !== ''))
-
-        for (let index = (checkData.length - 1); index > 0; index--) {
-            const line = String(checkData[index])
-            if (checkData.indexOf(line) !== checkData.lastIndexOf(line, index)) {
-                temp[index] = ''
-            }
-        }
-
-        playdata = temp.filter(line => (line !== '')).join('\n')
-    }
-
     const songs = getChartTable()
     const indexes = getDatasetIndex()
 
@@ -2826,18 +2805,10 @@ function findMissingItems() {
 
         const song = songs[i]
         const fixedTitle = String(song[indexes['title']]).replaceAll(',', '__')
-
-        if ((i === 1) && (String(playdata).includes(fixedTitle + ','))) {
-            continue
-        }
-
-        if ((i > 1) && (String(playdata).includes('\n' + fixedTitle + ','))) {
-            continue
-        }
-
-        {
+        
+        if (String(playdata).includes(fixedTitle) === false) {
             items.push(song[indexes['title']])
-
+            
             const insertLines = `
                 ${fixedTitle},${song[indexes['normal-level']]},0
                 ${fixedTitle},${song[indexes['hard-level']]},0
